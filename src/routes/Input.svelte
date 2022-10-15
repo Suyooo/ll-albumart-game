@@ -7,12 +7,12 @@
     export let failed: 0 | 1 | 2 | 3 | 4 | 5 | 6;
     export let finished: boolean;
 
-    const dispatch = createEventDispatcher<{ submit: string }>();
+    const dispatch = createEventDispatcher<{ guess: string }>();
     let input: string, inputElement: HTMLInputElement;
 
     function submit(): void {
-        if (input === "" || VALID_GUESSES.has(input)) {
-            dispatch("submit", input);
+        if (!input || VALID_GUESSES.has(input)) {
+            dispatch("guess", input);
             input = "";
         }
     }

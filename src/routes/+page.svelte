@@ -16,16 +16,22 @@
     }
 
     const STATE: PlayState = {
-        albumId: <keyof ALBUMPOOL>0,
+        albumId: <keyof ALBUMPOOL>89,
         failed: 0,
         cleared: false,
         finished: false,
         guesses: []
     };
 
-    function doGuess(event) {
+    function addGuess(event) {
         STATE.guesses.push(event.detail || null);
-        STATE.failed++;
+        if (event.detail === ALBUMPOOL[STATE.albumId].artistEn + " - " + ALBUMPOOL[STATE.albumId].titleEn ||
+            event.detail === ALBUMPOOL[STATE.albumId].artistJa + " - " + ALBUMPOOL[STATE.albumId].titleJa) {
+            STATE.cleared = STATE.finished = true;
+        } else {
+            STATE.failed++;
+            if (STATE.failed >= 6) STATE.finished = true;
+        }
     }
 </script>
 
@@ -35,10 +41,10 @@
     <main class="w-full max-w-screen-sm flex-grow flex flex-col">
         <AlbumArt/>
 
-        <Input failed={STATE.failed} finished={STATE.finished} on:submit={doGuess} />
+        <Input failed={STATE.failed} finished={STATE.finished} on:guess={addGuess} />
         {#each {length: 6} as _, i}
             <Guess guess={STATE.guesses[i]} cleared={STATE.cleared}
-                isEmpty={STATE.failed <= i} isCurrent={STATE.failed === i} />
+                isEmpty={STATE.failed < i || (STATE.failed === i && !STATE.cleared)} isCurrent={STATE.failed === i} />
         {/each}
     </main>
 

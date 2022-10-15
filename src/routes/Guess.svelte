@@ -11,7 +11,7 @@
      class:border-gray-700={isEmpty || (!isEmpty && guess === null)}
      class:border-gray-500={isCurrent && !cleared}
      class:border-green-500={isCurrent && cleared}
-     class:border-red-500={!isEmpty && guess !== null}>
+     class:border-red-500={!isEmpty && !isCurrent && guess !== null}>
     {#if !isEmpty}
         <div class="w-4 mr-3">
             {#if isCurrent && cleared}
