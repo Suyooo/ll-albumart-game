@@ -2,7 +2,9 @@
 module.exports = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
-    extend: {},
+    minHeight: {
+      '10': '2.5rem',
+    }
   },
   plugins: [],
 }

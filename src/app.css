@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html, body {
+        @apply h-full;
+    }
+    a {
+        @apply underline;
+        @apply text-emerald-600;
+    }
+    button:active {
+        @apply text-black;
+        @apply bg-gray-300;
+    }
+    input {
+        outline: none !important;
+        border: 0;
+    }
+    mark {
+        @apply bg-emerald-700;
+        @apply text-white;
+        @apply rounded;
+    }
+    .autocomplete:not(:hover) > .selected {
+        @apply bg-emerald-900;
+    }
+}
