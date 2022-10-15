@@ -8,6 +8,7 @@
     import Footer from "./Footer.svelte";
 
     interface PlayState {
+        day: number,
         albumId: keyof ALBUMPOOL,
         failed: 0 | 1 | 2 | 3 | 4 | 5 | 6,
         cleared: boolean,
@@ -16,6 +17,7 @@
     }
 
     const STATE: PlayState = {
+        day: 1,
         albumId: <keyof ALBUMPOOL>89,
         failed: 0,
         cleared: false,
@@ -40,7 +42,7 @@
     <Header/>
 
     <main class="w-full max-w-screen-sm flex-grow flex flex-col">
-        <AlbumArt/>
+        <AlbumArt day={STATE.day} album={ALBUMPOOL[STATE.albumId]} failed={STATE.failed} />
 
         <Input failed={STATE.failed} finished={STATE.finished} on:guess={addGuess} />
         {#each {length: 6} as _, i}

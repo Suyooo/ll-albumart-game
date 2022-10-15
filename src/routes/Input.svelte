@@ -1,6 +1,6 @@
 <script lang="ts">
     import "../app.css";
-    import {AutocompleteResult} from "autocompleter/autocomplete";
+    import type {AutocompleteResult} from "autocompleter/autocomplete";
     import {createEventDispatcher, onDestroy, onMount} from "svelte";
     import {initAutocomplete, VALID_GUESSES} from "../js/autocomplete";
 

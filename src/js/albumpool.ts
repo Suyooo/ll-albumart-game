@@ -631,7 +631,7 @@ export const ALBUMPOOL: Album[] = [
         "artistJa": "CYaRon!"
     },
     {
-        "url": "",
+        "url": "albumarts/cyaron_aruhi.jpg",
         "titleEn": "Aru Hi...Eien Mitai ni!",
         "artistEn": "CYaRon!",
         "titleJa": "",
