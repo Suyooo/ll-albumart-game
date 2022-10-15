@@ -1,4 +1,4 @@
-interface Album {
+export interface Album {
     url: string,
     titleEn: string,
     artistEn: string,
@@ -744,9 +744,9 @@ export const ALBUMPOOL: Album[] = [
     },
     {
         "url": "",
-        "titleEn": "L! L! L! (Love the Life We Live)",
+        "titleEn": "L!L!L! (Love the Life We Live)",
         "artistEn": "Nijigasaki High School Idol Club",
-        "titleJa": "",
+        "titleJa": "L！L！L！ (Love the Life We Live)",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     },
     {

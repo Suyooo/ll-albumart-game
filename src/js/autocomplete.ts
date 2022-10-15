@@ -2,16 +2,22 @@ import autocomplete from "autocompleter";
 import type {AutocompleteItem} from "autocompleter";
 import type {AutocompleteResult} from "autocompleter/autocomplete";
 import fuzzysort from "fuzzysort";
+import type {Album} from "./albumpool";
 import {ALBUMPOOL} from "./albumpool";
 
 interface ACTarget extends AutocompleteItem {
     en: Fuzzysort.Prepared,
-    ja: Fuzzysort.Prepared
+    ja: Fuzzysort.Prepared,
+    enTitleOnly: Fuzzysort.Prepared,
+    jaTitleOnly: Fuzzysort.Prepared,
+    album: Album
 }
 
 interface ACResult extends AutocompleteItem {
     label: string,
-    result: Fuzzysort.Result
+    value: Album,
+    result: Fuzzysort.Result,
+    prefixArtist?: string
 }
 
 export const VALID_GUESSES = new Set();
@@ -23,15 +29,18 @@ const acTargets: ACTarget[] = ALBUMPOOL.map(album => {
 
     return {
         en: fuzzysort.prepare(en),
-        ja: fuzzysort.prepare(ja)
+        ja: fuzzysort.prepare(ja),
+        enTitleOnly: fuzzysort.prepare(album.titleEn),
+        jaTitleOnly: fuzzysort.prepare(album.titleJa),
+        album: album
     }
 });
 
 const acOptions: Fuzzysort.KeysOptions<ACTarget> = {
-    threshold: -1000,
+    threshold: -10000,
     limit: 5,
     all: false,
-    keys: ["en", "ja"]
+    keys: ["en", "ja", "enTitleOnly", "jaTitleOnly"]
 };
 
 export function initAutocomplete(inputElement: HTMLInputElement, setInputValue: (s: string) => void): AutocompleteResult {
@@ -39,10 +48,17 @@ export function initAutocomplete(inputElement: HTMLInputElement, setInputValue: 
         input: inputElement,
         fetch: function (text: string, update: (res: ACResult[]) => void): void {
             update(fuzzysort.go(text, acTargets, acOptions)
-                .map(keysResult => <ACResult>({
-                    result: keysResult[0] || keysResult[1],
-                    label: keysResult[0]?.target || keysResult[1]?.target
-                }))
+                .map(keysResult => {
+                    const result = keysResult[0] || keysResult[1] || keysResult[2] || keysResult[3];
+                    const value = keysResult.obj.album;
+                    const prefixArtist = (result !== keysResult[0] && result !== keysResult[1])
+                        ? result === keysResult[2] ? value.artistEn : value.artistJa
+                        : undefined;
+                    return <ACResult>{
+                        result, value, prefixArtist,
+                        label: (prefixArtist ? prefixArtist + " - " : "") + result.target,
+                    };
+                })
             );
         },
         onSelect: function (item: ACResult): void {
@@ -52,7 +68,7 @@ export function initAutocomplete(inputElement: HTMLInputElement, setInputValue: 
             const itemElement = document.createElement("div");
             itemElement.className = "w-full hover:bg-emerald-900 text-white border-gray-700 px-2 py-1 " +
                 "border-b-2 last:border-b-0"
-            itemElement.innerHTML =
+            itemElement.innerHTML = (item.prefixArtist ? item.prefixArtist + " - " : "") +
                 fuzzysort.highlight(item.result, "<mark>", "</mark>") || item.label;
             return itemElement;
         },
