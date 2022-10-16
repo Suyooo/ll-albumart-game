@@ -7,21 +7,32 @@ export const CANVAS_SIZE = 640;
 
 export interface Game {
     name: string,
+
     getGameInstance(day: number, album: Album, canvas: Image): GameInstance
 }
+
 export interface GameInstance {
     getCanvasForGuess(failed: number): Canvas,
+
     getShareCanvas(): Canvas
 }
 
-const GAME_NAMES: string[] = ["mosaic"];
-const GAME_CACHE: (Game | undefined)[] = GAME_NAMES.map(() => undefined);
+const GAME_POOL: { filename: string, weight: number, cumulativeWeight?: number }[] = [
+    {filename: "pixelized", weight: 1000}
+];
+const GAME_CACHE: (Game | undefined)[] = GAME_POOL.map(() => undefined);
+
+const GAME_POOL_TOTAL_WEIGHT = GAME_POOL.reduce((acc, game): number => {
+    game.cumulativeWeight = acc + game.weight;
+    return game.cumulativeWeight;
+}, 0);
 
 async function getGameForDay(day: number): Promise<Game> {
     const rng = seededRNG(day);
-    const gameId = Math.floor(rng() % GAME_NAMES.length);
+    const gamePickedWeight = rng() * GAME_POOL_TOTAL_WEIGHT;
+    const gameId = GAME_POOL.findIndex(game => game.cumulativeWeight! < gamePickedWeight);
     if (GAME_CACHE[gameId] === undefined) {
-        GAME_CACHE[gameId] = await import(`./games/${GAME_NAMES[gameId]}`);
+        GAME_CACHE[gameId] = await import(`./games/${GAME_POOL[gameId].filename}`);
     }
     return GAME_CACHE[gameId]!;
 }

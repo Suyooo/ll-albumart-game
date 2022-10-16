@@ -4,8 +4,8 @@ import type {Album} from "../albumpool";
 import {CANVAS_SIZE} from "../games";
 import type {GameInstance} from "../games";
 
-export const name = "Mosaic";
-const SIZES = [5, 10, 15, 25, 40, 60];
+export const name = "Pixelized";
+const SIZES = [5, 10, 15, 20, 30, 45];
 
 export function getGameInstance(day: number, album: Album, image: Image): GameInstance {
     const getCanvasForGuess = (failed: number): Canvas => {
