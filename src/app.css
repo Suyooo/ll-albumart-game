@@ -19,6 +19,9 @@
         border: 0;
     }
     canvas {
+        @apply absolute;
+        @apply left-0;
+        @apply top-0;
         @apply w-full;
     }
     mark {

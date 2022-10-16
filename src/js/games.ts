@@ -19,8 +19,12 @@ export interface GameInstance {
     getShareCanvas(): Canvas
 }
 
+export interface GameInstanceWrapper extends GameInstance {
+    base: Game
+}
+
 const GAME_POOL: { filename: string, weight: number, cumulativeWeight?: number }[] = [
-    {filename: "bubbles", weight: 1000}
+    {filename: "crop", weight: 1000}
 ];
 const GAME_CACHE: (Game | undefined)[] = GAME_POOL.map(() => undefined);
 
@@ -44,7 +48,7 @@ export async function getGameName(day: number): Promise<string> {
     return game.name;
 }
 
-export async function getGameInstance(day: number, album: Album): Promise<GameInstance> {
+export async function getGameInstance(day: number, album: Album): Promise<GameInstanceWrapper> {
     const [game, image] = await Promise.all(
         [getGameForDay(day), loadImage(album.url)]
     );
@@ -59,10 +63,19 @@ export async function getGameInstance(day: number, album: Album): Promise<GameIn
     albumArtCtx.drawImage(rescaleCanvas, 0, 0, CANVAS_SIZE, CANVAS_SIZE, 0, 0, CANVAS_SIZE, CANVAS_SIZE);
     const gameInstance = game.getGameInstance(day, album, image, albumArtCanvas);
 
+    const CACHE: (Canvas | undefined)[] = [undefined, undefined, undefined, undefined, undefined, undefined];
+
     return {
+        base: game,
         getCanvasForGuess: (failed: number): Canvas => {
             if (failed < 6) {
-                return gameInstance.getCanvasForGuess(failed);
+                if (game.stacked) {
+                    if (CACHE[failed] === undefined)
+                        CACHE[failed] = gameInstance.getCanvasForGuess(failed);
+                    return CACHE[failed]!;
+                } else {
+                    return gameInstance.getCanvasForGuess(failed);
+                }
             } else {
                 return albumArtCanvas;
             }

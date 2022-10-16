@@ -7,23 +7,17 @@ import {seededRNG} from "../rng";
 
 export const name = "Bubbles";
 export const stacked = true;
-const MAX_PER_FRAME = 200;
-const BUBBLE_AMOUNT = [100, 200, 400, 800, 1600, 3200];
-const BUBBLE_SIZE = [50, 30, 25, 20, 15, 7];
-const CACHE: (Canvas | undefined)[] = [undefined, undefined, undefined, undefined, undefined, undefined];
+
+const MAX_PER_FRAME = 100;
+const BUBBLE_AMOUNT = [50, 200, 400, 800, 1600, 3200];
+const BUBBLE_SIZE = [50, 30, 25, 20, 15, 10];
 
 export function getGameInstance(day: number, album: Album, image: Image, scaledImage: Canvas): GameInstance {
     const getCanvasForGuess = (failed: number): Canvas => {
-        if (CACHE[failed] !== undefined) return CACHE[failed]!;
-
         const rng = seededRNG(day * 241);
         const canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
         const ctx = canvas.getContext("2d");
         const scaledImageCtx = scaledImage.getContext("2d");
-
-        if (failed > 0) {
-            ctx.drawImage(getCanvasForGuess(failed - 1), 0, 0);
-        }
 
         let bubblesLeft = BUBBLE_AMOUNT[failed];
         const drawBubbles = () => {
@@ -47,7 +41,6 @@ export function getGameInstance(day: number, album: Album, image: Image, scaledI
         }
         drawBubbles();
 
-        CACHE[failed] = canvas;
         return canvas;
     };
     const getShareCanvas = (): Canvas => {

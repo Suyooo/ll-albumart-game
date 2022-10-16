@@ -2,12 +2,22 @@
     import "../app.css";
     import {onMount} from "svelte";
     import {scale} from 'svelte/transition';
-    import type {GameInstance} from "../js/games.js";
+    import type {GameInstanceWrapper} from "../js/games.js";
 
     export let failed: number;
-    export let game: GameInstance;
+    export let game: GameInstanceWrapper;
     let canvasContainer: HTMLDivElement;
-    onMount(() => canvasContainer.replaceChildren(<HTMLCanvasElement>game.getCanvasForGuess(failed)));
+    onMount(() => {
+        if (game.base.stacked) {
+            const canvases = [];
+            for (let i = 0; i <= failed; i++) {
+                canvases.push(<HTMLCanvasElement>game.getCanvasForGuess(i));
+            }
+            canvasContainer.replaceChildren(...canvases);
+        } else {
+            canvasContainer.replaceChildren(<HTMLCanvasElement>game.getCanvasForGuess(failed));
+        }
+    });
 </script>
 
-<div class="max-w-sm mx-auto bg-black" in:scale={{start:1.1,opacity:1}} bind:this={canvasContainer}></div>
+<div class="w-full max-w-sm aspect-square mx-auto bg-black relative" in:scale={{start:1.1,opacity:1}} bind:this={canvasContainer}></div>
