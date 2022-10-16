@@ -24,11 +24,11 @@ export interface GameInstanceWrapper extends GameInstance {
 }
 
 const GAME_POOL: { filename: string, weight: number, cumulativeWeight?: number }[] = [
-    /*{filename: "pixelized", weight: 1000},
+    {filename: "pixelized", weight: 1000},
     {filename: "bubbles", weight: 1000},
     {filename: "posterize", weight: 1000},
     {filename: "crop", weight: 1000},
-    {filename: "row", weight: 1000},*/
+    {filename: "row", weight: 1000},
     {filename: "tiles", weight: 1000}
 ];
 const GAME_CACHE: (Game | undefined)[] = GAME_POOL.map(() => undefined);
