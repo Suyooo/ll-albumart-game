@@ -19,13 +19,9 @@ export function getGameInstance(day: number, album: Album, image: Image): GameIn
         const cropWidth = Math.floor(image.width * SIZES[failed]);
         const cropHeight = Math.floor(image.height * SIZES[failed]);
 
-        const firstGuessLockX = failed === 0 ? rng() < 0.5 : undefined; // first guess always on left/bottom border
-        const cropX = firstGuessLockX === true
-            ? 0
-            : Math.floor((image.width - cropWidth) * rng());
-        const cropY = firstGuessLockX === false
-            ? (image.height - cropHeight)
-            : Math.floor((image.height - cropHeight) * rng());
+        const cropX = failed === 0 // first guess always on left border
+            ? 0 : Math.floor((image.width - cropWidth) * rng());
+        const cropY = Math.floor((image.height - cropHeight) * rng());
 
         smoothScaleSquareWithSrc(ctx, image, cropX, cropY, cropWidth, cropHeight, CANVAS_SIZE);
         return canvas;
