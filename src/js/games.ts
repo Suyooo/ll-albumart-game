@@ -18,7 +18,7 @@ export interface GameInstance {
 }
 
 const GAME_POOL: { filename: string, weight: number, cumulativeWeight?: number }[] = [
-    {filename: "pixelized", weight: 1000}
+    {filename: "crop", weight: 1000}
 ];
 const GAME_CACHE: (Game | undefined)[] = GAME_POOL.map(() => undefined);
 
@@ -30,9 +30,9 @@ const GAME_POOL_TOTAL_WEIGHT = GAME_POOL.reduce((acc, game): number => {
 async function getGameForDay(day: number): Promise<Game> {
     const rng = seededRNG(day);
     const gamePickedWeight = rng() * GAME_POOL_TOTAL_WEIGHT;
-    const gameId = GAME_POOL.findIndex(game => game.cumulativeWeight! < gamePickedWeight);
+    const gameId = GAME_POOL.findIndex(game => game.cumulativeWeight! >= gamePickedWeight);
     if (GAME_CACHE[gameId] === undefined) {
-        GAME_CACHE[gameId] = await import(`./games/${GAME_POOL[gameId].filename}`);
+        GAME_CACHE[gameId] = await import(`./games/game-${GAME_POOL[gameId].filename}.ts`);
     }
     return GAME_CACHE[gameId]!;
 }

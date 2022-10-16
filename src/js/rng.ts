@@ -9,7 +9,7 @@ const rand_c: number = 11;
 export function seededRNG(seed: number): () => number {
     let rand_z: number = seed;
     const func = () => {
-        rand_z = (rand_z * rand_a + rand_c);
+        rand_z = (rand_z * rand_a + rand_c) % 4294967296;
         return rand_z / 4294967296;
     }
     // Roll a bit after seeding for improved randomness

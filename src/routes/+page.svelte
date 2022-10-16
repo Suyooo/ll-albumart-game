@@ -24,7 +24,7 @@
         finished: false,
         guesses: []
     };
-    $: console.log(STATE);
+    //$: console.log(STATE);
 
     function addGuess(event) {
         STATE.guesses.push(event.detail || null);
