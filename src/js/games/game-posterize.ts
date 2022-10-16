@@ -7,8 +7,8 @@ import type {GameInstance} from "../games";
 
 export const name = "Posterized";
 export const stacked = false;
-const VALUES = [4, 4, 6, 6, 8, 8];
-const BLURS = [20, 30, 30, 40, 40, 60];
+const VALUES = [4, 5, 6, 7, 8, 10];
+const BLURS = [15, 20, 30, 40, 50, 65];
 
 export function getGameInstance(day: number, album: Album, image: Image, scaledImage: Canvas): GameInstance {
     const getCanvasForGuess = (failed: number): Canvas => {

@@ -18,13 +18,17 @@
 
     const STATE: PlayState = {
         day: 1,
-        albumId: <keyof ALBUMPOOL>89,
+        albumId: <keyof ALBUMPOOL>0,
         failed: 0,
         cleared: false,
         finished: false,
         guesses: []
     };
     //$: console.log(STATE);
+    do {
+        STATE.day = Math.floor(Math.random() * 1000);
+        STATE.albumId = <keyof ALBUMPOOL>Math.floor(Math.random() * ALBUMPOOL.length);
+    } while (ALBUMPOOL[STATE.albumId].url === "");
 
     function addGuess(event) {
         STATE.guesses.push(event.detail || null);
