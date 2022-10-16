@@ -6,7 +6,7 @@ import {CANVAS_SIZE} from "../games";
 import {seededRNG} from "../rng";
 
 export const name = "Tiles";
-export const stacked = false;
+export const stacked = true;
 
 const TILES_PER_AXIS = 20;
 const TILES_TOTAL = TILES_PER_AXIS * TILES_PER_AXIS;
@@ -36,7 +36,8 @@ export function getGameInstance(day: number, album: Album, image: Image, scaledI
         const canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
         const ctx = canvas.getContext("2d");
 
-        for (let i = 0; i < AMOUNT[failed]; i++) {
+        let i = failed === 0 ? 0 : AMOUNT[failed - 1];
+        const revealTile = (): void => {
             const p = positions[i];
             const px = p % TILES_PER_AXIS;
             const py = Math.floor(p / TILES_PER_AXIS);
@@ -45,7 +46,12 @@ export function getGameInstance(day: number, album: Album, image: Image, scaledI
             const w = TILE_POS[px + 1] - x;
             const h = TILE_POS[py + 1] - y;
             ctx.drawImage(scaledImage, x, y, w, h, x, y, w, h);
+            i++;
+            if (i < AMOUNT[failed]) {
+                requestAnimationFrame(revealTile);
+            }
         }
+        revealTile();
 
         return canvas;
     };

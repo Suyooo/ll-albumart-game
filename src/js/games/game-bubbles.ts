@@ -20,7 +20,7 @@ export function getGameInstance(day: number, album: Album, image: Image, scaledI
         const scaledImageCtx = scaledImage.getContext("2d");
 
         let bubblesLeft = BUBBLE_AMOUNT[failed];
-        const drawBubbles = () => {
+        const drawBubbles = (): void => {
             ctx.lineWidth = BUBBLE_SIZE[failed] * 2;
             ctx.lineCap = "round";
             for (let j = 0; j < MAX_PER_FRAME && bubblesLeft; j++) {
