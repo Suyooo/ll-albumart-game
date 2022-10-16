@@ -6,6 +6,7 @@ import type {GameInstance} from "../games";
 import {seededRNG} from "../rng";
 
 export const name = "Bubbles";
+export const stacked = true;
 const MAX_PER_FRAME = 200;
 const BUBBLE_AMOUNT = [100, 200, 400, 800, 1600, 3200];
 const BUBBLE_SIZE = [50, 30, 25, 20, 15, 7];
@@ -22,9 +23,6 @@ export function getGameInstance(day: number, album: Album, image: Image, scaledI
 
         if (failed > 0) {
             ctx.drawImage(getCanvasForGuess(failed - 1), 0, 0);
-        } else {
-            ctx.fillStyle = "black";
-            ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
         }
 
         let bubblesLeft = BUBBLE_AMOUNT[failed];

@@ -7,6 +7,7 @@ import type {GameInstance} from "../games";
 import {seededRNG} from "../rng";
 
 export const name = "Cropped";
+export const stacked = false;
 const SIZES = [0.1, 0.1, 0.1, 0.15, 0.15, 0.2];
 
 export function getGameInstance(day: number, album: Album, image: Image): GameInstance {

@@ -2,7 +2,7 @@
     import {ALBUMPOOL} from "../js/albumpool";
 
     import Header from "$lib/Header.svelte";
-    import AlbumArt from "$lib/AlbumArt.svelte";
+    import GameDisplayContainer from "../lib/GameDisplayContainer.svelte";
     import Input from "$lib/Input.svelte";
     import Guess from "$lib/Guess.svelte";
     import Footer from "$lib/Footer.svelte";
@@ -42,7 +42,7 @@
     <Header/>
 
     <main class="w-full max-w-screen-sm flex-grow flex flex-col">
-        <AlbumArt day={STATE.day} album={ALBUMPOOL[STATE.albumId]} failed={STATE.failed} />
+        <GameDisplayContainer day={STATE.day} album={ALBUMPOOL[STATE.albumId]} failed={STATE.failed} />
 
         <Input failed={STATE.failed} finished={STATE.finished} on:guess={addGuess} />
         {#each {length: 6} as _, i}

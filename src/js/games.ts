@@ -8,6 +8,7 @@ export const CANVAS_SIZE = 640;
 
 export interface Game {
     name: string,
+    stacked: boolean,
 
     getGameInstance(day: number, album: Album, image: Image, scaledImage: Canvas): GameInstance
 }
