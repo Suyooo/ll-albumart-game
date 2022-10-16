@@ -8,12 +8,14 @@
     export let finished: boolean;
 
     const dispatch = createEventDispatcher<{ guess: string }>();
-    let input: string, inputElement: HTMLInputElement;
+    let input: string, disabled: boolean = false, inputElement: HTMLInputElement;
 
     function submit(): void {
         if (!input || VALID_GUESSES.has(input)) {
             dispatch("guess", input);
             input = "";
+            disabled = true;
+            setTimeout(() => { disabled = false; }, 500);
         }
     }
 
@@ -30,8 +32,9 @@
         <span class="text-gray-400 uppercase tracking-widest text-xs absolute w-full text-center -bottom-5">
             Guess {failed + 1}/6
         </span>
-        <button class="w-32 rounded p-1 uppercase tracking-widest"
-            class:bg-emerald-600={input} class:bg-emerald-800={!input} on:click="{submit}">
+        <button class="w-32 rounded p-1 uppercase tracking-widest transition-colors duration-200" {disabled}
+                class:bg-gray-800={disabled} class:bg-emerald-600={input && !disabled}
+                class:bg-emerald-800={!input && !disabled} on:click={submit}>
             {#if input}
                 Submit
             {:else if failed < 5}

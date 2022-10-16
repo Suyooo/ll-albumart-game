@@ -10,7 +10,7 @@
         @apply underline;
         @apply text-emerald-600;
     }
-    button:active {
+    button:active:not([disabled]) {
         @apply text-black;
         @apply bg-gray-300;
     }
