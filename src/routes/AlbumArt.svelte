@@ -8,7 +8,7 @@
     export let failed: number;
 </script>
 
-<div class="max-w-sm mx-auto flex-grow">
+<div class="max-w-sm mx-auto flex-grow flex items-center justify-center">
     {#await getGameInstance(day, album)}
         Loading...
     {:then game}
