@@ -28,7 +28,6 @@ export function getGameInstance(day: number, album: Album, image: Image, scaledI
         } while (positions.indexOf(p) !== -1 || (i < AMOUNT[0]
             && (px == 0 || px == TILES_PER_AXIS/2-1 || py == 0 || py == TILES_PER_AXIS/2 - 1
                 || (px > 1 && px < TILES_PER_AXIS/2 - 1 && py > 1))));
-        console.log(i,p);
         positions.push(p);
     }
 
