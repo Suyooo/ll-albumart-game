@@ -18,6 +18,9 @@
         outline: none !important;
         border: 0;
     }
+    canvas {
+        @apply w-full;
+    }
     mark {
         @apply bg-emerald-700;
         @apply text-white;

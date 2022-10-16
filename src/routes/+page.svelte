@@ -1,11 +1,11 @@
 <script lang="ts">
     import {ALBUMPOOL} from "../js/albumpool";
 
-    import Header from "./Header.svelte";
-    import AlbumArt from "./AlbumArt.svelte";
-    import Input from "./Input.svelte";
-    import Guess from "./Guess.svelte";
-    import Footer from "./Footer.svelte";
+    import Header from "$lib/Header.svelte";
+    import AlbumArt from "$lib/AlbumArt.svelte";
+    import Input from "$lib/Input.svelte";
+    import Guess from "$lib/Guess.svelte";
+    import Footer from "$lib/Footer.svelte";
 
     interface PlayState {
         day: number,
