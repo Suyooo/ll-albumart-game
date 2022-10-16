@@ -34,8 +34,10 @@
             class:bg-emerald-600={input} class:bg-emerald-800={!input} on:click="{submit}">
             {#if input}
                 Submit
-            {:else}
+            {:else if failed < 5}
                 Skip
+            {:else}
+                Give Up
             {/if}
         </button>
     </div>
