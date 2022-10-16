@@ -1,22 +1,21 @@
 import {createCanvas} from "canvas";
 import type {Canvas, Image} from "canvas";
 import type {Album} from "../albumpool";
-import {smoothScaleSquare} from "../canvasUtil";
+import { smoothScaleSquareWithSrc} from "../canvasUtil";
 import {CANVAS_SIZE} from "../games";
 import type {GameInstance} from "../games";
 
 export const name = "Pixelized";
 const SIZES = [5, 10, 15, 20, 30, 45];
 
-export function getGameInstance(day: number, album: Album, image: Image): GameInstance {
+export function getGameInstance(day: number, album: Album, image: Image, scaledImage: Canvas): GameInstance {
     const getCanvasForGuess = (failed: number): Canvas => {
         const canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
         const ctx = canvas.getContext("2d");
-        ctx.drawImage(image, 0, 0, CANVAS_SIZE, CANVAS_SIZE);
         const targetSize = SIZES[failed];
 
         ctx.imageSmoothingEnabled = true;
-        smoothScaleSquare(canvas, CANVAS_SIZE, targetSize);
+        smoothScaleSquareWithSrc(ctx, scaledImage, 0, 0, CANVAS_SIZE, CANVAS_SIZE, targetSize);
         ctx.imageSmoothingEnabled = false;
         ctx.drawImage(canvas, 0, 0, targetSize, targetSize, 0, 0, CANVAS_SIZE, CANVAS_SIZE);
         return canvas;

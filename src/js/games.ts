@@ -1,4 +1,5 @@
 import type {Album} from "./albumpool";
+import {smoothScaleSquareWithSrc} from "./canvasUtil";
 import {seededRNG} from "./rng";
 import type {Canvas, Image} from "canvas";
 import {createCanvas, loadImage} from "canvas";
@@ -8,7 +9,7 @@ export const CANVAS_SIZE = 640;
 export interface Game {
     name: string,
 
-    getGameInstance(day: number, album: Album, canvas: Image): GameInstance
+    getGameInstance(day: number, album: Album, image: Image, scaledImage: Canvas): GameInstance
 }
 
 export interface GameInstance {
@@ -46,16 +47,23 @@ export async function getGameInstance(day: number, album: Album): Promise<GameIn
     const [game, image] = await Promise.all(
         [getGameForDay(day), loadImage(album.url)]
     );
-    const gameInstance = game.getGameInstance(day, album, image);
+
+    // noinspection JSSuspiciousNameCombination - we want to force it to a square aspect ratio
+    const rescaleCanvas = createCanvas(image.width, image.width);
+    const rescaleCtx = rescaleCanvas.getContext("2d");
+    smoothScaleSquareWithSrc(rescaleCtx, image, 0, 0, image.width, image.height, CANVAS_SIZE);
+
+    const albumArtCanvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
+    const albumArtCtx = albumArtCanvas.getContext("2d");
+    albumArtCtx.drawImage(rescaleCanvas, 0, 0, CANVAS_SIZE, CANVAS_SIZE, 0, 0, CANVAS_SIZE, CANVAS_SIZE);
+    const gameInstance = game.getGameInstance(day, album, image, albumArtCanvas);
+
     return {
         getCanvasForGuess: (failed: number): Canvas => {
             if (failed < 6) {
                 return gameInstance.getCanvasForGuess(failed);
             } else {
-                const canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
-                const ctx = canvas.getContext("2d");
-                ctx.drawImage(image, 0, 0, CANVAS_SIZE, CANVAS_SIZE);
-                return canvas;
+                return albumArtCanvas;
             }
         },
         getShareCanvas: gameInstance.getShareCanvas
