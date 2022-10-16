@@ -59,7 +59,7 @@ export async function getGameInstance(day: number, album: Album): Promise<GameIn
     );
 
     // noinspection JSSuspiciousNameCombination - we want to force it to a square aspect ratio
-    const rescaleCanvas = createCanvas(image.width, image.width);
+    const rescaleCanvas = createCanvas(Math.max(image.width, CANVAS_SIZE), Math.max(image.height, CANVAS_SIZE));
     const rescaleCtx = rescaleCanvas.getContext("2d");
     smoothScaleSquareWithSrc(rescaleCtx, image, 0, 0, image.width, image.height, CANVAS_SIZE);
 
