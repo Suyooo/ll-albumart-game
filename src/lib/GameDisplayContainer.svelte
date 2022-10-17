@@ -21,8 +21,8 @@
 
 <div class="flex-grow flex flex-col items-center justify-center">
     {#if game}
-        {#key failed}
-            <GameDisplay {failed} {game} />
+        {#key failed + finished}
+            <GameDisplay {game} {finished} {failed} />
         {/key}
         {#if finished}
             <div class="text-sm mt-2" in:fly={{x: 30, duration: 1000}}>

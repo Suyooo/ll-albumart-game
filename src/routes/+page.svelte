@@ -29,7 +29,7 @@
         STATE.day = Math.floor(Math.random() * 1000);
         STATE.albumId = <keyof ALBUMPOOL>Math.floor(Math.random() * ALBUMPOOL.length);
     } while (ALBUMPOOL[STATE.albumId].url === "");
-    //STATE.albumId = <keyof ALBUMPOOL>302;
+    //STATE.albumId = <keyof ALBUMPOOL>280;
 
     function addGuess(event) {
         STATE.guesses.push(event.detail || null);
@@ -43,7 +43,7 @@
     }
 </script>
 
-<div class="text-gray-100 bg-gray-900 flex flex-col w-full h-full items-center overflow-auto">
+<div class="text-gray-100 bg-gray-800 flex flex-col w-full h-full items-center overflow-auto">
     <Header/>
 
     <main class="w-full max-w-screen-sm flex-grow flex flex-col px-8">

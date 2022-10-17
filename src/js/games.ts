@@ -20,7 +20,9 @@ export interface GameInstance {
 }
 
 export interface GameInstanceWrapper extends GameInstance {
-    base: Game
+    base: Game,
+
+    getFinishedCanvas(): Canvas
 }
 
 const GAME_POOL: { filename: string, weight: number, cumulativeWeight?: number }[] = [
@@ -73,18 +75,15 @@ export async function getGameInstance(day: number, album: Album): Promise<GameIn
     return {
         base: game,
         getCanvasForGuess: (failed: number): Canvas => {
-            if (failed < 6) {
-                if (game.stacked) {
-                    if (CACHE[failed] === undefined)
-                        CACHE[failed] = gameInstance.getCanvasForGuess(failed);
-                    return CACHE[failed]!;
-                } else {
-                    return gameInstance.getCanvasForGuess(failed);
-                }
+            if (game.stacked) {
+                if (CACHE[failed] === undefined)
+                    CACHE[failed] = gameInstance.getCanvasForGuess(failed);
+                return CACHE[failed]!;
             } else {
-                return albumArtCanvas;
+                return gameInstance.getCanvasForGuess(failed);
             }
         },
-        getShareCanvas: gameInstance.getShareCanvas
+        getShareCanvas: gameInstance.getShareCanvas,
+        getFinishedCanvas: () => albumArtCanvas
     }
 }

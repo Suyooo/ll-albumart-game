@@ -4,21 +4,40 @@
     import {scale} from 'svelte/transition';
     import type {GameInstanceWrapper} from "../js/games.js";
 
-    export let failed: number;
     export let game: GameInstanceWrapper;
+    export let finished: boolean;
+    export let failed: number;
+
+    let maxStage: number = failed + (finished && failed < 6 ? 1 : 0);
+    let stage: number = maxStage;
+
     let canvasContainer: HTMLDivElement;
-    onMount(() => {
-        if (game.base.stacked) {
+
+    function updateCanvasList() {
+        if (finished && stage === maxStage) {
+            canvasContainer.replaceChildren(<HTMLCanvasElement>game.getFinishedCanvas());
+        } else if (game.base.stacked) {
             const canvases = [];
-            for (let i = 0; i <= failed; i++) {
+            for (let i = 0; i <= stage && i < 6; i++) {
                 canvases.push(<HTMLCanvasElement>game.getCanvasForGuess(i));
             }
             canvasContainer.replaceChildren(...canvases);
         } else {
-            canvasContainer.replaceChildren(<HTMLCanvasElement>game.getCanvasForGuess(failed));
+            canvasContainer.replaceChildren(<HTMLCanvasElement>game.getCanvasForGuess(Math.min(stage, 5)));
         }
-    });
+    }
+    onMount(updateCanvasList);
 </script>
 
-<div class="w-full max-w-sm aspect-square mx-auto bg-black relative"
-     bind:this={canvasContainer} in:scale={{start:1.1,opacity:1}}></div>
+<div class="w-full max-w-sm aspect-square relative overflow-visible flex items-center">
+    <div class="w-full max-w-sm aspect-square mx-auto bg-black relative"
+        in:scale={{start:1.1,opacity:1}} bind:this={canvasContainer}></div>
+    {#if stage > 0}
+        <button class="absolute -left-16 w-10 h-10 flex items-center justify-center bg-primary-500 rounded select-none
+            transition-colors" on:click={() => { stage--; updateCanvasList(); }}>🢀</button>
+    {/if}
+    {#if stage < maxStage}
+        <button class="absolute -right-16 w-10 h-10 flex items-center justify-center bg-primary-500 rounded select-none
+            transition-colors" on:click={() => { stage++; updateCanvasList(); }}>🢂</button>
+    {/if}
+</div>
