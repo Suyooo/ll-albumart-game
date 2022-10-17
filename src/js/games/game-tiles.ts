@@ -1,3 +1,5 @@
+/** @type {import("../games").Game} */
+
 import type {Canvas, Image} from "canvas";
 import {createCanvas} from "canvas";
 import type {Album} from "../albumpool";
