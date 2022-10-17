@@ -7,30 +7,37 @@ import {smoothScaleSquare, smoothScaleSquareWithSrc} from "../canvasUtil";
 import {CANVAS_SIZE} from "../games";
 import type {GameInstance} from "../games";
 
-export const name = "Posterized";
+export const name = "Blobs";
 export const stacked = false;
-const VALUES = [4, 5, 6, 7, 8, 10];
-const BLURS = [15, 20, 30, 40, 50, 65];
+const BLURS = [15, 25, 40, 60, 90, 140];
 
 export function getGameInstance(day: number, album: Album, image: Image, scaledImage: Canvas): GameInstance {
+    const origData = scaledImage.getContext("2d").getImageData(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+    let avg = 0;
+    for (let x = 0; x < CANVAS_SIZE; x++) {
+        for (let y = 0; y < CANVAS_SIZE; y++) {
+            const i = (y * CANVAS_SIZE + x) * 4;
+            avg += (origData.data[i] + origData.data[i + 1] + origData.data[i + 2]) / 3;
+        }
+    }
+    avg /= CANVAS_SIZE*CANVAS_SIZE;
+
     const getCanvasForGuess = (failed: number): Canvas => {
         const canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
         const ctx = canvas.getContext("2d");
-        const depth = VALUES[failed];
-        const size = BLURS[failed];
+        const blurTarget = BLURS[failed];
 
-        smoothScaleSquareWithSrc(ctx, scaledImage, 0, 0, CANVAS_SIZE, CANVAS_SIZE, size);
-        smoothScaleSquare(ctx, size, CANVAS_SIZE);
+        smoothScaleSquareWithSrc(ctx, scaledImage, 0, 0, CANVAS_SIZE, CANVAS_SIZE, blurTarget);
+        smoothScaleSquare(ctx, blurTarget, CANVAS_SIZE);
 
         const data = ctx.getImageData(0, 0, CANVAS_SIZE, CANVAS_SIZE);
-        const origData = ctx.getImageData(0, 0, CANVAS_SIZE, CANVAS_SIZE);
 
         for (let x = 0; x < CANVAS_SIZE; x++) {
             for (let y = 0; y < CANVAS_SIZE; y++) {
                 const i = (y * CANVAS_SIZE + x) * 4;
-                for (let j = i; j < i + 4; j++)
-                    data.data[j] = Math.round(origData.data[j] / 255.0 * depth) / depth * 255;
-                data.data[i + 3] = origData.data[i + 3];
+                for (let j = 0; j < 3; j++)
+                    data.data[i + j] = data.data[i + j] > avg ? 255 : 0;
+                data.data[i + 3] = data.data[i + 3];
             }
         }
 

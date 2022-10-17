@@ -29,6 +29,7 @@
         STATE.day = Math.floor(Math.random() * 1000);
         STATE.albumId = <keyof ALBUMPOOL>Math.floor(Math.random() * ALBUMPOOL.length);
     } while (ALBUMPOOL[STATE.albumId].url === "");
+    //STATE.albumId = <keyof ALBUMPOOL>302;
 
     function addGuess(event) {
         STATE.guesses.push(event.detail || null);
