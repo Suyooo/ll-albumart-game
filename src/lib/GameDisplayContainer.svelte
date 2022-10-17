@@ -1,6 +1,7 @@
 <script lang="ts">
     import "../app.css";
     import GameDisplay from "$lib/GameDisplay.svelte";
+    import Spinner from "$lib/Spinner.svelte";
     import {onMount} from "svelte";
     import type {Album} from "../js/albumpool";
     import type {GameInstanceWrapper} from "../js/games.js";
@@ -22,6 +23,6 @@
             <GameDisplay {failed} {game} />
         {/key}
     {:else}
-        Loading...
+        <Spinner/>
     {/if}
 </div>
