@@ -15,10 +15,11 @@
 </script>
 
 <div class="w-full my-1 p-2 border-2 text-sm flex min-h-10 transition-colors duration-[400ms]"
-     class:border-gray-700={isEmpty || isSkipped}
-     class:border-gray-500={isNextGuess}
-     class:border-green-500={isCorrect}
-     class:border-red-500={isWrong}>
+     class:border-current={isNextGuess}
+     class:border-unused={isEmpty && !isNextGuess}
+     class:border-skipped={isSkipped}
+     class:border-correct={isCorrect}
+     class:border-wrong={isWrong}>
     {#if !isEmpty}
         <div class="w-4 mr-3" in:fly={{x: 30}}>
             {#if isCorrect}

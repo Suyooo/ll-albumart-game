@@ -16,13 +16,12 @@
 
     div {
         border-radius: 100%;
-        border: 5px solid white;
+        border: 5px solid theme(colors.primary.500);
         border-left-style: none;
         border-bottom-style: none;
+        box-sizing: border-box;
         width: 4rem;
         height: 4rem;
-        line-height: 4rem;
-        display: block;
 
         transform-origin: center;
         animation: spin .5s infinite linear;

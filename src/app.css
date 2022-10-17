@@ -8,11 +8,14 @@
     }
     a {
         @apply underline;
-        @apply text-emerald-600;
+        @apply text-primary-500;
+    }
+    a:active {
+        @apply text-primary-100;
     }
     button:active:not([disabled]) {
         @apply text-black;
-        @apply bg-gray-300;
+        @apply bg-primary-100;
     }
     input {
         outline: none !important;
@@ -25,11 +28,11 @@
         @apply w-full;
     }
     mark {
-        @apply bg-emerald-700;
+        @apply bg-primary-700;
         @apply text-white;
         @apply rounded;
     }
     .autocomplete:not(:hover) > .selected {
-        @apply bg-emerald-900;
+        @apply bg-primary-900;
     }
 }
