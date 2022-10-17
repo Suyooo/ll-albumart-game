@@ -46,7 +46,8 @@
     <Header/>
 
     <main class="w-full max-w-screen-sm flex-grow flex flex-col px-8">
-        <GameDisplayContainer day={STATE.day} album={ALBUMPOOL[STATE.albumId]} failed={STATE.failed} />
+        <GameDisplayContainer
+                day={STATE.day} finished={STATE.finished} album={ALBUMPOOL[STATE.albumId]} failed={STATE.failed} />
 
         <Input failed={STATE.failed} finished={STATE.finished} on:guess={addGuess} />
         {#each {length: 6} as _, i}

@@ -21,4 +21,4 @@
 </script>
 
 <div class="w-full max-w-sm aspect-square mx-auto bg-black relative"
-     in:scale={{start:1.1,opacity:1}} bind:this={canvasContainer}></div>
+     bind:this={canvasContainer} in:scale={{start:1.1,opacity:1}}></div>
