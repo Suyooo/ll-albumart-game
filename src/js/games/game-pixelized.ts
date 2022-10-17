@@ -9,7 +9,7 @@ import type {GameInstance} from "../games";
 
 export const name = "Pixelized";
 export const stacked = false;
-const SIZES = [5, 10, 15, 20, 30, 45];
+const SIZES = [5, 9, 15, 20, 30, 45];
 
 export function getGameInstance(day: number, album: Album, image: Image, scaledImage: Canvas): GameInstance {
     const getCanvasForGuess = (failed: number): Canvas => {
