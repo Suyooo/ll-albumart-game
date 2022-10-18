@@ -18,11 +18,11 @@ const TILE_POS = new Array(TILES_PER_AXIS + 1).fill(0).map((_, i) =>
 const AMOUNT = [9, 20, 40, 60, 80, 100];
 const MAX_AMOUNT = AMOUNT.reduce((max, cur) => cur > max ? cur : max, 0);
 
-export function getGameInstance(day: number, album: Album, image: Image, scaledImage: Canvas): GameInstance {
+export function getGameInstance(day: number, _album: Album, _image: Image, scaledImage: Canvas): GameInstance {
     const rng = seededRNG(day * 149);
     const positions: number[] = [];
     for (let i = 0; i < MAX_AMOUNT; i++) {
-        let p,px,py;
+        let p: number, px: number, py: number;
         do {
             p = Math.floor(TILES_TOTAL * rng());
             px = Math.floor(p % TILES_PER_AXIS / 2);

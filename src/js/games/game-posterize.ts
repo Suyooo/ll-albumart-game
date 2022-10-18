@@ -11,7 +11,7 @@ export const name = "Blobs";
 export const stacked = false;
 const BLURS = [15, 25, 40, 60, 90, 140];
 
-export function getGameInstance(day: number, album: Album, image: Image, scaledImage: Canvas): GameInstance {
+export function getGameInstance(_day: number, _album: Album, _image: Image, scaledImage: Canvas): GameInstance {
     const origData = scaledImage.getContext("2d").getImageData(0, 0, CANVAS_SIZE, CANVAS_SIZE);
     let avg = 0;
     for (let x = 0; x < CANVAS_SIZE; x++) {

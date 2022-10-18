@@ -14,12 +14,12 @@ const MAX_SIZE = SIZE.reduce((max, cur) => cur > max ? cur : max, 0);
 const AMOUNT = [1, 1, 2, 2, 3, 3];
 const MAX_AMOUNT = AMOUNT.reduce((max, cur) => cur > max ? cur : max, 0);
 
-export function getGameInstance(day: number, album: Album, image: Image, scaledImage: Canvas): GameInstance {
+export function getGameInstance(day: number, _album: Album, _image: Image, scaledImage: Canvas): GameInstance {
     const rng = seededRNG(day * 373);
     const positions: number[] = [];
     const blockedYs = new Set();
     for (let i = 0; i < MAX_AMOUNT; i++) {
-        let y;
+        let y: number;
         do {
             y = Math.floor(CANVAS_SIZE / 4 + (CANVAS_SIZE / 2) * rng());
         } while (blockedYs.has(y));

@@ -13,10 +13,10 @@ export const stacked = false;
 const SIZE = [0.1, 0.1, 0.1, 0.15, 0.15, 0.2];
 const MAX_SIZE = SIZE.reduce((max, cur) => cur > max ? cur : max, 0);
 
-export function getGameInstance(day: number, album: Album, image: Image): GameInstance {
+export function getGameInstance(day: number, _album: Album, image: Image): GameInstance {
     const rng = seededRNG(day * 409);
     const positions: [number, number][] = [];
-    let closestDistance;
+    let closestDistance: number;
     for (let i = 0; i < 6; i++) {
         let x: number, y: number;
         do {

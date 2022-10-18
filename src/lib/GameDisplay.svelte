@@ -2,9 +2,9 @@
     import "../app.css";
     import {onMount} from "svelte";
     import {scale} from 'svelte/transition';
-    import type {GameInstanceWrapper} from "../js/games.js";
+    import type {GameInstanceSiteWrapper} from "$js/games.js";
 
-    export let game: GameInstanceWrapper;
+    export let game: GameInstanceSiteWrapper;
     export let finished: boolean;
     export let failed: number;
 
@@ -15,15 +15,15 @@
 
     function updateCanvasList() {
         if (finished && stage === maxStage) {
-            canvasContainer.replaceChildren(<HTMLCanvasElement>game.getFinishedCanvas());
+            canvasContainer.replaceChildren(game.getFinishedCanvas());
         } else if (game.base.stacked) {
             const canvases = [];
             for (let i = 0; i <= stage && i < 6; i++) {
-                canvases.push(<HTMLCanvasElement>game.getCanvasForGuess(i));
+                canvases.push(game.getCanvasForGuess(i));
             }
             canvasContainer.replaceChildren(...canvases);
         } else {
-            canvasContainer.replaceChildren(<HTMLCanvasElement>game.getCanvasForGuess(Math.min(stage, 5)));
+            canvasContainer.replaceChildren(game.getCanvasForGuess(Math.min(stage, 5)));
         }
     }
     onMount(updateCanvasList);

@@ -19,10 +19,14 @@ export interface GameInstance {
     getShareCanvas(): Canvas
 }
 
-export interface GameInstanceWrapper extends GameInstance {
+export interface GameInstanceSiteWrapper {
     base: Game,
 
-    getFinishedCanvas(): Canvas
+    getCanvasForGuess(failed: number): HTMLCanvasElement,
+
+    getShareCanvas(): HTMLCanvasElement,
+
+    getFinishedCanvas(): HTMLCanvasElement
 }
 
 const GAME_POOL: { filename: string, weight: number, cumulativeWeight?: number }[] = [
@@ -45,7 +49,7 @@ async function getGameForDay(day: number): Promise<Game> {
     const gamePickedWeight = rng() * GAME_POOL_TOTAL_WEIGHT;
     const gameId = GAME_POOL.findIndex(game => game.cumulativeWeight! >= gamePickedWeight);
     if (GAME_CACHE[gameId] === undefined) {
-        GAME_CACHE[gameId] = await import(`./games/game-${GAME_POOL[gameId].filename}.ts`);
+        GAME_CACHE[gameId] = await import(`$js/games/game-${GAME_POOL[gameId].filename}.ts`);
     }
     return GAME_CACHE[gameId]!;
 }
@@ -55,7 +59,7 @@ export async function getGameName(day: number): Promise<string> {
     return game.name;
 }
 
-export async function getGameInstance(day: number, album: Album): Promise<GameInstanceWrapper> {
+export async function getGameInstance(day: number, album: Album): Promise<GameInstanceSiteWrapper> {
     const [game, image] = await Promise.all(
         [getGameForDay(day), loadImage(album.url)]
     );
@@ -70,20 +74,20 @@ export async function getGameInstance(day: number, album: Album): Promise<GameIn
     albumArtCtx.drawImage(rescaleCanvas, 0, 0, CANVAS_SIZE, CANVAS_SIZE, 0, 0, CANVAS_SIZE, CANVAS_SIZE);
     const gameInstance = game.getGameInstance(day, album, image, albumArtCanvas);
 
-    const CACHE: (Canvas | undefined)[] = [undefined, undefined, undefined, undefined, undefined, undefined];
+    const CACHE: (HTMLCanvasElement | undefined)[] = [undefined, undefined, undefined, undefined, undefined, undefined];
 
     return {
         base: game,
-        getCanvasForGuess: (failed: number): Canvas => {
+        getCanvasForGuess: (failed: number): HTMLCanvasElement => {
             if (game.stacked) {
                 if (CACHE[failed] === undefined)
-                    CACHE[failed] = gameInstance.getCanvasForGuess(failed);
+                    CACHE[failed] = <HTMLCanvasElement><unknown>gameInstance.getCanvasForGuess(failed);
                 return CACHE[failed]!;
             } else {
-                return gameInstance.getCanvasForGuess(failed);
+                return <HTMLCanvasElement><unknown>gameInstance.getCanvasForGuess(failed);
             }
         },
-        getShareCanvas: gameInstance.getShareCanvas,
-        getFinishedCanvas: () => albumArtCanvas
+        getShareCanvas: () => <HTMLCanvasElement><unknown>gameInstance.getShareCanvas,
+        getFinishedCanvas: () => <HTMLCanvasElement><unknown>albumArtCanvas
     }
 }

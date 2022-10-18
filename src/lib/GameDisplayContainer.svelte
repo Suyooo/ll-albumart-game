@@ -1,19 +1,19 @@
 <script lang="ts">
-    import "../app.css";
-    import GameDisplay from "$lib/GameDisplay.svelte";
-    import Spinner from "$lib/Spinner.svelte";
     import {onMount} from "svelte";
     import {fly} from 'svelte/transition';
-    import type {Album} from "../js/albumpool";
-    import type {GameInstanceWrapper} from "../js/games.js";
-    import {getGameInstance} from "../js/games.js";
+    
+    import GameDisplay from "./GameDisplay.svelte";
+    import Spinner from "./Spinner.svelte";
+    import type {Album} from "$js/albumpool";
+    import type {GameInstanceSiteWrapper} from "$js/games.js";
+    import {getGameInstance} from "$js/games.js";
 
     export let finished: boolean;
     export let day: number;
     export let album: Album;
     export let failed: number = 0;
 
-    let game: GameInstanceWrapper;
+    let game: GameInstanceSiteWrapper;
     onMount(() => {
         getGameInstance(day, album).then((game_) => game = game_);
     });
@@ -21,7 +21,7 @@
 
 <div class="flex-grow flex flex-col items-center justify-center">
     {#if game}
-        {#key failed + finished}
+        {#key (finished ? -1 : failed)}
             <GameDisplay {game} {finished} {failed} />
         {/key}
         {#if finished}

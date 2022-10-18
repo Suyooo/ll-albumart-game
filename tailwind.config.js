@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
-const colors = require('tailwindcss/colors');
+import colors from 'tailwindcss/colors.js';
 
-module.exports = {
-    content: ['./src/**/*.{html,js,svelte,ts}'],
+export default {
+    content: ["index.html","./src/**/*.{html,js,svelte,ts}"],
     theme: {
         minHeight: {
             '10': '2.5rem',
@@ -29,5 +29,5 @@ module.exports = {
             }
         }
     },
-    plugins: [],
+    plugins: []
 }

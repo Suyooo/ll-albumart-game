@@ -1,8 +1,7 @@
 <script lang="ts">
-    import "../app.css";
     import type {AutocompleteResult} from "autocompleter/autocomplete";
     import {createEventDispatcher, onDestroy, onMount} from "svelte";
-    import {initAutocomplete, VALID_GUESSES} from "../js/autocomplete";
+    import {initAutocomplete, VALID_GUESSES} from "$js/autocomplete";
 
     export let failed: 0 | 1 | 2 | 3 | 4 | 5 | 6;
     export let finished: boolean;

@@ -14,7 +14,7 @@ const MAX_PER_FRAME = 200;
 const BUBBLE_AMOUNT = [200, 700, 1000, 2000, 3000, 5000];
 const BUBBLE_SIZE = [50, 30, 15, 10, 7, 5];
 
-export function getGameInstance(day: number, album: Album, image: Image, scaledImage: Canvas): GameInstance {
+export function getGameInstance(day: number, _album: Album, _image: Image, scaledImage: Canvas): GameInstance {
     const getCanvasForGuess = (failed: number): Canvas => {
         const rng = seededRNG(day * 241 + failed);
         const canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);

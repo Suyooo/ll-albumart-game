@@ -1,15 +1,15 @@
 <script lang="ts">
-    import {ALBUMPOOL} from "../js/albumpool";
+    import {ALBUMPOOL} from "$js/albumpool";
 
     import Header from "$lib/Header.svelte";
-    import GameDisplayContainer from "../lib/GameDisplayContainer.svelte";
+    import GameDisplayContainer from "$lib/GameDisplayContainer.svelte";
     import Input from "$lib/Input.svelte";
     import Guess from "$lib/Guess.svelte";
     import Footer from "$lib/Footer.svelte";
 
     interface PlayState {
         day: number,
-        albumId: keyof ALBUMPOOL,
+        albumId: number,
         failed: 0 | 1 | 2 | 3 | 4 | 5 | 6,
         cleared: boolean,
         finished: boolean,
@@ -18,7 +18,7 @@
 
     const STATE: PlayState = {
         day: 1,
-        albumId: <keyof ALBUMPOOL>0,
+        albumId: 0,
         failed: 0,
         cleared: false,
         finished: false,
@@ -27,11 +27,11 @@
     //$: console.log(STATE);
     do {
         STATE.day = Math.floor(Math.random() * 1000);
-        STATE.albumId = <keyof ALBUMPOOL>Math.floor(Math.random() * ALBUMPOOL.length);
+        STATE.albumId = Math.floor(Math.random() * ALBUMPOOL.length);
     } while (ALBUMPOOL[STATE.albumId].url === "");
-    //STATE.albumId = <keyof ALBUMPOOL>280;
+    //STATE.albumId = 280;
 
-    function addGuess(event) {
+    function addGuess(event: CustomEvent<string>) {
         STATE.guesses.push(event.detail || null);
         if (event.detail === ALBUMPOOL[STATE.albumId].artistEn + " - " + ALBUMPOOL[STATE.albumId].titleEn ||
             event.detail === ALBUMPOOL[STATE.albumId].artistJa + " - " + ALBUMPOOL[STATE.albumId].titleJa) {

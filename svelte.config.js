@@ -1,17 +1,8 @@
-import adapter from '@sveltejs/adapter-static';
-import preprocess from 'svelte-preprocess';
+import preprocess from "svelte-preprocess";
+import postcss from './postcss.config.js';
 
-/** @type {import('@sveltejs/kit').Config} */
-const config = {
-	preprocess: [
-		preprocess({
-			postcss: true,
-		}),
-	],
-
-	kit: {
-		adapter: adapter()
-	}
-};
-
-export default config;
+export default {
+    preprocess: [
+        preprocess({postcss}),
+    ],
+}
