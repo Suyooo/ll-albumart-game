@@ -23,7 +23,7 @@
     onDestroy(() => autocompleteInstance?.destroy());
 </script>
 
-<div class="w-full flex flex-col sm:flex-row items-center justify-between mb-8 mt-4
+<div class="w-full flex flex-col sm:flex-row items-center justify-between mb-4 mt-4
     space-x-0 sm:space-x-4 space-y-2 sm:space-y-0">
     <input class="flex-grow w-full rounded p-2 text-white bg-gray-700 text-sm ring-inset ring-2 ring-primary-500
         focus:ring-white" placeholder="Which album is this?" bind:value={input} bind:this={inputElement}

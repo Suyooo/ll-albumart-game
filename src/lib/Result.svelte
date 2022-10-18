@@ -31,7 +31,7 @@
     }
 </script>
 
-<div class="w-full flex flex-col items-center justify-between mb-8 mt-4" in:fly={{y: 30, duration: 1000}}>
+<div class="w-full flex flex-col items-center justify-between mb-4 mt-4" in:fly={{y: 30, duration: 1000}}>
     <h2 class="tracking-widest uppercase font-bold text-2xl">
         {#if !cleared}
             Oops
@@ -58,7 +58,7 @@
             You guessed today's album art on <b>the first guess</b>!
         {/if}
     </span>
-    <button class="mt-6 px-3 py-2 rounded p-1 uppercase tracking-widest transition-colors duration-200 bg-primary-500
+    <button class="mt-2 px-3 py-2 rounded p-1 uppercase tracking-widest transition-colors duration-200 bg-primary-500
         flex items-center space-x-2"
         in:fly={{y: 40, delay: 300, duration: 1000}} on:click={share}>
         {#if copied}
