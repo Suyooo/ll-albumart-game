@@ -41,3 +41,12 @@
             transition-colors" on:click={() => { stage++; updateCanvasList(); }}>🢂</button>
     {/if}
 </div>
+
+<style>
+    div > :global(canvas) {
+        @apply absolute;
+        @apply left-0;
+        @apply top-0;
+        @apply w-full;
+    }
+</style>

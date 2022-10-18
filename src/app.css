@@ -17,22 +17,4 @@
         @apply text-black;
         @apply bg-primary-100;
     }
-    input {
-        outline: none !important;
-        border: 0;
-    }
-    canvas {
-        @apply absolute;
-        @apply left-0;
-        @apply top-0;
-        @apply w-full;
-    }
-    mark {
-        @apply bg-primary-700;
-        @apply text-white;
-        @apply rounded;
-    }
-    .autocomplete:not(:hover) > .selected {
-        @apply bg-primary-900;
-    }
 }

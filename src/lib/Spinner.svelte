@@ -6,23 +6,23 @@
 <style lang="postcss">
     @keyframes spin {
         0% {
-            transform: rotate(0deg);
+            @apply rotate-0;
         }
         100% {
-            transform: rotate(360deg);
+            @apply rotate-[360deg];
         }
     }
 
     div {
-        border-radius: 100%;
-        border: 5px solid theme(colors.primary.500);
-        border-left-style: none;
-        border-bottom-style: none;
-        box-sizing: border-box;
-        width: 4rem;
-        height: 4rem;
-
-        transform-origin: center;
+        @apply w-16;
+        @apply h-16;
+        @apply border-primary-500;
+        @apply border-[6px];
+        @apply border-b-0;
+        @apply border-l-0;
+        @apply rounded-full;
+        @apply box-border;
+        @apply origin-center;
         animation: spin .5s infinite linear;
     }
 </style>

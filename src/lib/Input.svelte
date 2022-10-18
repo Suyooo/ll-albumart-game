@@ -44,3 +44,20 @@
         </button>
     </div>
 </div>
+
+<style lang="postcss">
+    input {
+        @apply outline-0;
+        @apply border-0;
+    }
+
+    :global(.autocomplete mark) {
+        @apply bg-primary-700;
+        @apply text-white;
+        @apply rounded;
+    }
+
+    :global(.autocomplete:not(:hover) > .selected) {
+        @apply bg-primary-900;
+    }
+</style>
