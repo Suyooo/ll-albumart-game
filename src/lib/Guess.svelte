@@ -13,7 +13,7 @@
     $: isNextGuess = isCurrent && !cleared;
 </script>
 
-<div class="w-full my-1 p-2 border-2 text-sm flex min-h-10 transition-colors duration-[400ms]"
+<div class="w-full my-1 px-2 py-1 border-2 text-sm flex min-h-8 transition-colors duration-[400ms]"
      class:border-current={isNextGuess}
      class:border-unused={isEmpty && !isNextGuess}
      class:border-skipped={isSkipped}

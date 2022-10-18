@@ -26,20 +26,27 @@
             canvasContainer.replaceChildren(game.getCanvasForGuess(Math.min(stage, 5)));
         }
     }
+
     onMount(updateCanvasList);
 </script>
 
-<div class="w-full max-w-sm aspect-square relative overflow-visible flex items-center">
-    <div class="w-full max-w-sm aspect-square mx-auto bg-black relative"
-        in:scale={{start:1.1,opacity:1}} bind:this={canvasContainer}></div>
-    {#if stage > 0}
-        <button class="absolute -left-16 w-10 h-10 flex items-center justify-center bg-primary-500 rounded select-none
-            transition-colors duration-200" on:click={() => { stage--; updateCanvasList(); }}>🢀</button>
-    {/if}
-    {#if stage < maxStage}
-        <button class="absolute -right-16 w-10 h-10 flex items-center justify-center bg-primary-500 rounded select-none
-            transition-colors duration-200" on:click={() => { stage++; updateCanvasList(); }}>🢂</button>
-    {/if}
+<div class="w-full relative overflow-visible flex items-center justify-center">
+    <div class="w-10 mx-2">
+        {#if stage > 0}
+            <button class="w-10 h-10 flex items-center justify-center bg-primary-500 rounded select-none
+            transition-colors duration-200" on:click={() => { stage--; updateCanvasList(); }}>🢀
+            </button>
+        {/if}
+    </div>
+    <div class="max-w-sm basis-96 aspect-square bg-black relative"
+         in:scale={{start:1.1,opacity:1}} bind:this={canvasContainer}></div>
+    <div class="w-10 mx-2">
+        {#if stage < maxStage}
+            <button class="w-10 h-10 flex items-center justify-center bg-primary-500 rounded select-none
+            transition-colors duration-200" on:click={() => { stage++; updateCanvasList(); }}>🢂
+            </button>
+        {/if}
+    </div>
 </div>
 
 <style>

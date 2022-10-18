@@ -5,7 +5,7 @@ export default {
     content: ["index.html","./src/**/*.{html,js,svelte,ts}"],
     theme: {
         minHeight: {
-            '10': '2.5rem',
+            '8': '2rem',
         }, extend: {
             colors: {
                 primary: {

@@ -60,19 +60,20 @@
 
 <Header/>
 
-<main class="w-full max-w-screen-sm flex-grow flex flex-col px-8">
+<main class="w-full max-w-screen-sm flex-grow flex flex-col">
     <GameDisplayContainer
             day={STATE.day} finished={STATE.finished} album={ALBUMPOOL[STATE.albumId]} failed={STATE.failed}/>
-    {ALBUMPOOL[STATE.albumId].titleEn}
-    {#if STATE.finished}
-        <Result cleared={STATE.cleared} failed={STATE.failed} getShareText={getShareText}/>
-    {:else}
-        <Input failed={STATE.failed} on:guess={addGuess}/>
-    {/if}
-    {#each {length: 6} as _, i}
-        <Guess guess={STATE.guesses[i]} cleared={STATE.cleared}
-               isEmpty={STATE.failed < i || (STATE.failed === i && !STATE.cleared)} isCurrent={STATE.failed === i}/>
-    {/each}
+    <div class="px-8">
+        {#if STATE.finished}
+            <Result cleared={STATE.cleared} failed={STATE.failed} getShareText={getShareText}/>
+        {:else}
+            <Input failed={STATE.failed} on:guess={addGuess}/>
+        {/if}
+        {#each {length: 6} as _, i}
+            <Guess guess={STATE.guesses[i]} cleared={STATE.cleared}
+                   isEmpty={STATE.failed < i || (STATE.failed === i && !STATE.cleared)} isCurrent={STATE.failed === i}/>
+        {/each}
+    </div>
 </main>
 
 <Footer/>
