@@ -3,6 +3,8 @@
     export let failed: number;
     export let getShareText: () => string;
 
+    import Checkmark from "$icon/Copied.svelte";
+    import Share from "$icon/Share.svelte";
     import {fly} from "svelte/transition";
 
     let copied: boolean = false;
@@ -56,12 +58,13 @@
             You guessed today's album art on <b>the first guess</b>!
         {/if}
     </span>
-    <button class="mt-6 px-3 py-2 rounded p-1 uppercase tracking-widest transition-colors duration-200 bg-primary-500"
+    <button class="mt-6 px-3 py-2 rounded p-1 uppercase tracking-widest transition-colors duration-200 bg-primary-500
+        flex items-center space-x-2"
         in:fly={{y: 40, delay: 300, duration: 1000}} on:click={share}>
         {#if copied}
-            Copied to your Clipboard ✔
+            <Checkmark /><span>Copied to your Clipboard</span>
         {:else}
-            Share Result ⬈
+            <Share /><span>Share Result</span>
         {/if}
     </button>
 </div>

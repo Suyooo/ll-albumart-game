@@ -1,5 +1,7 @@
 <script lang="ts">
     import "../app.css";
+    import Left from "$icon/Left.svelte";
+    import Right from "$icon/Right.svelte";
     import {onMount} from "svelte";
     import {scale} from 'svelte/transition';
     import type {GameInstanceSiteWrapper} from "$js/games.js";
@@ -34,7 +36,8 @@
     <div class="w-10 mx-2">
         {#if stage > 0}
             <button class="w-10 h-10 flex items-center justify-center bg-primary-500 rounded select-none
-            transition-colors duration-200" on:click={() => { stage--; updateCanvasList(); }}>🢀
+            transition-colors duration-200" on:click={() => { stage--; updateCanvasList(); }}>
+                <Left />
             </button>
         {/if}
     </div>
@@ -43,7 +46,8 @@
     <div class="w-10 mx-2">
         {#if stage < maxStage}
             <button class="w-10 h-10 flex items-center justify-center bg-primary-500 rounded select-none
-            transition-colors duration-200" on:click={() => { stage++; updateCanvasList(); }}>🢂
+            transition-colors duration-200" on:click={() => { stage++; updateCanvasList(); }}>
+                <Right />
             </button>
         {/if}
     </div>

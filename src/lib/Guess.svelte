@@ -1,5 +1,8 @@
 <script lang="ts">
     import "../app.css";
+    import Correct from "$icon/Correct.svelte";
+    import Skip from "$icon/Skip.svelte";
+    import Wrong from "$icon/Wrong.svelte";
     import {fly} from 'svelte/transition';
 
     export let guess: string | null | undefined = undefined;
@@ -20,13 +23,14 @@
      class:border-correct={isCorrect}
      class:border-wrong={isWrong}>
     {#if !isEmpty}
-        <div class="w-4 mr-3" in:fly={{x: 30}}>
+        <div class="w-4 mr-3" class:text-skipped={isSkipped} class:text-correct={isCorrect} class:text-wrong={isWrong}
+            in:fly={{x: 30}}>
             {#if isCorrect}
-                🟩
+                <Correct />
             {:else if isWrong}
-                🟥
+                <Wrong />
             {:else}
-                ⬜️
+                <Skip />
             {/if}
         </div>
         <div class="flex-grow" class:font-bold={isCorrect} class:text-gray-500={isSkipped} in:fly={{x: 30}}>

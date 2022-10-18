@@ -8,8 +8,9 @@ export default defineConfig({
     plugins: [svelte()],
     resolve:{
         alias:{
-            '$js' : path.resolve(__dirname, './src/js'),
-            '$lib' : path.resolve(__dirname, './src/lib')
+            "$js" : path.resolve(__dirname, "./src/js"),
+            "$lib" : path.resolve(__dirname, "./src/lib"),
+            "$icon" : path.resolve(__dirname, "./src/icon")
         },
     },
     css: {

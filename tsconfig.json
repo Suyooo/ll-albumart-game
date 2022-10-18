@@ -19,7 +19,9 @@
       "$lib": ["src/lib"],
       "$lib/*": ["src/lib/*"],
       "$js": ["src/js"],
-      "$js/*": ["src/js/*"]
+      "$js/*": ["src/js/*"],
+      "$icon": ["src/icon"],
+      "$icon/*": ["src/icon/*"]
     }
   },
   "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.js", "src/**/*.svelte"]
