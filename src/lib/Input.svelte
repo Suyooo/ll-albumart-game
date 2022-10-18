@@ -28,22 +28,17 @@
     <input class="flex-grow w-full rounded p-2 text-white bg-gray-700 text-sm ring-inset ring-2 ring-primary-500
         focus:ring-white" placeholder="Which album is this?" bind:value={input} bind:this={inputElement}
         on:keydown={e => { if (e.key === "Enter" && !e.repeat && input) submit(); }}>
-    <div class="flex items-center relative">
-        <span class="text-gray-400 uppercase tracking-widest text-xs absolute w-full text-center -bottom-5">
-            Guess {failed + 1}/6
-        </span>
-        <button class="w-32 rounded p-1 uppercase tracking-widest transition-colors duration-200" {disabled}
-                class:bg-gray-700={disabled} class:bg-primary-500={input && !disabled}
-                class:bg-primary-700={!input && !disabled} on:click={submit}>
-            {#if input}
-                Submit
-            {:else if failed < 5}
-                Skip
-            {:else}
-                Give Up
-            {/if}
-        </button>
-    </div>
+    <button class="w-32 rounded p-1 uppercase tracking-widest transition-colors duration-200" {disabled}
+            class:bg-gray-700={disabled} class:bg-primary-500={input && !disabled}
+            class:bg-primary-700={!input && !disabled} on:click={submit}>
+        {#if input}
+            Submit
+        {:else if failed < 5}
+            Skip
+        {:else}
+            Give Up
+        {/if}
+    </button>
 </div>
 
 <style lang="postcss">
