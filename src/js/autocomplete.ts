@@ -47,7 +47,8 @@ export function initAutocomplete(inputElement: HTMLInputElement, setInputValue: 
     return autocomplete<ACResult>({
         input: inputElement,
         fetch: function (text: string, update: (res: ACResult[]) => void): void {
-            update(fuzzysort.go(text, acTargets, acOptions)
+            if (VALID_GUESSES.has(text)) update([]);
+            else update(fuzzysort.go(text, acTargets, acOptions)
                 .map(keysResult => {
                     const result = keysResult[0] || keysResult[1] || keysResult[2] || keysResult[3];
                     const value = keysResult.obj.album;
