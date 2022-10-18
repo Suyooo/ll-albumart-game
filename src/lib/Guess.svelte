@@ -7,7 +7,6 @@
     export let isEmpty: boolean;
     export let isCurrent: boolean;
 
-    let isCorrect: boolean, isSkipped: boolean, isWrong: boolean, isNextGuess: boolean;
     $: isCorrect = isCurrent && cleared;
     $: isSkipped = !isEmpty && guess === null;
     $: isWrong = !isEmpty && !isCurrent && guess !== null;

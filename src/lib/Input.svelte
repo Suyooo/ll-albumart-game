@@ -1,20 +1,20 @@
 <script lang="ts">
     import type {AutocompleteResult} from "autocompleter/autocomplete";
-    import {createEventDispatcher, onDestroy, onMount} from "svelte";
     import {initAutocomplete, VALID_GUESSES} from "$js/autocomplete";
 
+    import {createEventDispatcher, onDestroy, onMount} from "svelte";
+
     export let failed: 0 | 1 | 2 | 3 | 4 | 5 | 6;
-    export let finished: boolean;
 
     const dispatch = createEventDispatcher<{ guess: string }>();
     let input: string, disabled: boolean = false, inputElement: HTMLInputElement;
 
     function submit(): void {
         if (!input || VALID_GUESSES.has(input)) {
+            disabled = true;
+            setTimeout(() => { disabled = false; }, failed < 4 ? 500 : 2000);
             dispatch("guess", input);
             input = "";
-            disabled = true;
-            setTimeout(() => { disabled = false; }, 500);
         }
     }
 
@@ -23,7 +23,7 @@
     onDestroy(() => autocompleteInstance?.destroy());
 </script>
 
-<div class="w-full flex items-center justify-between mb-8 mt-4" class:hidden={finished}>
+<div class="w-full flex items-center justify-between mb-8 mt-4">
     <input class="flex-grow rounded p-2 text-white bg-gray-700 text-sm ring-inset ring-2 ring-primary-500
         focus:ring-white" placeholder="Which album is this?" bind:value={input} bind:this={inputElement}
         on:keydown={e => { if (e.key === "Enter" && !e.repeat && input) submit(); }}>

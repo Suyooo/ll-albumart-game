@@ -6,6 +6,7 @@
     import Input from "$lib/Input.svelte";
     import Guess from "$lib/Guess.svelte";
     import Footer from "$lib/Footer.svelte";
+    import Result from "$lib/Result.svelte";
 
     interface PlayState {
         day: number,
@@ -29,6 +30,7 @@
         STATE.day = Math.floor(Math.random() * 1000);
         STATE.albumId = Math.floor(Math.random() * ALBUMPOOL.length);
     } while (ALBUMPOOL[STATE.albumId].url === "");
+
     //STATE.albumId = 280;
 
     function addGuess(event: CustomEvent<string>) {
@@ -41,18 +43,35 @@
             if (STATE.failed >= 6) STATE.finished = true;
         }
     }
+
+    function getShareText(): string {
+        return "LL! Guess That Album #" + 1 + "\n🖼" +
+            STATE.guesses.map((guess, index) => {
+                if (index < STATE.failed) {
+                    if (guess === null) return "⬜";
+                    else return "🟥️";
+                } else if (index === STATE.failed) return "🟩";
+                else return;
+            }).join("") +
+            "️️⬛".repeat(6 - STATE.failed - (STATE.cleared ? 1 : 0)) +
+            "\n#LLAlbumArt #lovelive #ラブライブ\nhttps://llalbumart.suyo.be";
+    }
 </script>
 
 <Header/>
 
 <main class="w-full max-w-screen-sm flex-grow flex flex-col px-8">
     <GameDisplayContainer
-            day={STATE.day} finished={STATE.finished} album={ALBUMPOOL[STATE.albumId]} failed={STATE.failed} />
-
-    <Input failed={STATE.failed} finished={STATE.finished} on:guess={addGuess} />
+            day={STATE.day} finished={STATE.finished} album={ALBUMPOOL[STATE.albumId]} failed={STATE.failed}/>
+    {ALBUMPOOL[STATE.albumId].titleEn}
+    {#if STATE.finished}
+        <Result cleared={STATE.cleared} failed={STATE.failed} getShareText={getShareText}/>
+    {:else}
+        <Input failed={STATE.failed} on:guess={addGuess}/>
+    {/if}
     {#each {length: 6} as _, i}
         <Guess guess={STATE.guesses[i]} cleared={STATE.cleared}
-            isEmpty={STATE.failed < i || (STATE.failed === i && !STATE.cleared)} isCurrent={STATE.failed === i} />
+               isEmpty={STATE.failed < i || (STATE.failed === i && !STATE.cleared)} isCurrent={STATE.failed === i}/>
     {/each}
 </main>
 
