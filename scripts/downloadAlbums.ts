@@ -10,9 +10,9 @@ const downloadQueue: { titleJa?: string, titleEn?: string, url: string, used?: b
         if (album.url) continue;
 
         const dl = downloadQueue.find(dl => dl.titleEn == album.titleEn || dl.titleJa == album.titleJa);
-        if (dl) {
+        if (dl && dl.url) {
             const filename = album.artistEn.replace(" High School Idol Club","")
-                    .replace(/ \(CV: [^)]*\)/,"") .replace("-_","_")
+                    .replace(/ \(CV: [^)]*\)/,"") .replace("-$","_")
                     .toLowerCase().replace(/[^a-zA-Z0-9]+/g, "-") + "_"
                 + album.titleEn.toLowerCase().replace(/[^a-zA-Z0-9]+/g, "-")
                     .replace(/-$/g,"") + ".jpg";
