@@ -26,10 +26,10 @@
         guesses: []
     };
     //$: console.log(STATE);
-    /*do {
+    do {
         STATE.day = Math.floor(Math.random() * 1000);
         STATE.albumId = Math.floor(Math.random() * ALBUMPOOL.length);
-    } while (ALBUMPOOL[STATE.albumId].url === "");*/
+    } while (ALBUMPOOL[STATE.albumId].url === "");
 
     //STATE.albumId = 280;
 

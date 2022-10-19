@@ -25,7 +25,7 @@
             <GameDisplay {game} {finished} {failed} />
         {/key}
         {#if finished}
-            <div class="text-sm mt-2" in:fly={{x: 30, duration: 1000}}>
+            <div class="text-sm mt-2 text-center max-w-sm mx-auto" in:fly={{x: 30, duration: 1000}}>
                 {album.artistEn} - <span class="font-bold">{album.titleEn}</span>
             </div>
         {/if}
