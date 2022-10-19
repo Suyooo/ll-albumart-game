@@ -8,30 +8,34 @@
     },
     {
         "url": "albumart/liella_hajimari-wa-kimi-no-sora-minna-de-kanaeru-monogatari.jpg",
-        "titleEn": "Hajimari wa Kimi no Sora [Minna de Kanaeru Monogatari]",
+        "titleEn": "Hajimari wa Kimi no Sora [Minna de Kanaeru Monogatari Edition]",
         "artistEn": "Liella!",
         "titleJa": "始まりは君の空[みんなで叶える物語盤]",
         "artistJa": "Liella!"
     },
     {
         "url": "albumart/liella_hajimari-wa-kimi-no-sora-watashi-o-kanaeru-monogatari.jpg",
-        "titleEn": "Hajimari wa Kimi no Sora [Watashi o Kanaeru Monogatari]",
+        "titleEn": "Hajimari wa Kimi no Sora [Watashi o Kanaeru Monogatari Edition]",
         "artistEn": "Liella!",
         "titleJa": "始まりは君の空[私を叶える物語盤]",
         "artistJa": "Liella!"
     },
     {
         "url": "albumart/liella_tokunatsu-sunshine-wish-song-ep-6-edition.jpg",
-        "titleEn": "Tokunatsu☆Sunshine / Wish Song [Ep 6 Edition]",
+        "titleEn": "Tokunatsu☆Sunshine",
+        "realEn": "Tokunatsu☆Sunshine / Wish Song [Ep 6 Edition]",
         "artistEn": "Liella!",
-        "titleJa": "常夏☆サンシャイン/Wish Song 【第6話盤】",
+        "titleJa": "常夏☆サンシャイン",
+        "realJa": "常夏☆サンシャイン / Wish Song 【第6話盤】",
         "artistJa": "Liella!"
     },
     {
         "url": "albumart/liella_tokunatsu-sunshine-wish-song-ep-8-edition.jpg",
-        "titleEn": "Tokunatsu☆Sunshine / Wish Song [Ep 8 Edition]",
+        "titleEn": "Wish Song",
+        "realEn": "Tokunatsu☆Sunshine / Wish Song [Ep 8 Edition]",
         "artistEn": "Liella!",
-        "titleJa": "常夏☆サンシャイン/Wish Song 【第8話盤】",
+        "titleJa": "Wish Song",
+        "realJa": "常夏☆サンシャイン / Wish Song 【第8話盤】",
         "artistJa": "Liella!"
     },
     {
@@ -43,16 +47,20 @@
     },
     {
         "url": "albumart/liella_welcome-to-bokura-no-sekai-go-restart-ep-1-edition.jpg",
-        "titleEn": "Welcome to Bokura no Sekai / Go!! Restart [Ep 1 Edition]",
+        "titleEn": "Welcome to Bokura no Sekai",
+        "realEn": "Welcome to Bokura no Sekai / Go!! Restart [Ep 1 Edition]",
         "artistEn": "Liella!",
-        "titleJa": "Welcome to 僕らのセカイ / Go!! リスタート 【第1話盤】",
+        "titleJa": "Welcome to 僕らのセカイ",
+        "realJa": "Welcome to 僕らのセカイ / Go!! リスタート 【第1話盤】",
         "artistJa": "Liella!"
     },
     {
         "url": "albumart/liella_welcome-to-bokura-no-sekai-go-restart-ep-3-edition.jpg",
-        "titleEn": "Welcome to Bokura no Sekai / Go!! Restart [Ep 3 Edition]",
+        "titleEn": "Go!! Restart",
+        "realEn": "Welcome to Bokura no Sekai / Go!! Restart [Ep 3 Edition]",
         "artistEn": "Liella!",
-        "titleJa": "Welcome to 僕らのセカイ / Go!! リスタート 【第3話盤】",
+        "titleJa": "Go!! リスタート",
+        "realJa": "Welcome to 僕らのセカイ / Go!! リスタート 【第3話盤】",
         "artistJa": "Liella!"
     },
     {
@@ -64,16 +72,20 @@
     },
     {
         "url": "albumart/liella_nonfiction-starlight-prologue-ep-10-edition.jpg",
-        "titleEn": "Nonfiction!! / Starlight Prologue [Ep 10 Edition]",
+        "titleEn": "Nonfiction!!",
+        "realEn": "Nonfiction!! / Starlight Prologue [Ep 10 Edition]",
         "artistEn": "Liella!",
-        "titleJa": "ノンフィクション!! / Starlight Prologue 【第10話盤】",
+        "titleJa": "ノンフィクション!!",
+        "realJa": "ノンフィクション!! / Starlight Prologue 【第10話盤】",
         "artistJa": "Liella!"
     },
     {
         "url": "albumart/liella_nonfiction-starlight-prologue-ep-12-edition.jpg",
-        "titleEn": "Nonfiction!! / Starlight Prologue [Ep 12 Edition]",
+        "titleEn": "Starlight Prologue",
+        "realEn": "Nonfiction!! / Starlight Prologue [Ep 12 Edition]",
         "artistEn": "Liella!",
-        "titleJa": "ノンフィクション!! / Starlight Prologue 【第12話盤】",
+        "titleJa": "Starlight Prologue",
+        "realJa": "ノンフィクション!! / Starlight Prologue 【第12話盤】",
         "artistJa": "Liella!"
     },
     {
@@ -85,16 +97,20 @@
     },
     {
         "url": "albumart/liella_vitamin-summer-chance-day-chance-way-ep-6-edition.jpg",
-        "titleEn": "Vitamin SUMMER! / Chance Day, Chance Way! [Ep 6 Edition]",
+        "titleEn": "Vitamin SUMMER!",
+        "realEn": "Vitamin SUMMER! / Chance Day, Chance Way! [Ep 6 Edition]",
         "artistEn": "Liella!",
-        "titleJa": "ビタミンSUMMER！ / Chance Day, Chance Way！ 【第6話盤】",
+        "titleJa": "ビタミンSUMMER！",
+        "realJa": "ビタミンSUMMER！ / Chance Day, Chance Way！ 【第6話盤】",
         "artistJa": "Liella!"
     },
     {
         "url": "albumart/liella_vitamin-summer-chance-day-chance-way-ep-8-edition.jpg",
-        "titleEn": "Vitamin SUMMER! / Chance Day, Chance Way! [Ep 8 Edition]",
+        "titleEn": "Chance Day, Chance Way!",
+        "realEn": "Vitamin SUMMER! / Chance Day, Chance Way! [Ep 8 Edition]",
         "artistEn": "Liella!",
-        "titleJa": "ビタミンSUMMER！ / Chance Day, Chance Way！ 【第8話盤】",
+        "titleJa": "Chance Day, Chance Way！",
+        "realJa": "ビタミンSUMMER！ / Chance Day, Chance Way！ 【第8話盤】",
         "artistJa": "Liella!"
     },
     {
@@ -113,28 +129,32 @@
     },
     {
         "url": "albumart/liella_mirai-yohou-hallelujah-tiny-stars-ep-1-edition.jpg",
-        "titleEn": "Mirai Yohou Hallelujah! / Tiny Stars [Ep 1 Edition]",
+        "titleEn": "Mirai Yohou Hallelujah!",
+        "realEn": "Mirai Yohou Hallelujah! / Tiny Stars [Ep 1 Edition]",
         "artistEn": "Liella!",
-        "titleJa": "未来予報ハレルヤ！ / Tiny Stars 【第1話盤】",
+        "titleJa": "未来予報ハレルヤ！",
+        "realJa": "未来予報ハレルヤ！ / Tiny Stars 【第1話盤】",
         "artistJa": "Liella!"
     },
     {
         "url": "albumart/liella_mirai-yohou-hallelujah-tiny-stars-ep-3-edition.jpg",
-        "titleEn": "Mirai Yohou Hallelujah! / Tiny Stars [Ep 3 Edition]",
+        "titleEn": "Tiny Stars",
+        "realEn": "Mirai Yohou Hallelujah! / Tiny Stars [Ep 3 Edition]",
         "artistEn": "Liella!",
-        "titleJa": "未来予報ハレルヤ！ / Tiny Stars 【第3話盤】",
+        "titleJa": "Tiny Stars",
+        "realJa": "未来予報ハレルヤ！ / Tiny Stars 【第3話盤】",
         "artistJa": "Liella!"
     },
     {
         "url": "albumart/liella_what-a-wonderful-dream-original-type.jpg",
-        "titleEn": "What a Wonderful Dream!! [Original Type]",
+        "titleEn": "What a Wonderful Dream!! [Original Edition]",
         "artistEn": "Liella!",
         "titleJa": "What a Wonderful Dream!!【オリジナル盤】",
         "artistJa": "Liella!"
     },
     {
         "url": "albumart/liella_what-a-wonderful-dream-photo-type.jpg",
-        "titleEn": "What a Wonderful Dream!! [Photo Type]",
+        "titleEn": "What a Wonderful Dream!! [Photo Edition]",
         "artistEn": "Liella!",
         "titleJa": "What a Wonderful Dream!!【フォト盤】",
         "artistJa": "Liella!"
@@ -778,79 +798,101 @@
     },
     {
         "url": "albumart/nijigasaki_dream-with-you-poppin-up-dive-uehara-ayumu-type.jpg",
-        "titleEn": "Dream with You / Poppin' Up! / DIVE! [Uehara Ayumu Type]",
+        "titleEn": "Dream with You",
+        "realEn": "Dream with You / Poppin' Up! / DIVE! [Uehara Ayumu Type]",
         "artistEn": "Nijigasaki High School Idol Club",
-        "titleJa": "Dream with You / Poppin' Up! / DIVE！【上原歩夢盤】",
+        "titleJa": "Dream with You",
+        "realJa": "Dream with You / Poppin' Up! / DIVE！【上原歩夢盤】",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     },
     {
         "url": "albumart/nijigasaki_dream-with-you-poppin-up-dive-nakasu-kasumi-type.jpg",
-        "titleEn": "Dream with You / Poppin' Up! / DIVE! [Nakasu Kasumi Type]",
+        "titleEn": "Poppin' Up!",
+        "realEn": "Dream with You / Poppin' Up! / DIVE! [Nakasu Kasumi Type]",
         "artistEn": "Nijigasaki High School Idol Club",
-        "titleJa": "Dream with You / Poppin' Up! / DIVE！【中須かすみ盤】",
+        "titleJa": "Poppin' Up!",
+        "realJa": "Dream with You / Poppin' Up! / DIVE！【中須かすみ盤】",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     },
     {
         "url": "albumart/nijigasaki_dream-with-you-poppin-up-dive-yuki-setsuna-type.jpg",
-        "titleEn": "Dream with You / Poppin' Up! / DIVE! [Yuki Setsuna Type]",
+        "titleEn": "DIVE!",
+        "realEn": "Dream with You / Poppin' Up! / DIVE! [Yuki Setsuna Type]",
         "artistEn": "Nijigasaki High School Idol Club",
-        "titleJa": "Dream with You / Poppin' Up! / DIVE！【優木せつ菜盤】",
+        "titleJa": "DIVE！",
+        "realJa": "Dream with You / Poppin' Up! / DIVE！【優木せつ菜盤】",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     },
     {
         "url": "albumart/nijigasaki_saikou-heart-la-bella-patria-tsunagaru-connect-miyashita-ai-type.jpg",
-        "titleEn": "Saikou Heart / La Bella Patria / Tsunagaru Connect [Miyashita Ai Type]",
+        "titleEn": "Saikou Heart",
+        "realEn": "Saikou Heart / La Bella Patria / Tsunagaru Connect [Miyashita Ai Type]",
         "artistEn": "Nijigasaki High School Idol Club",
-        "titleJa": "サイコーハート / La Bella Patria / ツナガルコネクト【宮下 愛盤】",
+        "titleJa": "サイコーハート",
+        "realJa": "サイコーハート / La Bella Patria / ツナガルコネクト【宮下 愛盤】",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     },
     {
         "url": "albumart/nijigasaki_saikou-heart-la-bella-patria-tsunagaru-connect-emma-verde-type.jpg",
-        "titleEn": "Saikou Heart / La Bella Patria / Tsunagaru Connect [Emma Verde Type]",
+        "titleEn": "La Bella Patria",
+        "realEn": "Saikou Heart / La Bella Patria / Tsunagaru Connect [Emma Verde Type]",
         "artistEn": "Nijigasaki High School Idol Club",
-        "titleJa": "サイコーハート / La Bella Patria / ツナガルコネクト【エマ・ヴェルデ盤】",
+        "titleJa": "La Bella Patria",
+        "realJa": "サイコーハート / La Bella Patria / ツナガルコネクト【エマ・ヴェルデ盤】",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     },
     {
         "url": "albumart/nijigasaki_saikou-heart-la-bella-patria-tsunagaru-connect-tennoji-rina-type.jpg",
-        "titleEn": "Saikou Heart / La Bella Patria / Tsunagaru Connect [Tennoji Rina Type]",
+        "titleEn": "Tsunagaru Connect",
+        "realEn": "Saikou Heart / La Bella Patria / Tsunagaru Connect [Tennoji Rina Type]",
         "artistEn": "Nijigasaki High School Idol Club",
-        "titleJa": "サイコーハート / La Bella Patria / ツナガルコネクト【天王寺璃奈盤】",
+        "titleJa": "ツナガルコネクト",
+        "realJa": "サイコーハート / La Bella Patria / ツナガルコネクト【天王寺璃奈盤】",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     },
     {
         "url": "albumart/nijigasaki_butterfly-solitude-rain-vivid-world-konoe-kanata-type.jpg",
-        "titleEn": "Butterfly / Solitude Rain / VIVID WORLD [Konoe Kanata Type]",
+        "titleEn": "Butterfly",
+        "realEn": "Butterfly / Solitude Rain / VIVID WORLD [Konoe Kanata Type]",
         "artistEn": "Nijigasaki High School Idol Club",
-        "titleJa": "Butterfly / Solitude Rain / VIVID WORLD【近江彼方盤】",
+        "titleJa": "Butterfly",
+        "realJa": "Butterfly / Solitude Rain / VIVID WORLD【近江彼方盤】",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     },
     {
         "url": "albumart/nijigasaki_butterfly-solitude-rain-vivid-world-osaka-shizuku-type.jpg",
-        "titleEn": "Butterfly / Solitude Rain / VIVID WORLD [Osaka Shizuku Type]",
+        "titleEn": "Solitude Rain",
+        "realEn": "Butterfly / Solitude Rain / VIVID WORLD [Osaka Shizuku Type]",
         "artistEn": "Nijigasaki High School Idol Club",
-        "titleJa": "Butterfly / Solitude Rain / VIVID WORLD【桜坂しずく盤】",
+        "titleJa": "Solitude Rain",
+        "realJa": "Butterfly / Solitude Rain / VIVID WORLD【桜坂しずく盤】",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     },
     {
         "url": "albumart/nijigasaki_butterfly-solitude-rain-vivid-world-asaka-karin-type.jpg",
-        "titleEn": "Butterfly / Solitude Rain / VIVID WORLD [Asaka Karin Type]",
+        "titleEn": "VIVID WORLD",
+        "realEn": "Butterfly / Solitude Rain / VIVID WORLD [Asaka Karin Type]",
         "artistEn": "Nijigasaki High School Idol Club",
-        "titleJa": "Butterfly / Solitude Rain / VIVID WORLD【朝香果林盤】",
+        "titleJa": "VIVID WORLD",
+        "realJa": "Butterfly / Solitude Rain / VIVID WORLD【朝香果林盤】",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     },
     {
         "url": "albumart/nijigasaki_awakening-promise-yume-ga-koko-kara-hajimaru-yo-uehara-ayumu-side.jpg",
-        "titleEn": "Awakening Promise / Yume ga Koko Kara Hajimaru yo [Uehara Ayumu Side]",
+        "titleEn": "Awakening Promise",
+        "realEn": "Awakening Promise / Yume ga Koko Kara Hajimaru yo [Uehara Ayumu Side]",
         "artistEn": "Nijigasaki High School Idol Club",
-        "titleJa": "Awakening Promise / 夢がここからはじまるよ【上原歩夢ジャケット】",
+        "titleJa": "Awakening Promise",
+        "realJa": "Awakening Promise / 夢がここからはじまるよ【上原歩夢ジャケット】",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     },
     {
         "url": "albumart/nijigasaki_awakening-promise-yume-ga-koko-kara-hajimaru-yo-nijigasaki-side.jpg",
-        "titleEn": "Awakening Promise / Yume ga Koko Kara Hajimaru yo [Nijigasaki Side]",
+        "titleEn": "Yume ga Koko Kara Hajimaru yo",
+        "realEn": "Awakening Promise / Yume ga Koko Kara Hajimaru yo [Nijigasaki Side]",
         "artistEn": "Nijigasaki High School Idol Club",
-        "titleJa": "Awakening Promise / 夢がここからはじまるよ【虹ヶ咲ジャケット】",
+        "titleJa": "夢がここからはじまるよ",
+        "realJa": "Awakening Promise / 夢がここからはじまるよ【虹ヶ咲ジャケット】",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     },
     {
@@ -869,23 +911,29 @@
     },
     {
         "url": "albumart/nijigasaki_eutopia-emotion-stars-we-chase-zhong-lanzhu-type.jpg",
-        "titleEn": "Eutopia / EMOTION / stars we chase [Zhong Lanzhu Type]",
+        "titleEn": "Eutopia",
+        "realEn": "Eutopia / EMOTION / stars we chase [Zhong Lanzhu Type]",
         "artistEn": "Nijigasaki High School Idol Club",
-        "titleJa": "Eutopia / EMOTION / stars we chase【鐘 嵐珠盤】",
+        "titleJa": "Eutopia",
+        "realJa": "Eutopia / EMOTION / stars we chase【鐘 嵐珠盤】",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     },
     {
         "url": "albumart/nijigasaki_eutopia-emotion-stars-we-chase-mifune-shioriko-type.jpg",
-        "titleEn": "Eutopia / EMOTION / stars we chase [Mifune Shioriko Type]",
+        "titleEn": "EMOTION",
+        "realEn": "Eutopia / EMOTION / stars we chase [Mifune Shioriko Type]",
         "artistEn": "Nijigasaki High School Idol Club",
-        "titleJa": "Eutopia / EMOTION / stars we chase【三船栞子盤】",
+        "titleJa": "EMOTION",
+        "realJa": "Eutopia / EMOTION / stars we chase【三船栞子盤】",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     },
     {
         "url": "albumart/nijigasaki_eutopia-emotion-stars-we-chase-mia-taylor-type.jpg",
-        "titleEn": "Eutopia / EMOTION / stars we chase [Mia Taylor Type]",
+        "titleEn": "stars we chase",
+        "realEn": "Eutopia / EMOTION / stars we chase [Mia Taylor Type]",
         "artistEn": "Nijigasaki High School Idol Club",
-        "titleJa": "Eutopia / EMOTION / stars we chase【ミア・テイラー盤】",
+        "titleJa": "stars we chase",
+        "realJa": "Eutopia / EMOTION / stars we chase【ミア・テイラー盤】",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     },
     {
@@ -1380,16 +1428,20 @@
     },
     {
         "url": "albumart/liella_sing-shine-smile-mirai-no-oto-ga-kikoeru-ep-10-edition.jpg",
-        "titleEn": "Sing! Shine! Smile! / Mirai no Oto ga Kikoeru [Ep 10 Edition]",
+        "titleEn": "Sing! Shine! Smile!",
+        "realEn": "Sing! Shine! Smile! / Mirai no Oto ga Kikoeru [Ep 10 Edition]",
         "artistEn": "Liella!",
-        "titleJa": "Sing！Shine！Smile！ / 未来の音が聴こえる 【第10話盤】",
+        "titleJa": "Sing！Shine！Smile！",
+        "realJa": "Sing！Shine！Smile！ / 未来の音が聴こえる 【第10話盤】",
         "artistJa": "Liella!"
     },
     {
         "url": "albumart/liella_sing-shine-smile-mirai-no-oto-ga-kikoeru-ep-12-edition.jpg",
-        "titleEn": "Sing! Shine! Smile! / Mirai no Oto ga Kikoeru [Ep 12 Edition]",
+        "titleEn": "Mirai no Oto ga Kikoeru",
+        "realEn": "Sing! Shine! Smile! / Mirai no Oto ga Kikoeru [Ep 12 Edition]",
         "artistEn": "Liella!",
-        "titleJa": "Sing！Shine！Smile！ / 未来の音が聴こえる 【第12話盤】",
+        "titleJa": "未来の音が聴こえる",
+        "realJa": "Sing！Shine！Smile！ / 未来の音が聴こえる 【第12話盤】",
         "artistJa": "Liella!"
     }
 ]

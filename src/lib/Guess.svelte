@@ -42,3 +42,10 @@
         </div>
     {/if}
 </div>
+
+<style>
+    div > .flex-grow {
+        @apply leading-none;
+        @apply py-[.25em];
+    }
+</style>

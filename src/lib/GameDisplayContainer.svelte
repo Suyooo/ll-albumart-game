@@ -1,6 +1,6 @@
 <script lang="ts">
     import {onMount} from "svelte";
-    import {fade} from 'svelte/transition';
+    import {fly} from 'svelte/transition';
     
     import GameDisplay from "./GameDisplay.svelte";
     import Spinner from "./Spinner.svelte";
@@ -22,8 +22,8 @@
 <div class="flex-grow flex flex-col items-center justify-center">
     {#if game}
         {#if finished}
-            <div class="text-sm mb-2 text-center max-w-sm mx-auto" in:fade={{duration: 1000}}>
-                {album.artistEn} - <span class="font-bold">{album.titleEn}</span>
+            <div class="text-sm mb-2 text-center max-w-sm mx-auto" in:fly={{y: 50, duration: 500}}>
+                {album.artistEn} - <span class="font-bold">{album.realEn || album.titleEn}</span>
             </div>
         {/if}
         {#key (finished ? -1 : failed)}

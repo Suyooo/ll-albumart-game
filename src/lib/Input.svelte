@@ -54,6 +54,11 @@
         border: 0 !important;
     }
 
+    :global(.autocomplete > div) {
+        @apply leading-none;
+        @apply py-2;
+    }
+
     :global(.autocomplete mark) {
         @apply bg-primary-700;
         @apply text-white;
@@ -63,5 +68,11 @@
     /*noinspection CssUnusedSymbol*/
     :global(.autocomplete:not(:hover) > .selected) {
         @apply bg-primary-900;
+    }
+
+    :global(.autocomplete > div > small) {
+        @apply text-gray-400;
+        @apply ml-4;
+        @apply text-xs;
     }
 </style>

@@ -16,6 +16,7 @@ interface ACTarget extends AutocompleteItem {
 interface ACResult extends AutocompleteItem {
     label: string,
     value: Album,
+    isEn: boolean,
     result: Fuzzysort.Result,
     prefixArtist?: string
 }
@@ -52,11 +53,12 @@ export function initAutocomplete(inputElement: HTMLInputElement, setInputValue: 
                 .map(keysResult => {
                     const result = keysResult[0] || keysResult[1] || keysResult[2] || keysResult[3];
                     const value = keysResult.obj.album;
+                    const isEn = result === keysResult[0] || result === keysResult[2];
                     const prefixArtist = (result !== keysResult[0] && result !== keysResult[1])
-                        ? result === keysResult[2] ? value.artistEn : value.artistJa
+                        ? (isEn ? value.artistEn : value.artistJa)
                         : undefined;
                     return <ACResult>{
-                        result, value, prefixArtist,
+                        result, value, prefixArtist, isEn,
                         label: (prefixArtist ? prefixArtist + " - " : "") + result.target,
                     };
                 })
@@ -71,6 +73,10 @@ export function initAutocomplete(inputElement: HTMLInputElement, setInputValue: 
                 "border-b-2 last:border-b-0"
             itemElement.innerHTML = (item.prefixArtist ? item.prefixArtist + " - " : "") +
                 fuzzysort.highlight(item.result, "<mark>", "</mark>") || item.label;
+            if ((item.isEn && item.value.realEn) || (!item.isEn && item.value.realJa)) {
+                itemElement.innerHTML +=
+                    "<br><small>(" + (item.isEn ? item.value.realEn : item.value.realJa) + ")</small>";
+            }
             return itemElement;
         },
         showOnFocus: true,

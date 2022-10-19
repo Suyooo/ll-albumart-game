@@ -31,7 +31,7 @@
     }
 </script>
 
-<div class="w-full flex flex-col items-center justify-between mb-4 mt-4" in:fly={{y: 30, duration: 1000}}>
+<div class="w-full flex flex-col items-center justify-between mb-4 mt-4" in:fly={{y: -30, duration: 500}}>
     <h2 class="tracking-widest uppercase font-bold text-2xl">
         {#if !cleared}
             Oops
@@ -49,7 +49,7 @@
             Amazing
         {/if}
     </h2>
-    <span class="text-sm" in:fly={{y: 20, duration: 1000}}>
+    <span class="text-sm" in:fly={{y: -20, duration: 1000}}>
         {#if !cleared}
             You have run out of guesses.
         {:else if failed > 0}
@@ -60,7 +60,7 @@
     </span>
     <button class="mt-2 px-3 py-2 rounded p-1 uppercase tracking-widest transition-colors duration-200 bg-primary-500
         flex items-center space-x-2"
-        in:fly={{y: 20, delay: 500, duration: 1000}} on:click={share}>
+        in:fly={{x: -50, delay: 500, duration: 1000}} on:click={share}>
         {#if copied}
             <Checkmark /><span>Copied to your Clipboard</span>
         {:else}
