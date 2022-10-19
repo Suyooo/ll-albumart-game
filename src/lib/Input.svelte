@@ -17,9 +17,16 @@
             input = "";
         }
     }
+    function setInputValue(s: string): void {
+        input = s;
+        inputElement.focus();
+        requestAnimationFrame(() => {
+            inputElement.scrollLeft = inputElement.scrollWidth;
+        });
+    }
 
     let autocompleteInstance: AutocompleteResult;
-    onMount(() => autocompleteInstance = initAutocomplete(inputElement, (s: string) => input = s));
+    onMount(() => autocompleteInstance = initAutocomplete(inputElement, setInputValue));
     onDestroy(() => autocompleteInstance?.destroy());
 </script>
 
