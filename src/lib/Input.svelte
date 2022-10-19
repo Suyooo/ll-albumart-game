@@ -43,8 +43,8 @@
 
 <style lang="postcss">
     input {
-        @apply outline-0;
-        @apply border-0;
+        outline: none !important;
+        border: 0 !important;
     }
 
     :global(.autocomplete mark) {
