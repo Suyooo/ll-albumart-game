@@ -33,7 +33,8 @@
                 <Skip />
             {/if}
         </div>
-        <div class="flex-grow" class:font-bold={isCorrect} class:text-gray-500={isSkipped} in:fly={{x: 30}}>
+        <div class="flex-grow leading-none py-[.25em]" class:font-bold={isCorrect} class:text-gray-500={isSkipped}
+             in:fly={{x: 30}}>
             {#if !isSkipped}
                 {guess}
             {:else}
@@ -42,10 +43,3 @@
         </div>
     {/if}
 </div>
-
-<style>
-    div > .flex-grow {
-        @apply leading-none;
-        @apply py-[.25em];
-    }
-</style>

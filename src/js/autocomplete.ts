@@ -69,8 +69,6 @@ export function initAutocomplete(inputElement: HTMLInputElement, setInputValue: 
         },
         render: function (item: ACResult): HTMLDivElement | undefined {
             const itemElement = document.createElement("div");
-            itemElement.className = "w-full hover:bg-primary-900 text-white border-gray-700 px-2 py-1 " +
-                "border-b-2 last:border-b-0"
             itemElement.innerHTML = (item.prefixArtist ? item.prefixArtist + " - " : "") +
                 fuzzysort.highlight(item.result, "<mark>", "</mark>") || item.label;
             if ((item.isEn && item.value.realEn) || (!item.isEn && item.value.realJa)) {
@@ -79,8 +77,6 @@ export function initAutocomplete(inputElement: HTMLInputElement, setInputValue: 
             }
             return itemElement;
         },
-        showOnFocus: true,
-        className: "bg-gray-800 border-white border-2 border-t-0 rounded-b mt-[-2px]",
-        disableAutoSelect: true
+        showOnFocus: true
     });
 }

@@ -54,15 +54,16 @@
         border: 0 !important;
     }
 
+    :global(.autocomplete) {
+        @apply bg-gray-800 border-white border-2 border-t-0 rounded-b mt-[-2px] overflow-auto;
+    }
+
     :global(.autocomplete > div) {
-        @apply leading-none;
-        @apply py-2;
+        @apply w-full hover:bg-primary-900 border-gray-700 p-2 border-b-2 last:border-b-0 text-white leading-none;
     }
 
     :global(.autocomplete mark) {
-        @apply bg-primary-700;
-        @apply text-white;
-        @apply rounded;
+        @apply bg-primary-700 text-white rounded;
     }
 
     /*noinspection CssUnusedSymbol*/
@@ -71,7 +72,6 @@
     }
 
     :global(.autocomplete > div > small) {
-        @apply text-gray-400;
-        @apply text-xs;
+        @apply ml-2 text-gray-400 text-xs tracking-tighter;
     }
 </style>

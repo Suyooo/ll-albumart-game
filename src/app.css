@@ -7,15 +7,13 @@
         @apply h-full;
     }
     a {
-        @apply underline;
-        @apply text-primary-500;
+        @apply underline text-primary-500;
     }
     a:active {
         @apply text-primary-100;
     }
     button:active:not([disabled]) {
-        @apply text-black;
-        @apply bg-primary-100;
+        @apply text-black bg-primary-100;
     }
     *:focus-visible {
         outline: 2px solid theme(colors.primary.100) !important;

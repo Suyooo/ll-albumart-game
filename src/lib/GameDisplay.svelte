@@ -56,10 +56,7 @@
 
 <style lang="postcss">
     div > :global(canvas) {
-        @apply absolute;
-        @apply left-0;
-        @apply top-0;
-        @apply w-full;
+        @apply absolute left-0 top-0 w-full;
     }
 
     .glow {
