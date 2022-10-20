@@ -73,13 +73,14 @@ export function initAutocomplete(inputElement: HTMLInputElement, setInputValue: 
                 fuzzysort.highlight(item.result, "<mark>", "</mark>") || item.label;
             if ((item.isEn && item.value.realEn) || (!item.isEn && item.value.realJa)) {
                 itemElement.innerHTML +=
-                    "<br><div>("
+                    "<div>("
                     + (item.isEn ? item.value.realEn : item.value.realJa)
                         .replace(" [", " <span>[")
                     + "</span>)</div>";
             }
             return itemElement;
         },
-        showOnFocus: true
+        showOnFocus: true,
+        minLength: 1
     });
 }

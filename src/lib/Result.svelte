@@ -53,7 +53,7 @@
     });
 </script>
 
-<div class="w-full flex flex-col items-center justify-between mt-16" in:fly={{y: -30, duration: 500}}>
+<div class="flex flex-col items-center mt-12">
     <h2 class="tracking-widest uppercase font-bold text-2xl">
         {#if !cleared}
             Too bad
@@ -80,7 +80,7 @@
             You guessed today's album art on <b>the first guess</b>!
         {/if}
     </div>
-    <div class="mt-4 flex space-x-3" in:fly={{y: -40, duration: 1000}}>
+    <div class="flex space-x-3 mt-2" in:fly={{y: -40, duration: 1000}}>
         {#each {length: 6} as _, i}
             <div class="w-6 h-2" in:fade={{delay: 150 * i}}
                  class:bg-unused={i >= guesses.length}
@@ -91,24 +91,24 @@
             </div>
         {/each}
     </div>
-    <button class="mt-12 px-3 py-2 rounded p-1 uppercase tracking-widest transition-colors duration-200 bg-primary-500
-        flex items-center space-x-2" in:fly={{x: -50, delay: 500, duration: 1000}} on:click={share}>
-        {#if copied}
-            <Checkmark/>
-            <span>Copied to your Clipboard</span>
-        {:else}
-            <Share/>
-            <span>Share Result</span>
-        {/if}
-    </button>
-    <div class="text-sm flex items-center space-x-2 mt-20" in:fly={{x: -50, delay: 600, duration: 1000}}>
-        {#if timerOver}
-            <div>The next round is available</div>
-            <div class="text-xl uppercase tracking-widest">NOW!</div>
-            <div>(refresh the page)</div>
-        {:else}
-            <div>The next round starts in</div>
-            <div class="text-xl uppercase tracking-widest">{timer}</div>
-        {/if}
-    </div>
+</div>
+<button class="px-3 py-2 rounded p-1 uppercase tracking-widest transition-colors duration-200 bg-primary-500
+    flex items-center space-x-2" in:fly={{x: -50, delay: 500, duration: 1000}} on:click={share}>
+    {#if copied}
+        <Checkmark/>
+        <span>Copied to your Clipboard</span>
+    {:else}
+        <Share/>
+        <span>Share Result</span>
+    {/if}
+</button>
+<div class="text-sm flex items-center space-x-2" in:fly={{x: -50, delay: 600, duration: 1000}}>
+    {#if timerOver}
+        <div>The next round is available</div>
+        <div class="text-xl uppercase tracking-widest">NOW!</div>
+        <div>(refresh the page)</div>
+    {:else}
+        <div>The next round starts in</div>
+        <div class="text-xl uppercase tracking-widest">{timer}</div>
+    {/if}
 </div>
