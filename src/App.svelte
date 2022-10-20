@@ -63,16 +63,19 @@
 <main class="w-full max-w-screen-sm flex-grow flex flex-col">
     <GameDisplayContainer day={STATE.day} cleared={STATE.cleared} finished={STATE.finished}
                           album={ALBUMPOOL[STATE.albumId]} failed={STATE.failed}/>
-    <div class="px-8">
+    <div class="px-8 flex flex-col">
         {#if STATE.finished}
             <Result cleared={STATE.cleared} failed={STATE.failed} getShareText={getShareText}/>
         {:else}
             <Input failed={STATE.failed} on:guess={addGuess}/>
         {/if}
-        {#each {length: 6} as _, i}
-            <Guess guess={STATE.guesses[i]} cleared={STATE.cleared}
-                   isEmpty={STATE.failed < i || (STATE.failed === i && !STATE.cleared)} isCurrent={STATE.failed === i}/>
-        {/each}
+        <div class="overflow-auto flex-shrink">
+            {#each {length: 6} as _, i}
+                <Guess guess={STATE.guesses[i]} cleared={STATE.cleared}
+                       isEmpty={STATE.failed < i || (STATE.failed === i && !STATE.cleared)}
+                       isCurrent={STATE.failed === i}/>
+            {/each}
+        </div>
     </div>
 </main>
 

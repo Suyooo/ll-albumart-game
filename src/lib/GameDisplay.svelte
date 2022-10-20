@@ -34,9 +34,9 @@
 </script>
 
 <div class="w-full relative overflow-visible flex items-center justify-center">
-    <div class="w-10 mx-2">
+    <div class="w-10 mx-2 flex-shrink">
         {#if stage > 0}
-            <button class="w-10 h-10 flex items-center justify-center bg-primary-500 rounded select-none
+            <button class="w-full h-10 flex items-center justify-center bg-primary-500 rounded select-none
             transition-colors duration-200" on:click={() => { stage--; updateCanvasList(); }}>
                 <Left/>
             </button>
@@ -44,9 +44,9 @@
     </div>
     <div class="max-w-sm basis-96 aspect-square bg-black relative"
          class:glow={cleared && stage === maxStage} in:scale={{start:1.1,opacity:1}} bind:this={canvasContainer}></div>
-    <div class="w-10 mx-2">
+    <div class="w-10 mx-2 flex-shrink">
         {#if stage < maxStage}
-            <button class="w-10 h-10 flex items-center justify-center bg-primary-500 rounded select-none
+            <button class="w-full h-10 flex items-center justify-center bg-primary-500 rounded select-none
             transition-colors duration-200" on:click={() => { stage++; updateCanvasList(); }}>
                 <Right/>
             </button>
