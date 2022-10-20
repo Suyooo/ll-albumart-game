@@ -7,6 +7,7 @@
     import type {GameInstanceSiteWrapper} from "$js/games.js";
 
     export let game: GameInstanceSiteWrapper;
+    export let cleared: boolean;
     export let finished: boolean;
     export let failed: number = 0;
 
@@ -33,21 +34,24 @@
 </script>
 
 <div class="w-full relative overflow-visible flex items-center justify-center">
+    <div class="absolute left-0 w-full aspect-square overflow-hidden pointer-events-none">
+        <div class="absolute left-0 top-0 aspect-square" class:rays={cleared && stage === maxStage}></div>
+    </div>
     <div class="w-10 mx-2">
         {#if stage > 0}
             <button class="w-10 h-10 flex items-center justify-center bg-primary-500 rounded select-none
             transition-colors duration-200" on:click={() => { stage--; updateCanvasList(); }}>
-                <Left />
+                <Left/>
             </button>
         {/if}
     </div>
     <div class="max-w-sm basis-96 aspect-square bg-black relative"
-         in:scale={{start:1.1,opacity:1}} bind:this={canvasContainer}></div>
+         class:glow={cleared && stage === maxStage} in:scale={{start:1.1,opacity:1}} bind:this={canvasContainer}></div>
     <div class="w-10 mx-2">
         {#if stage < maxStage}
             <button class="w-10 h-10 flex items-center justify-center bg-primary-500 rounded select-none
             transition-colors duration-200" on:click={() => { stage++; updateCanvasList(); }}>
-                <Right />
+                <Right/>
             </button>
         {/if}
     </div>
@@ -59,5 +63,32 @@
         @apply left-0;
         @apply top-0;
         @apply w-full;
+    }
+
+    .glow {
+        box-shadow: 0 0 30px white;
+    }
+
+    @keyframes spin {
+        0% {
+            @apply rotate-0;
+        }
+        100% {
+            @apply rotate-[360deg];
+        }
+    }
+
+    .rays {
+        width: 100%;
+        background-image: repeating-conic-gradient(
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, .33) 3.33%,
+                rgba(255, 255, 255, 0) 6.66%,
+                rgba(255, 255, 255, 0) 10%
+        );
+        mask-image: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 70%);
+        border-radius: 50%;
+        animation: spin 10s infinite linear;
+        z-index: 0;
     }
 </style>

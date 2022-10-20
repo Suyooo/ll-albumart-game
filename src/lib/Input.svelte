@@ -72,7 +72,6 @@
 
     :global(.autocomplete > div > small) {
         @apply text-gray-400;
-        @apply ml-4;
         @apply text-xs;
     }
 </style>

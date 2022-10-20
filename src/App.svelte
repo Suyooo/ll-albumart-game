@@ -61,8 +61,8 @@
 <Header/>
 
 <main class="w-full max-w-screen-sm flex-grow flex flex-col">
-    <GameDisplayContainer
-            day={STATE.day} finished={STATE.finished} album={ALBUMPOOL[STATE.albumId]} failed={STATE.failed}/>
+    <GameDisplayContainer day={STATE.day} cleared={STATE.cleared} finished={STATE.finished}
+                          album={ALBUMPOOL[STATE.albumId]} failed={STATE.failed}/>
     <div class="px-8">
         {#if STATE.finished}
             <Result cleared={STATE.cleared} failed={STATE.failed} getShareText={getShareText}/>

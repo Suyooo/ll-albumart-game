@@ -8,6 +8,7 @@
     import type {GameInstanceSiteWrapper} from "$js/games.js";
     import {getGameInstance} from "$js/games.js";
 
+    export let cleared: boolean;
     export let finished: boolean;
     export let day: number;
     export let album: Album;
@@ -27,9 +28,12 @@
             </div>
         {/if}
         {#key (finished ? -1 : failed)}
-            <GameDisplay {game} {finished} {failed} />
+            <GameDisplay {game} {cleared} {finished} {failed} />
         {/key}
     {:else}
         <Spinner/>
     {/if}
 </div>
+
+<style>
+</style>
