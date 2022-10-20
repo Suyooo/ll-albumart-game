@@ -45,7 +45,7 @@
     }
 
     function getShareText(): string {
-        return "LL! Guess That Album #" + 1 + "\n🖼" +
+        return "LL! Guess That Album #" + STATE.day + "\n🖼" +
             STATE.guesses.map((guess, index) => {
                 if (index < STATE.failed) {
                     if (guess === null) return "⬜";
@@ -65,17 +65,17 @@
                           album={ALBUMPOOL[STATE.albumId]} failed={STATE.failed}/>
     <div class="px-8 flex flex-col">
         {#if STATE.finished}
-            <Result cleared={STATE.cleared} failed={STATE.failed} getShareText={getShareText}/>
+            <Result cleared={STATE.cleared} failed={STATE.failed} guesses={STATE.guesses} getShareText={getShareText} />
         {:else}
             <Input failed={STATE.failed} on:guess={addGuess}/>
+            <div>
+                {#each {length: 6} as _, i}
+                    <Guess guess={STATE.guesses[i]} cleared={STATE.cleared}
+                           isEmpty={STATE.failed < i || (STATE.failed === i && !STATE.cleared)}
+                           isCurrent={STATE.failed === i}/>
+                {/each}
+            </div>
         {/if}
-        <div>
-            {#each {length: 6} as _, i}
-                <Guess guess={STATE.guesses[i]} cleared={STATE.cleared}
-                       isEmpty={STATE.failed < i || (STATE.failed === i && !STATE.cleared)}
-                       isCurrent={STATE.failed === i}/>
-            {/each}
-        </div>
     </div>
 </main>
 

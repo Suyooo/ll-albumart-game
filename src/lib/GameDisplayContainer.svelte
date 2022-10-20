@@ -21,12 +21,13 @@
 </script>
 
 <div class="flex-grow flex flex-col items-center justify-center">
+    <div class="text-xs max-w-sm text-center mb-4" in:fly={{y: -30, duration: 1000}} class:hidden={!finished}>
+        {album.artistEn} -
+        <b>{@html album.realEn
+            ? album.realEn.replace(" ["," <span class='inline-block'>[") + "</span>"
+            : album.titleEn}</b>
+    </div>
     {#if game}
-        {#if finished}
-            <div class="text-sm mb-2 text-center max-w-sm mx-auto" in:fly={{y: 50, duration: 500}}>
-                {album.artistEn} - <span class="font-bold">{album.realEn || album.titleEn}</span>
-            </div>
-        {/if}
         {#key (finished ? -1 : failed)}
             <GameDisplay {game} {cleared} {finished} {failed} />
         {/key}

@@ -54,6 +54,7 @@
         border: 0 !important;
     }
 
+    /*noinspection CssUnusedSymbol*/
     :global(.autocomplete) {
         @apply bg-gray-800 border-white border-2 border-t-0 rounded-b mt-[-2px] overflow-auto;
     }
@@ -71,7 +72,7 @@
         @apply bg-primary-900;
     }
 
-    :global(.autocomplete > div > small) {
-        @apply ml-2 text-gray-400 text-xs tracking-tighter;
+    :global(.autocomplete > div > div) {
+        @apply ml-4 text-gray-400 text-xs tracking-tighter;
     }
 </style>
