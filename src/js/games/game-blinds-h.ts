@@ -7,7 +7,7 @@ import {CANVAS_SIZE} from "../games";
 import type {GameInstance} from "../games";
 import {seededRNG} from "../rng";
 
-export const name = "Rows";
+export const name = "Blinds (Horizontal)";
 export const stacked = false;
 const SIZE = [4, 12, 12, 24, 24, 48];
 const MAX_SIZE = SIZE.reduce((max, cur) => cur > max ? cur : max, 0);
@@ -44,16 +44,20 @@ export function getGameInstance(day: number, _album: Album, _image: Image, scale
     };
     const getShareCanvas = (): Canvas => {
         const firstGuessCanvas = getCanvasForGuess(0);
-        const canvas = createCanvas(128, 128);
+        const canvas = createCanvas(256, 256);
         const ctx = canvas.getContext("2d");
         ctx.fillStyle = "black";
         ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
         ctx.globalAlpha = .05;
         ctx.drawImage(firstGuessCanvas, 0, positions[0] - 2, CANVAS_SIZE, 4,
-            0, 0, 128, 128);
+            0, 0, 256, 256);
         ctx.globalAlpha = 1;
-        ctx.drawImage(firstGuessCanvas, 0, positions[0] - 2, CANVAS_SIZE, 4,
-            0, 60, 128, 8);
+        ctx.drawImage(firstGuessCanvas, CANVAS_SIZE / 4 - 32, positions[0] - 2, 64, 4,
+            0, 104, 256, 16);
+        ctx.drawImage(firstGuessCanvas, CANVAS_SIZE / 2 - 32, positions[0] - 2, 64, 4,
+            0, 120, 256, 16);
+        ctx.drawImage(firstGuessCanvas, CANVAS_SIZE / 4 * 3 - 32, positions[0] - 2, 64, 4,
+            0, 136, 256, 16);
         return canvas;
     };
     return {getCanvasForGuess, getShareCanvas}

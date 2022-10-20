@@ -34,7 +34,8 @@ const GAME_POOL: { filename: string, weight: number, cumulativeWeight?: number }
     {filename: "bubbles", weight: 1000},
     {filename: "posterize", weight: 1000},
     {filename: "crop", weight: 1000},
-    {filename: "row", weight: 1000},
+    {filename: "blinds-h", weight: 500},
+    {filename: "blinds-v", weight: 500},
     {filename: "tiles", weight: 1000}
 ];
 const GAME_CACHE: (Game | undefined)[] = GAME_POOL.map(() => undefined);
@@ -87,7 +88,7 @@ export async function getGameInstance(day: number, album: Album): Promise<GameIn
                 return <HTMLCanvasElement><unknown>gameInstance.getCanvasForGuess(failed);
             }
         },
-        getShareCanvas: () => <HTMLCanvasElement><unknown>gameInstance.getShareCanvas,
+        getShareCanvas: <() => HTMLCanvasElement><unknown>gameInstance.getShareCanvas,
         getFinishedCanvas: () => <HTMLCanvasElement><unknown>albumArtCanvas
     }
 }

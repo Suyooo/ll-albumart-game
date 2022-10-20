@@ -69,7 +69,7 @@
         {:else}
             <Input failed={STATE.failed} on:guess={addGuess}/>
         {/if}
-        <div class="overflow-auto flex-shrink">
+        <div>
             {#each {length: 6} as _, i}
                 <Guess guess={STATE.guesses[i]} cleared={STATE.cleared}
                        isEmpty={STATE.failed < i || (STATE.failed === i && !STATE.cleared)}
