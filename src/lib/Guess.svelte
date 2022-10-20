@@ -1,5 +1,4 @@
 <script lang="ts">
-    import "../app.css";
     import Correct from "$icon/Correct.svelte";
     import Skip from "$icon/Skip.svelte";
     import Wrong from "$icon/Wrong.svelte";

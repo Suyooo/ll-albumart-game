@@ -1,5 +1,4 @@
 <script lang="ts">
-    import "../app.css";
     import Left from "$icon/Left.svelte";
     import Right from "$icon/Right.svelte";
     import {onMount} from "svelte";
@@ -60,6 +59,6 @@
     }
 
     .glow {
-        box-shadow: 0 0 2rem theme(colors.primary.100);
+        box-shadow: 0 0 2rem theme("colors.primary.100");
     }
 </style>
