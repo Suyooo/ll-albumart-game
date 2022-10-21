@@ -19,7 +19,9 @@
     <Header/>
 
     <main class="w-full max-w-screen-sm flex-grow flex flex-col">
-        <GameDisplayContainer/>
+        <div class="md:flex-grow flex flex-col items-center justify-center">
+            <GameDisplayContainer/>
+        </div>
         <div class="px-8 flex-grow flex flex-col items-center justify-between">
             {#if $STATE.finished}
                 <Result/>

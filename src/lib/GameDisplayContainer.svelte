@@ -14,23 +14,21 @@
     });
 </script>
 
-<div class="md:flex-grow flex flex-col items-center justify-center">
-    {#if game}
-        {#key ($STATE.finished ? -1 : $STATE.failed)}
-            <GameDisplay {game} cleared={$STATE.cleared} finished={$STATE.finished} failed={$STATE.failed}/>
-        {/key}
-    {:else}
-        <Spinner/>
-    {/if}
-    {#if $STATE.finished}
-        <div class="text-xs max-w-sm text-center mt-4" in:fly={{y: -30, duration: 1000}}>
-            {ALBUM.artistEn} -
-            <b>{@html ALBUM.realEn
-                ? ALBUM.realEn.replace(" [", " <span class='inline-block'>[") + "</span>"
-                : ALBUM.titleEn}</b>
-        </div>
-    {/if}
-</div>
+{#if game}
+    {#key ($STATE.finished ? -1 : $STATE.failed)}
+        <GameDisplay {game} cleared={$STATE.cleared} finished={$STATE.finished} failed={$STATE.failed}/>
+    {/key}
+{:else}
+    <Spinner/>
+{/if}
+{#if $STATE.finished}
+    <div class="text-xs max-w-sm text-center mt-4" in:fly={{y: -30, duration: 1000}}>
+        {ALBUM.artistEn} -
+        <b>{@html ALBUM.realEn
+            ? ALBUM.realEn.replace(" [", " <span class='inline-block'>[") + "</span>"
+            : ALBUM.titleEn}</b>
+    </div>
+{/if}
 
 <style>
 </style>

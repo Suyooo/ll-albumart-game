@@ -1,4 +1,10 @@
 <IfModule mod_rewrite.c>
-	RewriteCond %{QUERY_STRING} ([0-9]+) [NC]
-	RewriteRule (.*) /dump/coverdle/? [R=31,L]
+    RewriteEngine On
+    RewriteRule [^0-9] - [L]
+    RewriteCond %{HTTP_USER_AGENT} Twitterbot [OR]
+    RewriteCond %{HTTP_USER_AGENT} Discordbot [OR]
+    RewriteCond %{HTTP_USER_AGENT} facebookexternalhit
+    RewriteRule ^(.+)$ /share/$1.html [L]
+    RewriteCond %{REQUEST_URI} ^/[0-9]+$
+    RewriteRule . / [L,R=301]
 </IfModule>
