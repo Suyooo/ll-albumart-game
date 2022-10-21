@@ -6,11 +6,11 @@
     import GameDisplay from "./GameDisplay.svelte";
     import Spinner from "./Spinner.svelte";
     import type {GameInstanceSiteWrapper} from "$modules/games";
-    import {getGameInstance} from "$modules/games";
+    import {getGameSiteInstance} from "$modules/games";
 
     let game: GameInstanceSiteWrapper;
     onMount(() => {
-        getGameInstance($STATE.day, ALBUM).then((game_) => game = game_);
+        getGameSiteInstance($STATE.day, ALBUM).then((game_) => game = game_);
     });
 </script>
 

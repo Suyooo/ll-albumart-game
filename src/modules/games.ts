@@ -60,9 +60,10 @@ export async function getGameName(day: number): Promise<string> {
     return game.name;
 }
 
-export async function getGameInstance(day: number, album: Album): Promise<GameInstanceSiteWrapper> {
+export async function getGameInstance(day: number, album: Album):
+    Promise<{ game: Game, gameInstance: GameInstance, albumArt: Canvas }> {
     const [game, image] = await Promise.all(
-        [getGameForDay(day), loadImage(album.url)]
+        [getGameForDay(day), loadImage(`albumart/${album.url}`)]
     );
 
     // noinspection JSSuspiciousNameCombination - we want to force it to a square aspect ratio
@@ -73,7 +74,11 @@ export async function getGameInstance(day: number, album: Album): Promise<GameIn
     const albumArtCanvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
     const albumArtCtx = albumArtCanvas.getContext("2d");
     albumArtCtx.drawImage(rescaleCanvas, 0, 0, CANVAS_SIZE, CANVAS_SIZE, 0, 0, CANVAS_SIZE, CANVAS_SIZE);
-    const gameInstance = game.getGameInstance(day, album, image, albumArtCanvas);
+    return {game, gameInstance: game.getGameInstance(day, album, image, albumArtCanvas), albumArt: albumArtCanvas};
+}
+
+export async function getGameSiteInstance(day: number, album: Album): Promise<GameInstanceSiteWrapper> {
+    const {game, gameInstance, albumArt} = await getGameInstance(day, album);
 
     const CACHE: (HTMLCanvasElement | undefined)[] = [undefined, undefined, undefined, undefined, undefined, undefined];
 
@@ -89,6 +94,6 @@ export async function getGameInstance(day: number, album: Album): Promise<GameIn
             }
         },
         getShareCanvas: <() => HTMLCanvasElement><unknown>gameInstance.getShareCanvas,
-        getFinishedCanvas: () => <HTMLCanvasElement><unknown>albumArtCanvas
+        getFinishedCanvas: () => <HTMLCanvasElement><unknown>albumArt
     }
 }

@@ -1,6 +1,6 @@
 import fs from "fs";
 import axios from "axios";
-import {ALBUMPOOL} from "../src/data/albumpool.js";
+import {ALBUMPOOL} from "$data/albumpool";
 
 const downloadQueue: { titleJa?: string, titleEn?: string, url: string, used?: boolean }[] = [
 ];
@@ -31,7 +31,7 @@ const downloadQueue: { titleJa?: string, titleEn?: string, url: string, used?: b
                 fs.unlinkSync("public/albumart/" + dl.url);
             }
             dl.used = true;
-            album.url = "albumart/" + filename;
+            album.url = "/albumart/" + filename;
         }
     }
 
