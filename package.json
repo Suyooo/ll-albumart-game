@@ -4,12 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host 0.0.0.0",
-    "build": "DEBUG=vite-tsconfig-paths vite build",
-    "preview": "vite preview",
+    "dev": "vite --config vite.config.site.ts --host 0.0.0.0",
+    "build": "DEBUG=vite-tsconfig-paths vite --config vite.config.site.ts build && vite --config vite.config.makeShare.ts build",
+    "preview": "vite --config vite.config.site.ts preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "download-albums": "ts-node -r tsconfig-paths/register --esm \"scripts/downloadAlbums.ts\"",
-    "make-share": "cd dist && node --loader ../public/scripts/loader.js ../public/scripts/makeShare.ts "
+    "download-albums": "ts-node --esm \"scripts/downloadAlbums.ts\""
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.2",

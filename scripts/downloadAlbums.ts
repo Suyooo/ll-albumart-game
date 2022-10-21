@@ -1,6 +1,6 @@
 import fs from "fs";
 import axios from "axios";
-import {ALBUMPOOL} from "$data/albumpool";
+import {ALBUMPOOL} from "../src/data/albumpool.js";
 
 const downloadQueue: { titleJa?: string, titleEn?: string, url: string, used?: boolean }[] = [
 ];

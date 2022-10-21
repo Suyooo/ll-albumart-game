@@ -63,7 +63,7 @@ export async function getGameName(day: number): Promise<string> {
 export async function getGameInstance(day: number, album: Album):
     Promise<{ game: Game, gameInstance: GameInstance, albumArt: Canvas }> {
     const [game, image] = await Promise.all(
-        [getGameForDay(day), loadImage(`albumart/${album.url}`)]
+        [getGameForDay(day), loadImage(`.${album.url}`)]
     );
 
     // noinspection JSSuspiciousNameCombination - we want to force it to a square aspect ratio
