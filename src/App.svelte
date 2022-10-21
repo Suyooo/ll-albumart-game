@@ -1,4 +1,5 @@
 <script lang="ts">
+    import {onMount} from "svelte";
     import {fade} from 'svelte/transition';
 
     import Header from "$lib/Header.svelte";
@@ -8,6 +9,10 @@
     import Footer from "$lib/Footer.svelte";
     import Result from "$lib/Result.svelte";
     import {STATE} from "$stores/state";
+
+    onMount(() => {
+        if (window.location.search) window.location.replace("/");
+    });
 </script>
 
 <div class="flex flex-col w-full h-full items-center overflow-auto" in:fade={{duration: 100}}>
