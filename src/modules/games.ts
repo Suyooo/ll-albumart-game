@@ -1,4 +1,4 @@
-import type {Album} from "./albumpool";
+import type {Album} from "$data/albumpool";
 import {smoothScaleSquareWithSrc} from "./canvasUtil";
 import {seededRNG} from "./rng";
 import type {Canvas, Image} from "canvas";

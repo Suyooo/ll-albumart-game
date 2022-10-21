@@ -2,7 +2,7 @@
 
 import type {Canvas, Image} from "canvas";
 import {createCanvas} from "canvas";
-import type {Album} from "../albumpool";
+import type {Album} from "$data/albumpool";
 import type {GameInstance} from "../games";
 import {CANVAS_SIZE} from "../games";
 import {seededRNG} from "../rng";

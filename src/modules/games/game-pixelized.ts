@@ -2,7 +2,7 @@
 
 import {createCanvas} from "canvas";
 import type {Canvas, Image} from "canvas";
-import type {Album} from "../albumpool";
+import type {Album} from "$data/albumpool";
 import { smoothScaleSquareWithSrc} from "../canvasUtil";
 import {CANVAS_SIZE} from "../games";
 import type {GameInstance} from "../games";

@@ -10,7 +10,7 @@
 
     let game: GameInstanceSiteWrapper;
     onMount(() => {
-        getGameInstance($STATE.day, $ALBUM).then((game_) => game = game_);
+        getGameInstance($STATE.day, ALBUM).then((game_) => game = game_);
     });
 </script>
 
@@ -24,10 +24,10 @@
     {/if}
     {#if $STATE.finished}
         <div class="text-xs max-w-sm text-center mt-4" in:fly={{y: -30, duration: 1000}}>
-            {$ALBUM.artistEn} -
-            <b>{@html $ALBUM.realEn
-                ? $ALBUM.realEn.replace(" [", " <span class='inline-block'>[") + "</span>"
-                : $ALBUM.titleEn}</b>
+            {ALBUM.artistEn} -
+            <b>{@html ALBUM.realEn
+                ? ALBUM.realEn.replace(" [", " <span class='inline-block'>[") + "</span>"
+                : ALBUM.titleEn}</b>
         </div>
     {/if}
 </div>

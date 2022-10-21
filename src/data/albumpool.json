@@ -1,6 +1,7 @@
 [
     {
         "url": "albumart/liella_shooting-voice.jpg",
+        "startOnDay": 0,
         "titleEn": "Shooting Voice!!",
         "artistEn": "Liella!",
         "titleJa": "Shooting Voice!!",
@@ -8,6 +9,7 @@
     },
     {
         "url": "albumart/liella_hajimari-wa-kimi-no-sora-minna-de-kanaeru-monogatari.jpg",
+        "startOnDay": 0,
         "titleEn": "Hajimari wa Kimi no Sora [Minna de Kanaeru Monogatari Edition]",
         "artistEn": "Liella!",
         "titleJa": "始まりは君の空[みんなで叶える物語盤]",
@@ -15,6 +17,7 @@
     },
     {
         "url": "albumart/liella_hajimari-wa-kimi-no-sora-watashi-o-kanaeru-monogatari.jpg",
+        "startOnDay": 0,
         "titleEn": "Hajimari wa Kimi no Sora [Watashi o Kanaeru Monogatari Edition]",
         "artistEn": "Liella!",
         "titleJa": "始まりは君の空[私を叶える物語盤]",
@@ -22,6 +25,7 @@
     },
     {
         "url": "albumart/liella_tokunatsu-sunshine-wish-song-ep-6-edition.jpg",
+        "startOnDay": 0,
         "titleEn": "Tokunatsu☆Sunshine",
         "realEn": "Tokunatsu☆Sunshine / Wish Song [Ep 6 Edition]",
         "artistEn": "Liella!",
@@ -31,6 +35,7 @@
     },
     {
         "url": "albumart/liella_tokunatsu-sunshine-wish-song-ep-8-edition.jpg",
+        "startOnDay": 0,
         "titleEn": "Wish Song",
         "realEn": "Tokunatsu☆Sunshine / Wish Song [Ep 8 Edition]",
         "artistEn": "Liella!",
@@ -40,6 +45,7 @@
     },
     {
         "url": "albumart/liella_we-will.jpg",
+        "startOnDay": 0,
         "titleEn": "WE WILL!!",
         "artistEn": "Liella!",
         "titleJa": "WE WILL!!",
@@ -47,6 +53,7 @@
     },
     {
         "url": "albumart/liella_welcome-to-bokura-no-sekai-go-restart-ep-1-edition.jpg",
+        "startOnDay": 0,
         "titleEn": "Welcome to Bokura no Sekai",
         "realEn": "Welcome to Bokura no Sekai / Go!! Restart [Ep 1 Edition]",
         "artistEn": "Liella!",
@@ -56,6 +63,7 @@
     },
     {
         "url": "albumart/liella_welcome-to-bokura-no-sekai-go-restart-ep-3-edition.jpg",
+        "startOnDay": 0,
         "titleEn": "Go!! Restart",
         "realEn": "Welcome to Bokura no Sekai / Go!! Restart [Ep 3 Edition]",
         "artistEn": "Liella!",
@@ -65,6 +73,7 @@
     },
     {
         "url": "albumart/liella_start-true-dreams.jpg",
+        "startOnDay": 0,
         "titleEn": "START!! True dreams",
         "artistEn": "Liella!",
         "titleJa": "START!! True dreams",
@@ -72,6 +81,7 @@
     },
     {
         "url": "albumart/liella_nonfiction-starlight-prologue-ep-10-edition.jpg",
+        "startOnDay": 0,
         "titleEn": "Nonfiction!!",
         "realEn": "Nonfiction!! / Starlight Prologue [Ep 10 Edition]",
         "artistEn": "Liella!",
@@ -81,6 +91,7 @@
     },
     {
         "url": "albumart/liella_nonfiction-starlight-prologue-ep-12-edition.jpg",
+        "startOnDay": 0,
         "titleEn": "Starlight Prologue",
         "realEn": "Nonfiction!! / Starlight Prologue [Ep 12 Edition]",
         "artistEn": "Liella!",
@@ -90,6 +101,7 @@
     },
     {
         "url": "albumart/liella_mirai-wa-kaze-no-you-ni.jpg",
+        "startOnDay": 0,
         "titleEn": "Mirai wa Kaze no You ni",
         "artistEn": "Liella!",
         "titleJa": "未来は風のように",
@@ -97,6 +109,7 @@
     },
     {
         "url": "albumart/liella_vitamin-summer-chance-day-chance-way-ep-6-edition.jpg",
+        "startOnDay": 0,
         "titleEn": "Vitamin SUMMER!",
         "realEn": "Vitamin SUMMER! / Chance Day, Chance Way! [Ep 6 Edition]",
         "artistEn": "Liella!",
@@ -106,6 +119,7 @@
     },
     {
         "url": "albumart/liella_vitamin-summer-chance-day-chance-way-ep-8-edition.jpg",
+        "startOnDay": 0,
         "titleEn": "Chance Day, Chance Way!",
         "realEn": "Vitamin SUMMER! / Chance Day, Chance Way! [Ep 8 Edition]",
         "artistEn": "Liella!",
@@ -115,6 +129,7 @@
     },
     {
         "url": "albumart/liella_liella-no-uta.jpg",
+        "startOnDay": 0,
         "titleEn": "Liella no Uta",
         "artistEn": "Liella!",
         "titleJa": "リエラのうた",
@@ -122,6 +137,7 @@
     },
     {
         "url": "albumart/liella_oikakeru-yume-no-saki-de.jpg",
+        "startOnDay": 0,
         "titleEn": "Oikakeru Yume no Saki de",
         "artistEn": "Liella!",
         "titleJa": "追いかける夢の先で",
@@ -129,6 +145,7 @@
     },
     {
         "url": "albumart/liella_mirai-yohou-hallelujah-tiny-stars-ep-1-edition.jpg",
+        "startOnDay": 0,
         "titleEn": "Mirai Yohou Hallelujah!",
         "realEn": "Mirai Yohou Hallelujah! / Tiny Stars [Ep 1 Edition]",
         "artistEn": "Liella!",
@@ -138,6 +155,7 @@
     },
     {
         "url": "albumart/liella_mirai-yohou-hallelujah-tiny-stars-ep-3-edition.jpg",
+        "startOnDay": 0,
         "titleEn": "Tiny Stars",
         "realEn": "Mirai Yohou Hallelujah! / Tiny Stars [Ep 3 Edition]",
         "artistEn": "Liella!",
@@ -147,6 +165,7 @@
     },
     {
         "url": "albumart/liella_what-a-wonderful-dream-original-type.jpg",
+        "startOnDay": 0,
         "titleEn": "What a Wonderful Dream!! [Original Edition]",
         "artistEn": "Liella!",
         "titleJa": "What a Wonderful Dream!!【オリジナル盤】",
@@ -154,6 +173,7 @@
     },
     {
         "url": "albumart/liella_what-a-wonderful-dream-photo-type.jpg",
+        "startOnDay": 0,
         "titleEn": "What a Wonderful Dream!! [Photo Edition]",
         "artistEn": "Liella!",
         "titleJa": "What a Wonderful Dream!!【フォト盤】",
@@ -161,6 +181,7 @@
     },
     {
         "url": "albumart/liella_sagashite-future.jpg",
+        "startOnDay": 0,
         "titleEn": "Sagashite! Future",
         "artistEn": "Liella!",
         "titleJa": "探して！Future",
@@ -168,6 +189,7 @@
     },
     {
         "url": "albumart/liella_happy-to-do-wa.jpg",
+        "startOnDay": 0,
         "titleEn": "HAPPY TO DO WA!",
         "artistEn": "Liella!",
         "titleJa": "HAPPY TO DO WA!",
@@ -175,6 +197,7 @@
     },
     {
         "url": "albumart/liella_stella.jpg",
+        "startOnDay": 0,
         "titleEn": "Stella!",
         "artistEn": "Liella!",
         "titleJa": "Stella!",
@@ -182,6 +205,7 @@
     },
     {
         "url": "albumart/liella_kawaranai-subete.jpg",
+        "startOnDay": 0,
         "titleEn": "Kawaranai Subete",
         "artistEn": "Liella!",
         "titleJa": "変わらないすべて",
@@ -189,6 +213,7 @@
     },
     {
         "url": "albumart/liella_crescendo-yu-ra.jpg",
+        "startOnDay": 0,
         "titleEn": "Crescendo Yu・Ra",
         "artistEn": "Liella!",
         "titleJa": "クレッシェンドゆ・ら",
@@ -196,6 +221,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Kimi no Kokoro wa Kagayaiteru kai?",
         "artistEn": "Aqours",
         "titleJa": "君のこころは輝いてるかい？",
@@ -203,6 +229,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Koi ni Naritai AQUARIUM",
         "artistEn": "Aqours",
         "titleJa": "恋になりたいAQUARIUM",
@@ -210,6 +237,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Aozora Jumping Heart",
         "artistEn": "Aqours",
         "titleJa": "青空Jumping Heart",
@@ -217,6 +245,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Kimeta yo Hand in Hand / Daisuki dattara Daijoubu!",
         "artistEn": "Aqours",
         "titleJa": "決めたよHand in Hand / ダイスキだったらダイジョウブ！",
@@ -224,6 +253,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Yume Kataru yori Yume Utaou",
         "artistEn": "Aqours",
         "titleJa": "ユメ語るよりユメ歌おう",
@@ -231,6 +261,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Yume de Yozora o Terashitai / Mijuku DREAMER",
         "artistEn": "Aqours",
         "titleJa": "夢で夜空を照らしたい / 未熟DREAMER",
@@ -238,6 +269,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Omoi yo Hitotsu ni Nare / MIRAI TICKET",
         "artistEn": "Aqours",
         "titleJa": "想いよひとつになれ / MIRAI TICKET",
@@ -245,6 +277,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Jingle Bells ga Tomaranai",
         "artistEn": "Aqours",
         "titleJa": "ジングルベルがとまらない",
@@ -252,6 +285,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "HAPPY PARTY TRAIN",
         "artistEn": "Aqours",
         "titleJa": "HAPPY PARTY TRAIN",
@@ -259,6 +293,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Landing action Yeah!!",
         "artistEn": "Aqours",
         "titleJa": "Landing action Yeah!!",
@@ -266,6 +301,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Mirai no Bokura wa Shitteru yo",
         "artistEn": "Aqours",
         "titleJa": "未来の僕らは知ってるよ",
@@ -273,6 +309,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Yuuki wa doko ni? Kimi no Mune ni!",
         "artistEn": "Aqours",
         "titleJa": "勇気はどこに?君の胸に!",
@@ -280,6 +317,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "MY Mai☆TONIGHT / MIRACLE WAVE",
         "artistEn": "Aqours",
         "titleJa": "MY舞☆TONIGHT / MIRACLE WAVE",
@@ -287,6 +325,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "WATER BLUE NEW WORLD / WONDERFUL STORIES",
         "artistEn": "Aqours",
         "titleJa": "WATER BLUE NEW WORLD / WONDERFUL STORIES",
@@ -294,6 +333,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Hop・Step・Waai!",
         "artistEn": "Aqours",
         "titleJa": "ホップ・ステップ・ワーイ！",
@@ -301,6 +341,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Thank you, FRIENDS!!",
         "artistEn": "Aqours",
         "titleJa": "Thank you, FRIENDS!!",
@@ -308,6 +349,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Bokura no Hashittekita Michi wa... / Next SPARKLING!!",
         "artistEn": "Aqours",
         "titleJa": "僕らの走ってきた道は・・・／Next SPARKLING!!",
@@ -315,6 +357,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Tousou Meisou Mobius Loop / Hop? Stop? Nonstop!",
         "artistEn": "Aqours",
         "titleJa": "逃走迷走メビウスループ / Hop? Stop? Nonstop! ",
@@ -322,6 +365,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Jump up HIGH!!",
         "artistEn": "Aqours",
         "titleJa": "Jump up HIGH!!",
@@ -329,6 +373,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Bouken Type A, B, C!!",
         "artistEn": "Aqours",
         "titleJa": "冒険Type A, B, C‼",
@@ -336,6 +381,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Mitaiken HORIZON",
         "artistEn": "Aqours",
         "titleJa": "未体験HORIZON",
@@ -343,6 +389,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "KOKORO Magic \"A to Z\"",
         "artistEn": "Aqours",
         "titleJa": "KOKORO Magic \"A to Z\"",
@@ -350,6 +397,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "CYaZALEA☆Kiss☆DADANDAAAN",
         "artistEn": "Aqours",
         "titleJa": "シャゼリア☆キッス☆ダダンダーン",
@@ -357,6 +405,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Fantastic Departure!",
         "artistEn": "Aqours",
         "titleJa": "Fantastic Departure!",
@@ -364,6 +413,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "JIMO-AI Dash!",
         "artistEn": "Aqours",
         "titleJa": "JIMO-AI Dash!",
@@ -371,6 +421,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "smile smile ship Start!",
         "artistEn": "Aqours",
         "titleJa": "smile smile ship Start!",
@@ -378,6 +429,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "DREAMY COLOR",
         "artistEn": "Aqours",
         "titleJa": "DREAMY COLOR",
@@ -385,6 +437,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "KU-RU-KU-RU Cruller!",
         "artistEn": "Aqours",
         "titleJa": "KU-RU-KU-RU Cruller!",
@@ -392,6 +445,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Nando Datte Yakusoku!",
         "artistEn": "Aqours",
         "titleJa": "なんどだって約束！",
@@ -399,6 +453,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Yume + Mirai = Mugendai",
         "artistEn": "Aqours",
         "titleJa": "ユメ+ミライ＝無限大",
@@ -406,6 +461,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "BANZAI! digital trippers",
         "artistEn": "Aqours",
         "titleJa": "BANZAI! digital trippers",
@@ -413,6 +469,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "not ALONE not HITORI",
         "artistEn": "Aqours",
         "titleJa": "not ALONE not HITORI",
@@ -420,6 +477,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Awaken the power",
         "artistEn": "Saint Aqours Snow",
         "titleJa": "Awaken the power",
@@ -427,6 +485,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Believe again / Brightest Melody / Over The Next Rainbow",
         "artistEn": "Saint Aqours Snow",
         "titleJa": "Believe again / Brightest Melody / Over The Next Rainbow",
@@ -434,6 +493,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Duo & Trio Collection CD VOL.1 SUMMER VACATION",
         "artistEn": "Aqours",
         "titleJa": "デュオトリオコレクションCD VOL.1 SUMMER VACATION",
@@ -441,6 +501,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Duo & Trio Collection CD VOL.2 WINTER VACATION",
         "artistEn": "Aqours",
         "titleJa": "デュオトリオコレクションCD VOL.2 WINTER VACATION",
@@ -448,6 +509,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Takami Chika First Solo Concert Album ~One More Sunshine Story~",
         "artistEn": "Chika Takami (CV: Anju Inami)",
         "titleJa": "Takami Chika First Solo Concert Album ~One More Sunshine Story~",
@@ -455,6 +517,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Sakurauchi Riko First Solo Concert Album ~Pianoforte Monologue~",
         "artistEn": "Riko Sakurauchi (CV: Rikako Aida)",
         "titleJa": "Sakurauchi Riko First Solo Concert Album ~Pianoforte Monologue~",
@@ -462,6 +525,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Kurosawa Ruby First Solo Concert Album ~RED GEM WINK~",
         "artistEn": "Ruby Kurosawa (CV: Ai Furihata)",
         "titleJa": "Kurosawa Ruby First Solo Concert Album ~RED GEM WINK~",
@@ -469,6 +533,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Kurosawa Dia First Solo Concert Album ~WHITE FIRST LOVE~",
         "artistEn": "Dia Kurosawa (CV: Arisa Komiya)",
         "titleJa": "Kurosawa Dia First Solo Concert Album ~WHITE FIRST LOVE~",
@@ -476,6 +541,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Matsuura Kanan First Solo Concert Album ~Sakana ka Nanda ka?~",
         "artistEn": "Kanan Matsuura (CV: Nanaka Suwa)",
         "titleJa": "Matsuura Kanan First Solo Concert Album ~Sakana ka Nanda ka?~",
@@ -483,6 +549,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Kunikida Hanamaru First Solo Concert Album ~Oyasuminasan!~",
         "artistEn": "Hanamaru Kunikida (CV: Kanako Takatsuki)",
         "titleJa": "Kunikida Hanamaru First Solo Concert Album ~Oyasuminasan!~",
@@ -490,6 +557,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Watanabe You First Solo Concert Album ~Beginner's Sailing~",
         "artistEn": "You Watanabe (CV: Shuka Saitou)",
         "titleJa": "Watanabe You First Solo Concert Album ~Beginner's Sailing~",
@@ -497,6 +565,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Ohara Mari First Solo Concert Album ~New winding road~",
         "artistEn": "Mari Ohara (CV: Aina Suzuki)",
         "titleJa": "Ohara Mari First Solo Concert Album ~New winding road~",
@@ -504,6 +573,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Tsushima Yoshiko First Solo Concert Album ~in this unstable world~",
         "artistEn": "Yoshiko Tsushima (CV: Aika Kobayashi)",
         "titleJa": "Tsushima Yoshiko First Solo Concert Album ~in this unstable world~",
@@ -511,6 +581,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Second Solo Concert Album ~THE STORY OF FEATHER~ starring Takami Chika",
         "artistEn": "Chika Takami (CV: Anju Inami)",
         "titleJa": "Second Solo Concert Album ~THE STORY OF FEATHER~ starring Takami Chika",
@@ -518,6 +589,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Second Solo Concert Album ~THE STORY OF FEATHER~ starring Sakurauchi Riko",
         "artistEn": "Riko Sakurauchi (CV: Rikako Aida)",
         "titleJa": "Second Solo Concert Album ~THE STORY OF FEATHER~ starring Sakurauchi Riko",
@@ -525,6 +597,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Hajimari Road",
         "artistEn": "Aqours",
         "titleJa": "ハジマリロード",
@@ -532,6 +605,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Marine Border Parasol",
         "artistEn": "Aqours",
         "titleJa": "Marine Border Parasol",
@@ -539,6 +613,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Yosoku Fukanou Driving!",
         "artistEn": "Aqours",
         "titleJa": "予測不可能Driving!",
@@ -546,6 +621,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Second Solo Concert Album ~THE STORY OF FEATHER~ starring Kurosawa Ruby",
         "artistEn": "Ruby Kurosawa (CV: Ai Furihata)",
         "titleJa": "Second Solo Concert Album ~THE STORY OF FEATHER~ starring Kurosawa Ruby",
@@ -553,6 +629,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Second Solo Concert Album ~THE STORY OF FEATHER~ starring Kurosawa Dia",
         "artistEn": "Dia Kurosawa (CV: Arisa Komiya)",
         "titleJa": "Second Solo Concert Album ~THE STORY OF FEATHER~ starring Kurosawa Dia",
@@ -560,6 +637,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Second Solo Concert Album ~THE STORY OF FEATHER~ starring Matsuura Kanan",
         "artistEn": "Kanan Matsuura (CV: Nanaka Suwa)",
         "titleJa": "Second Solo Concert Album ~THE STORY OF FEATHER~ starring Matsuura Kanan",
@@ -567,6 +645,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Second Solo Concert Album ~THE STORY OF FEATHER~ starring Kunikida Hanamaru",
         "artistEn": "Hanamaru Kunikida (CV: Kanako Takatsuki)",
         "titleJa": "Second Solo Concert Album ~THE STORY OF FEATHER~ starring Kunikida Hanamaru",
@@ -574,6 +653,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Second Solo Concert Album ~THE STORY OF FEATHER~ starring Watanabe You",
         "artistEn": "You Watanabe (CV: Shuka Saitou)",
         "titleJa": "Second Solo Concert Album ~THE STORY OF FEATHER~ starring Watanabe You",
@@ -581,6 +661,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Second Solo Concert Album ~THE STORY OF FEATHER~ starring Ohara Mari",
         "artistEn": "Mari Ohara (CV: Aina Suzuki)",
         "titleJa": "Second Solo Concert Album ~THE STORY OF FEATHER~ starring Ohara Mari",
@@ -588,6 +669,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Second Solo Concert Album ~THE STORY OF FEATHER~ starring Tsushima Yoshiko",
         "artistEn": "Yoshiko Tsushima (CV: Aika Kobayashi)",
         "titleJa": "Second Solo Concert Album ~THE STORY OF FEATHER~ starring Tsushima Yoshiko",
@@ -595,6 +677,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Third Solo Concert Album ~THE STORY OF \"OVER THE RAINBOW\"~ starring Takami Chika",
         "artistEn": "Chika Takami (CV: Anju Inami)",
         "titleJa": "Third Solo Concert Album ~THE STORY OF \"OVER THE RAINBOW\"~ starring Takami Chika",
@@ -602,6 +685,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Third Solo Concert Album ~THE STORY OF \"OVER THE RAINBOW\"~ starring Sakurauchi Riko",
         "artistEn": "Riko Sakurauchi (CV: Rikako Aida)",
         "titleJa": "Third Solo Concert Album ~THE STORY OF \"OVER THE RAINBOW\"~ starring Sakurauchi Riko",
@@ -609,6 +693,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Third Solo Concert Album ~THE STORY OF \"OVER THE RAINBOW\"~ starring Kurosawa Ruby",
         "artistEn": "Ruby Kurosawa (CV: Ai Furihata)",
         "titleJa": "Third Solo Concert Album ~THE STORY OF \"OVER THE RAINBOW\"~ starring Kurosawa Ruby",
@@ -616,6 +701,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Genki Zenkai DAY! DAY! DAY!",
         "artistEn": "CYaRon!",
         "titleJa": "元気全開DAY! DAY! DAY!",
@@ -623,6 +709,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "P.S. no Mukougawa",
         "artistEn": "CYaRon!",
         "titleJa": "P.S.の向こう側",
@@ -630,6 +717,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Kinmirai Happy End",
         "artistEn": "CYaRon!",
         "titleJa": "近未来ハッピーエンド",
@@ -637,6 +725,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Sakura Bye Bye",
         "artistEn": "CYaRon!",
         "titleJa": "サクラバイバイ",
@@ -644,6 +733,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Braveheart Coaster",
         "artistEn": "CYaRon!",
         "titleJa": "Braveheart Coaster",
@@ -651,6 +741,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Aru Hi... Eien Mitai ni!",
         "artistEn": "CYaRon!",
         "titleJa": "ある日…永遠みたいに！",
@@ -658,6 +749,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Torikoriko PLEASE!!",
         "artistEn": "AZALEA",
         "titleJa": "トリコリコPLEASE!!",
@@ -665,6 +757,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "LONELY TUNING",
         "artistEn": "AZALEA",
         "titleJa": "LONELY TUNING",
@@ -672,6 +765,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "GALAXY HidE and SeeK",
         "artistEn": "AZALEA",
         "titleJa": "GALAXY HidE and SeeK",
@@ -679,6 +773,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Sotsugyou desu ne",
         "artistEn": "AZALEA",
         "titleJa": "卒業ですね",
@@ -686,6 +781,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Amazing Travel DNA",
         "artistEn": "AZALEA",
         "titleJa": "Amazing Travel DNA",
@@ -693,6 +789,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "We'll get the next dream!!!",
         "artistEn": "AZALEA",
         "titleJa": "We'll get the next dream!!!",
@@ -700,6 +797,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Strawberry Trapper",
         "artistEn": "Guilty Kiss",
         "titleJa": "Strawberry Trapper",
@@ -707,6 +805,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Guilty Eyes Fever",
         "artistEn": "Guilty Kiss",
         "titleJa": "Guilty Eyes Fever",
@@ -714,6 +813,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Kowareyasuki",
         "artistEn": "Guilty Kiss",
         "titleJa": "コワレヤスキ",
@@ -721,6 +821,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Guilty!? Farewell party",
         "artistEn": "Guilty Kiss",
         "titleJa": "Guilty!? Farewell party",
@@ -728,6 +829,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "New Romantic Sailors",
         "artistEn": "Guilty Kiss",
         "titleJa": "New Romantic Sailors",
@@ -735,6 +837,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Shooting Star Warrior",
         "artistEn": "Guilty Kiss",
         "titleJa": "Shooting Star Warrior",
@@ -742,6 +845,7 @@
     },
     {
         "url": "albumart/nijigasaki_tokimeki-runners.jpg",
+        "startOnDay": 0,
         "titleEn": "TOKIMEKI Runners",
         "artistEn": "Nijigasaki High School Idol Club",
         "titleJa": "TOKIMEKI Runners",
@@ -749,6 +853,7 @@
     },
     {
         "url": "albumart/nijigasaki_love-u-my-friends.jpg",
+        "startOnDay": 0,
         "titleEn": "Love U my friends",
         "artistEn": "Nijigasaki High School Idol Club",
         "titleJa": "Love U my friends",
@@ -756,6 +861,7 @@
     },
     {
         "url": "albumart/nijigasaki_just-believe.jpg",
+        "startOnDay": 0,
         "titleEn": "Just Believe!!!",
         "artistEn": "Nijigasaki High School Idol Club",
         "titleJa": "Just Believe!!!",
@@ -763,6 +869,7 @@
     },
     {
         "url": "albumart/nijigasaki_l-l-l-love-the-life-we-live.jpg",
+        "startOnDay": 0,
         "titleEn": "L!L!L! (Love the Life We Live)",
         "artistEn": "Nijigasaki High School Idol Club",
         "titleJa": "L！L！L! (Love the Life We Live)",
@@ -770,6 +877,7 @@
     },
     {
         "url": "albumart/kasumi-nakasu_mutekikyuu-believer.jpg",
+        "startOnDay": 0,
         "titleEn": "Mutekikyuu*Believer",
         "artistEn": "Kasumi Nakasu (CV: Mayu Sagara)",
         "titleJa": "無敵級*ビリーバー",
@@ -777,6 +885,7 @@
     },
     {
         "url": "albumart/nijigasaki_mirai-harmony.jpg",
+        "startOnDay": 0,
         "titleEn": "Mirai Harmony",
         "artistEn": "Nijigasaki High School Idol Club",
         "titleJa": "未来ハーモニー",
@@ -784,6 +893,7 @@
     },
     {
         "url": "albumart/nijigasaki_nijiiro-passions.jpg",
+        "startOnDay": 0,
         "titleEn": "Nijiiro Passions!",
         "artistEn": "Nijigasaki High School Idol Club",
         "titleJa": "虹色Passions!",
@@ -791,6 +901,7 @@
     },
     {
         "url": "albumart/nijigasaki_neo-sky-neo-map.jpg",
+        "startOnDay": 0,
         "titleEn": "NEO SKY, NEO MAP!",
         "artistEn": "Nijigasaki High School Idol Club",
         "titleJa": "NEO SKY, NEO MAP!",
@@ -798,6 +909,7 @@
     },
     {
         "url": "albumart/nijigasaki_dream-with-you-poppin-up-dive-uehara-ayumu-type.jpg",
+        "startOnDay": 0,
         "titleEn": "Dream with You",
         "realEn": "Dream with You / Poppin' Up! / DIVE! [Uehara Ayumu Type]",
         "artistEn": "Nijigasaki High School Idol Club",
@@ -807,6 +919,7 @@
     },
     {
         "url": "albumart/nijigasaki_dream-with-you-poppin-up-dive-nakasu-kasumi-type.jpg",
+        "startOnDay": 0,
         "titleEn": "Poppin' Up!",
         "realEn": "Dream with You / Poppin' Up! / DIVE! [Nakasu Kasumi Type]",
         "artistEn": "Nijigasaki High School Idol Club",
@@ -816,6 +929,7 @@
     },
     {
         "url": "albumart/nijigasaki_dream-with-you-poppin-up-dive-yuki-setsuna-type.jpg",
+        "startOnDay": 0,
         "titleEn": "DIVE!",
         "realEn": "Dream with You / Poppin' Up! / DIVE! [Yuki Setsuna Type]",
         "artistEn": "Nijigasaki High School Idol Club",
@@ -825,6 +939,7 @@
     },
     {
         "url": "albumart/nijigasaki_saikou-heart-la-bella-patria-tsunagaru-connect-miyashita-ai-type.jpg",
+        "startOnDay": 0,
         "titleEn": "Saikou Heart",
         "realEn": "Saikou Heart / La Bella Patria / Tsunagaru Connect [Miyashita Ai Type]",
         "artistEn": "Nijigasaki High School Idol Club",
@@ -834,6 +949,7 @@
     },
     {
         "url": "albumart/nijigasaki_saikou-heart-la-bella-patria-tsunagaru-connect-emma-verde-type.jpg",
+        "startOnDay": 0,
         "titleEn": "La Bella Patria",
         "realEn": "Saikou Heart / La Bella Patria / Tsunagaru Connect [Emma Verde Type]",
         "artistEn": "Nijigasaki High School Idol Club",
@@ -843,6 +959,7 @@
     },
     {
         "url": "albumart/nijigasaki_saikou-heart-la-bella-patria-tsunagaru-connect-tennoji-rina-type.jpg",
+        "startOnDay": 0,
         "titleEn": "Tsunagaru Connect",
         "realEn": "Saikou Heart / La Bella Patria / Tsunagaru Connect [Tennoji Rina Type]",
         "artistEn": "Nijigasaki High School Idol Club",
@@ -852,6 +969,7 @@
     },
     {
         "url": "albumart/nijigasaki_butterfly-solitude-rain-vivid-world-konoe-kanata-type.jpg",
+        "startOnDay": 0,
         "titleEn": "Butterfly",
         "realEn": "Butterfly / Solitude Rain / VIVID WORLD [Konoe Kanata Type]",
         "artistEn": "Nijigasaki High School Idol Club",
@@ -861,6 +979,7 @@
     },
     {
         "url": "albumart/nijigasaki_butterfly-solitude-rain-vivid-world-osaka-shizuku-type.jpg",
+        "startOnDay": 0,
         "titleEn": "Solitude Rain",
         "realEn": "Butterfly / Solitude Rain / VIVID WORLD [Osaka Shizuku Type]",
         "artistEn": "Nijigasaki High School Idol Club",
@@ -870,6 +989,7 @@
     },
     {
         "url": "albumart/nijigasaki_butterfly-solitude-rain-vivid-world-asaka-karin-type.jpg",
+        "startOnDay": 0,
         "titleEn": "VIVID WORLD",
         "realEn": "Butterfly / Solitude Rain / VIVID WORLD [Asaka Karin Type]",
         "artistEn": "Nijigasaki High School Idol Club",
@@ -879,6 +999,7 @@
     },
     {
         "url": "albumart/nijigasaki_awakening-promise-yume-ga-koko-kara-hajimaru-yo-uehara-ayumu-side.jpg",
+        "startOnDay": 0,
         "titleEn": "Awakening Promise",
         "realEn": "Awakening Promise / Yume ga Koko Kara Hajimaru yo [Uehara Ayumu Side]",
         "artistEn": "Nijigasaki High School Idol Club",
@@ -888,6 +1009,7 @@
     },
     {
         "url": "albumart/nijigasaki_awakening-promise-yume-ga-koko-kara-hajimaru-yo-nijigasaki-side.jpg",
+        "startOnDay": 0,
         "titleEn": "Yume ga Koko Kara Hajimaru yo",
         "realEn": "Awakening Promise / Yume ga Koko Kara Hajimaru yo [Nijigasaki Side]",
         "artistEn": "Nijigasaki High School Idol Club",
@@ -897,6 +1019,7 @@
     },
     {
         "url": "albumart/nijigasaki_colorful-dreams-colorful-smiles.jpg",
+        "startOnDay": 0,
         "titleEn": "Colorful Dreams! Colorful Smiles!",
         "artistEn": "Nijigasaki High School Idol Club",
         "titleJa": "Colorful Dreams! Colorful Smiles!",
@@ -904,6 +1027,7 @@
     },
     {
         "url": "albumart/nijigasaki_yume-ga-bokura-no-taiyou-sa.jpg",
+        "startOnDay": 0,
         "titleEn": "Yume ga Bokura no Taiyou sa",
         "artistEn": "Nijigasaki High School Idol Club",
         "titleJa": "夢が僕らの太陽さ",
@@ -911,6 +1035,7 @@
     },
     {
         "url": "albumart/nijigasaki_eutopia-emotion-stars-we-chase-zhong-lanzhu-type.jpg",
+        "startOnDay": 0,
         "titleEn": "Eutopia",
         "realEn": "Eutopia / EMOTION / stars we chase [Zhong Lanzhu Type]",
         "artistEn": "Nijigasaki High School Idol Club",
@@ -920,6 +1045,7 @@
     },
     {
         "url": "albumart/nijigasaki_eutopia-emotion-stars-we-chase-mifune-shioriko-type.jpg",
+        "startOnDay": 0,
         "titleEn": "EMOTION",
         "realEn": "Eutopia / EMOTION / stars we chase [Mifune Shioriko Type]",
         "artistEn": "Nijigasaki High School Idol Club",
@@ -929,6 +1055,7 @@
     },
     {
         "url": "albumart/nijigasaki_eutopia-emotion-stars-we-chase-mia-taylor-type.jpg",
+        "startOnDay": 0,
         "titleEn": "stars we chase",
         "realEn": "Eutopia / EMOTION / stars we chase [Mia Taylor Type]",
         "artistEn": "Nijigasaki High School Idol Club",
@@ -938,6 +1065,7 @@
     },
     {
         "url": "albumart/nijigasaki_future-parade.jpg",
+        "startOnDay": 0,
         "titleEn": "Future Parade",
         "artistEn": "Nijigasaki High School Idol Club",
         "titleJa": "Future Parade",
@@ -945,6 +1073,7 @@
     },
     {
         "url": "albumart/nijigasaki_eien-no-isshun.jpg",
+        "startOnDay": 0,
         "titleEn": "Eien no Isshun",
         "artistEn": "Nijigasaki High School Idol Club",
         "titleJa": "永遠の一瞬",
@@ -952,6 +1081,7 @@
     },
     {
         "url": "albumart/aqours-nijigasaki-liella_live-with-a-smile.jpg",
+        "startOnDay": 0,
         "titleEn": "LIVE with a smile!",
         "artistEn": "Aqours / Nijigasaki High School Idol Club / Liella!",
         "titleJa": "LIVE with a smile!",
@@ -959,6 +1089,7 @@
     },
     {
         "url": "albumart/nijigasaki_miracle-stay-tune.jpg",
+        "startOnDay": 0,
         "titleEn": "Miracle STAY TUNE!",
         "artistEn": "Nijigasaki High School Idol Club",
         "titleJa": "ミラクル STAY TUNE!",
@@ -966,6 +1097,7 @@
     },
     {
         "url": "albumart/diverdiva_super-nova.jpg",
+        "startOnDay": 0,
         "titleEn": "SUPER NOVA",
         "artistEn": "DiverDiva",
         "titleJa": "SUPER NOVA",
@@ -973,6 +1105,7 @@
     },
     {
         "url": "albumart/diverdiva_the-secret-night.jpg",
+        "startOnDay": 0,
         "titleEn": "THE SECRET NiGHT",
         "artistEn": "DiverDiva",
         "titleJa": "THE SECRET NiGHT",
@@ -980,6 +1113,7 @@
     },
     {
         "url": "albumart/diverdiva_eternal-light.jpg",
+        "startOnDay": 0,
         "titleEn": "Eternal Light",
         "artistEn": "DiverDiva",
         "titleJa": "Eternal Light",
@@ -987,6 +1121,7 @@
     },
     {
         "url": "albumart/diverdiva_shadow-effect.jpg",
+        "startOnDay": 0,
         "titleEn": "Shadow Effect",
         "artistEn": "DiverDiva",
         "titleJa": "Shadow Effect",
@@ -994,6 +1129,7 @@
     },
     {
         "url": "albumart/a-zu-na_dream-land-dream-world.jpg",
+        "startOnDay": 0,
         "titleEn": "Dream Land! Dream World!",
         "artistEn": "A・ZU・NA",
         "titleJa": "Dream Land! Dream World!",
@@ -1001,6 +1137,7 @@
     },
     {
         "url": "albumart/a-zu-na_maze-town.jpg",
+        "startOnDay": 0,
         "titleEn": "Maze Town",
         "artistEn": "A・ZU・NA",
         "titleJa": "Maze Town",
@@ -1008,6 +1145,7 @@
     },
     {
         "url": "albumart/a-zu-na_infinity-our-wings.jpg",
+        "startOnDay": 0,
         "titleEn": "Infinity! Our wings!!",
         "artistEn": "A・ZU・NA",
         "titleJa": "Infinity! Our wings!!",
@@ -1015,6 +1153,7 @@
     },
     {
         "url": "albumart/qu4rtz_sing-smile.jpg",
+        "startOnDay": 0,
         "titleEn": "Sing & Smile!!",
         "artistEn": "QU4RTZ",
         "titleJa": "Sing & Smile!!",
@@ -1022,6 +1161,7 @@
     },
     {
         "url": "albumart/qu4rtz_swinging.jpg",
+        "startOnDay": 0,
         "titleEn": "Swinging!",
         "artistEn": "QU4RTZ",
         "titleJa": "Swinging!",
@@ -1029,6 +1169,7 @@
     },
     {
         "url": "albumart/qu4rtz_enjoy-it.jpg",
+        "startOnDay": 0,
         "titleEn": "ENJOY IT!",
         "artistEn": "QU4RTZ",
         "titleJa": "ENJOY IT!",
@@ -1036,6 +1177,7 @@
     },
     {
         "url": "albumart/r3birth_monster-girls.jpg",
+        "startOnDay": 0,
         "titleEn": "MONSTER GIRLS",
         "artistEn": "R3BIRTH",
         "titleJa": "MONSTER GIRLS",
@@ -1043,6 +1185,7 @@
     },
     {
         "url": "albumart/r3birth_vroom-vroom.jpg",
+        "startOnDay": 0,
         "titleEn": "Vroom Vroom",
         "artistEn": "R3BIRTH",
         "titleJa": "Vroom Vroom",
@@ -1050,6 +1193,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Bokura no LIVE Kimi to no LIFE",
         "artistEn": "µ's",
         "titleJa": "僕らのLIVE 君とのLIFE",
@@ -1057,6 +1201,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Snow halation",
         "artistEn": "µ's",
         "titleJa": "Snow halation",
@@ -1064,6 +1209,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Natsuiro Egao de 1,2,Jump!",
         "artistEn": "µ's",
         "titleJa": "夏色えがおで1,2,Jump!",
@@ -1071,6 +1217,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Mogyutto \"love\" de Sekkin Chuu!",
         "artistEn": "µ's",
         "titleJa": "もぎゅっと“love”で接近中!",
@@ -1078,6 +1225,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Wonderful Rush",
         "artistEn": "µ's",
         "titleJa": "Wonderful Rush",
@@ -1085,6 +1233,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Bokura wa Ima no Naka de",
         "artistEn": "µ's",
         "titleJa": "僕らは今のなかで",
@@ -1092,6 +1241,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Kitto Seishun ga Kikoeru",
         "artistEn": "µ's",
         "titleJa": "きっと青春が聞こえる",
@@ -1099,6 +1249,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Susume→Tomorrow / START:DASH!!",
         "artistEn": "µ's",
         "titleJa": "ススメ→トゥモロウ / START:DASH!!",
@@ -1106,6 +1257,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Korekara no Someday / Wonder zone",
         "artistEn": "µ's",
         "titleJa": "これからのSomeday / Wonder zone",
@@ -1113,6 +1265,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "No brand girls / START:DASH!!",
         "artistEn": "µ's",
         "titleJa": "No brand girls / START:DASH!!",
@@ -1120,6 +1273,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Music S.T.A.R.T!!",
         "artistEn": "µ's",
         "titleJa": "Music S.T.A.R.T!!",
@@ -1127,6 +1281,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Takaramonozu",
         "artistEn": "µ's",
         "titleJa": "タカラモノズ",
@@ -1134,6 +1289,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Sore wa Bokutachi no Kiseki",
         "artistEn": "µ's",
         "titleJa": "それは僕たちの奇跡",
@@ -1141,6 +1297,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Donna Toki mo Zutto",
         "artistEn": "µ's",
         "titleJa": "どんなときもずっと",
@@ -1148,6 +1305,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Yume no Tobira",
         "artistEn": "µ's",
         "titleJa": "ユメノトビラ",
@@ -1155,6 +1313,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Love wing bell / Dancing stars on me!",
         "artistEn": "µ's",
         "titleJa": "Love wing bell / Dancing stars on me!",
@@ -1162,6 +1321,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "KiRa-KiRa Sensation! / Happy maker!",
         "artistEn": "µ's",
         "titleJa": "KiRa-KiRa Sensation! / Happy maker!",
@@ -1169,6 +1329,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Shangri-La Shower",
         "artistEn": "µ's",
         "titleJa": "Shangri-La Shower",
@@ -1176,6 +1337,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Mi wa µ'sic no Mi",
         "artistEn": "µ's",
         "titleJa": "ミはμ'sicのミ",
@@ -1183,6 +1345,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Angelic Angel / Hello, Hoshi o Kazoete",
         "artistEn": "µ's",
         "titleJa": "Angelic Angel／Hello,星を数えて",
@@ -1190,6 +1353,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "SUNNY DAY SONG / ?←HEARTBEAT",
         "artistEn": "µ's",
         "titleJa": "SUNNY DAY SONG / ？←HEARTBEAT",
@@ -1197,6 +1361,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Bokutachi wa Hitotsu no Hikari / Future style",
         "artistEn": "µ's",
         "titleJa": "僕たちはひとつの光 / Future style",
@@ -1204,6 +1369,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "HEART to HEART!",
         "artistEn": "µ's",
         "titleJa": "HEART to HEART!",
@@ -1211,6 +1377,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "MOMENT RING",
         "artistEn": "µ's",
         "titleJa": "MOMENT RING",
@@ -1218,6 +1385,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "A song for You! You? You!!",
         "artistEn": "µ's",
         "titleJa": "A song for You! You? You!!",
@@ -1225,6 +1393,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Mermaid festa vol.2 ~Passionate~",
         "artistEn": "µ's",
         "titleJa": "Mermaid festa vol.2 ~Passionate~",
@@ -1232,6 +1401,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Otome Shiki Ren'ai Juku",
         "artistEn": "µ's",
         "titleJa": "乙女式れんあい塾",
@@ -1239,6 +1409,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Kokuhaku Biyori, desu!",
         "artistEn": "µ's",
         "titleJa": "告白日和、です!",
@@ -1246,6 +1417,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "soldier game",
         "artistEn": "µ's",
         "titleJa": "soldier game",
@@ -1253,6 +1425,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Love Live Radio Kagai Katsudou NicoRinPana Theme Song DJCD",
         "artistEn": "µ's",
         "titleJa": "ラブライ部 ラジオ課外活動 にこりんぱな テーマソングDJCD",
@@ -1260,6 +1433,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Umiiro Shoujo ni Miserarete",
         "artistEn": "µ's",
         "titleJa": "海色少女に魅せられて",
@@ -1267,6 +1441,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Kotori Lovin' you",
         "artistEn": "µ's",
         "titleJa": "ことりLovin' you",
@@ -1274,6 +1449,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Honnori Honoka-iro!",
         "artistEn": "µ's",
         "titleJa": "ほんのり穂乃果色！",
@@ -1281,6 +1457,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Love marginal",
         "artistEn": "Printemps",
         "titleJa": "Love marginal",
@@ -1288,6 +1465,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Pure girls project",
         "artistEn": "Printemps",
         "titleJa": "Pure girls project",
@@ -1295,6 +1473,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Puwa Puwa-O!",
         "artistEn": "Printemps",
         "titleJa": "ぷわぷわーお！",
@@ -1302,6 +1481,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Eien Friends",
         "artistEn": "Printemps",
         "titleJa": "永遠フレンズ",
@@ -1309,6 +1489,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "CheerDay CheerGirl!",
         "artistEn": "Printemps",
         "titleJa": "CheerDay CheerGirl!",
@@ -1316,6 +1497,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "MUSEUM de Dou Shitai?",
         "artistEn": "Printemps",
         "titleJa": "MUSEUMでどうしたい？",
@@ -1323,6 +1505,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "WAO-WAO Powerful day!",
         "artistEn": "Printemps",
         "titleJa": "WAO-WAO Powerful day!",
@@ -1330,6 +1513,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Diamond Princess no Yuuutsu",
         "artistEn": "BiBi",
         "titleJa": "ダイヤモンドプリンセスの憂鬱",
@@ -1337,6 +1521,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Cutie Panther",
         "artistEn": "BiBi",
         "titleJa": "Cutie Panther",
@@ -1344,6 +1529,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Fuyu ga Kureta Yokan",
         "artistEn": "BiBi",
         "titleJa": "冬がくれた予感",
@@ -1351,6 +1537,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Silent tonight",
         "artistEn": "BiBi",
         "titleJa": "Silent tonight",
@@ -1358,6 +1545,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Saitei de Saikou no Paradiso",
         "artistEn": "BiBi",
         "titleJa": "最低で最高のParadiso",
@@ -1365,6 +1553,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Sakkaku CROSSROADS",
         "artistEn": "BiBi",
         "titleJa": "錯覚CROSSROADS",
@@ -1372,6 +1561,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Shiranai Love*Oshiete Love",
         "artistEn": "lily white",
         "titleJa": "知らないLove*教えてLove",
@@ -1379,6 +1569,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Binetsu Kara Mystery",
         "artistEn": "lily white",
         "titleJa": "微熱からMystery",
@@ -1386,6 +1577,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Aki no Anata no Sora Tooku",
         "artistEn": "lily white",
         "titleJa": "秋のあなたの空遠く",
@@ -1393,6 +1585,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Onaji Hoshi ga Mitai",
         "artistEn": "lily white",
         "titleJa": "同じ星が見たい",
@@ -1400,6 +1593,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Otohime Heart de Love Kyuuden",
         "artistEn": "lily white",
         "titleJa": "乙姫心で恋宮殿",
@@ -1407,6 +1601,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Omoide Ijou ni Naritakute",
         "artistEn": "lily white",
         "titleJa": "思い出以上になりたくて",
@@ -1414,6 +1609,7 @@
     },
     {
         "url": "",
+        "startOnDay": 0,
         "titleEn": "Dazzling White Town",
         "artistEn": "Saint Snow",
         "titleJa": "Dazzling White Town",
@@ -1421,6 +1617,7 @@
     },
     {
         "url": "albumart/sunny-passion_hot-passion.jpg",
+        "startOnDay": 0,
         "titleEn": "HOT PASSION!!",
         "artistEn": "Sunny Passion",
         "titleJa": "HOT PASSION!!",
@@ -1428,6 +1625,7 @@
     },
     {
         "url": "albumart/liella_sing-shine-smile-mirai-no-oto-ga-kikoeru-ep-10-edition.jpg",
+        "startOnDay": 0,
         "titleEn": "Sing! Shine! Smile!",
         "realEn": "Sing! Shine! Smile! / Mirai no Oto ga Kikoeru [Ep 10 Edition]",
         "artistEn": "Liella!",
@@ -1437,6 +1635,7 @@
     },
     {
         "url": "albumart/liella_sing-shine-smile-mirai-no-oto-ga-kikoeru-ep-12-edition.jpg",
+        "startOnDay": 0,
         "titleEn": "Mirai no Oto ga Kikoeru",
         "realEn": "Sing! Shine! Smile! / Mirai no Oto ga Kikoeru [Ep 12 Edition]",
         "artistEn": "Liella!",

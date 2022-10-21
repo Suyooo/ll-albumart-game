@@ -13,8 +13,8 @@
     function submit(): void {
         if (!input || VALID_GUESSES.has(input)) {
             $STATE.guesses.push(input || null);
-            if (input === $ALBUM.artistEn + " - " + $ALBUM.titleEn ||
-                input === $ALBUM.artistJa + " - " + $ALBUM.titleJa) {
+            if (input === ALBUM.artistEn + " - " + ALBUM.titleEn ||
+                input === ALBUM.artistJa + " - " + ALBUM.titleJa) {
                 $STATE.cleared = $STATE.finished = true;
             } else {
                 $STATE.failed++;
