@@ -1,6 +1,6 @@
 import fs from "fs";
 import axios from "axios";
-import {ALBUMPOOL} from "../src/js/albumpool.js";
+import {ALBUMPOOL} from "../src/data/albumpool.js";
 
 const downloadQueue: { titleJa?: string, titleEn?: string, url: string, used?: boolean }[] = [
 ];
@@ -35,7 +35,7 @@ const downloadQueue: { titleJa?: string, titleEn?: string, url: string, used?: b
         }
     }
 
-    fs.writeFileSync("src/js/albumpool.json", JSON.stringify(ALBUMPOOL, null, 4));
+    fs.writeFileSync("src/data/albumpool.json", JSON.stringify(ALBUMPOOL, null, 4));
 
     for (const dl of downloadQueue) {
         if (!dl.used) console.log("Unused: " + (dl.titleEn || dl.titleJa));

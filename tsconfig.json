@@ -16,12 +16,18 @@
     "checkJs": true,
     "isolatedModules": true,
     "paths": {
+      "$actions": ["src/actions"],
+      "$actions/*": ["src/actions/*"],
+      "$data": ["src/data"],
+      "$data/*": ["src/data/*"],
+      "$icon": ["src/icon"],
+      "$icon/*": ["src/icon/*"],
       "$lib": ["src/lib"],
       "$lib/*": ["src/lib/*"],
-      "$js": ["src/js"],
-      "$js/*": ["src/js/*"],
-      "$icon": ["src/icon"],
-      "$icon/*": ["src/icon/*"]
+      "$modules": ["src/modules"],
+      "$modules/*": ["src/modules/*"],
+      "$stores": ["src/stores"],
+      "$stores/*": ["src/stores/*"]
     }
   },
   "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.js", "src/**/*.svelte"]

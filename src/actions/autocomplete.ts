@@ -1,9 +1,9 @@
 import autocompleter from "autocompleter";
 import type {AutocompleteItem} from "autocompleter";
-import type {Action} from 'svelte/action';
+import type {Action} from "svelte/action";
 import fuzzysort from "fuzzysort";
-import type {Album} from "./albumpool";
-import {ALBUMPOOL} from "./albumpool";
+import type {Album} from "$data/albumpool";
+import {ALBUMPOOL} from "$data/albumpool";
 
 interface ACTarget extends AutocompleteItem {
     en: Fuzzysort.Prepared,

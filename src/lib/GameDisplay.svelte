@@ -3,7 +3,7 @@
     import Right from "$icon/Right.svelte";
     import {onMount} from "svelte";
     import {scale} from 'svelte/transition';
-    import type {GameInstanceSiteWrapper} from "$js/games.js";
+    import type {GameInstanceSiteWrapper} from "$modules/games.js";
 
     export let game: GameInstanceSiteWrapper;
     export let cleared: boolean;

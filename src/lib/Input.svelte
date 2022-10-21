@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {autocomplete, VALID_GUESSES} from "$js/autocomplete";
+    import {autocomplete, VALID_GUESSES} from "$actions/autocomplete";
 
     import {createEventDispatcher} from "svelte";
 

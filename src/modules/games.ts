@@ -50,7 +50,7 @@ async function getGameForDay(day: number): Promise<Game> {
     const gamePickedWeight = rng() * GAME_POOL_TOTAL_WEIGHT;
     const gameId = GAME_POOL.findIndex(game => game.cumulativeWeight! >= gamePickedWeight);
     if (GAME_CACHE[gameId] === undefined) {
-        GAME_CACHE[gameId] = await import(`$js/games/game-${GAME_POOL[gameId].filename}.ts`);
+        GAME_CACHE[gameId] = await import(`$modules/games/game-${GAME_POOL[gameId].filename}.ts`);
     }
     return GAME_CACHE[gameId]!;
 }

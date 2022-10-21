@@ -4,9 +4,9 @@
 
     import GameDisplay from "./GameDisplay.svelte";
     import Spinner from "./Spinner.svelte";
-    import type {Album} from "$js/albumpool";
-    import type {GameInstanceSiteWrapper} from "$js/games.js";
-    import {getGameInstance} from "$js/games.js";
+    import type {Album} from "$data/albumpool";
+    import type {GameInstanceSiteWrapper} from "$modules/games";
+    import {getGameInstance} from "$modules/games";
 
     export let cleared: boolean;
     export let finished: boolean;

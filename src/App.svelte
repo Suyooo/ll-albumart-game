@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {ALBUMPOOL} from "$js/albumpool";
+    import {ALBUMPOOL} from "$data/albumpool";
 
     import Header from "$lib/Header.svelte";
     import GameDisplayContainer from "$lib/GameDisplayContainer.svelte";
