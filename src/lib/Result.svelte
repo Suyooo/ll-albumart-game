@@ -1,17 +1,26 @@
 <script lang="ts">
     import Checkmark from "$icon/Copied.svelte";
     import Share from "$icon/Share.svelte";
+    import {STATE} from "$stores/state.js";
     import {onMount} from "svelte";
     import {fade, fly} from "svelte/transition";
-
-    export let cleared: boolean;
-    export let guesses: (string | null)[];
-    export let failed: number;
-    export let getShareText: () => string;
 
     let copied: boolean = false;
     let timer: string;
     let timerOver: boolean = false;
+
+    function getShareText(): string {
+        return "LL! Guess That Album #" + $STATE.day + "\n🖼" +
+            $STATE.guesses.map((guess, index) => {
+                if (index < $STATE.failed) {
+                    if (guess === null) return "⬜";
+                    else return "🟥️";
+                } else if (index === $STATE.failed) return "🟩";
+                else return;
+            }).join("") +
+            "️️⬛".repeat(6 - $STATE.failed - ($STATE.cleared ? 1 : 0)) +
+            "\n#LLAlbumArt #lovelive #ラブライブ\nhttps://llalbumart.suyo.be";
+    }
 
     function share() {
         if (navigator.share && !(navigator.userAgent.includes("Firefox") && navigator.userAgent.includes("Android"))) {
@@ -55,27 +64,27 @@
 
 <div class="flex flex-col items-center mt-12" in:fly={{y: -50, duration: 1000}}>
     <h2 class="tracking-widest uppercase font-bold text-2xl">
-        {#if !cleared}
+        {#if !$STATE.cleared}
             Too bad
-        {:else if failed === 5}
+        {:else if $STATE.failed === 5}
             Close one
-        {:else if failed === 4}
+        {:else if $STATE.failed === 4}
             You got it
-        {:else if failed === 3}
+        {:else if $STATE.failed === 3}
             Good job
-        {:else if failed === 2}
+        {:else if $STATE.failed === 2}
             Nice one
-        {:else if failed === 1}
+        {:else if $STATE.failed === 1}
             No problem
-        {:else if failed === 0}
+        {:else if $STATE.failed === 0}
             Amazing
         {/if}
     </h2>
     <div class="text-sm text-center">
-        {#if !cleared}
+        {#if !$STATE.cleared}
             You have run out of guesses.
-        {:else if failed > 0}
-            You guessed today's album art in <b>{failed + 1} guesses</b>!
+        {:else if $STATE.failed > 0}
+            You guessed today's album art in <b>{$STATE.failed + 1} guesses</b>!
         {:else}
             You guessed today's album art on <b>the first guess</b>!
         {/if}
@@ -83,10 +92,10 @@
     <div class="flex space-x-3 mt-2 mb-3">
         {#each {length: 6} as _, i}
             <div class="w-6 h-2" in:fade={{delay: 150 * i}}
-                 class:bg-unused={i >= guesses.length}
-                 class:bg-skipped={i < guesses.length - (cleared ? 1 : 0) && guesses[i] === null}
-                 class:bg-correct={i === guesses.length - 1 && cleared}
-                 class:bg-wrong={i < guesses.length - (cleared ? 1 : 0) && guesses[i] !== null}>
+                 class:bg-unused={i >= $STATE.guesses.length}
+                 class:bg-skipped={i < $STATE.guesses.length - ($STATE.cleared ? 1 : 0) && $STATE.guesses[i] === null}
+                 class:bg-correct={i === $STATE.guesses.length - 1 && $STATE.cleared}
+                 class:bg-wrong={i < $STATE.guesses.length - ($STATE.cleared ? 1 : 0) && $STATE.guesses[i] !== null}>
                 &nbsp;
             </div>
         {/each}

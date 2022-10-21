@@ -2,17 +2,18 @@
     import Correct from "$icon/Correct.svelte";
     import Skip from "$icon/Skip.svelte";
     import Wrong from "$icon/Wrong.svelte";
-    import {fly} from 'svelte/transition';
+    import {STATE} from "$stores/state";
+    import {fly} from "svelte/transition";
 
-    export let guess: string | null | undefined = undefined;
-    export let cleared: boolean;
-    export let isEmpty: boolean;
-    export let isCurrent: boolean;
+    export let i: number = 0;
+    $: guess = $STATE.guesses[i];
 
-    $: isCorrect = isCurrent && cleared;
+    $: isEmpty = $STATE.failed < i || ($STATE.failed === i && !$STATE.cleared);
+    $: isCurrent = $STATE.failed === i;
+    $: isCorrect = isCurrent && $STATE.cleared;
     $: isSkipped = !isEmpty && guess === null;
     $: isWrong = !isEmpty && !isCurrent && guess !== null;
-    $: isNextGuess = isCurrent && !cleared;
+    $: isNextGuess = isCurrent && !$STATE.cleared;
 </script>
 
 <div class="w-full my-1 px-2 py-1 border-2 text-sm flex min-h-8 transition-colors duration-[400ms]"

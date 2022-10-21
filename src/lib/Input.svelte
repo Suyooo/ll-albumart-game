@@ -1,11 +1,7 @@
 <script lang="ts">
     import {autocomplete, VALID_GUESSES} from "$actions/autocomplete";
+    import {STATE, ALBUM} from "$stores/state";
 
-    import {createEventDispatcher} from "svelte";
-
-    export let failed: 0 | 1 | 2 | 3 | 4 | 5 | 6;
-
-    const dispatch = createEventDispatcher<{ guess: string }>();
     let input: string, disabled: boolean = false, inputElement: HTMLInputElement;
 
     function enterSubmit(e: KeyboardEvent): void {
@@ -16,11 +12,22 @@
 
     function submit(): void {
         if (!input || VALID_GUESSES.has(input)) {
-            disabled = true;
-            setTimeout(() => { disabled = false; }, failed < 4 ? 500 : 2000);
-            dispatch("guess", input);
-            input = "";
-            inputElement.focus();
+            $STATE.guesses.push(input || null);
+            if (input === $ALBUM.artistEn + " - " + $ALBUM.titleEn ||
+                input === $ALBUM.artistJa + " - " + $ALBUM.titleJa) {
+                $STATE.cleared = $STATE.finished = true;
+            } else {
+                $STATE.failed++;
+                disabled = true;
+                setTimeout(() => { disabled = false; }, $STATE.failed < 4 ? 500 : 2000);
+
+                if ($STATE.failed >= 6) {
+                    $STATE.finished = true;
+                } else {
+                    input = "";
+                    inputElement.focus();
+                }
+            }
         }
     }
 
@@ -43,7 +50,7 @@
             class:bg-primary-700={!input && !disabled} on:click={submit}>
         {#if input}
             Submit
-        {:else if failed < 5}
+        {:else if $STATE.failed < 5}
             Skip
         {:else}
             Give Up
