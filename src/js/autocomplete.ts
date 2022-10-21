@@ -1,6 +1,6 @@
-import autocomplete from "autocompleter";
+import autocompleter from "autocompleter";
 import type {AutocompleteItem} from "autocompleter";
-import type {AutocompleteResult} from "autocompleter/autocomplete";
+import type {Action} from 'svelte/action';
 import fuzzysort from "fuzzysort";
 import type {Album} from "./albumpool";
 import {ALBUMPOOL} from "./albumpool";
@@ -44,9 +44,9 @@ const acOptions: Fuzzysort.KeysOptions<ACTarget> = {
     keys: ["en", "ja", "enTitleOnly", "jaTitleOnly"]
 };
 
-export function initAutocomplete(inputElement: HTMLInputElement, setInputValue: (s: string) => void): AutocompleteResult {
-    return autocomplete<ACResult>({
-        input: inputElement,
+export const autocomplete: Action<HTMLInputElement> = (node: HTMLInputElement) => {
+    const acInstance = autocompleter<ACResult>({
+        input: node,
         fetch: function (text: string, update: (res: ACResult[]) => void): void {
             if (VALID_GUESSES.has(text)) update([]);
             else update(fuzzysort.go(text, acTargets, acOptions)
@@ -65,7 +65,7 @@ export function initAutocomplete(inputElement: HTMLInputElement, setInputValue: 
             );
         },
         onSelect: function (item: ACResult): void {
-            setInputValue(item.label);
+            node.dispatchEvent(new CustomEvent<string>("select", {detail: item.label}));
         },
         render: function (item: ACResult): HTMLDivElement | undefined {
             const itemElement = document.createElement("div");
@@ -83,4 +83,8 @@ export function initAutocomplete(inputElement: HTMLInputElement, setInputValue: 
         showOnFocus: true,
         minLength: 1
     });
+
+    return {
+        destroy: () => acInstance.destroy()
+    };
 }

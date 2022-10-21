@@ -53,7 +53,7 @@
     });
 </script>
 
-<div class="flex flex-col items-center mt-12">
+<div class="flex flex-col items-center mt-12" in:fly={{y: -50, duration: 1000}}>
     <h2 class="tracking-widest uppercase font-bold text-2xl">
         {#if !cleared}
             Too bad
@@ -71,7 +71,7 @@
             Amazing
         {/if}
     </h2>
-    <div class="text-sm text-center" in:fly={{y: -20, duration: 1000}}>
+    <div class="text-sm text-center">
         {#if !cleared}
             You have run out of guesses.
         {:else if failed > 0}
@@ -80,7 +80,7 @@
             You guessed today's album art on <b>the first guess</b>!
         {/if}
     </div>
-    <div class="flex space-x-3 mt-2" in:fly={{y: -40, duration: 1000}}>
+    <div class="flex space-x-3 mt-2 mb-3">
         {#each {length: 6} as _, i}
             <div class="w-6 h-2" in:fade={{delay: 150 * i}}
                  class:bg-unused={i >= guesses.length}
