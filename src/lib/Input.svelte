@@ -1,6 +1,7 @@
 <script lang="ts">
     import {autocomplete, VALID_GUESSES} from "$actions/autocomplete";
     import {STATE, ALBUM} from "$stores/state";
+    import {STATISTICS} from "$stores/statistics";
 
     let input: string, disabled: boolean = false, inputElement: HTMLInputElement;
 
@@ -16,6 +17,7 @@
             if (input === ALBUM.artistEn + " - " + ALBUM.titleEn ||
                 input === ALBUM.artistJa + " - " + ALBUM.titleJa) {
                 $STATE.cleared = $STATE.finished = true;
+                STATISTICS.addFinishedState($STATE);
             } else {
                 $STATE.failed++;
                 disabled = true;
@@ -23,6 +25,7 @@
 
                 if ($STATE.failed >= 6) {
                     $STATE.finished = true;
+                    STATISTICS.addFinishedState($STATE);
                 } else {
                     input = "";
                     inputElement.focus();

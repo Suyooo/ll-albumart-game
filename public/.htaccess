@@ -1,0 +1,4 @@
+<IfModule mod_rewrite.c>
+	RewriteCond %{QUERY_STRING} ([0-9]+) [NC]
+	RewriteRule (.*) /dump/coverdle/? [R=31,L]
+</IfModule>

@@ -19,7 +19,7 @@
                 else return;
             }).join("") +
             "️️⬛".repeat(6 - $STATE.failed - ($STATE.cleared ? 1 : 0)) +
-            "\n#LLAlbumArt #lovelive #ラブライブ\nhttps://llalbumart.suyo.be";
+            "\n#LLAlbumArt #lovelive #ラブライブ\nhttps://llalbumart.suyo.be/?" + $STATE.day;
     }
 
     function share() {

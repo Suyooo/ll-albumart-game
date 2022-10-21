@@ -8,11 +8,6 @@
     import Footer from "$lib/Footer.svelte";
     import Result from "$lib/Result.svelte";
     import {STATE} from "$stores/state";
-
-    /*do {
-        $STATE.day = Math.floor(Math.random() * 1000);
-        $STATE.albumId = Math.floor(Math.random() * ALBUMPOOL.length);
-    } while (ALBUM.url === "");*/
 </script>
 
 <div class="flex flex-col w-full h-full items-center overflow-auto" in:fade={{duration: 100}}>

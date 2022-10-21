@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-    html, body {
-        @apply h-full;
+    html, body, body > div {
+        @apply w-full h-full text-gray-100 bg-gray-800;
     }
     a {
         @apply underline text-primary-500;
