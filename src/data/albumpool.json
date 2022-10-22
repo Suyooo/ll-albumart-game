@@ -180,46 +180,6 @@
         "artistJa": "Liella!"
     },
     {
-        "url": "/albumart/liella_sagashite-future.jpg",
-        "startOnDay": 0,
-        "titleEn": "Sagashite! Future",
-        "artistEn": "Liella!",
-        "titleJa": "探して！Future",
-        "artistJa": "Liella!"
-    },
-    {
-        "url": "/albumart/liella_happy-to-do-wa.jpg",
-        "startOnDay": 0,
-        "titleEn": "HAPPY TO DO WA!",
-        "artistEn": "Liella!",
-        "titleJa": "HAPPY TO DO WA!",
-        "artistJa": "Liella!"
-    },
-    {
-        "url": "/albumart/liella_stella.jpg",
-        "startOnDay": 0,
-        "titleEn": "Stella!",
-        "artistEn": "Liella!",
-        "titleJa": "Stella!",
-        "artistJa": "Liella!"
-    },
-    {
-        "url": "/albumart/liella_kawaranai-subete.jpg",
-        "startOnDay": 0,
-        "titleEn": "Kawaranai Subete",
-        "artistEn": "Liella!",
-        "titleJa": "変わらないすべて",
-        "artistJa": "Liella!"
-    },
-    {
-        "url": "/albumart/liella_crescendo-yu-ra.jpg",
-        "startOnDay": 0,
-        "titleEn": "Crescendo Yu・Ra",
-        "artistEn": "Liella!",
-        "titleJa": "クレッシェンドゆ・ら",
-        "artistJa": "Liella!"
-    },
-    {
         "url": "",
         "startOnDay": 0,
         "titleEn": "Kimi no Kokoro wa Kagayaiteru kai?",
@@ -1642,5 +1602,29 @@
         "titleJa": "未来の音が聴こえる",
         "realJa": "Sing！Shine！Smile！ / 未来の音が聴こえる 【第12話盤】",
         "artistJa": "Liella!"
+    },
+    {
+        "url": "/albumart/ll-superstar-original-soundtrack_dreams-of-the-superstar.jpg",
+        "startOnDay": 0,
+        "titleEn": "Dreams of the Superstar",
+        "artistEn": "LL! Superstar!! Original Soundtrack",
+        "titleJa": "Dreams of the Superstar",
+        "artistJa": "『ラブライブ！スーパースター!!』 オリジナルサウンドトラック"
+    },
+    {
+        "url": "/albumart/ll-nijigasaski-original-soundtrack_sound-of-tokimeki.jpg",
+        "startOnDay": 0,
+        "titleEn": "Sound of TOKIMEKI",
+        "artistEn": "LL! Nijigasaski Original Soundtrack",
+        "titleJa": "Sound of TOKIMEKI",
+        "artistJa": "『ラブライブ！虹ヶ咲』 オリジナルサウンドトラック"
+    },
+    {
+        "url": "/albumart/ll-nijigasaski-original-soundtrack_bound-for-tokimeki.jpg",
+        "startOnDay": 0,
+        "titleEn": "Bound for TOKIMEKI",
+        "artistEn": "LL! Nijigasaski Original Soundtrack",
+        "titleJa": "Bound for TOKIMEKI",
+        "artistJa": "『ラブライブ！虹ヶ咲』 オリジナルサウンドトラック"
     }
 ]
