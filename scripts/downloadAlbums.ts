@@ -3,6 +3,9 @@ import axios from "axios";
 import {ALBUMPOOL} from "../src/data/albumpool.js";
 
 const downloadQueue: { titleJa?: string, titleEn?: string, url: string, used?: boolean }[] = [
+    {titleEn: "Sound of TOKIMEKI", url: "nijis1.jpg"},
+    {titleEn: "Bound for TOKIMEKI", url: "nijis2.jpg"},
+    {titleEn: "Dreams of the Superstar", url: "liellas1.jpg"}
 ];
 
 (async () => {

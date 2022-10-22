@@ -18,9 +18,9 @@ export default defineConfig({
         outDir: "dist/scripts",
         lib: {
             entry: "scripts/makeShare.ts",
-            name: "makeShare"
+            name: "makeShare",
+            fileName: "makeShare"
         },
-        minify: false,
         rollupOptions: { external: ["fs","canvas"] }
     }
 })

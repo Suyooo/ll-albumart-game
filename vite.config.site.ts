@@ -13,5 +13,9 @@ export default defineConfig({
             "$modules": path.resolve(__dirname, "./src/modules"),
             "$stores": path.resolve(__dirname, "./src/stores")
         },
+    },
+    build: {
+        assetsDir: "bundles",
+        manifest: true
     }
 })
