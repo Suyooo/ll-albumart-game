@@ -3,6 +3,7 @@
     import Help from "$icon/Help.svelte";
     import Stats from "$icon/Stats.svelte";
     import ModalAbout from "$lib/ModalAbout.svelte";
+    import ModalHelp from "$lib/ModalHelp.svelte";
     import {createEventDispatcher} from "svelte";
 
     const dispatch = createEventDispatcher<{ openmodal: { title: string, component: any } }>();
@@ -16,7 +17,7 @@
 
 <header class="w-full border-white border-b-2 mb-4">
     <div class="text-gray-400 max-w-screen-md mx-auto flex">
-        <button class="w-10 h-10 mt-1 flex items-center justify-center" on:click={modalOpener("How To Play", ModalAbout)}>
+        <button class="w-10 h-10 mt-1 flex items-center justify-center" on:click={modalOpener("How To Play", ModalHelp)}>
             <Help/>
         </button>
         <button class="w-10 h-10 mt-1 flex items-center justify-center" on:click={modalOpener("About", ModalAbout)}>
