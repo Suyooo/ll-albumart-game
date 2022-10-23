@@ -3,7 +3,7 @@ import type {AutocompleteItem} from "autocompleter";
 import type {Action} from "svelte/action";
 import fuzzysort from "fuzzysort";
 import type {Album} from "$data/albumpool";
-import {ALBUMPOOL} from "$data/albumpool";
+import {ALBUM_POOL} from "$data/albumpool";
 
 interface ACTarget extends AutocompleteItem {
     en: Fuzzysort.Prepared,
@@ -22,7 +22,7 @@ interface ACResult extends AutocompleteItem {
 }
 
 export const VALID_GUESSES = new Set();
-const acTargets: ACTarget[] = ALBUMPOOL.map(album => {
+const acTargets: ACTarget[] = ALBUM_POOL.map(album => {
     const en = album.artistEn + " - " + album.titleEn;
     const ja = album.artistJa + " - " + album.titleJa;
     VALID_GUESSES.add(en);

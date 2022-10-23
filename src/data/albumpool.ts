@@ -11,4 +11,4 @@ export interface Album {
     realJa?: string
 }
 
-export const ALBUMPOOL: Album[] = <Album[]>json;
+export const ALBUM_POOL: Album[] = <Album[]>json;

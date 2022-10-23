@@ -1,12 +1,12 @@
 import fs from "fs";
 import axios from "axios";
-import {ALBUMPOOL} from "../src/data/albumpool.js";
+import {ALBUM_POOL} from "../src/data/albumpool.js";
 
 const downloadQueue: { titleJa?: string, titleEn?: string, url: string, used?: boolean }[] = [
 ];
 
 (async () => {
-    for (const album of ALBUMPOOL) {
+    for (const album of ALBUM_POOL) {
         if (album.url) continue;
 
         const dl = downloadQueue.find(dl => dl.titleEn == album.titleEn || dl.titleJa == album.titleJa);
@@ -35,7 +35,7 @@ const downloadQueue: { titleJa?: string, titleEn?: string, url: string, used?: b
         }
     }
 
-    fs.writeFileSync("src/data/albumpool.json", JSON.stringify(ALBUMPOOL, null, 4));
+    fs.writeFileSync("src/data/albumpool.json", JSON.stringify(ALBUM_POOL, null, 4));
 
     for (const dl of downloadQueue) {
         if (!dl.used) console.log("Unused: " + (dl.titleEn || dl.titleJa));
