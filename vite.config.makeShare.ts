@@ -16,6 +16,7 @@ export default defineConfig({
     },
     build: {
         outDir: "dist/scripts",
+        emptyOutDir: false,
         lib: {
             entry: "scripts/makeShare.ts",
             name: "makeShare",

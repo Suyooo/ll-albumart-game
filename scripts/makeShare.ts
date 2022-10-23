@@ -5,13 +5,19 @@ import {getGameInstance} from "../src/modules/gameHandler";
 import {ALBUM_POOL} from "../src/data/albumpool";
 import {GAME_POOL} from "../src/data/gamepool";
 
+const jpegConfig = {
+    quality: 1,
+    progressive: false,
+    chromaSubsampling: false
+};
+
 (async () => {
     const {rolledAlbumId, rolledGameId} = getIdsForDay(CURRENT_DAY);
     const {gameInstance} = await getGameInstance(CURRENT_DAY, GAME_POOL[rolledGameId], ALBUM_POOL[rolledAlbumId]);
     const shareCanvas = gameInstance.getShareCanvas();
 
-    const stream = shareCanvas.createPNGStream();
-    const out = fs.createWriteStream("share/" + CURRENT_DAY + ".png");
+    const stream = shareCanvas.createJPEGStream(jpegConfig);
+    const out = fs.createWriteStream("share/" + CURRENT_DAY + ".jpg");
     stream.pipe(out);
     const sharePromise = new Promise((resolve) => {
         out.on("finish", resolve);
@@ -23,8 +29,8 @@ import {GAME_POOL} from "../src/data/gamepool";
     wideCanvasCtx.fillRect(0, 0, wideCanvas.width, wideCanvas.height);
     wideCanvasCtx.drawImage(shareCanvas, shareCanvas.height / 9 * 3.5, 0);
 
-    const wideStream = wideCanvas.createPNGStream();
-    const wideOut = fs.createWriteStream("share/" + CURRENT_DAY + "w.png");
+    const wideStream = wideCanvas.createJPEGStream(jpegConfig);
+    const wideOut = fs.createWriteStream("share/" + CURRENT_DAY + "w.jpg");
     wideStream.pipe(wideOut);
     const widePromise = new Promise((resolve) => {
         wideOut.on("finish", resolve);
