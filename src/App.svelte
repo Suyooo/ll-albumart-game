@@ -1,5 +1,6 @@
 <script lang="ts">
-    import {onMount} from "svelte";
+    import Modal from "$lib/Modal.svelte";
+    import ModalAbout from "$lib/ModalAbout.svelte";
     import {fade} from 'svelte/transition';
 
     import Header from "$lib/Header.svelte";
@@ -10,9 +11,17 @@
     import Result from "$lib/Result.svelte";
     import {STATE} from "$stores/state";
 
-    onMount(() => {
-        if (window.location.search) window.location.replace("/");
-    });
+    let modalTitle = "About";
+    let modalComponent = ModalAbout;
+
+    function openModal(title, component) {
+        modalTitle = title;
+        modalComponent = component;
+    }
+
+    function closeModal() {
+        modalComponent = null;
+    }
 </script>
 
 <div class="flex flex-col w-full h-full items-center overflow-auto" in:fade={{duration: 100}}>
@@ -38,3 +47,6 @@
 
     <Footer/>
 </div>
+{#if modalComponent != null}
+    <Modal title={modalTitle} inner={modalComponent} on:closemodal={closeModal}/>
+{/if}

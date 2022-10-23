@@ -1,0 +1,33 @@
+<script lang="ts">
+    import Close from "$icon/Close.svelte";
+    import {createEventDispatcher} from "svelte";
+    import {fade} from "svelte/transition";
+
+    export let inner;
+    export let title: string;
+
+    const dispatch = createEventDispatcher<{ closemodal: undefined }>();
+
+    function closeModal() {
+        dispatch("closemodal");
+    }
+</script>
+
+<svelte:window on:keydown={e => { if (e.key === "Escape") closeModal() }}/>
+
+<!--
+    svelte-ignore a11y-click-events-have-key-events
+    Accessibility is handled with the key event above ^, and there's also an accessible and obvious close button
+-->
+<div class="absolute left-0 top-0 w-full h-full bg-gray-900 bg-opacity-80 flex items-center justify-center pt-8 pb-24"
+     on:click={closeModal} transition:fade>
+    <div class="w-full max-w-md bg-gray-700 rounded p-6 relative overflow-hidden" on:click|stopPropagation={() => null}>
+        <h3 class="flex-grow h-8 uppercase tracking-widest font-bold text-gray-400">{title}</h3>
+        <button class="absolute right-4 top-4 text-gray-400" on:click={closeModal}>
+            <Close/>
+        </button>
+        <div class="overflow-y-auto mt-4 h-full max-h-[70vh]">
+            <svelte:component this={inner} on:closemodal/>
+        </div>
+    </div>
+</div>
