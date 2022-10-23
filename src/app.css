@@ -7,7 +7,7 @@
         @apply w-full h-full text-gray-100 bg-gray-800;
     }
     a {
-        @apply underline text-primary-500;
+        @apply underline text-primary-300;
     }
     a:active {
         @apply text-primary-100;

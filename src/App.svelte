@@ -1,6 +1,5 @@
 <script lang="ts">
     import Modal from "$lib/Modal.svelte";
-    import ModalAbout from "$lib/ModalAbout.svelte";
     import {fade} from 'svelte/transition';
 
     import Header from "$lib/Header.svelte";
@@ -11,12 +10,12 @@
     import Result from "$lib/Result.svelte";
     import {STATE} from "$stores/state";
 
-    let modalTitle = "About";
-    let modalComponent = ModalAbout;
+    let modalTitle: string = "";
+    let modalComponent = null;
 
-    function openModal(title, component) {
-        modalTitle = title;
-        modalComponent = component;
+    function openModal(event: CustomEvent<{title: string, component: any}>) {
+        modalTitle = event.detail.title;
+        modalComponent = event.detail.component;
     }
 
     function closeModal() {
@@ -25,7 +24,7 @@
 </script>
 
 <div class="flex flex-col w-full h-full items-center overflow-auto" in:fade={{duration: 100}}>
-    <Header/>
+    <Header on:openmodal={openModal}/>
 
     <main class="w-full max-w-screen-sm flex-grow flex flex-col">
         <div class="md:flex-grow flex flex-col items-center justify-center">
