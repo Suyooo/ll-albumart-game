@@ -1,10 +1,10 @@
-/** @type {import("../games").Game} */
+/** @type {import("../gameHandler").Game} */
 
 import {createCanvas} from "canvas";
 import type {Canvas, Image} from "canvas";
 import type {AlbumInfo} from "$data/albumpool";
-import {CANVAS_SIZE} from "../games";
-import type {GameInstance} from "../games";
+import {CANVAS_SIZE} from "../gameHandler";
+import type {GameInstance} from "../gameHandler";
 import {seededRNG} from "../rng";
 
 export const stacked = true;

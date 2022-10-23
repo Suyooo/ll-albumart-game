@@ -1,7 +1,7 @@
 import {createCanvas} from "canvas";
 import fs from "fs";
 import {CURRENT_DAY, getIdsForDay} from "$modules/daily";
-import {getGameInstance} from "$modules/games";
+import {getGameInstance} from "../src/modules/gameHandler";
 import {ALBUM_POOL} from "../src/data/albumpool";
 import {GAME_POOL} from "../src/data/gamepool";
 

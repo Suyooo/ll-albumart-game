@@ -5,8 +5,8 @@
 
     import GameDisplay from "./GameDisplay.svelte";
     import Spinner from "./Spinner.svelte";
-    import type {GameInstanceSiteWrapper} from "$modules/games";
-    import {getGameSiteInstance} from "$modules/games";
+    import type {GameInstanceSiteWrapper} from "$modules/gameHandler";
+    import {getGameSiteInstance} from "$modules/gameHandler";
 
     let game: GameInstanceSiteWrapper;
     onMount(() => {
