@@ -8,7 +8,6 @@
     import GameDisplayContainer from "$lib/GameDisplayContainer.svelte";
     import Input from "$lib/Input.svelte";
     import Guess from "$lib/Guess.svelte";
-    import Footer from "$lib/Footer.svelte";
     import Result from "$lib/Result.svelte";
     import {ALL_STATES, STATE} from "$stores/state";
 
@@ -39,7 +38,7 @@
 <div class="flex flex-col w-full h-full items-center overflow-auto" in:fade={{duration: 100}}>
     <Header on:openmodal={openModalEvent}/>
 
-    <main class="w-full max-w-screen-sm flex-grow flex flex-col">
+    <main class="w-full max-w-screen-sm flex-grow flex flex-col mb-6">
         <div class="md:flex-grow flex flex-col items-center justify-center">
             <GameDisplayContainer/>
         </div>
@@ -56,8 +55,6 @@
             {/if}
         </div>
     </main>
-
-    <Footer/>
 </div>
 {#if modalComponent != null}
     <Modal title={modalTitle} inner={modalComponent} on:closemodal={closeModal}/>
