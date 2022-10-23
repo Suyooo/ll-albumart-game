@@ -2,16 +2,16 @@
 
 import {createCanvas} from "canvas";
 import type {Canvas, Image} from "canvas";
-import type {Album} from "$data/albumpool";
+import type {AlbumInfo} from "$data/albumpool";
 import {smoothScaleSquare, smoothScaleSquareWithSrc} from "../canvasUtil";
 import {CANVAS_SIZE} from "../games";
 import type {GameInstance} from "../games";
 
-export const name = "Blobs";
 export const stacked = false;
+
 const BLURS = [15, 25, 40, 60, 90, 140];
 
-export function getGameInstance(_day: number, _album: Album, _image: Image, scaledImage: Canvas): GameInstance {
+export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, scaledImage: Canvas): GameInstance {
     const origData = scaledImage.getContext("2d").getImageData(0, 0, CANVAS_SIZE, CANVAS_SIZE);
     let avg = 0;
     for (let x = 0; x < CANVAS_SIZE; x++) {

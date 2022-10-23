@@ -2,7 +2,7 @@ import autocompleter from "autocompleter";
 import type {AutocompleteItem} from "autocompleter";
 import type {Action} from "svelte/action";
 import fuzzysort from "fuzzysort";
-import type {Album} from "$data/albumpool";
+import type {AlbumInfo} from "$data/albumpool";
 import {ALBUM_POOL} from "$data/albumpool";
 
 interface ACTarget extends AutocompleteItem {
@@ -10,12 +10,12 @@ interface ACTarget extends AutocompleteItem {
     ja: Fuzzysort.Prepared,
     enTitleOnly: Fuzzysort.Prepared,
     jaTitleOnly: Fuzzysort.Prepared,
-    album: Album
+    album: AlbumInfo
 }
 
 interface ACResult extends AutocompleteItem {
     label: string,
-    value: Album,
+    value: AlbumInfo,
     isEn: boolean,
     result: Fuzzysort.Result,
     prefixArtist?: string

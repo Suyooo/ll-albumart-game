@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {STATE, ALBUM} from "$stores/state";
+    import {STATE, ALBUM, GAME} from "$stores/state";
     import {onMount} from "svelte";
     import {fly} from 'svelte/transition';
 
@@ -10,7 +10,7 @@
 
     let game: GameInstanceSiteWrapper;
     onMount(() => {
-        getGameSiteInstance($STATE.day, ALBUM).then((game_) => game = game_);
+        getGameSiteInstance($STATE.day, GAME, ALBUM).then((game_) => game = game_);
     });
 </script>
 

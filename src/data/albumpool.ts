@@ -1,6 +1,6 @@
 import json from "./albumpool.json" assert { type: 'json' };
 
-export interface Album {
+export interface AlbumInfo {
     url: string,
     startOnDay: number,
     titleEn: string,
@@ -11,4 +11,4 @@ export interface Album {
     realJa?: string
 }
 
-export const ALBUM_POOL: Album[] = <Album[]>json;
+export const ALBUM_POOL: AlbumInfo[] = <AlbumInfo[]>json;

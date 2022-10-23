@@ -2,16 +2,16 @@
 
 import {createCanvas} from "canvas";
 import type {Canvas, Image} from "canvas";
-import type {Album} from "$data/albumpool";
+import type {AlbumInfo} from "$data/albumpool";
 import { smoothScaleSquareWithSrc} from "../canvasUtil";
 import {CANVAS_SIZE} from "../games";
 import type {GameInstance} from "../games";
 
-export const name = "Pixelized";
 export const stacked = false;
+
 const SIZES = [5, 9, 15, 20, 30, 45];
 
-export function getGameInstance(_day: number, _album: Album, _image: Image, scaledImage: Canvas): GameInstance {
+export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, scaledImage: Canvas): GameInstance {
     const getCanvasForGuess = (failed: number): Canvas => {
         const canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
         const ctx = canvas.getContext("2d");

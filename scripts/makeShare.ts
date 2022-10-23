@@ -1,10 +1,13 @@
 import {createCanvas} from "canvas";
 import fs from "fs";
-import {CURRENT_DAY, ROLLED_ALBUM} from "$modules/daily";
+import {CURRENT_DAY, getIdsForDay} from "$modules/daily";
 import {getGameInstance} from "$modules/games";
+import {ALBUM_POOL} from "../src/data/albumpool";
+import {GAME_POOL} from "../src/data/gamepool";
 
 (async () => {
-    const {gameInstance} = await getGameInstance(CURRENT_DAY, ROLLED_ALBUM);
+    const {rolledAlbumId, rolledGameId} = getIdsForDay(CURRENT_DAY);
+    const {gameInstance} = await getGameInstance(CURRENT_DAY, GAME_POOL[rolledGameId], ALBUM_POOL[rolledAlbumId]);
     const shareCanvas = gameInstance.getShareCanvas();
 
     const stream = shareCanvas.createPNGStream();

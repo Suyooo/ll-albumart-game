@@ -2,19 +2,18 @@
 
 import {createCanvas} from "canvas";
 import type {Canvas, Image} from "canvas";
-import type {Album} from "$data/albumpool";
+import type {AlbumInfo} from "$data/albumpool";
 import {CANVAS_SIZE} from "../games";
 import type {GameInstance} from "../games";
 import {seededRNG} from "../rng";
 
-export const name = "Bubbles";
 export const stacked = true;
 
 const MAX_PER_FRAME = 200;
 const BUBBLE_AMOUNT = [200, 700, 1000, 2000, 3000, 5000];
 const BUBBLE_SIZE = [50, 30, 15, 10, 7, 5];
 
-export function getGameInstance(day: number, _album: Album, _image: Image, scaledImage: Canvas): GameInstance {
+export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, scaledImage: Canvas): GameInstance {
     const getCanvasForGuess = (failed: number): Canvas => {
         const rng = seededRNG(day * 241 + failed);
         const canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);

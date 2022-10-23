@@ -1,0 +1,44 @@
+[
+  {
+    "filename": "pixelized",
+    "startOnDay": 0,
+    "name": "Pixelized",
+    "weight": 1000
+  },
+  {
+    "filename": "bubbles",
+    "startOnDay": 0,
+    "name": "Bubbles",
+    "weight": 1000
+  },
+  {
+    "filename": "posterize",
+    "startOnDay": 0,
+    "name": "Blobs",
+    "weight": 1000
+  },
+  {
+    "filename": "crop",
+    "startOnDay": 0,
+    "name": "Zoomed In",
+    "weight": 1000
+  },
+  {
+    "filename": "blinds-h",
+    "startOnDay": 0,
+    "name": "Blinds (Horizontal)",
+    "weight": 500
+  },
+  {
+    "filename": "blinds-v",
+    "startOnDay": 0,
+    "name": "Blinds (Vertical)",
+    "weight": 500
+  },
+  {
+    "filename": "tiles",
+    "startOnDay": 0,
+    "name": "Tiles",
+    "weight": 1000
+  }
+]

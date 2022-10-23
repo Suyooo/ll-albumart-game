@@ -1,10 +1,13 @@
-import {CURRENT_DAY, ROLLED_ALBUM, ROLLED_ALBUM_ID} from "$modules/daily";
+import {ALBUM_POOL} from "$data/albumpool";
+import {GAME_POOL} from "$data/gamepool";
+import {CURRENT_DAY, getIdsForDay} from "$modules/daily";
 import {STATISTICS} from "$stores/statistics";
 import {writable, readable} from "svelte/store";
 
 export interface PlayState {
     day: number,
     albumId: number,
+    gameId: number,
     failed: 0 | 1 | 2 | 3 | 4 | 5 | 6,
     cleared: boolean,
     finished: boolean,
@@ -28,9 +31,11 @@ if (IS_FIRST_PLAY || CURRENT_DAY > parsedStates.at(-1)?.day) {
     }
 
     // Add new day
+    const {rolledAlbumId, rolledGameId} = getIdsForDay(CURRENT_DAY);
     parsedStates.push({
         day: CURRENT_DAY,
-        albumId: ROLLED_ALBUM_ID,
+        albumId: rolledAlbumId,
+        gameId: rolledGameId,
         failed: 0,
         cleared: false,
         finished: false,
@@ -39,12 +44,14 @@ if (IS_FIRST_PLAY || CURRENT_DAY > parsedStates.at(-1)?.day) {
     STATISTICS.addNewDay();
 }
 
+// No need to make these into stores: albumId and gameId never change unless refreshing on a new day
+export const ALBUM = ALBUM_POOL[parsedStates.at(-1).albumId];
+export const GAME = GAME_POOL[parsedStates.at(-1).gameId];
+
 export const STATE = writable<PlayState>(parsedStates.at(-1));
-export const ALBUM = ROLLED_ALBUM;
 
 STATE.subscribe(newState => {
-    parsedStates.pop();
-    parsedStates.push(newState);
+    parsedStates[parsedStates.length - 1] = newState;
     localStorage.setItem("playStates", JSON.stringify(parsedStates));
 });
 

@@ -2,12 +2,11 @@
 
 import type {Canvas, Image} from "canvas";
 import {createCanvas} from "canvas";
-import type {Album} from "$data/albumpool";
+import type {AlbumInfo} from "$data/albumpool";
 import type {GameInstance} from "../games";
 import {CANVAS_SIZE} from "../games";
 import {seededRNG} from "../rng";
 
-export const name = "Tiles";
 export const stacked = true;
 
 const TILES_PER_AXIS = 20;
@@ -18,7 +17,7 @@ const TILE_POS = new Array(TILES_PER_AXIS + 1).fill(0).map((_, i) =>
 const AMOUNT = [9, 20, 40, 60, 80, 100];
 const MAX_AMOUNT = AMOUNT.reduce((max, cur) => cur > max ? cur : max, 0);
 
-export function getGameInstance(day: number, _album: Album, _image: Image, scaledImage: Canvas): GameInstance {
+export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, scaledImage: Canvas): GameInstance {
     const rng = seededRNG(day * 149);
     const positions: number[] = [];
     for (let i = 0; i < MAX_AMOUNT; i++) {
