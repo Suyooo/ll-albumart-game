@@ -11,11 +11,10 @@ const downloadQueue: { titleJa?: string, titleEn?: string, url: string, used?: b
 
         const dl = downloadQueue.find(dl => dl.titleEn == album.titleEn || dl.titleJa == album.titleJa);
         if (dl && dl.url) {
-            const filename = album.artistEn.replace(" High School Idol Club","")
-                    .replace(/ \(CV: [^)]*\)/,"") .replace("-$","_")
-                    .toLowerCase().replace(/[^a-zA-Z0-9]+/g, "-") + "_"
-                + album.titleEn.toLowerCase().replace(/[^a-zA-Z0-9]+/g, "-")
-                    .replace(/-$/g,"") + ".jpg";
+            const filename = album.artistEn.replace("µ's", "muse").replace(" High School Idol Club", "")
+                    .replace(/ \(CV: [^)]*\)/, "").replace("-$", "_").toLowerCase().replace(/[^a-zA-Z0-9]+/g, "-") + "_"
+                + album.titleEn.toLowerCase().replace("µ's", "muse").replace(/[^a-zA-Z0-9]+/g, "-").replace(/-$/g, "")
+                + ".jpg";
 
             if (dl.url.startsWith("https")) {
                 await axios({

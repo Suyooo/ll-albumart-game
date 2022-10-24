@@ -453,7 +453,7 @@
     },
     {
         "url": "/albumart/aqours_duo-trio-collection-cd-vol-1-summer-vacation.jpg",
-        "startOnDay": 999999,
+        "startOnDay": 0,
         "titleEn": "Duo & Trio Collection CD VOL.1 SUMMER VACATION",
         "artistEn": "Aqours",
         "titleJa": "デュオトリオコレクションCD VOL.1 SUMMER VACATION",
@@ -1152,280 +1152,288 @@
         "artistJa": "R3BIRTH"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
-        "titleEn": "Bokura no LIVE Kimi to no LIFE",
+        "url": "/albumart/muse_bokura-no-live-kimi-to-no-life-first-press-edition.jpg",
+        "startOnDay": 0,
+        "titleEn": "Bokura no LIVE Kimi to no LIFE [First Press Edition]",
         "artistEn": "µ's",
-        "titleJa": "僕らのLIVE 君とのLIFE",
+        "titleJa": "僕らのLIVE 君とのLIFE【初回限定版ジャケット】",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/muse_bokura-no-live-kimi-to-no-life-normal-edition.jpg",
+        "startOnDay": 0,
+        "titleEn": "Bokura no LIVE Kimi to no LIFE [Normal Edition]",
+        "artistEn": "µ's",
+        "titleJa": "僕らのLIVE 君とのLIFE【通常版ジャケット】",
+        "artistJa": "µ's"
+    },
+    {
+        "url": "/albumart/muse_snow-halation.jpg",
+        "startOnDay": 0,
         "titleEn": "Snow halation",
         "artistEn": "µ's",
         "titleJa": "Snow halation",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/muse_natsuiro-egao-de-1-2-jump.jpg",
+        "startOnDay": 0,
         "titleEn": "Natsuiro Egao de 1,2,Jump!",
         "artistEn": "µ's",
-        "titleJa": "夏色えがおで1,2,Jump!",
+        "titleJa": "夏色えがおで1,2,Jump！",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/muse_mogyutto-love-de-sekkin-chuu.jpg",
+        "startOnDay": 0,
         "titleEn": "Mogyutto \"love\" de Sekkin Chuu!",
         "artistEn": "µ's",
-        "titleJa": "もぎゅっと“love”で接近中!",
+        "titleJa": "もぎゅっと\"love\"で接近中！",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/muse_wonderful-rush.jpg",
+        "startOnDay": 0,
         "titleEn": "Wonderful Rush",
         "artistEn": "µ's",
         "titleJa": "Wonderful Rush",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/muse_bokura-wa-ima-no-naka-de.jpg",
+        "startOnDay": 0,
         "titleEn": "Bokura wa Ima no Naka de",
         "artistEn": "µ's",
         "titleJa": "僕らは今のなかで",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/muse_kitto-seishun-ga-kikoeru.jpg",
+        "startOnDay": 0,
         "titleEn": "Kitto Seishun ga Kikoeru",
         "artistEn": "µ's",
         "titleJa": "きっと青春が聞こえる",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/muse_susume-tomorrow-start-dash.jpg",
+        "startOnDay": 0,
         "titleEn": "Susume→Tomorrow / START:DASH!!",
         "artistEn": "µ's",
         "titleJa": "ススメ→トゥモロウ / START:DASH!!",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/muse_korekara-no-someday-wonder-zone.jpg",
+        "startOnDay": 0,
         "titleEn": "Korekara no Someday / Wonder zone",
         "artistEn": "µ's",
         "titleJa": "これからのSomeday / Wonder zone",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/muse_no-brand-girls-start-dash.jpg",
+        "startOnDay": 0,
         "titleEn": "No brand girls / START:DASH!!",
         "artistEn": "µ's",
         "titleJa": "No brand girls / START:DASH!!",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/muse_music-s-t-a-r-t.jpg",
+        "startOnDay": 0,
         "titleEn": "Music S.T.A.R.T!!",
         "artistEn": "µ's",
         "titleJa": "Music S.T.A.R.T!!",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
-        "titleEn": "Takaramonozu",
+        "url": "/albumart/muse_takaramonozu-paradise-live.jpg",
+        "startOnDay": 0,
+        "titleEn": "Takaramonozu / Paradise Live",
         "artistEn": "µ's",
-        "titleJa": "タカラモノズ",
+        "titleJa": "タカラモノズ / Paradise Live",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/muse_sore-wa-bokutachi-no-kiseki.jpg",
+        "startOnDay": 0,
         "titleEn": "Sore wa Bokutachi no Kiseki",
         "artistEn": "µ's",
         "titleJa": "それは僕たちの奇跡",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/muse_donna-toki-mo-zutto.jpg",
+        "startOnDay": 0,
         "titleEn": "Donna Toki mo Zutto",
         "artistEn": "µ's",
         "titleJa": "どんなときもずっと",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/muse_yume-no-tobira.jpg",
+        "startOnDay": 0,
         "titleEn": "Yume no Tobira",
         "artistEn": "µ's",
         "titleJa": "ユメノトビラ",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/muse_love-wing-bell-dancing-stars-on-me.jpg",
+        "startOnDay": 0,
         "titleEn": "Love wing bell / Dancing stars on me!",
         "artistEn": "µ's",
         "titleJa": "Love wing bell / Dancing stars on me!",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/muse_kira-kira-sensation-happy-maker.jpg",
+        "startOnDay": 0,
         "titleEn": "KiRa-KiRa Sensation! / Happy maker!",
         "artistEn": "µ's",
         "titleJa": "KiRa-KiRa Sensation! / Happy maker!",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/muse_shangri-la-shower.jpg",
+        "startOnDay": 0,
         "titleEn": "Shangri-La Shower",
         "artistEn": "µ's",
         "titleJa": "Shangri-La Shower",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/muse_mi-wa-museic-no-mi.jpg",
+        "startOnDay": 0,
         "titleEn": "Mi wa µ'sic no Mi",
         "artistEn": "µ's",
         "titleJa": "ミはμ'sicのミ",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/muse_angelic-angel-hello-hoshi-o-kazoete.jpg",
+        "startOnDay": 0,
         "titleEn": "Angelic Angel / Hello, Hoshi o Kazoete",
         "artistEn": "µ's",
         "titleJa": "Angelic Angel / Hello,星を数えて",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/muse_sunny-day-song-heartbeat.jpg",
+        "startOnDay": 0,
         "titleEn": "SUNNY DAY SONG / ?←HEARTBEAT",
         "artistEn": "µ's",
         "titleJa": "SUNNY DAY SONG / ？←HEARTBEAT",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/muse_bokutachi-wa-hitotsu-no-hikari-future-style.jpg",
+        "startOnDay": 0,
         "titleEn": "Bokutachi wa Hitotsu no Hikari / Future style",
         "artistEn": "µ's",
         "titleJa": "僕たちはひとつの光 / Future style",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/muse_heart-to-heart.jpg",
+        "startOnDay": 0,
         "titleEn": "HEART to HEART!",
         "artistEn": "µ's",
         "titleJa": "HEART to HEART!",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/muse_moment-ring.jpg",
+        "startOnDay": 0,
         "titleEn": "MOMENT RING",
         "artistEn": "µ's",
         "titleJa": "MOMENT RING",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/muse_a-song-for-you-you-you.jpg",
+        "startOnDay": 0,
         "titleEn": "A song for You! You? You!!",
         "artistEn": "µ's",
         "titleJa": "A song for You! You? You!!",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/muse_mermaid-festa-vol-2-passionate.jpg",
+        "startOnDay": 0,
         "titleEn": "Mermaid festa vol.2 ~Passionate~",
         "artistEn": "µ's",
         "titleJa": "Mermaid festa vol.2 ~Passionate~",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/muse_otome-shiki-ren-ai-juku.jpg",
+        "startOnDay": 0,
         "titleEn": "Otome Shiki Ren'ai Juku",
         "artistEn": "µ's",
         "titleJa": "乙女式れんあい塾",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/muse_kokuhaku-biyori-desu.jpg",
+        "startOnDay": 0,
         "titleEn": "Kokuhaku Biyori, desu!",
         "artistEn": "µ's",
-        "titleJa": "告白日和、です!",
+        "titleJa": "告白日和、です！",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/muse_soldier-game.jpg",
+        "startOnDay": 0,
         "titleEn": "soldier game",
         "artistEn": "µ's",
         "titleJa": "soldier game",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
-        "titleEn": "Love Live Radio Kagai Katsudou NicoRinPana Theme Song DJCD",
+        "url": "/albumart/muse_love-live-radio-kagai-katsudou-nicorinpana-theme-song-djcd-after-school-navigators-listen-to-my-heart.jpg",
+        "startOnDay": 0,
+        "titleEn": "Love Live Radio Kagai Katsudou NicoRinPana Theme Song DJCD (after school NAVIGATORS / Listen to my heart!!)",
         "artistEn": "µ's",
-        "titleJa": "ラブライ部 ラジオ課外活動 にこりんぱな テーマソングDJCD",
+        "titleJa": "ラブライ部 ラジオ課外活動 にこりんぱな テーマソングDJCD (after school NAVIGATORS / Listen to my heart!!)",
         "artistJa": "µ's"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
-        "titleEn": "Umiiro Shoujo ni Miserarete",
-        "artistEn": "µ's",
-        "titleJa": "海色少女に魅せられて",
-        "artistJa": "µ's"
+        "url": "/albumart/umi-sonoda_love-live-solo-live-from-muse-sonoda-umi-umiiro-shoujo-ni-miserarete.jpg",
+        "startOnDay": 0,
+        "titleEn": "Love Live! Solo Live! from µ's Sonoda Umi Umiiro Shoujo ni Miserarete",
+        "artistEn": "Umi Sonoda (CV: Suzuko Mimori)",
+        "titleJa": "ラブライブ！Solo Live! from μ's 園田海未 海色少女に魅せられて",
+        "artistJa": "園田海未(CV.三森すずこ)"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
-        "titleEn": "Kotori Lovin' you",
-        "artistEn": "µ's",
-        "titleJa": "ことりLovin' you",
-        "artistJa": "µ's"
+        "url": "/albumart/kotori-minami_love-live-solo-live-from-muse-minami-kotori-kotori-lovin-you.jpg",
+        "startOnDay": 0,
+        "titleEn": "Love Live! Solo Live! from µ's Minami Kotori Kotori Lovin' you",
+        "artistEn": "Kotori Minami (CV: Aya Uchida)",
+        "titleJa": "ラブライブ！Solo Live! from µ's 南ことり ことりLovin' you",
+        "artistJa": "南ことり(CV.内田 彩)"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
-        "titleEn": "Honnori Honoka-iro!",
-        "artistEn": "µ's",
-        "titleJa": "ほんのり穂乃果色！",
-        "artistJa": "µ's"
+        "url": "/albumart/honoka-kosaka_love-live-solo-live-from-muse-kosaka-honoka-honnori-honoka-iro.jpg",
+        "startOnDay": 0,
+        "titleEn": "Love Live! Solo Live! from µ's Kosaka Honoka Honnori Honoka-iro!",
+        "artistEn": "Honoka Kosaka (CV: Emi Nitta)",
+        "titleJa": "ラブライブ！Solo Live! from μ's 高坂穂乃果 ほんのり穂乃果色！",
+        "artistJa": "高坂穂乃果(CV.新田恵海)"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/printemps_love-marginal.jpg",
+        "startOnDay": 0,
         "titleEn": "Love marginal",
         "artistEn": "Printemps",
         "titleJa": "Love marginal",
         "artistJa": "Printemps"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/printemps_pure-girls-project.jpg",
+        "startOnDay": 0,
         "titleEn": "Pure girls project",
         "artistEn": "Printemps",
         "titleJa": "Pure girls project",
@@ -1440,8 +1448,8 @@
         "artistJa": "Printemps"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/printemps_eien-friends.jpg",
+        "startOnDay": 0,
         "titleEn": "Eien Friends",
         "artistEn": "Printemps",
         "titleJa": "永遠フレンズ",
@@ -1464,32 +1472,32 @@
         "artistJa": "Printemps"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/printemps_wao-wao-powerful-day.jpg",
+        "startOnDay": 0,
         "titleEn": "WAO-WAO Powerful day!",
         "artistEn": "Printemps",
         "titleJa": "WAO-WAO Powerful day!",
         "artistJa": "Printemps"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/bibi_diamond-princess-no-yuuutsu.jpg",
+        "startOnDay": 0,
         "titleEn": "Diamond Princess no Yuuutsu",
         "artistEn": "BiBi",
         "titleJa": "ダイヤモンドプリンセスの憂鬱",
         "artistJa": "BiBi"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/bibi_cutie-panther.jpg",
+        "startOnDay": 0,
         "titleEn": "Cutie Panther",
         "artistEn": "BiBi",
         "titleJa": "Cutie Panther",
         "artistJa": "BiBi"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/bibi_fuyu-ga-kureta-yokan.jpg",
+        "startOnDay": 0,
         "titleEn": "Fuyu ga Kureta Yokan",
         "artistEn": "BiBi",
         "titleJa": "冬がくれた予感",
@@ -1512,32 +1520,32 @@
         "artistJa": "BiBi"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/bibi_sakkaku-crossroads.jpg",
+        "startOnDay": 0,
         "titleEn": "Sakkaku CROSSROADS",
         "artistEn": "BiBi",
         "titleJa": "錯覚CROSSROADS",
         "artistJa": "BiBi"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/lily-white_shiranai-love-oshiete-love.jpg",
+        "startOnDay": 0,
         "titleEn": "Shiranai Love*Oshiete Love",
         "artistEn": "lily white",
         "titleJa": "知らないLove*教えてLove",
         "artistJa": "lily white"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/lily-white_binetsu-kara-mystery.jpg",
+        "startOnDay": 0,
         "titleEn": "Binetsu Kara Mystery",
         "artistEn": "lily white",
         "titleJa": "微熱からMystery",
         "artistJa": "lily white"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/lily-white_aki-no-anata-no-sora-tooku.jpg",
+        "startOnDay": 0,
         "titleEn": "Aki no Anata no Sora Tooku",
         "artistEn": "lily white",
         "titleJa": "秋のあなたの空遠く",
@@ -1560,8 +1568,8 @@
         "artistJa": "lily white"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/lily-white_omoide-ijou-ni-naritakute.jpg",
+        "startOnDay": 0,
         "titleEn": "Omoide Ijou ni Naritakute",
         "artistEn": "lily white",
         "titleJa": "思い出以上になりたくて",
@@ -1650,5 +1658,205 @@
         "artistEn": "LL! Sunshine!! Original Soundtrack",
         "titleJa": "Sailing to the Rainbow",
         "artistJa": "『ラブライブ！サンシャイン!!』 オリジナルサウンドトラック"
+    },
+    {
+        "url": "/albumart/honoka-kosaka_love-live-solo-live-from-muse-kosaka-honoka-memories-with-honoka.jpg",
+        "startOnDay": 0,
+        "titleEn": "Love Live! Solo Live from µ's Kosaka Honoka Memories with Honoka",
+        "artistEn": "Honoka Kosaka (CV: Emi Nitta)",
+        "titleJa": "ラブライブ！Solo Live! from μ's 高坂穂乃果 Memories with Honoka",
+        "artistJa": "高坂穂乃果(CV.新田恵海)"
+    },
+    {
+        "url": "/albumart/honoka-kosaka_love-live-solo-live-from-muse-kosaka-honoka-orange-cheers.jpg",
+        "startOnDay": 0,
+        "titleEn": "Love Live! Solo Live from µ's Kosaka Honoka orange cheers!",
+        "artistEn": "Honoka Kosaka (CV: Emi Nitta)",
+        "titleJa": "ラブライブ！Solo Live! from μ's 高坂穂乃果 orange cheers!",
+        "artistJa": "高坂穂乃果(CV.新田恵海)"
+    },
+    {
+        "url": "/albumart/eli-ayase_love-live-solo-live-from-muse-ayase-eli-memories-with-eli.jpg",
+        "startOnDay": 0,
+        "titleEn": "Love Live! Solo Live from µ's Ayase Eli Memories with Eli",
+        "artistEn": "Eli Ayase (CV: Yoshino Nanjo)",
+        "titleJa": "ラブライブ！Solo Live! from μ's 絢瀬絵里 Memories with Eli",
+        "artistJa": "絢瀬絵里(CV.南條愛乃)"
+    },
+    {
+        "url": "/albumart/eli-ayase_love-live-solo-live-from-muse-ayase-eli-ice-blue-moment.jpg",
+        "startOnDay": 0,
+        "titleEn": "Love Live! Solo Live from µ's Ayase Eli Ice Blue Moment",
+        "artistEn": "Eli Ayase (CV: Yoshino Nanjo)",
+        "titleJa": "ラブライブ！Solo Live! from μ's 絢瀬絵里 アイス・ブルーの瞬間",
+        "artistJa": "絢瀬絵里(CV.南條愛乃)"
+    },
+    {
+        "url": "/albumart/kotori-minami_love-live-solo-live-from-muse-minami-kotori-memories-with-kotori.jpg",
+        "startOnDay": 0,
+        "titleEn": "Love Live! Solo Live from µ's Minami Kotori Memories with Kotori",
+        "artistEn": "Kotori Minami (CV: Aya Uchida)",
+        "titleJa": "ラブライブ！Solo Live! from µ's 南ことり Memories with Kotori",
+        "artistJa": "南ことり(CV.内田 彩)"
+    },
+    {
+        "url": "/albumart/kotori-minami_love-live-solo-live-from-muse-minami-kotori-pure-white-romance.jpg",
+        "startOnDay": 0,
+        "titleEn": "Love Live! Solo Live from µ's Minami Kotori Pure White Romance",
+        "artistEn": "Kotori Minami (CV: Aya Uchida)",
+        "titleJa": "ラブライブ！Solo Live! from µ's 南ことり 純白ロマンス",
+        "artistJa": "南ことり(CV.内田 彩)"
+    },
+    {
+        "url": "/albumart/umi-sonoda_love-live-solo-live-from-muse-sonoda-umi-memories-with-umi.jpg",
+        "startOnDay": 0,
+        "titleEn": "Love Live! Solo Live from µ's Sonoda Umi Memories with Umi",
+        "artistEn": "Umi Sonoda (CV: Suzuko Mimori)",
+        "titleJa": "ラブライブ！Solo Live! from µ's 園田海未 Memories with Umi",
+        "artistJa": "園田海未(CV.三森すずこ)"
+    },
+    {
+        "url": "/albumart/umi-sonoda_love-live-solo-live-from-muse-sonoda-umi-blue-legend.jpg",
+        "startOnDay": 0,
+        "titleEn": "Love Live! Solo Live from µ's Sonoda Umi Blue Legend",
+        "artistEn": "Umi Sonoda (CV: Suzuko Mimori)",
+        "titleJa": "ラブライブ！Solo Live! from μ's 園田海未 蒼の神話",
+        "artistJa": "園田海未(CV.三森すずこ)"
+    },
+    {
+        "url": "/albumart/rin-hoshizora_love-live-solo-live-from-muse-hoshizora-rin-memories-with-rin.jpg",
+        "startOnDay": 0,
+        "titleEn": "Love Live! Solo Live from µ's Hoshizora Rin Memories with Rin",
+        "artistEn": "Rin Hoshizora (CV: Riho Iida)",
+        "titleJa": "ラブライブ！Solo Live! from µ's 星空 凛 Memories with Rin",
+        "artistJa": "星空 凛(CV.飯田里穂)"
+    },
+    {
+        "url": "/albumart/rin-hoshizora_love-live-solo-live-from-muse-hoshizora-rin-ring-a-yellow-bell.jpg",
+        "startOnDay": 0,
+        "titleEn": "Love Live! Solo Live from µ's Hoshizora Rin Ring a yellow bell",
+        "artistEn": "Rin Hoshizora (CV: Riho Iida)",
+        "titleJa": "ラブライブ！Solo Live! from μ's 星空 凛 Ring a yellow bell",
+        "artistJa": "星空 凛(CV.飯田里穂)"
+    },
+    {
+        "url": "/albumart/maki-nishikino_love-live-solo-live-from-muse-nishikino-maki-memories-with-maki.jpg",
+        "startOnDay": 0,
+        "titleEn": "Love Live! Solo Live from µ's Nishikino Maki Memories with Maki",
+        "artistEn": "Maki Nishikino (CV: Pile)",
+        "titleJa": "ラブライブ！Solo Live! from µ's 西木野真姫 Memories with Maki",
+        "artistJa": "西木野真姫(CV.Pile)"
+    },
+    {
+        "url": "/albumart/maki-nishikino_love-live-solo-live-from-muse-nishikino-maki-scarlet-princess.jpg",
+        "startOnDay": 0,
+        "titleEn": "Love Live! Solo Live from µ's Nishikino Maki SCARLET PRINCESS",
+        "artistEn": "Maki Nishikino (CV: Pile)",
+        "titleJa": "ラブライブ！Solo Live! from μ's 西木野真姫 SCARLET PRINCESS",
+        "artistJa": "西木野真姫(CV.Pile)"
+    },
+    {
+        "url": "/albumart/nozomi-tojo_love-live-solo-live-from-muse-tojo-nozomi-memories-with-nozomi.jpg",
+        "startOnDay": 0,
+        "titleEn": "Love Live! Solo Live from µ's Tojo Nozomi Memories with Nozomi",
+        "artistEn": "Nozomi Tojo (CV: Aina Kusuda)",
+        "titleJa": "ラブライブ！Solo Live! from µ's 東條 希 Memories with Nozomi",
+        "artistJa": "東條 希(CV.楠田亜衣奈)"
+    },
+    {
+        "url": "/albumart/nozomi-tojo_love-live-solo-live-from-muse-tojo-nozomi-violet-moon.jpg",
+        "startOnDay": 0,
+        "titleEn": "Love Live! Solo Live from µ's Tojo Nozomi Violet Moon",
+        "artistEn": "Nozomi Tojo (CV: Aina Kusuda)",
+        "titleJa": "ラブライブ！Solo Live! from μ's 東條 希 バイオレットムーン",
+        "artistJa": "東條 希(CV.楠田亜衣奈)"
+    },
+    {
+        "url": "/albumart/hanayo-koizumi_love-live-solo-live-from-muse-koizumi-hanayo-memories-with-hanayo.jpg",
+        "startOnDay": 0,
+        "titleEn": "Love Live! Solo Live from µ's Koizumi Hanayo Memories with Hanayo",
+        "artistEn": "Hanayo Koizumi (CV: Yurika Kubo)",
+        "titleJa": "ラブライブ！Solo Live! from µ's 小泉花陽 Memories with Hanayo",
+        "artistJa": "小泉花陽(CV.久保ユリカ)"
+    },
+    {
+        "url": "/albumart/hanayo-koizumi_love-live-solo-live-from-muse-koizumi-hanayo-bright-green-season.jpg",
+        "startOnDay": 0,
+        "titleEn": "Love Live! Solo Live from µ's Koizumi Hanayo Bright Green Season",
+        "artistEn": "Hanayo Koizumi (CV: Yurika Kubo)",
+        "titleJa": "ラブライブ！Solo Live! from μ's 小泉花陽 若草のSeason",
+        "artistJa": "小泉花陽(CV.久保ユリカ)"
+    },
+    {
+        "url": "/albumart/nico-yazawa_love-live-solo-live-from-muse-yazawa-nico-memories-with-nico.jpg",
+        "startOnDay": 0,
+        "titleEn": "Love Live! Solo Live from µ's Yazawa Nico Memories with Nico",
+        "artistEn": "Nico Yazawa (CV: Sora Tokui)",
+        "titleJa": "ラブライブ！Solo Live! from µ's 矢澤にこ Memories with Nico",
+        "artistJa": "矢澤にこ(CV.徳井青空)"
+    },
+    {
+        "url": "/albumart/nico-yazawa_love-live-solo-live-from-muse-yazawa-nico-pink-smile.jpg",
+        "startOnDay": 0,
+        "titleEn": "Love Live! Solo Live from µ's Yazawa Nico Pink♡Smile",
+        "artistEn": "Nico Yazawa (CV: Sora Tokui)",
+        "titleJa": "ラブライブ！Solo Live! from μ's 矢澤にこ ももいろ♡えがお",
+        "artistJa": "矢澤にこ(CV.徳井青空)"
+    },
+    {
+        "url": "/albumart/ll-original-soundtrack_notes-of-school-idol-days.jpg",
+        "startOnDay": 0,
+        "titleEn": "Notes of School idol days",
+        "artistEn": "LL! Original Soundtrack",
+        "titleJa": "Notes of School idol days",
+        "artistJa": "『ラブライブ！』 オリジナルサウンドトラック"
+    },
+    {
+        "url": "/albumart/ll-original-soundtrack_notes-of-school-idol-days-glory.jpg",
+        "startOnDay": 0,
+        "titleEn": "Notes of School idol days ~Glory~",
+        "artistEn": "LL! Original Soundtrack",
+        "titleJa": "Notes of School idol days ~Glory~",
+        "artistJa": "『ラブライブ！』 オリジナルサウンドトラック"
+    },
+    {
+        "url": "/albumart/ll-original-soundtrack_notes-of-school-idol-days-curtain-call.jpg",
+        "startOnDay": 0,
+        "titleEn": "Notes of School Idol Days ~Curtain Call~",
+        "artistEn": "LL! Original Soundtrack",
+        "titleJa": "Notes of School Idol Days ~Curtain Call~",
+        "artistJa": "『ラブライブ！』 オリジナルサウンドトラック"
+    },
+    {
+        "url": "/albumart/muse_oh-love-peace.jpg",
+        "startOnDay": 0,
+        "titleEn": "Oh,Love&Peace!",
+        "artistEn": "µ's",
+        "titleJa": "Oh,Love＆Peace!",
+        "artistJa": "µ's"
+    },
+    {
+        "url": "/albumart/muse_aishiteru-banzai.jpg",
+        "startOnDay": 0,
+        "titleEn": "Aishiteru Banzai!",
+        "artistEn": "µ's",
+        "titleJa": "愛してるばんざーい！",
+        "artistJa": "µ's"
+    },
+    {
+        "url": "/albumart/muse_mermaid-festa-vol-1.jpg",
+        "startOnDay": 0,
+        "titleEn": "Mermaid festa vol.1",
+        "artistEn": "µ's",
+        "titleJa": "Mermaid festa vol.1",
+        "artistJa": "µ's"
+    },
+    {
+        "url": "/albumart/muse_baby-maybe-koi-no-button.jpg",
+        "startOnDay": 0,
+        "titleEn": "baby maybe Koi no Button",
+        "artistEn": "µ's",
+        "titleJa": "baby maybe 恋のボタン",
+        "artistJa": "µ's"
     }
 ]
