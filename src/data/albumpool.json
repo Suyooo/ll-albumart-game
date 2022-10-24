@@ -1858,5 +1858,37 @@
         "artistEn": "µ's",
         "titleJa": "baby maybe 恋のボタン",
         "artistJa": "µ's"
+    },
+    {
+        "url": "/albumart/aqours_love-live-sunshine-aqours-chronicle-2018-2020.jpg",
+        "startOnDay": 0,
+        "titleEn": "Love Live! Sunshine!! Aqours CHRONICLE (2018~2020)",
+        "artistEn": "Aqours",
+        "titleJa": "ラブライブ！サンシャイン!! Aqours CHRONICLE (2018～2020)",
+        "artistJa": "Aqours"
+    },
+    {
+        "url": "/albumart/aqours_love-live-sunshine-aqours-chronicle-2015-2017.jpg",
+        "startOnDay": 0,
+        "titleEn": "Love Live! Sunshine!! Aqours CHRONICLE (2015~2017)",
+        "artistEn": "Aqours",
+        "titleJa": "ラブライブ！サンシャイン!! Aqours CHRONICLE (2015～2017)",
+        "artistJa": "Aqours"
+    },
+    {
+        "url": "/albumart/muse_-s-best-album-best-live-collection-ii.jpg",
+        "startOnDay": 0,
+        "titleEn": "μ's Best Album Best Live! Collection II",
+        "artistEn": "µ's",
+        "titleJa": "μ's Best Album Best Live! Collection Ⅱ",
+        "artistJa": "µ's"
+    },
+    {
+        "url": "/albumart/muse_-s-best-album-best-live-collection.jpg",
+        "startOnDay": 0,
+        "titleEn": "μ's Best Album Best Live! collection",
+        "artistEn": "µ's",
+        "titleJa": "μ's Best Album Best Live! collection",
+        "artistJa": "µ's"
     }
 ]
