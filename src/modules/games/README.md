@@ -35,7 +35,8 @@ Some important hints:
   try refreshing after each skip to make sure the image does not change.
 * Since `getShareCanvas` should represent the first guess, you can usually just make a call to `getCanvasForGuess(0)`
   and that's all. If your game mode only reveals very small parts of the image though, you might want to instead return
-  a rearranged image (see `game-tiles.ts` for an example).
+  a rearranged image (see `game-tiles.ts` for an example). Make sure it is always square, and in case you use `stacked`,
+  make sure it's not transparent (fill transparent areas with black).
 * Balance is hard. Guess 1 should be very hard, while Guess 6 should be reasonable, but not a straight giveaway. Try
   checking against existing game modes and balancing along the same lines. One way to make this easier is to move any
   dials you can move for balancing into a constant that can be easily adjusted (see `game-pixelized.ts`, for example - 

@@ -1,4 +1,4 @@
-import {createCanvas} from "canvas";
+import {createCanvas, loadImage} from "canvas";
 import fs from "fs";
 import {CURRENT_DAY, getIdsForDay} from "$modules/daily";
 import {getGameInstance} from "../src/modules/gameHandler";
@@ -25,8 +25,8 @@ const jpegConfig = {
 
     const wideCanvas = createCanvas(shareCanvas.height * 2, shareCanvas.height);
     const wideCanvasCtx = wideCanvas.getContext("2d");
-    wideCanvasCtx.fillStyle = "#292524";
-    wideCanvasCtx.fillRect(0, 0, wideCanvas.width, wideCanvas.height);
+    const templateCanvas = await loadImage("share/template.png");
+    wideCanvasCtx.drawImage(templateCanvas, 0, 0, shareCanvas.height * 2, shareCanvas.height);
     wideCanvasCtx.drawImage(shareCanvas, shareCanvas.height * .5, 0);
 
     const wideStream = wideCanvas.createJPEGStream(jpegConfig);
