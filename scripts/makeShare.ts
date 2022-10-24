@@ -23,11 +23,11 @@ const jpegConfig = {
         out.on("finish", resolve);
     });
 
-    const wideCanvas = createCanvas(shareCanvas.height / 9 * 16, shareCanvas.height);
+    const wideCanvas = createCanvas(shareCanvas.height * 2, shareCanvas.height);
     const wideCanvasCtx = wideCanvas.getContext("2d");
     wideCanvasCtx.fillStyle = "#292524";
     wideCanvasCtx.fillRect(0, 0, wideCanvas.width, wideCanvas.height);
-    wideCanvasCtx.drawImage(shareCanvas, shareCanvas.height / 9 * 3.5, 0);
+    wideCanvasCtx.drawImage(shareCanvas, shareCanvas.height * .5, 0);
 
     const wideStream = wideCanvas.createJPEGStream(jpegConfig);
     const wideOut = fs.createWriteStream("share/" + CURRENT_DAY + "w.jpg");

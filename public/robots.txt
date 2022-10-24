@@ -1,3 +1,4 @@
 user-agent: *
-Allow: /$
-Disallow: /
+Disallow: /albumart/*/
+Disallow: /assets/*/
+Disallow: /bundles/*/
