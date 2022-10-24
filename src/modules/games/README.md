@@ -1,9 +1,10 @@
 Game mode modules export the following properties and methods:
 
-* `getGameInstance: (day, albumInfo, image) => GameInstance`, where `day` is the current day number to use for seeding
-  the RNG, `albumInfo` contains info about the title and artist of the album, and `image` is a canvas of the album art
-  scaled to the set canvas size to use for your image manipulation. This method should return a game instance object (
-  see below).
+* `getGameInstance: (day: number, albumInfo: AlbumInfo, image: Image, scaledImage: Canvas) => GameInstance`, where `day`
+  is the current day number to use for seeding the RNG, `albumInfo` contains info about the title and artist of the
+  album, `image` is the original album art file in full resolution, and `scaledImage` is the same art, but pre-scaled to
+  the set canvas size to use for your image manipulation, possibly with transparent padding at the top and bottom. This
+  method should return a game instance object (see below).
 * `stacked: boolean` defines whether you draw the entire image every step (for example, `game-pixelized.ts`) or you only
   draw additions to the last step using a transparent canvas (for example, `game-bubbles.ts`). If false, only the canvas
   for the current guess will be shown on the site. If true, all canvases from the one for the first guess to the current
@@ -11,8 +12,8 @@ Game mode modules export the following properties and methods:
 
 The game instance should implement two methods:
 
-* `getCanvasForGuess(failed) => Canvas` returns the canvas to show for the current guess (0 for the first guess, up to 5
-  for the sixth guess).
+* `getCanvasForGuess(failed: number) => Canvas` returns the canvas to show for the current guess (0 for the first guess,
+  up to 5 for the sixth guess).
 * `getShareCanvas() => Canvas` should return a canvas representing the first guess, which is used as a preview image
   when someone shares their result.
 
@@ -33,13 +34,15 @@ Some important hints:
 * Use `/src/modules/rng.ts` for random numbers instead of `Math.random()`, and only use `day`/`failed`/constants for the
   seeding. The image created should always be the same for every user on the same day on the same guess. When testing,
   try refreshing after each skip to make sure the image does not change.
+* Watch out for non-square covers. In these cases, `scaledImage` will have transparent areas at the top and bottom. This
+  might be a problem if you resize or move the canvas a lot, as previous steps might peek through in the final result.
+  Always test your games with some wide aspect ratio images, like Dreams of the Superstar.
 * Since `getShareCanvas` should represent the first guess, you can usually just make a call to `getCanvasForGuess(0)`
   and that's all. If your game mode only reveals very small parts of the image though, you might want to instead return
-  a rearranged image (see `game-tiles.ts` for an example). Make sure it is always square, and in case you use `stacked`,
-  make sure it's not transparent (fill transparent areas with black).
+  a rearranged image (see `game-tiles.ts` for an example). Make sure it is always square.
 * Balance is hard. Guess 1 should be very hard, while Guess 6 should be reasonable, but not a straight giveaway. Try
   checking against existing game modes and balancing along the same lines. One way to make this easier is to move any
-  dials you can move for balancing into a constant that can be easily adjusted (see `game-pixelized.ts`, for example - 
+  dials you can move for balancing into a constant that can be easily adjusted (see `game-pixelized.ts`, for example -
   the `SIZES` array is way at the top and allows quick and easy changes for testing balance).
 * node-canvas (`canvas` on npm) is used to allow both a browser client and Node.JS on the server to generate the same
   image. Ensure that you only use standard canvas methods, even if node-canvas implements a few helpers. (The non-

@@ -1,26 +1,36 @@
+import {createCanvas} from "canvas";
 import type {Canvas, CanvasRenderingContext2D, Image} from "canvas";
 
 export function smoothScaleSquare(ctx: CanvasRenderingContext2D, srcSize: number, dstSize: number) {
     if (srcSize === dstSize) return;
 
     let currentSrcSize = srcSize;
-    const canvas = ctx.canvas;
+    let tempCanvas = createCanvas(srcSize, srcSize);
+    let tempCtx = tempCanvas.getContext("2d");
+    tempCtx.drawImage(ctx.canvas, 0, 0);
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
     if (dstSize < srcSize) {
         while (currentSrcSize / 2 > dstSize) {
             const newSrcSize = currentSrcSize / 2;
-            ctx.drawImage(canvas, 0, 0, currentSrcSize, currentSrcSize, 0, 0, newSrcSize, newSrcSize);
+            const newTempCanvas = createCanvas(newSrcSize, newSrcSize);
+            const newTempCtx = newTempCanvas.getContext("2d");
+            newTempCtx.drawImage(tempCanvas, 0, 0, currentSrcSize, currentSrcSize, 0, 0, newSrcSize, newSrcSize);
+            tempCanvas = newTempCanvas;
             currentSrcSize = newSrcSize;
         }
     } else {
         while (currentSrcSize * 2 < dstSize) {
             const newSrcSize = currentSrcSize * 2;
-            ctx.drawImage(canvas, 0, 0, currentSrcSize, currentSrcSize, 0, 0, newSrcSize, newSrcSize);
+            const newTempCanvas = createCanvas(newSrcSize, newSrcSize);
+            const newTempCtx = newTempCanvas.getContext("2d");
+            newTempCtx.drawImage(tempCanvas, 0, 0, currentSrcSize, currentSrcSize, 0, 0, newSrcSize, newSrcSize);
+            tempCanvas = newTempCanvas;
             currentSrcSize = newSrcSize;
         }
     }
 
-    ctx.drawImage(canvas, 0, 0, currentSrcSize, currentSrcSize, 0, 0, dstSize, dstSize);
+    ctx.drawImage(tempCanvas, 0, 0, currentSrcSize, currentSrcSize, 0, 0, dstSize, dstSize);
 }
 
 export function smoothScaleSquareWithSrc(ctx: CanvasRenderingContext2D, src: Canvas | Image, srcX: number, srcY: number,
@@ -29,6 +39,7 @@ export function smoothScaleSquareWithSrc(ctx: CanvasRenderingContext2D, src: Can
     // with the smoothScaleSquare method from above
     if (srcW === dstSize && srcH === dstSize) return;
 
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     if (dstSize < srcW && dstSize <= srcW / 2) {
         const newSrcSize = srcW / 2;
         ctx.drawImage(src, srcX, srcY, srcW, srcH, 0, 0, newSrcSize, newSrcSize);

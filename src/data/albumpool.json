@@ -332,8 +332,8 @@
         "artistJa": "Aqours"
     },
     {
-        "url": "",
-        "startOnDay": 999999,
+        "url": "/albumart/aqours_bouken-type-a-b-c.jpg",
+        "startOnDay": 0,
         "titleEn": "Bouken Type A, B, C!!",
         "artistEn": "Aqours",
         "titleJa": "冒険Type A, B, C‼",

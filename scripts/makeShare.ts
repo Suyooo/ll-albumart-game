@@ -1,4 +1,4 @@
-import {createCanvas, loadImage} from "canvas";
+import {Canvas, createCanvas, loadImage} from "canvas";
 import fs from "fs";
 import {CURRENT_DAY, getIdsForDay} from "$modules/daily";
 import {getGameInstance} from "../src/modules/gameHandler";
@@ -15,6 +15,11 @@ const jpegConfig = {
     const {rolledAlbumId, rolledGameId} = getIdsForDay(CURRENT_DAY);
     const {gameInstance} = await getGameInstance(CURRENT_DAY, GAME_POOL[rolledGameId], ALBUM_POOL[rolledAlbumId]);
     const shareCanvas = gameInstance.getShareCanvas();
+    const shareWithBgCanvas = new Canvas(shareCanvas.width, shareCanvas.height);
+    const shareWithBgCtx = shareWithBgCanvas.getContext("2d");
+    shareWithBgCtx.fillStyle = "black";
+    shareWithBgCtx.fillRect(0, 0, shareCanvas.width, shareCanvas.height);
+    shareWithBgCtx.drawImage(shareCanvas, 0, 0);
 
     const stream = shareCanvas.createJPEGStream(jpegConfig);
     const out = fs.createWriteStream("share/" + CURRENT_DAY + ".jpg");

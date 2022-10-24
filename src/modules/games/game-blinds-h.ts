@@ -46,8 +46,6 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
         const firstGuessCanvas = getCanvasForGuess(0);
         const canvas = createCanvas(256, 256);
         const ctx = canvas.getContext("2d");
-        ctx.fillStyle = "black";
-        ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
         ctx.globalAlpha = .05;
         ctx.drawImage(firstGuessCanvas, 0, positions[0] - 2, CANVAS_SIZE, 4,
             0, 0, 256, 256);
