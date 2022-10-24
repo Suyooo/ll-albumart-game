@@ -32,7 +32,7 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
                 ctx.beginPath();
                 ctx.moveTo(x, y);
                 ctx.lineTo(x, y);
-                ctx.strokeStyle = `rgb(${data[0]},${data[1]},${data[2]})`;
+                ctx.strokeStyle = `rgba(${data[0]},${data[1]},${data[2]},${data[3]})`;
                 ctx.stroke();
                 bubblesLeft--;
             }

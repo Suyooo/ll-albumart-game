@@ -28,7 +28,7 @@ export interface GameInstanceSiteWrapper {
     getFinishedCanvas(): HTMLCanvasElement
 }
 
-const GAME_CACHE: {[filename: string]: Game} = {};
+const GAME_CACHE: { [filename: string]: Game } = {};
 
 async function getGameFromGameInfo(gameInfo: GameInfo): Promise<Game> {
     const filename = gameInfo.filename;
@@ -44,10 +44,17 @@ export async function getGameInstance(day: number, gameInfo: GameInfo, album: Al
         [getGameFromGameInfo(gameInfo), loadImage(`.${album.url}`)]
     );
 
-    // noinspection JSSuspiciousNameCombination - we want to force it to a square aspect ratio
-    const rescaleCanvas = createCanvas(Math.max(image.width, CANVAS_SIZE), Math.max(image.height, CANVAS_SIZE));
+    const rescaleCanvas = createCanvas(Math.max(image.width, CANVAS_SIZE), Math.max(image.width, CANVAS_SIZE));
     const rescaleCtx = rescaleCanvas.getContext("2d");
-    smoothScaleSquareWithSrc(rescaleCtx, image, 0, 0, image.width, image.height, CANVAS_SIZE);
+    let paddingOriginal = Math.ceil((image.width - image.height) / 2);
+    const rescaleHeight = Math.floor(CANVAS_SIZE / image.width * image.height);
+    let paddingRescale = Math.ceil((CANVAS_SIZE - rescaleHeight) / 2);
+    if (paddingRescale < 10) {
+        paddingRescale = paddingOriginal = 0;
+    }
+    smoothScaleSquareWithSrc(rescaleCtx, image, 0, -paddingOriginal, image.width, paddingOriginal ? image.width : image.height, CANVAS_SIZE);
+    rescaleCtx.clearRect(0, 0, CANVAS_SIZE, paddingRescale);
+    rescaleCtx.clearRect(0, CANVAS_SIZE - paddingRescale, CANVAS_SIZE, paddingRescale);
 
     const albumArtCanvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
     const albumArtCtx = albumArtCanvas.getContext("2d");

@@ -39,12 +39,12 @@ export function getGameInstance(day: number, _album: AlbumInfo, image: Image): G
         const canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
         const ctx = canvas.getContext("2d");
 
-        const cropWidth = Math.floor(image.width * SIZE[failed]);
-        const cropHeight = Math.floor(image.height * SIZE[failed]);
+        const cropSize = Math.floor(image.width * SIZE[failed]);
 
         const p = positions[failed];
+        console.log(cropSize, cropSize);
         smoothScaleSquareWithSrc(ctx, image, p[0] * image.width, p[1] * image.height,
-            cropWidth, cropHeight, CANVAS_SIZE);
+            cropSize, cropSize, CANVAS_SIZE);
         return canvas;
     };
     const getShareCanvas = (): Canvas => {

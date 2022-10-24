@@ -25,6 +25,8 @@ export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, 
     const getCanvasForGuess = (failed: number): Canvas => {
         const canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
         const ctx = canvas.getContext("2d");
+        ctx.fillStyle = "black";
+        ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
         const blurTarget = BLURS[failed];
 
         smoothScaleSquareWithSrc(ctx, scaledImage, 0, 0, CANVAS_SIZE, CANVAS_SIZE, blurTarget);
