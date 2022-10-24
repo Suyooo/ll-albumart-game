@@ -6,7 +6,9 @@ import {seededRNG} from "$modules/rng";
 
 const FIRST_DAY_TIMESTAMP = 1666191600000;
 const MS_PER_DAY = 86400000;
-export const CURRENT_DAY = Math.floor((Date.now() - FIRST_DAY_TIMESTAMP) / MS_PER_DAY) + 200000;
+export const CURRENT_DAY = Math.floor((Date.now() - FIRST_DAY_TIMESTAMP) / MS_PER_DAY);
+// Alternate definition for debugging, make sure to block local storage or delete save data on each refresh
+//export const CURRENT_DAY = Math.floor(Math.random() * 1000000);
 
 export interface FilteredAlbumInfo extends AlbumInfo {
     id: number;
@@ -36,7 +38,7 @@ function getFilteredGamePoolForDay(day: number) {
 }
 
 export function getIdsForDay(day: number) {
-    const rng = seededRNG(day);
+    const rng = seededRNG(day + 60000);
 
     const filteredAlbumId = getFilteredAlbumPoolForDay(day);
     const filteredAlbumIndex = Math.floor(rng() * filteredAlbumId.length);

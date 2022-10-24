@@ -32,12 +32,13 @@ const downloadQueue: { titleJa?: string, titleEn?: string, url: string, used?: b
             }
             dl.used = true;
             album.url = "/albumart/" + filename;
+            album.startOnDay = 0;
         }
     }
 
     fs.writeFileSync("src/data/albumpool.json", JSON.stringify(ALBUM_POOL, null, 4));
 
     for (const dl of downloadQueue) {
-        if (!dl.used) console.log("Unused: " + (dl.titleEn || dl.titleJa));
+        if (dl.url && !dl.used) console.log("Unused: " + (dl.titleEn || dl.titleJa));
     }
 })();

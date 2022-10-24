@@ -21,7 +21,7 @@
             } else {
                 $STATE.failed++;
                 disabled = true;
-                setTimeout(() => { disabled = false; }, $STATE.failed < 4 ? 500 : 2000);
+                setTimeout(() => { disabled = false; }, $STATE.failed < 5 ? 500 : 2000);
 
                 if ($STATE.failed >= 6) {
                     $STATE.finished = true;
