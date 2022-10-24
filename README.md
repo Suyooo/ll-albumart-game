@@ -1,7 +1,7 @@
 # LL! Guess That Album
 
 This is the source code for the Love Live! album art guessing game, playable here:
-https://llalbumart.suyo.be/
+https://llalbum.suyo.be/
 
 This is my first Svelte project - so be prepared for a mess (if you have more
 experience than me and see something odd, please feel free to suggest improvements :))
