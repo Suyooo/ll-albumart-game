@@ -52,8 +52,10 @@ Some important hints:
 * Performance might be slow depending on how many operations you do. One way to help is to set `stacked` and only draw
   changed regions for guesses 2-6. Another possibility is to use `requestAnimationFrame` to only draw some parts of the
   image in each frame (see `game-tiles.ts` for an example, though it is used to do a fancy animation instead of for
-  performance reasons in that one). However, make sure the album art is fully obscured on every frame if you use this
-  method.
+  performance reasons in that one). However, if you this method, make sure that (a) the album art is fully obscured on
+  every frame if you use this method, and (b) that you check for the existence of the method first by using
+  `typeof requestAnimationFrame !== "undefined"` - you cannot use it on the server side when it is creating the share
+  image, so draw the entire canvas at once in this case.
 * Another approach might be pre-drawing in the background (see `game-bubbles.ts`), but make sure the first canvas is
   still fully drawn right away to make sure getShareCanvas() can get the finished first guess image.
 

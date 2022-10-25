@@ -50,7 +50,9 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
                 bubblesLeft--;
             }
             if (bubblesLeft > 0) {
-                requestAnimationFrame(drawBubbles);
+                // Running in browser? Use requestAnimationFrame to do work in the background, otherwise just draw all
+                if (typeof requestAnimationFrame !== "undefined") requestAnimationFrame(drawBubbles);
+                else drawBubbles();
             }
         }
         drawBubbles();

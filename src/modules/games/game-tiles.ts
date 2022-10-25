@@ -48,6 +48,7 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
             ctx.drawImage(scaledImage, x, y, w, h, x, y, w, h);
             i++;
             if (i < AMOUNT[failed]) {
+                // Don't have to care about server, since getShareCanvas() doesn't call getCanvasForGuess()
                 requestAnimationFrame(revealTile);
             }
         }
