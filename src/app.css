@@ -16,6 +16,7 @@
         @apply rounded text-black bg-primary-100;
     }
     *:focus-visible {
+        @apply rounded;
         outline: 2px solid theme("colors.primary.100") !important;
     }
 }
