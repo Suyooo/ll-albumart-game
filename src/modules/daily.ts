@@ -8,7 +8,7 @@ import type {PlayState} from "$stores/state";
 const FIRST_DAY_TIMESTAMP = 1666191600000;
 const MS_PER_DAY = 86400000;
 export const CURRENT_DAY = Math.floor((Date.now() - FIRST_DAY_TIMESTAMP) / MS_PER_DAY)
-    + (typeof localStorage !== "undefined" ? parseInt(localStorage.getItem("dayOffset")) : 0 || 0);
+    + ((typeof localStorage !== "undefined" ? parseInt(localStorage.getItem("dayOffset")) : 0) || 0);
 
 export interface FilteredAlbumInfo extends AlbumInfo {
     id: number;
@@ -39,8 +39,9 @@ function getFilteredGamePoolForDay(day: number) {
 }
 
 // The rounds are randomized, but curated
-// Setting localStorage.dayOffset = 1 means you will get the next day's round, to check whether it's good
-// If not, it can be skipped by adding the day to this array: the seed will be offset by +1 each time
+// Setting localStorage.dayOffset = 1 means you will get the next day's round, which allows me to play a day ahead, and
+// to check whether it's a good round. If not, it can be skipped by adding the day to this array: the seed will be
+// offset by +1 each time I add another day in here
 const offsetDays = [];
 
 // Maybe hardcode the first few days as an "intro"?
@@ -84,8 +85,8 @@ export function getIdsForDay(day: number, states: PlayState[]) {
     rng();
 
     let rolledGameId: number;
+    const filteredGamePool = getFilteredGamePoolForDay(day);
     do {
-        const filteredGamePool = getFilteredGamePoolForDay(day);
         const filteredGameTargetWeight = rng() * filteredGamePool.at(-1).cumulativeWeight;
         const filteredGameIndex = filteredGamePool.findIndex(game => game.cumulativeWeight > filteredGameTargetWeight);
         rolledGameId = filteredGamePool[filteredGameIndex].id;

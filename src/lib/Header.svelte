@@ -9,7 +9,7 @@
 
     const dispatch = createEventDispatcher<{ openmodal: { title: string, component: any } }>();
 
-    function modalOpener(title, component): () => void {
+    function modalOpener(title: string, component: any): () => void {
         return () => {
             dispatch("openmodal", {title, component});
         }

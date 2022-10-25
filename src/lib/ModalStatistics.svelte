@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import {quartOut} from 'svelte/easing';
     import Wrong from "$icon/Wrong.svelte";
     import {STATE} from "$stores/state";
@@ -7,7 +7,7 @@
     const max = $STATISTICS.byFailCount.reduce((max, c) => Math.max(c, max), 0);
     const bars = $STATISTICS.byFailCount.map(c => [c, max ? c / max : 0]);
 
-    function grow(node, {
+    function grow(_node: Node, {
         delay = 0,
         duration = 500,
         target
@@ -15,7 +15,7 @@
         return {
             delay,
             duration,
-            css: t => `max-width: ${quartOut(t) * target * 100}%`
+            css: (t: number) => `max-width: ${quartOut(t) * target * 100}%`
         };
     }
 </script>

@@ -65,7 +65,7 @@ export const autocomplete: Action<HTMLInputElement> = (node: HTMLInputElement) =
             );
         },
         onSelect: function (item: ACResult): void {
-            node.dispatchEvent(new CustomEvent<string>("select", {detail: item.label}));
+            node.dispatchEvent(new CustomEvent<string>("selection", {detail: item.label}));
         },
         render: function (item: ACResult): HTMLDivElement | undefined {
             const itemElement = document.createElement("div");

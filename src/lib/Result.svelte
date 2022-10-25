@@ -11,7 +11,7 @@
 
     function getShareText(): string {
         return "LL! Guess That Album #" + $STATE.day + "\n🖼" +
-            $STATE.guesses.map((guess, index) => {
+            $STATE.guesses.map((guess: string|null, index: number) => {
                 if (index < $STATE.failed) {
                     if (guess === null) return "⬜";
                     else return "🟥️";

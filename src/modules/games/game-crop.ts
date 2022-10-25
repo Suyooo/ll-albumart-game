@@ -42,7 +42,6 @@ export function getGameInstance(day: number, _album: AlbumInfo, image: Image): G
         const cropSize = Math.floor(image.width * SIZE[failed]);
 
         const p = positions[failed];
-        console.log(cropSize, cropSize);
         smoothScaleSquareWithSrc(ctx, image, p[0] * image.width, p[1] * image.height,
             cropSize, cropSize, CANVAS_SIZE);
         return canvas;

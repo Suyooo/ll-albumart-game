@@ -4,7 +4,7 @@
     import {fade} from "svelte/transition";
     import {focusTrap} from "$actions/focusTrap";
 
-    export let inner;
+    export let inner: any;
     export let title: string;
 
     const dispatch = createEventDispatcher<{ closemodal: undefined }>();
@@ -33,7 +33,7 @@
     </div>
 </div>
 
-<style>
+<style lang="postcss">
     div.overflow-y-auto :global(a) {
         @apply underline text-primary-100;
     }
