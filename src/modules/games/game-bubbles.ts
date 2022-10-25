@@ -9,22 +9,35 @@ import {seededRNG} from "../rng";
 
 export const stacked = true;
 
-const MAX_PER_FRAME = 100;
+const MAX_PER_FRAME = 10;
 const BUBBLE_AMOUNT = [200, 700, 1000, 2000, 3000, 5000];
 const BUBBLE_SIZE = [50, 30, 15, 10, 7, 5];
 
 export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, scaledImage: Canvas): GameInstance {
-    const getCanvasForGuess = (failed: number): Canvas => {
-        const rng = seededRNG(day * 241 + failed);
-        const canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
-        const ctx = canvas.getContext("2d");
+    // gameHandler does pre-caching, but only once the guess is up.
+    // This game mode can be pretty taxing on weaker devices, so instead, we make our own cache. This way, this mode can
+    // pre-draw the images in the background while the player is still looking at the previous guesses
+    const CACHE = [
+        createCanvas(CANVAS_SIZE, CANVAS_SIZE),
+        createCanvas(CANVAS_SIZE, CANVAS_SIZE),
+        createCanvas(CANVAS_SIZE, CANVAS_SIZE),
+        createCanvas(CANVAS_SIZE, CANVAS_SIZE),
+        createCanvas(CANVAS_SIZE, CANVAS_SIZE),
+        createCanvas(CANVAS_SIZE, CANVAS_SIZE)
+    ];
+
+    for (let i = 0; i < 6; i++) {
+        const rng = seededRNG(day * 241 + i);
+        const ctx = CACHE[i].getContext("2d");
         const scaledImageCtx = scaledImage.getContext("2d");
 
-        let bubblesLeft = BUBBLE_AMOUNT[failed];
+        let bubblesLeft = BUBBLE_AMOUNT[i];
+        // Draw first guess instantly (for sharing), the rest can wait
+        const maxPerFrame = i === 0 ? bubblesLeft : MAX_PER_FRAME;
         const drawBubbles = (): void => {
-            ctx.lineWidth = BUBBLE_SIZE[failed] * 2;
+            ctx.lineWidth = BUBBLE_SIZE[i] * 2;
             ctx.lineCap = "round";
-            for (let j = 0; j < MAX_PER_FRAME && bubblesLeft; j++) {
+            for (let j = 0; j < maxPerFrame && bubblesLeft; j++) {
                 const x = Math.floor(CANVAS_SIZE * rng());
                 const y = Math.floor(CANVAS_SIZE * rng());
                 const data = scaledImageCtx.getImageData(x, y, 1, 1).data;
@@ -41,15 +54,13 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
             }
         }
         drawBubbles();
+    }
 
-        return canvas;
+    const getCanvasForGuess = (failed: number): Canvas => {
+        return CACHE[failed];
     };
     const getShareCanvas = (): Canvas => {
-        const firstGuessCanvas = getCanvasForGuess(0);
-        const canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
-        const ctx = canvas.getContext("2d");
-        ctx.drawImage(firstGuessCanvas, 0, 0);
-        return canvas;
+        return CACHE[0];
     };
     return {getCanvasForGuess, getShareCanvas}
 }

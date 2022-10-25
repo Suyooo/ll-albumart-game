@@ -51,7 +51,10 @@ Some important hints:
   non-standard parts are listed on [their GitHub page](https://github.com/Automattic/node-canvas#non-standard-apis).)
 * Performance might be slow depending on how many operations you do. One way to help is to set `stacked` and only draw
   changed regions for guesses 2-6. Another possibility is to use `requestAnimationFrame` to only draw some parts of the
-  image in each frame (see `game-bubbles.ts` for an example). However, make sure the album art is fully obscured on
-  every frame if you use this method. (You can also use this approach for fancy animations! See `game-tiles.ts`)
+  image in each frame (see `game-tiles.ts` for an example, though it is used to do a fancy animation instead of for
+  performance reasons in that one). However, make sure the album art is fully obscured on every frame if you use this
+  method.
+* Another approach might be pre-drawing in the background (see `game-bubbles.ts`), but make sure the first canvas is
+  still fully drawn right away to make sure getShareCanvas() can get the finished first guess image.
 
 If you've made a neat game mode, feel free to send in a pull request, so it can be added to the site :)
