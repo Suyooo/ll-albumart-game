@@ -57,6 +57,10 @@ const jpegConfig = {
     const page = template.replace(/\{\{DAY}}/g, CURRENT_DAY.toString());
     fs.writeFileSync("share/" + CURRENT_DAY + ".html", page);
 
+    const templateDiscord = fs.readFileSync("share/template-discord.html").toString();
+    const pageDiscord = templateDiscord.replace(/\{\{DAY}}/g, CURRENT_DAY.toString());
+    fs.writeFileSync("share/" + CURRENT_DAY + "d.html", pageDiscord);
+
     await sharePromise;
     await widePromise;
 })();
