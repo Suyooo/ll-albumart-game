@@ -11,7 +11,7 @@
 
     function getShareText(): string {
         return "LL! Guess That Album #" + $STATE.day + "\n🖼\uFE0F " +
-            $STATE.guesses.map((guess: string|null, index: number) => {
+            $STATE.guesses.map((guess: string | null, index: number) => {
                 if (index < $STATE.failed) {
                     if (guess === null) return "⬜\uFE0F";
                     else return "🟥\uFE0F";
@@ -22,25 +22,27 @@
             "\n#LLGuessThatAlbum #lovelive #ラブライブ\nhttps://llalbum.suyo.be/" + $STATE.day;
     }
 
-    function share() {
-        if (navigator.share && !(navigator.userAgent.includes("Firefox") && navigator.userAgent.includes("Android"))) {
+    function shareResult() {
+        if (navigator.share && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+            && !navigator.userAgent.includes("Firefox")) {
             // Firefox for Android does not support sharing text via navigator.share
             // There is no way to programmatically check whether a browser supports sharing text via the native share
             // mechanism, so we simply have to remember to manually remove this when it is implemented in Firefox
-            navigator.share({text: getShareText()})
-                .catch((err) => {
-                    alert("Unable to share your result: " + err);
-                });
+            navigator.share({text: getShareText()}).catch(copyResult);
         } else {
             // PC browsers usually don't have a native share mechanism - just copy it instead
-            navigator.clipboard.writeText(getShareText())
-                .then(() => {
-                    copied = true;
-                })
-                .catch((err) => {
-                    alert("Unable to share or copy your result: " + err);
-                });
+            copyResult();
         }
+    }
+
+    function copyResult() {
+        navigator.clipboard.writeText(getShareText())
+            .then(() => {
+                copied = true;
+            })
+            .catch((err) => {
+                alert("Unable to share or copy your result: " + err);
+            });
     }
 
     function updateResultTimer() {
@@ -102,7 +104,7 @@
     </div>
 </div>
 <button class="px-3 py-2 rounded p-1 uppercase tracking-widest transition-colors duration-200 bg-primary-500
-    flex items-center space-x-2" in:fly={{x: -50, delay: 500, duration: 1000}} on:click={share}>
+    flex items-center space-x-2" in:fly={{x: -50, delay: 500, duration: 1000}} on:click={shareResult}>
     {#if copied}
         <Checkmark/>
         <span>Copied to your Clipboard</span>
