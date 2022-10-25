@@ -14,7 +14,7 @@ const TILES_TOTAL = TILES_PER_AXIS * TILES_PER_AXIS;
 const TILE_POS = new Array(TILES_PER_AXIS + 1).fill(0).map((_, i) =>
     Math.floor(CANVAS_SIZE * i / TILES_PER_AXIS));
 
-const AMOUNT = [9, 20, 40, 60, 90, 140];
+const AMOUNT = [9, 20, 40, 60, 90, 120];
 const MAX_AMOUNT = AMOUNT.reduce((max, cur) => cur > max ? cur : max, 0);
 
 export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, scaledImage: Canvas): GameInstance {

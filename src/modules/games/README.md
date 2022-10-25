@@ -41,17 +41,17 @@ Some important hints:
   Always test your games with some wide aspect ratio images, like Dreams of the Superstar.
 * Since `getShareCanvas` should represent the first guess, you can usually just make a call to `getCanvasForGuess(0)`
   and that's all. If your game mode only reveals very small parts of the image though, you might want to instead return
-  a rearranged image (see `game-tiles.ts` for an example). Make sure it is always square.
-* Balance is hard. Guess 1 should be very hard, while Guess 6 should be reasonable, but not a straight giveaway. Try
-  checking against existing game modes and balancing along the same lines. One way to make this easier is to move any
-  dials you can move for balancing into a constant that can be easily adjusted (see `game-pixelized.ts`, for example -
+  a rearranged image (see `game-blinds-h/v.ts` for an example). Make sure it is always square.
+* Balance is hard. Guess 1 should be very difficult, while guess 6 should be reasonable, but not a straight giveaway.
+  Try checking against existing game modes and balancing along the same lines. One way to make this easier is to define
+  any dials you can move for balancing as a constant that can be easily adjusted (see `game-pixelized.ts`, for example -
   the `SIZES` array is way at the top and allows quick and easy changes for testing balance).
 * node-canvas (`canvas` on npm) is used to allow both a browser client and Node.JS on the server to generate the same
-  image. Ensure that you only use standard canvas methods, even if node-canvas implements a few helpers. (The non-
-  standard parts are listed on [their GitHub page](https://github.com/Automattic/node-canvas#non-standard-apis).)
-* Performance might be hard depending on how many operations you do. One way to help is to set `stacked` and only draw
+  image. Ensure that you only use standard canvas methods, even if node-canvas implements a few helpers. (The
+  non-standard parts are listed on [their GitHub page](https://github.com/Automattic/node-canvas#non-standard-apis).)
+* Performance might be slow depending on how many operations you do. One way to help is to set `stacked` and only draw
   changed regions for guesses 2-6. Another possibility is to use `requestAnimationFrame` to only draw some parts of the
-  image in each frame (see `game-bubbles.ts` for an example). Make sure the album art is fully obscured on every frame
-  if you use this method. (You can also use this approach for fancy animations! See `game-tiles.ts`)
+  image in each frame (see `game-bubbles.ts` for an example). However, make sure the album art is fully obscured on
+  every frame if you use this method. (You can also use this approach for fancy animations! See `game-tiles.ts`)
 
-If you've made a neat game mode, feel free to send in a pull request so it can be added to the site :)
+If you've made a neat game mode, feel free to send in a pull request, so it can be added to the site :)

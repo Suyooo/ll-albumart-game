@@ -9,7 +9,7 @@ import type {GameInstance} from "../gameHandler";
 
 export const stacked = false;
 
-const SIZES = [5, 9, 15, 20, 30, 45];
+const SIZES = [5, 9, 15, 20, 30, 55];
 
 export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, scaledImage: Canvas): GameInstance {
     const getCanvasForGuess = (failed: number): Canvas => {
