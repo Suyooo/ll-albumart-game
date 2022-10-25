@@ -19,7 +19,7 @@
     svelte-ignore a11y-click-events-have-key-events
     Accessibility is handled with the key event above ^, and there's also an accessible and obvious close button
 -->
-<div class="absolute left-0 top-0 w-full h-full bg-gray-900 bg-opacity-80 flex items-center justify-center pt-8 pb-24"
+<div class="absolute left-0 top-0 w-full h-full bg-gray-900 bg-opacity-80 flex items-center justify-center px-8 pt-8 pb-24"
      on:click={closeModal} transition:fade={{duration: 100}}>
     <div class="w-full max-w-md bg-gray-700 rounded p-6 relative overflow-hidden" on:click|stopPropagation={() => null}>
         <h3 class="flex-grow h-8 uppercase tracking-widest font-bold text-gray-400">{title}</h3>
