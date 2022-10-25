@@ -5,7 +5,7 @@
     import {STATISTICS} from "$stores/statistics";
 
     const max = $STATISTICS.byFailCount.reduce((max, c) => Math.max(c, max), 0);
-    const bars = $STATISTICS.byFailCount.map(c => [c, c / max]);
+    const bars = $STATISTICS.byFailCount.map(c => [c, max ? c / max : 0]);
 
     function grow(node, {
         delay = 0,
