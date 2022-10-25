@@ -1882,5 +1882,21 @@
         "artistEn": "µ's",
         "titleJa": "μ's Best Album Best Live! collection",
         "artistJa": "µ's"
+    },
+    {
+        "url": "/albumart/ll-superstar-original-soundtrack_twinkle-of-the-superstar.jpg",
+        "startOnDay": 0,
+        "titleEn": "Twinkle of the Superstar",
+        "artistEn": "LL! Superstar!! Original Soundtrack",
+        "titleJa": "Twinkle of the Superstar",
+        "artistJa": "『ラブライブ！スーパースター!!』 オリジナルサウンドトラック"
+    },
+    {
+        "url": "/albumart/liella-_liella-no-uta-2.jpg",
+        "startOnDay": 0,
+        "titleEn": "Liella no Uta 2",
+        "artistEn": "Liella!",
+        "titleJa": "リエラのうた2",
+        "artistJa": "Liella!"
     }
 ]
