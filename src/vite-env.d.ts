@@ -4,6 +4,6 @@ declare const INDEV: boolean;
 
 declare namespace svelte.JSX {
     interface HTMLProps<T> {
-        onacselection?: (event: CustomEvent) => void;
+        onautocomplete?: (event: CustomEvent) => void;
     }
 }

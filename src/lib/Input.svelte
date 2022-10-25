@@ -47,7 +47,7 @@
     space-x-0 sm:space-x-4 space-y-2 sm:space-y-0 items-end sm:items-center">
     <input class="flex-grow w-full rounded p-2 text-white bg-gray-700 text-sm ring-inset ring-2 ring-primary-500
         focus:ring-white" placeholder="Which album is this?" on:keydown={enterSubmit} bind:value={input}
-        bind:this={inputElement} use:autocomplete on:acselection={setInputValue}>
+        bind:this={inputElement} use:autocomplete on:autocomplete={setInputValue}>
     <button class="w-32 rounded p-1 uppercase tracking-widest transition-colors duration-200" {disabled}
             class:bg-gray-700={disabled} class:bg-primary-500={input && !disabled}
             class:bg-primary-700={!input && !disabled} on:click={submit}>
