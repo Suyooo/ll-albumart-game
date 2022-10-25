@@ -10,7 +10,7 @@ import {seededRNG} from "../rng";
 
 export const stacked = false;
 
-const SIZE = [0.1, 0.1, 0.1, 0.15, 0.15, 0.2];
+const SIZE = [0.075, 0.1, 0.1, 0.15, 0.15, 0.2];
 const MAX_SIZE = SIZE.reduce((max, cur) => cur > max ? cur : max, 0);
 
 export function getGameInstance(day: number, _album: AlbumInfo, image: Image): GameInstance {

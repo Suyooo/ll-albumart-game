@@ -52,15 +52,24 @@ function getFilteredGamePoolForDay(day: number) {
 // offset by +1 each time I add another day in here
 const offsetDays = [];
 
-// Maybe hardcode the first few days as an "intro"?
-// Pixelized: Eutopia (1)
-// Tiles: GHAS (1)
-// Bubbles: Bouken ABC (2)
-// Crop: Mirai Harmony (2)
-// Posterize: starlight prologue (1)
-// Blinds: BokuIma H (1)
-
 export function getIdsForDay(day: number, states: PlayState[]) {
+    // Hardcoding first few rounds as an "intro" - so the first six days are one of each game, to give people a taste :)
+    if (day < 7) {
+        // D1: Eutopia (Pixelated)
+        //     This was a random roll I swear but since LLHeardle started with a Lanzhu solo too, this fits great lol
+        if (day === 1) return {rolledAlbumId: 119, rolledGameId: 0};
+        // D2: Bokura wa Ima no Naka de (Blinds H)
+        if (day === 2) return {rolledAlbumId: 144, rolledGameId: 4};
+        // D3: Bouken Type A, B, C!! (Bubbles)
+        if (day === 3) return {rolledAlbumId: 39, rolledGameId: 1};
+        // D4: We'll get the next dream!! (Tiles)
+        if (day === 4) return {rolledAlbumId: 91, rolledGameId: 6};
+        // D5: Starlight Prologue (Blobs)
+        if (day === 5) return {rolledAlbumId: 10, rolledGameId: 2};
+        // D6: Eien no Isshun (Zoomed In)
+        if (day === 6) return {rolledAlbumId: 123, rolledGameId: 3};
+    }
+
     let offset: number;
     const blockedAlbums = new Set();
     const blockedGames = new Set();
