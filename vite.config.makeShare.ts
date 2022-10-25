@@ -25,6 +25,6 @@ export default defineConfig({
         rollupOptions: { external: ["fs","canvas"] }
     },
     define: {
-        DEBUG: false
+        INDEV: false
     }
 })

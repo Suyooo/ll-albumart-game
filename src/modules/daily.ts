@@ -3,11 +3,12 @@ import {ALBUM_POOL} from "$data/albumpool";
 import type {GameInfo} from "$data/gamepool";
 import {GAME_POOL} from "$data/gamepool";
 import {seededRNG} from "$modules/rng";
+import type {PlayState} from "$stores/state";
 
 const FIRST_DAY_TIMESTAMP = 1666191600000;
 const MS_PER_DAY = 86400000;
 export const CURRENT_DAY = Math.floor((Date.now() - FIRST_DAY_TIMESTAMP) / MS_PER_DAY)
-    + (parseInt(localStorage.getItem("dayOffset")) || 0);
+    + (typeof localStorage !== "undefined" ? parseInt(localStorage.getItem("dayOffset")) : 0 || 0);
 
 export interface FilteredAlbumInfo extends AlbumInfo {
     id: number;
@@ -50,8 +51,10 @@ const offsetDays = [];
 // Posterize: starlight prologue (1)
 // Blinds: BokuIma H (1)
 
-export function getIdsForDay(day: number) {
-    let offset;
+export function getIdsForDay(day: number, states: PlayState[]) {
+    let offset: number;
+    const blockedAlbums = new Set();
+    const blockedGames = new Set();
     if (INDEV) {
         offset = Math.floor(Math.random() * 100000000);
     } else {
@@ -60,21 +63,33 @@ export function getIdsForDay(day: number) {
             if (day >= offsetDays[i]) break;
             offset--;
         }
+
+        // Avoid repeats: last 100 for albums, last 3 for game modes
+        for (let i = Math.max(states.length - 100, 0); i < states.length; i++) {
+            blockedAlbums.add(states[i].albumId);
+            if (i >= states.length - 3) blockedGames.add(states[i].gameId);
+        }
     }
     const rng = seededRNG(day + offset);
 
-    const filteredAlbumId = getFilteredAlbumPoolForDay(day);
-    const filteredAlbumIndex = Math.floor(rng() * filteredAlbumId.length);
-    const rolledAlbumId = filteredAlbumId[filteredAlbumIndex].id;
+    let rolledAlbumId: number;
+    const filteredAlbumPool = getFilteredAlbumPoolForDay(day);
+    do {
+        const filteredAlbumIndex = Math.floor(rng() * filteredAlbumPool.length);
+        rolledAlbumId = filteredAlbumPool[filteredAlbumIndex].id;
+    } while (blockedAlbums.has(rolledAlbumId));
 
     // throw away some rolls
     rng();
     rng();
 
-    const filteredGamePool = getFilteredGamePoolForDay(day);
-    const filteredGameTargetWeight = rng() * filteredGamePool.at(-1).cumulativeWeight;
-    const filteredGameIndex = filteredGamePool.findIndex(game => game.cumulativeWeight > filteredGameTargetWeight);
-    const rolledGameId = filteredGamePool[filteredGameIndex].id;
+    let rolledGameId: number;
+    do {
+        const filteredGamePool = getFilteredGamePoolForDay(day);
+        const filteredGameTargetWeight = rng() * filteredGamePool.at(-1).cumulativeWeight;
+        const filteredGameIndex = filteredGamePool.findIndex(game => game.cumulativeWeight > filteredGameTargetWeight);
+        rolledGameId = filteredGamePool[filteredGameIndex].id;
+    } while (blockedGames.has(rolledGameId));
 
     return {rolledAlbumId, rolledGameId};
 }

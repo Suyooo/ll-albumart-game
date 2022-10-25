@@ -8,10 +8,10 @@ export interface PlayState {
     day: number,
     albumId: number,
     gameId: number,
-    failed: 0 | 1 | 2 | 3 | 4 | 5 | 6,
-    cleared: boolean,
-    finished: boolean,
-    guesses: (string | null)[]
+    failed?: 0 | 1 | 2 | 3 | 4 | 5 | 6,
+    cleared?: boolean,
+    finished?: boolean,
+    guesses?: (string | null)[]
 }
 
 const loadedStates = INDEV ? undefined : localStorage.getItem("playStates");
@@ -30,8 +30,20 @@ if (IS_FIRST_PLAY || CURRENT_DAY > parsedStates.at(-1)?.day) {
         }
     }
 
+    // Fill skipped days, so repeat blocking (daily.ts) works properly and delivers the same results for all players
+    let fillDay = (prevState?.day || 0) + 1;
+    while (fillDay < CURRENT_DAY) {
+        const {rolledAlbumId, rolledGameId} = getIdsForDay(fillDay, parsedStates);
+        parsedStates.push({
+            day: fillDay,
+            albumId: rolledAlbumId,
+            gameId: rolledGameId
+        });
+        fillDay++;
+    }
+
     // Add new day
-    const {rolledAlbumId, rolledGameId} = getIdsForDay(CURRENT_DAY);
+    const {rolledAlbumId, rolledGameId} = getIdsForDay(CURRENT_DAY, parsedStates);
     parsedStates.push({
         day: CURRENT_DAY,
         albumId: rolledAlbumId,
