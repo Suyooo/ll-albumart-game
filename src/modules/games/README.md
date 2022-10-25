@@ -31,6 +31,8 @@ Finally, some meta info is defined in `/src/data/gamepool.json`:
 
 Some important hints:
 
+* If running the game locally with `vite dev`/`vite serve`, save files are ignored and the current round is randomized
+  on each refresh, to help with testing game modes on different arts.
 * Use `/src/modules/rng.ts` for random numbers instead of `Math.random()`, and only use `day`/`failed`/constants for the
   seeding. The image created should always be the same for every user on the same day on the same guess. When testing,
   try refreshing after each skip to make sure the image does not change.

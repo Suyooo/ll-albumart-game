@@ -23,5 +23,8 @@ export default defineConfig({
             fileName: "makeShare"
         },
         rollupOptions: { external: ["fs","canvas"] }
+    },
+    define: {
+        DEBUG: false
     }
 })

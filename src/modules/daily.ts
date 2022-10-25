@@ -7,12 +7,11 @@ import {seededRNG} from "$modules/rng";
 const FIRST_DAY_TIMESTAMP = 1666191600000;
 const MS_PER_DAY = 86400000;
 export const CURRENT_DAY = Math.floor((Date.now() - FIRST_DAY_TIMESTAMP) / MS_PER_DAY);
-// Alternate definition for debugging, make sure to block local storage or delete save data on each refresh
-//export const CURRENT_DAY = Math.floor(Math.random() * 1000000);
 
 export interface FilteredAlbumInfo extends AlbumInfo {
     id: number;
 }
+
 export interface FilteredGameInfo extends GameInfo {
     id: number;
     cumulativeWeight: number;
@@ -37,8 +36,23 @@ function getFilteredGamePoolForDay(day: number) {
     return pool;
 }
 
+// The rounds are randomized, but curated
+// Setting localStorage.dayOffset = 1 means you will get the next day's round, to check whether it's good
+// If not, it can be skipped by adding the day to this array: the seed will be offset by +1 each time
+const offsetDays = [];
+
 export function getIdsForDay(day: number) {
-    const rng = seededRNG(day + 60000);
+    let offset;
+    if (INDEV) {
+        offset = Math.floor(Math.random() * 100000000);
+    } else {
+        offset = offsetDays.length;
+        for (let i = offsetDays.length - 1; i >= 0; i--) {
+            if (day >= offsetDays[i]) break;
+            offset--;
+        }
+    }
+    const rng = seededRNG(day + offset);
 
     const filteredAlbumId = getFilteredAlbumPoolForDay(day);
     const filteredAlbumIndex = Math.floor(rng() * filteredAlbumId.length);

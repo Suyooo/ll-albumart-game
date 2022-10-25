@@ -28,7 +28,7 @@
     }
 
     onMount(() => {
-        if ($ALL_STATES.length === 1 && $STATE.guesses.length === 0) {
+        if ($ALL_STATES.length === 1 && $STATE.guesses.length === 0 && !INDEV) {
             // First ever game, show help modal
             openModal("How to Play", ModalHelp);
         }

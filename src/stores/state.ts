@@ -14,7 +14,7 @@ export interface PlayState {
     guesses: (string | null)[]
 }
 
-const loadedStates = localStorage.getItem("playStates");
+const loadedStates = INDEV ? undefined : localStorage.getItem("playStates");
 const parsedStates: PlayState[] = loadedStates ? JSON.parse(loadedStates) : [];
 export const IS_FIRST_PLAY = parsedStates.length === 0;
 
@@ -52,7 +52,7 @@ export const STATE = writable<PlayState>(parsedStates.at(-1));
 
 STATE.subscribe(newState => {
     parsedStates[parsedStates.length - 1] = newState;
-    localStorage.setItem("playStates", JSON.stringify(parsedStates));
+    if (!INDEV) localStorage.setItem("playStates", JSON.stringify(parsedStates));
 });
 
 export const ALL_STATES = readable<PlayState[]>([], (set) => {
