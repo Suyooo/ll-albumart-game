@@ -12,6 +12,7 @@ export const CURRENT_DAY = Math.floor((Date.now() - FIRST_DAY_TIMESTAMP) / MS_PE
 
 export interface FilteredAlbumInfo extends AlbumInfo {
     id: number;
+    cumulativeWeight: number;
 }
 
 export interface FilteredGameInfo extends GameInfo {
@@ -20,9 +21,16 @@ export interface FilteredGameInfo extends GameInfo {
 }
 
 function getFilteredAlbumPoolForDay(day: number): FilteredAlbumInfo[] {
-    return ALBUM_POOL
-        .map((album, id) => ({id, ...album}))
+    const pool: FilteredAlbumInfo[] = ALBUM_POOL
+        .map((album, id) => ({id, cumulativeWeight: 0, ...album}))
         .filter(album => album.startOnDay <= day);
+
+    pool.reduce((acc, album): number => {
+        album.cumulativeWeight = acc + album.weight;
+        return album.cumulativeWeight;
+    }, 0);
+
+    return pool;
 }
 
 function getFilteredGamePoolForDay(day: number) {
@@ -76,7 +84,9 @@ export function getIdsForDay(day: number, states: PlayState[]) {
     let rolledAlbumId: number;
     const filteredAlbumPool = getFilteredAlbumPoolForDay(day);
     do {
-        const filteredAlbumIndex = Math.floor(rng() * filteredAlbumPool.length);
+        const filteredAlbumTargetWeight = rng() * filteredAlbumPool.at(-1).cumulativeWeight;
+        const filteredAlbumIndex =
+            filteredAlbumPool.findIndex(album => album.cumulativeWeight > filteredAlbumTargetWeight);
         rolledAlbumId = filteredAlbumPool[filteredAlbumIndex].id;
     } while (blockedAlbums.has(rolledAlbumId));
 
