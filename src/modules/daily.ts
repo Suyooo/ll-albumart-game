@@ -39,9 +39,8 @@ function pickFrom(list: Pickable[], rng: () => number, blocked: Set<number>): nu
 
 // The rounds are randomized, but curated
 // Setting localStorage.dayOffset = 1 means you will get the next day's round, which allows me to play a day ahead, and
-// to check whether it's a good round. If not, it can be skipped by adding the day to this array: the seed will be
-// offset by +1 each time I add another day in here
-const offsetDays = [];
+// to check whether it's a good round. If not, it can be rerolled by adding the day to this set
+const rerollDays = new Set([]);
 
 export function getIdsForDay(day: number, states: PlayState[]) {
     // Hardcoding first few rounds as an "intro" - so the first week is one of each game, to give people a taste :)
@@ -63,17 +62,15 @@ export function getIdsForDay(day: number, states: PlayState[]) {
         if (day === 7) return {rolledAlbumId: 39, rolledGameId: 1};
     }
 
-    let offset: number;
+    let rng;
     const blockedAlbums = new Set<number>();
     const blockedGames = new Set<number>();
     if (INDEV) {
-        offset = Math.floor(Math.random() * 100000000);
+        rng = seededRNG(Math.floor(Math.random() * 100000000));
+        day = 999998;
     } else {
-        offset = offsetDays.length;
-        for (let i = offsetDays.length - 1; i >= 0; i--) {
-            if (day >= offsetDays[i]) break;
-            offset--;
-        }
+        rng = seededRNG(day);
+        if (rerollDays.has(day)) rng(); // throw away a roll
 
         // Avoid repeats: last 100 for albums, last 3 for game modes
         for (let i = Math.max(states.length - 100, 0); i < states.length; i++) {
@@ -82,7 +79,6 @@ export function getIdsForDay(day: number, states: PlayState[]) {
         }
     }
 
-    const rng = seededRNG(day + offset);
     const rolledAlbumId = pickFrom(getFilteredPoolForDay(ALBUM_POOL, day), rng, blockedAlbums);
     rng(); // throw away some rolls
     rng();
