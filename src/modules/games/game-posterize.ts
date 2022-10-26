@@ -9,7 +9,7 @@ import type {GameInstance} from "../gameHandler";
 
 export const stacked = false;
 
-const BLURS = [15, 20, 30, 60, 100, 180];
+const BLURS = [20, 30, 40, 55, 80, 120];
 
 export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, scaledImage: Canvas): GameInstance {
     const origData = scaledImage.getContext("2d").getImageData(0, 0, CANVAS_SIZE, CANVAS_SIZE);

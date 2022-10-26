@@ -51,16 +51,16 @@ export function getIdsForDay(day: number, states: PlayState[]) {
         if (day === 1) return {rolledAlbumId: 119, rolledGameId: 0};
         // D2: Bokura wa Ima no Naka de (Blinds H)
         if (day === 2) return {rolledAlbumId: 144, rolledGameId: 4};
-        // D3: Bouken Type A, B, C!! (Bubbles)
-        if (day === 3) return {rolledAlbumId: 39, rolledGameId: 1};
-        // D4: We'll get the next dream!! (Tiles)
-        if (day === 4) return {rolledAlbumId: 91, rolledGameId: 6};
-        // D5: Starlight Prologue (Blobs)
-        if (day === 5) return {rolledAlbumId: 10, rolledGameId: 2};
+        // D3: Starlight Prologue (Shuffled)
+        if (day === 3) return {rolledAlbumId: 10, rolledGameId: 7};
+        // D4: Torikoriko PLEASE!! (Tiles)
+        if (day === 4) return {rolledAlbumId: 86, rolledGameId: 6};
+        // D5: Susume Tomorrow / START:DASH!! (Blobs)
+        if (day === 5) return {rolledAlbumId: 146, rolledGameId: 2};
         // D6: Eien no Isshun (Zoomed In)
         if (day === 6) return {rolledAlbumId: 123, rolledGameId: 3};
-        // D7: SUNNY DAY SONG (Shuffled)
-        if (day === 7) return {rolledAlbumId: 159, rolledGameId: 7};
+        // D7: Bouken Type A, B, C!! (Bubbles)
+        if (day === 7) return {rolledAlbumId: 39, rolledGameId: 1};
     }
 
     let offset: number;
