@@ -44,8 +44,8 @@ function pickFrom(list: Pickable[], rng: () => number, blocked: Set<number>): nu
 const offsetDays = [];
 
 export function getIdsForDay(day: number, states: PlayState[]) {
-    // Hardcoding first few rounds as an "intro" - so the first six days are one of each game, to give people a taste :)
-    if (day < 7) {
+    // Hardcoding first few rounds as an "intro" - so the first week is one of each game, to give people a taste :)
+    if (day <= 7) {
         // D1: Eutopia (Pixelated)
         //     This was a random roll I swear but since LLHeardle started with a Lanzhu solo too, this fits great lol
         if (day === 1) return {rolledAlbumId: 119, rolledGameId: 0};
@@ -59,6 +59,8 @@ export function getIdsForDay(day: number, states: PlayState[]) {
         if (day === 5) return {rolledAlbumId: 10, rolledGameId: 2};
         // D6: Eien no Isshun (Zoomed In)
         if (day === 6) return {rolledAlbumId: 123, rolledGameId: 3};
+        // D7: SUNNY DAY SONG (Shuffled)
+        if (day === 7) return {rolledAlbumId: 159, rolledGameId: 7};
     }
 
     let offset: number;

@@ -40,5 +40,11 @@
     "startOnDay": 0,
     "name": "Tiles",
     "weight": 1000
+  },
+  {
+    "filename": "shuffle",
+    "startOnDay": 0,
+    "name": "Shuffled",
+    "weight": 1000
   }
 ]
