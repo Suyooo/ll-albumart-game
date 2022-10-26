@@ -5,45 +5,36 @@ import {GAME_POOL} from "$data/gamepool";
 import {seededRNG} from "$modules/rng";
 import type {PlayState} from "$stores/state";
 
-const FIRST_DAY_TIMESTAMP = 1666191600000;
+const FIRST_DAY_TIMESTAMP = 1667228400000;
 const MS_PER_DAY = 86400000;
 export const CURRENT_DAY = Math.floor((Date.now() - FIRST_DAY_TIMESTAMP) / MS_PER_DAY)
     + ((typeof localStorage !== "undefined" ? parseInt(localStorage.getItem("dayOffset")) : 0) || 0);
 
-export interface FilteredAlbumInfo extends AlbumInfo {
+interface Pickable {
     id: number;
     cumulativeWeight: number;
 }
 
-export interface FilteredGameInfo extends GameInfo {
-    id: number;
-    cumulativeWeight: number;
-}
+function getFilteredPoolForDay<T extends (AlbumInfo | GameInfo)>(list: T[], day: number): (T & Pickable)[] {
+    const pool: (T & Pickable)[] = list.map((item, id) => ({id, cumulativeWeight: 0, ...item}))
+        .filter(item => item.startOnDay <= day);
 
-function getFilteredAlbumPoolForDay(day: number): FilteredAlbumInfo[] {
-    const pool: FilteredAlbumInfo[] = ALBUM_POOL
-        .map((album, id) => ({id, cumulativeWeight: 0, ...album}))
-        .filter(album => album.startOnDay <= day);
-
-    pool.reduce((acc, album): number => {
-        album.cumulativeWeight = acc + album.weight;
-        return album.cumulativeWeight;
+    pool.reduce((acc, item): number => {
+        item.cumulativeWeight = acc + item.weight;
+        return item.cumulativeWeight;
     }, 0);
 
     return pool;
 }
 
-function getFilteredGamePoolForDay(day: number) {
-    const pool: FilteredGameInfo[] = GAME_POOL
-        .map((game, id) => ({id, cumulativeWeight: 0, ...game}))
-        .filter(game => game.startOnDay <= day);
-
-    pool.reduce((acc, game): number => {
-        game.cumulativeWeight = acc + game.weight;
-        return game.cumulativeWeight;
-    }, 0);
-
-    return pool;
+function pickFrom(list: Pickable[], rng: () => number, blocked: Set<number>): number {
+    let rolled: number;
+    do {
+        const weight = rng() * list.at(-1).cumulativeWeight;
+        const index = list.findIndex(game => game.cumulativeWeight > weight);
+        rolled = list[index].id;
+    } while (blocked.has(rolled));
+    return rolled;
 }
 
 // The rounds are randomized, but curated
@@ -71,8 +62,8 @@ export function getIdsForDay(day: number, states: PlayState[]) {
     }
 
     let offset: number;
-    const blockedAlbums = new Set();
-    const blockedGames = new Set();
+    const blockedAlbums = new Set<number>();
+    const blockedGames = new Set<number>();
     if (INDEV) {
         offset = Math.floor(Math.random() * 100000000);
     } else {
@@ -88,28 +79,11 @@ export function getIdsForDay(day: number, states: PlayState[]) {
             if (i >= states.length - 3) blockedGames.add(states[i].gameId);
         }
     }
+
     const rng = seededRNG(day + offset);
-
-    let rolledAlbumId: number;
-    const filteredAlbumPool = getFilteredAlbumPoolForDay(day);
-    do {
-        const filteredAlbumTargetWeight = rng() * filteredAlbumPool.at(-1).cumulativeWeight;
-        const filteredAlbumIndex =
-            filteredAlbumPool.findIndex(album => album.cumulativeWeight > filteredAlbumTargetWeight);
-        rolledAlbumId = filteredAlbumPool[filteredAlbumIndex].id;
-    } while (blockedAlbums.has(rolledAlbumId));
-
-    // throw away some rolls
+    const rolledAlbumId = pickFrom(getFilteredPoolForDay(ALBUM_POOL, day), rng, blockedAlbums);
+    rng(); // throw away some rolls
     rng();
-    rng();
-
-    let rolledGameId: number;
-    const filteredGamePool = getFilteredGamePoolForDay(day);
-    do {
-        const filteredGameTargetWeight = rng() * filteredGamePool.at(-1).cumulativeWeight;
-        const filteredGameIndex = filteredGamePool.findIndex(game => game.cumulativeWeight > filteredGameTargetWeight);
-        rolledGameId = filteredGamePool[filteredGameIndex].id;
-    } while (blockedGames.has(rolledGameId));
-
+    const rolledGameId = pickFrom(getFilteredPoolForDay(GAME_POOL, day), rng, blockedGames);
     return {rolledAlbumId, rolledGameId};
 }
