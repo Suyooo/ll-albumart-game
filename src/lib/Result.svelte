@@ -23,26 +23,23 @@
     }
 
     function shareResult() {
-        if (navigator.share && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
-            && !navigator.userAgent.includes("Firefox")) {
+        const shareText = getShareText();
+        if (navigator.share && navigator.canShare({text: shareText})
+            && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) && !navigator.userAgent.includes("Firefox")) {
             // Firefox for Android does not support sharing text via navigator.share
             // There is no way to programmatically check whether a browser supports sharing text via the native share
             // mechanism, so we simply have to remember to manually remove this when it is implemented in Firefox
-            navigator.share({text: getShareText()}).catch(copyResult);
+            navigator.share({text: shareText});
         } else {
             // PC browsers usually don't have a native share mechanism - just copy it instead
-            copyResult();
+            navigator.clipboard.writeText(shareText)
+                .then(() => {
+                    copied = true;
+                })
+                .catch((err) => {
+                    alert("Unable to share or copy your result: " + err);
+                });
         }
-    }
-
-    function copyResult() {
-        navigator.clipboard.writeText(getShareText())
-            .then(() => {
-                copied = true;
-            })
-            .catch((err) => {
-                alert("Unable to share or copy your result: " + err);
-            });
     }
 
     function updateResultTimer() {
