@@ -20,7 +20,7 @@ export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, 
             avg += (origData.data[i] + origData.data[i + 1] + origData.data[i + 2]) / 3;
         }
     }
-    avg /= CANVAS_SIZE*CANVAS_SIZE;
+    avg /= CANVAS_SIZE * CANVAS_SIZE;
 
     const getCanvasForGuess = (failed: number): Canvas => {
         const canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);

@@ -63,8 +63,8 @@ export function getIdsForDay(day: number, states: PlayState[]) {
     }
 
     let rng;
-    const blockedAlbums = new Set<number>();
-    const blockedGames = new Set<number>();
+    const blockedAlbumIds = new Set<number>();
+    const blockedGameIds = new Set<number>();
     if (INDEV) {
         rng = seededRNG(Math.floor(Math.random() * 100000000));
         day = 999998;
@@ -74,14 +74,24 @@ export function getIdsForDay(day: number, states: PlayState[]) {
 
         // Avoid repeats: last 100 for albums, last 3 for game modes
         for (let i = Math.max(states.length - 100, 0); i < states.length; i++) {
-            blockedAlbums.add(states[i].albumId);
-            if (i >= states.length - 3) blockedGames.add(states[i].gameId);
+            blockedAlbumIds.add(states[i].albumId);
+            if (i >= states.length - 3) {
+                if (GAME_POOL[states[i].gameId].groupId !== undefined) {
+                    blockedGameIds.add(-GAME_POOL[states[i].gameId].groupId);
+                } else {
+                    blockedGameIds.add(states[i].gameId);
+                }
+            }
         }
     }
 
-    const rolledAlbumId = pickFrom(getFilteredPoolForDay(ALBUM_POOL, day), rng, blockedAlbums);
+    const rolledAlbumId = pickFrom(getFilteredPoolForDay(ALBUM_POOL, day), rng, blockedAlbumIds);
     rng(); // throw away some rolls
     rng();
-    const rolledGameId = pickFrom(getFilteredPoolForDay(GAME_POOL, day), rng, blockedGames);
+    const filteredGamePool = getFilteredPoolForDay(GAME_POOL, day);
+    let rolledGameId;
+    do {
+        rolledGameId = pickFrom(filteredGamePool, rng, blockedGameIds);
+    } while (GAME_POOL[rolledGameId].groupId !== undefined && blockedGameIds.has(-GAME_POOL[rolledGameId].groupId));
     return {rolledAlbumId, rolledGameId};
 }

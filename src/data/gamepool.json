@@ -33,13 +33,15 @@
     "filename": "blinds-v",
     "startOnDay": 0,
     "name": "Blinds (Vertical)",
-    "weight": 500
+    "weight": 500,
+    "groupId": 1
   },
   {
     "filename": "tiles",
     "startOnDay": 0,
     "name": "Tiles",
-    "weight": 1000
+    "weight": 1000,
+    "groupId": 1
   },
   {
     "filename": "shuffle",
