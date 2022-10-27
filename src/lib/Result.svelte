@@ -10,15 +10,15 @@
     let timerOver: boolean = false;
 
     function getShareText(): string {
-        return "LL! Guess That Album #" + $STATE.day + "\n🖼\uFE0F " +
+        return "LL! Guess That Album #" + $STATE.day + "\n\ud83d\udcbf" +
             $STATE.guesses.map((guess: string | null, index: number) => {
                 if (index < $STATE.failed) {
-                    if (guess === null) return "⬜\uFE0F";
-                    else return "🟥\uFE0F";
-                } else if (index === $STATE.failed) return "🟩\uFE0F";
+                    if (guess === null) return "\u2b1c";
+                    else return "\ud83d\udfe5";
+                } else if (index === $STATE.failed) return "\ud83d\udfe9";
                 else return;
             }).join("") +
-            "️️⬛\uFE0F".repeat(6 - $STATE.failed - ($STATE.cleared ? 1 : 0)) +
+            "\u2b1b".repeat(6 - $STATE.failed - ($STATE.cleared ? 1 : 0)) +
             "\n#LLGuessThatAlbum #lovelive #ラブライブ\nhttps://llalbum.suyo.be/" + $STATE.day;
     }
 
