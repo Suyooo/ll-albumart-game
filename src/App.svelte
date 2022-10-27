@@ -35,7 +35,7 @@
     })
 </script>
 
-<div class="flex flex-col w-full h-full items-center overflow-auto" in:fade={{duration: 100}}>
+<div class="flex flex-col w-full h-full items-center overflow-auto" tabindex="-1" in:fade={{duration: 100}}>
     <Header on:openmodal={openModalEvent}/>
 
     <main class="w-full max-w-screen-sm flex-grow flex flex-col mb-6">

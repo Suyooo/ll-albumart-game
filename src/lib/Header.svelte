@@ -18,6 +18,7 @@
 
 <header class="w-full border-white border-b-2 mb-4">
     <div class="text-gray-400 max-w-screen-md mx-auto flex items-center">
+        <a class="opacity-0 focus:opacity-100 absolute left-5" href="#input">Skip to game</a>
         <button class="w-10 h-10 mt-1 flex items-center justify-center"
             on:click={modalOpener("About", ModalAbout)}>
             <About/>
