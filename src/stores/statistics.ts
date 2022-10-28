@@ -10,7 +10,7 @@ export interface Statistics {
     highestStreak: number
 }
 
-const loadedStats = INDEV ? undefined : localStorage.getItem("statistics");
+const loadedStats = INDEV ? undefined : localStorage.getItem("llalbum-statistics");
 const parsedStats: Statistics = loadedStats ? JSON.parse(loadedStats) : {
     viewed: 0, cleared: 0, byFailCount: [0, 0, 0, 0, 0, 0, 0], currentStreak: 0, highestStreak: 0
 };
@@ -45,5 +45,5 @@ export const STATISTICS: Readable<Statistics> &
 };
 
 STATISTICS.subscribe(newStatistics => {
-    if (!INDEV) localStorage.setItem("statistics", JSON.stringify(newStatistics));
+    if (!INDEV) localStorage.setItem("llalbum-statistics", JSON.stringify(newStatistics));
 });
