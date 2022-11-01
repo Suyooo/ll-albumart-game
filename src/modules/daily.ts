@@ -67,7 +67,7 @@ export function getIdsForDay(day: number): { rolledAlbumId: number, rolledGameId
         if (day === 7) return {rolledAlbumId: 39, rolledGameId: 1};
     }
 
-    let rng;
+    let rng: () => number;
     const blockedAlbumIds = new Set<number>();
     const blockedGameIds = new Set<number>();
     if (INDEV) {
@@ -104,7 +104,7 @@ export function getIdsForDay(day: number): { rolledAlbumId: number, rolledGameId
     rng(); // throw away some rolls
     rng();
     const filteredGamePool = getFilteredPoolForDay(GAME_POOL, day);
-    let rolledGameId;
+    let rolledGameId: number;
     do {
         rolledGameId = pickFrom(filteredGamePool, rng, blockedGameIds);
     } while (GAME_POOL[rolledGameId].groupId !== undefined && blockedGameIds.has(-GAME_POOL[rolledGameId].groupId));

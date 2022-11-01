@@ -22,7 +22,7 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
                 // no rotation on first guess to improve performance
                 .map(e => ({positionIndex: e.i, rotation: failed === 0 ? 0 : Math.floor(rng() * 4)}));
 
-        const getPos = (p) => {
+        const getPos = (p: number) => {
             return Math.floor(CANVAS_SIZE * p / axis);
         }
 
