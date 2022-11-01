@@ -3,7 +3,6 @@ import {ALBUM_POOL} from "$data/albumpool";
 import type {GameInfo} from "$data/gamepool";
 import {GAME_POOL} from "$data/gamepool";
 import {seededRNG} from "$modules/rng";
-import type {PlayState} from "$stores/state";
 
 const FIRST_DAY_TIMESTAMP = 1667228400000;
 const MS_PER_DAY = 86400000;
@@ -42,7 +41,13 @@ function pickFrom(list: Pickable[], rng: () => number, blocked: Set<number>): nu
 // ahead, and to check whether it's a good round. If not, it can be rerolled by adding the day to this set
 const rerollDays = new Set([]);
 
-export function getIdsForDay(day: number, states: PlayState[]) {
+const DAILY_ROLL_CACHE: { [day: number]: { rolledAlbumId: number, rolledGameId: number } } = {};
+
+export function getIdsForDay(day: number): { rolledAlbumId: number, rolledGameId: number } {
+    if (DAILY_ROLL_CACHE.hasOwnProperty(day)) {
+        return DAILY_ROLL_CACHE[day];
+    }
+
     // Hardcoding first few rounds as an "intro" - so the first week is one of each game, to give people a taste :)
     if (day <= 7) {
         // D1: Eutopia (Pixelated)
@@ -72,14 +77,24 @@ export function getIdsForDay(day: number, states: PlayState[]) {
         rng = seededRNG(day);
         if (rerollDays.has(day)) rng(); // throw away a roll
 
-        // Avoid repeats: last 100 for albums, last 3 for game modes
-        for (let i = Math.max(states.length - 100, 0); i < states.length; i++) {
-            blockedAlbumIds.add(states[i].albumId);
-            if (i >= states.length - 3) {
-                if (GAME_POOL[states[i].gameId].groupId !== undefined) {
-                    blockedGameIds.add(-GAME_POOL[states[i].gameId].groupId);
+        // Avoid repeats: last 100 for albums, last 3 for game modes.
+        // Caution: Changing these numbers will break things immediately and forever
+        //
+        // To avoid rerolling within a groupId for games, games with groupIds are added to the set with the negative
+        // groupId (so: number >= 0 blocks that gameId, number < 0 blocks that groupId)
+        //
+        // And yes, that means every visit, the entire history will get recreated.
+        // Is it inefficient? Yes! Is it inefficient to the point that it makes a noticeable difference for players? No!
+        // So I think it's a fine tradeoff - by doing this instead of relying on a user's save file, we sacrifice some
+        // performance for the guarantee that everyone will always have exactly the same song forever
+        for (let i = Math.max(day - 100, 0); i < day; i++) {
+            const prevDayIds = getIdsForDay(day);
+            blockedAlbumIds.add(prevDayIds.rolledAlbumId);
+            if (i >= day - 3) {
+                if (GAME_POOL[prevDayIds.rolledGameId].groupId !== undefined) {
+                    blockedGameIds.add(-GAME_POOL[prevDayIds.rolledGameId].groupId);
                 } else {
-                    blockedGameIds.add(states[i].gameId);
+                    blockedGameIds.add(prevDayIds.rolledGameId);
                 }
             }
         }
@@ -93,5 +108,8 @@ export function getIdsForDay(day: number, states: PlayState[]) {
     do {
         rolledGameId = pickFrom(filteredGamePool, rng, blockedGameIds);
     } while (GAME_POOL[rolledGameId].groupId !== undefined && blockedGameIds.has(-GAME_POOL[rolledGameId].groupId));
-    return {rolledAlbumId, rolledGameId};
+
+    const ret = {rolledAlbumId, rolledGameId};
+    DAILY_ROLL_CACHE[day] = ret;
+    return ret;
 }

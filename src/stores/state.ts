@@ -33,7 +33,7 @@ if (IS_FIRST_PLAY || CURRENT_DAY > parsedStates.at(-1)?.day) {
     // Fill skipped days, so repeat blocking (daily.ts) works properly and delivers the same results for all players
     let fillDay = (prevState?.day || 0) + 1;
     while (fillDay < CURRENT_DAY) {
-        const {rolledAlbumId, rolledGameId} = getIdsForDay(fillDay, parsedStates);
+        const {rolledAlbumId, rolledGameId} = getIdsForDay(fillDay);
         parsedStates.push({
             day: fillDay,
             albumId: rolledAlbumId,
@@ -43,7 +43,7 @@ if (IS_FIRST_PLAY || CURRENT_DAY > parsedStates.at(-1)?.day) {
     }
 
     // Add new day
-    const {rolledAlbumId, rolledGameId} = getIdsForDay(CURRENT_DAY, parsedStates);
+    const {rolledAlbumId, rolledGameId} = getIdsForDay(CURRENT_DAY);
     parsedStates.push({
         day: CURRENT_DAY,
         albumId: rolledAlbumId,
