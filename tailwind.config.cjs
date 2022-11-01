@@ -2,11 +2,12 @@
 const colors = require("tailwindcss/colors.js");
 
 module.exports = {
-    content: ["index.html","./src/**/*.{html,js,svelte,ts}"],
+    content: ["index.html", "./src/**/*.{html,js,svelte,ts}"],
     theme: {
-        minHeight: {
-            '8': '2rem',
-        }, extend: {
+        extend: {
+            minHeight: {
+                '8': '2rem',
+            },
             colors: {
                 primary: {
                     DEFAULT: "#DE0A82",

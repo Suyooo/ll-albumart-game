@@ -21,6 +21,12 @@ interface ACResult extends AutocompleteItem {
     prefixArtist?: string
 }
 
+function punctuationFullWidthToHalfWidth(s: string): string {
+    return s.replace(/[\uFF00-\uFF5E]/g, function (char) {
+        return String.fromCharCode(32 /* space */ + (char.charCodeAt(0) - 65280 /* start of fullwidth block */));
+    }).replace(/　/g /* fullwidth space is U+3000, not U+FF00 */, " ");
+}
+
 export const VALID_GUESSES = new Set();
 const acTargets: ACTarget[] = ALBUM_POOL.map(album => {
     const en = album.artistEn + " - " + album.titleEn;
@@ -28,32 +34,40 @@ const acTargets: ACTarget[] = ALBUM_POOL.map(album => {
     VALID_GUESSES.add(en);
     VALID_GUESSES.add(ja);
 
+    // EN titles should only contain half-width punctuation - but, you know, just in case...
     return {
-        en: fuzzysort.prepare(en),
-        ja: fuzzysort.prepare(ja),
-        enTitleOnly: fuzzysort.prepare(album.titleEn),
-        jaTitleOnly: fuzzysort.prepare(album.titleJa),
+        en: fuzzysort.prepare(punctuationFullWidthToHalfWidth(en)),
+        ja: fuzzysort.prepare(punctuationFullWidthToHalfWidth(ja)),
+        enTitleOnly: fuzzysort.prepare(punctuationFullWidthToHalfWidth(album.titleEn)),
+        jaTitleOnly: fuzzysort.prepare(punctuationFullWidthToHalfWidth(album.titleJa)),
         album: album
     }
 });
+
+// If the player's browser is set to Japanese, prefer Japanese album titles, otherwise prefer English
+// (No matter what, the other language will still show up for autocomplete suggestions if you enter it)
+const preferJa = navigator.language.startsWith("ja");
 
 const acOptions: Fuzzysort.KeysOptions<ACTarget> = {
     threshold: -10000,
     limit: 5,
     all: false,
-    keys: ["en", "ja", "enTitleOnly", "jaTitleOnly"]
+    keys: preferJa ? ["ja", "en", "jaTitleOnly", "enTitleOnly"] : ["en", "ja", "enTitleOnly", "jaTitleOnly"]
 };
 
 export const autocomplete: Action<HTMLInputElement> = (node: HTMLInputElement) => {
     const acInstance = autocompleter<ACResult>({
         input: node,
         fetch: function (text: string, update: (res: ACResult[]) => void): void {
+            console.log(punctuationFullWidthToHalfWidth(text));
             if (VALID_GUESSES.has(text)) update([]);
-            else update(fuzzysort.go(text, acTargets, acOptions)
+            else update(fuzzysort.go(punctuationFullWidthToHalfWidth(text), acTargets, acOptions)
                 .map(keysResult => {
                     const result = keysResult[0] || keysResult[1] || keysResult[2] || keysResult[3];
+                    const isEn = preferJa
+                        ? result === keysResult[1] || result === keysResult[3]
+                        : result === keysResult[0] || result === keysResult[2];
                     const value = keysResult.obj.album;
-                    const isEn = result === keysResult[0] || result === keysResult[2];
                     const prefixArtist = (result !== keysResult[0] && result !== keysResult[1])
                         ? (isEn ? value.artistEn : value.artistJa)
                         : undefined;
@@ -65,7 +79,11 @@ export const autocomplete: Action<HTMLInputElement> = (node: HTMLInputElement) =
             );
         },
         onSelect: function (item: ACResult): void {
-            node.dispatchEvent(new CustomEvent<string>("autocomplete", {detail: item.label}));
+            node.dispatchEvent(new CustomEvent<string>("autocomplete", {
+                detail: item.isEn
+                    ? item.value.artistEn + " - " + item.value.titleEn
+                    : item.value.artistJa + " - " + item.value.titleJa
+            }));
         },
         render: function (item: ACResult): HTMLDivElement | undefined {
             const itemElement = document.createElement("div");
