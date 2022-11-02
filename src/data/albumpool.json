@@ -2122,12 +2122,21 @@
         "artistJa": "『ラブライブ！スーパースター!!』 オリジナルサウンドトラック"
     },
     {
-        "url": "/albumart/liella-_liella-no-uta-2.jpg",
+        "url": "/albumart/liella_liella-no-uta-2.jpg",
         "startOnDay": 0,
         "weight": 1000,
         "titleEn": "Liella no Uta 2",
         "artistEn": "Liella!",
         "titleJa": "リエラのうた2",
         "artistJa": "Liella!"
+    },
+    {
+        "url": "/albumart/a-zu-na_blue.jpg",
+        "startOnDay": 0,
+        "weight": 1000,
+        "titleEn": "Blue!",
+        "artistEn": "A・ZU・NA",
+        "titleJa": "Blue!",
+        "artistJa": "A・ZU・NA"
     }
 ]
