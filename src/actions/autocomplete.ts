@@ -59,7 +59,6 @@ export const autocomplete: Action<HTMLInputElement> = (node: HTMLInputElement) =
     const acInstance = autocompleter<ACResult>({
         input: node,
         fetch: function (text: string, update: (res: ACResult[]) => void): void {
-            console.log(punctuationFullWidthToHalfWidth(text));
             if (VALID_GUESSES.has(text)) update([]);
             else update(fuzzysort.go(punctuationFullWidthToHalfWidth(text), acTargets, acOptions)
                 .map(keysResult => {

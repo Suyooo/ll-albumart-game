@@ -10,7 +10,7 @@ import {seededRNG} from "../rng";
 export const stacked = true;
 
 const MAX_PER_FRAME = 10;
-const BUBBLE_AMOUNT = [200, 700, 1000, 2000, 3000, 5000];
+const BUBBLE_AMOUNT = [200, 700, 1000, 2000, 4000, 8000];
 const BUBBLE_SIZE = [50, 30, 15, 10, 7, 5];
 
 export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, scaledImage: Canvas): GameInstance {
