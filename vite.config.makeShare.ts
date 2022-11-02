@@ -20,9 +20,24 @@ export default defineConfig({
         lib: {
             entry: "scripts/makeShare.ts",
             name: "makeShare",
-            fileName: "makeShare"
+            fileName: "makeShare",
+            formats: ["es"]
         },
-        rollupOptions: { external: ["fs","canvas"] }
+        rollupOptions: {
+            output: {
+                inlineDynamicImports: false
+            },
+            manualChunks: {
+                "albumpool": [
+                    "src/data/albumpool.json",
+                    "src/data/albumpool.ts"
+                ],
+                "rerolls": [
+                    "src/data/rerolls.ts"
+                ]
+            },
+            external: ["fs", "canvas"]
+        }
     },
     define: {
         INDEV: false

@@ -63,7 +63,7 @@ export const autocomplete: Action<HTMLInputElement> = (node: HTMLInputElement) =
             if (VALID_GUESSES.has(text)) update([]);
             else update(fuzzysort.go(punctuationFullWidthToHalfWidth(text), acTargets, acOptions)
                 .map(keysResult => {
-                    const result = keysResult[0] || keysResult[1] || keysResult[2] || keysResult[3];
+                    const result = keysResult[0] ?? keysResult[1] ?? keysResult[2] ?? keysResult[3];
                     const isEn = preferJa
                         ? result === keysResult[1] || result === keysResult[3]
                         : result === keysResult[0] || result === keysResult[2];

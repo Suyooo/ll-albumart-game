@@ -18,7 +18,18 @@ export default defineConfig(({command}) => {
         },
         build: {
             assetsDir: "bundles",
-            manifest: true
+            manifest: true,
+            rollupOptions: {
+                manualChunks: {
+                    "albumpool": [
+                        "src/data/albumpool.json",
+                        "src/data/albumpool.ts"
+                    ],
+                    "rerolls": [
+                        "src/data/rerolls.ts"
+                    ]
+                },
+            }
         },
         define: {
             INDEV: indev

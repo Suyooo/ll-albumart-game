@@ -2,12 +2,13 @@ import type {AlbumInfo} from "$data/albumpool";
 import {ALBUM_POOL} from "$data/albumpool";
 import type {GameInfo} from "$data/gamepool";
 import {GAME_POOL} from "$data/gamepool";
+import {rerollDays} from "$data/rerolls";
 import {seededRNG} from "$modules/rng";
 
 const FIRST_DAY_TIMESTAMP = 1667228400000;
 const MS_PER_DAY = 86400000;
 export const CURRENT_DAY = Math.floor((Date.now() - FIRST_DAY_TIMESTAMP) / MS_PER_DAY)
-    + ((typeof localStorage !== "undefined" ? parseInt(localStorage.getItem("llalbum-day-offset")) : 0) || 0);
+    + (typeof localStorage !== "undefined" ? (parseInt(localStorage.getItem("llalbum-day-offset")) || 0) : 0);
 
 interface Pickable {
     id: number;
@@ -35,11 +36,6 @@ function pickFrom(list: Pickable[], rng: () => number, blocked: Set<number>): nu
     } while (blocked.has(rolled));
     return rolled;
 }
-
-// The rounds are randomized, but curated
-// Setting localStorage.llalbum-day-offset = 1 means you will get the next day's round, which allows me to play a day
-// ahead, and to check whether it's a good round. If not, it can be rerolled by adding the day to this set
-const rerollDays = new Set([]);
 
 const DAILY_ROLL_CACHE: { [day: number]: { rolledAlbumId: number, rolledGameId: number } } = {};
 
