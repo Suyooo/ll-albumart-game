@@ -18,7 +18,6 @@ export default defineConfig(({command}) => {
         },
         build: {
             assetsDir: "bundles",
-            manifest: true,
             rollupOptions: {
                 manualChunks: {
                     "albumpool": [
