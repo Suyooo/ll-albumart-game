@@ -46,15 +46,15 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
         const firstGuessCanvas = getCanvasForGuess(0);
         const canvas = createCanvas(256, 256);
         const ctx = canvas.getContext("2d");
-        ctx.globalAlpha = .05;
+        ctx.globalAlpha = .2;
         ctx.drawImage(firstGuessCanvas, 0, positions[0] - 2, CANVAS_SIZE, 4,
             0, 0, 256, 256);
         ctx.globalAlpha = 1;
-        ctx.drawImage(firstGuessCanvas, CANVAS_SIZE / 4 - 32, positions[0] - 2, 64, 4,
+        ctx.drawImage(firstGuessCanvas, 0, positions[0] - 2, 64, 4,
             0, 104, 256, 16);
         ctx.drawImage(firstGuessCanvas, CANVAS_SIZE / 2 - 32, positions[0] - 2, 64, 4,
             0, 120, 256, 16);
-        ctx.drawImage(firstGuessCanvas, CANVAS_SIZE / 4 * 3 - 32, positions[0] - 2, 64, 4,
+        ctx.drawImage(firstGuessCanvas, CANVAS_SIZE - 64, positions[0] - 2, 64, 4,
             0, 136, 256, 16);
         return canvas;
     };

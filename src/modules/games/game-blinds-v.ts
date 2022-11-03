@@ -48,15 +48,15 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
         const ctx = canvas.getContext("2d");
         ctx.fillStyle = "black";
         ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
-        ctx.globalAlpha = .1;
+        ctx.globalAlpha = .2;
         ctx.drawImage(firstGuessCanvas, positions[0] - 2, 0, 4, CANVAS_SIZE,
             0, 0, 256, 256);
         ctx.globalAlpha = 1;
-        ctx.drawImage(firstGuessCanvas, positions[0] - 2, CANVAS_SIZE / 4 - 32, 4, 64,
+        ctx.drawImage(firstGuessCanvas, positions[0] - 2, 0, 4, 64,
             104, 0, 16, 256);
         ctx.drawImage(firstGuessCanvas, positions[0] - 2, CANVAS_SIZE / 2 - 32, 4, 64,
             120, 0, 16, 256);
-        ctx.drawImage(firstGuessCanvas, positions[0] - 2, CANVAS_SIZE / 4 * 3 - 32, 4, 64,
+        ctx.drawImage(firstGuessCanvas, positions[0] - 2, CANVAS_SIZE - 64, 4, 64,
             136, 0, 16, 256);
         return canvas;
     };

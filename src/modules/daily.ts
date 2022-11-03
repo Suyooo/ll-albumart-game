@@ -5,11 +5,11 @@ import {GAME_POOL} from "$data/gamepool";
 import {rerollDays} from "$data/rerolls";
 import {seededRNG} from "$modules/rng";
 
-const FIRST_DAY_TIMESTAMP = 1667228400000;
+const ZERO_DAY_TIMESTAMP = 1667487600000; // game begins 24h after this
 const MS_PER_DAY = 86400000;
 export const CURRENT_DAY = INDEV
     ? 100000 + Math.floor(Math.random() * 100000)
-    : (Math.floor((Date.now() - FIRST_DAY_TIMESTAMP) / MS_PER_DAY)
+    : (Math.floor((Date.now() - ZERO_DAY_TIMESTAMP) / MS_PER_DAY)
         + (typeof localStorage !== "undefined" ? (parseInt(localStorage.getItem("llalbum-day-offset")) || 0) : 0));
 
 interface Pickable {
