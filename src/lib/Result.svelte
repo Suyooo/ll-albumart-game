@@ -63,7 +63,7 @@
     updateResultTimer();
 
     onMount(() => {
-        setInterval(() => updateResultTimer(), 1);
+        setInterval(() => updateResultTimer(), 1000);
         updateResultTimer();
     });
 </script>
@@ -111,19 +111,17 @@
     </div>
 </div>
 
-<div>
-    <button class="px-3 py-2 rounded p-1 uppercase tracking-widest transition-colors duration-200 bg-primary-500
+<button class="px-3 py-2 rounded p-1 uppercase tracking-widest transition-colors duration-200 bg-primary-500
                 flex items-center space-x-2" in:fly={{x: -50, delay: 500, duration: 1000}} on:click={shareResult}
-            aria-label="Share Your Result" type="button">
-        {#if copied}
-            <Checkmark/>
-            <span aria-hidden="true">Copied to your Clipboard</span>
-        {:else}
-            <Share/>
-            <span aria-hidden="true">Share Your Result</span>
-        {/if}
-    </button>
-</div>
+        aria-label="Share Your Result" type="button">
+    {#if copied}
+        <Checkmark/>
+        <span aria-hidden="true">Copied to your Clipboard</span>
+    {:else}
+        <Share/>
+        <span aria-hidden="true">Share Your Result</span>
+    {/if}
+</button>
 
 <div in:fly={{x: -50, delay: 600, duration: 1000}} aria-live="polite">
     {#if timerOver}
