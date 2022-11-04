@@ -47,13 +47,13 @@ export async function getGameInstance(day: number, gameInfo: GameInfo, album: Al
     const rescaleHeight = Math.floor(CANVAS_SIZE / image.width * image.height);
     let paddingRescale = Math.ceil((CANVAS_SIZE - rescaleHeight) / 2);
     if (paddingRescale < 10) {
-        paddingRescale = paddingOriginal = 0;
+        paddingOriginal = 0;
     }
 
     const albumArtCanvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
     const albumArtCtx = albumArtCanvas.getContext("2d");
     albumArtCtx.drawImage(image, 0, -paddingOriginal, image.width, paddingOriginal ? image.width : image.height,
-        0, paddingRescale, CANVAS_SIZE, CANVAS_SIZE);
+        0, 0, CANVAS_SIZE, CANVAS_SIZE);
 
     return {game, gameInstance: game.getGameInstance(day, album, image, albumArtCanvas), albumArt: albumArtCanvas};
 }
