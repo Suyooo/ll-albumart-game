@@ -1,6 +1,5 @@
 import type {AlbumInfo} from "$data/albumpool";
 import type {GameInfo} from "$data/gamepool";
-import {smoothScaleSquareWithSrc} from "./canvasUtil";
 import type {Canvas, Image} from "canvas";
 import {createCanvas, loadImage} from "canvas";
 
@@ -44,21 +43,18 @@ export async function getGameInstance(day: number, gameInfo: GameInfo, album: Al
         [getGameFromGameInfo(gameInfo), loadImage(`.${album.url}`)]
     );
 
-    const rescaleCanvas = createCanvas(Math.max(image.width, CANVAS_SIZE), Math.max(image.width, CANVAS_SIZE));
-    const rescaleCtx = rescaleCanvas.getContext("2d");
     let paddingOriginal = Math.ceil((image.width - image.height) / 2);
     const rescaleHeight = Math.floor(CANVAS_SIZE / image.width * image.height);
     let paddingRescale = Math.ceil((CANVAS_SIZE - rescaleHeight) / 2);
     if (paddingRescale < 10) {
         paddingRescale = paddingOriginal = 0;
     }
-    smoothScaleSquareWithSrc(rescaleCtx, image, 0, -paddingOriginal, image.width, paddingOriginal ? image.width : image.height, CANVAS_SIZE);
-    rescaleCtx.clearRect(0, 0, CANVAS_SIZE, paddingRescale);
-    rescaleCtx.clearRect(0, CANVAS_SIZE - paddingRescale, CANVAS_SIZE, paddingRescale);
 
     const albumArtCanvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
     const albumArtCtx = albumArtCanvas.getContext("2d");
-    albumArtCtx.drawImage(rescaleCanvas, 0, 0, CANVAS_SIZE, CANVAS_SIZE, 0, 0, CANVAS_SIZE, CANVAS_SIZE);
+    albumArtCtx.drawImage(image, 0, -paddingOriginal, image.width, paddingOriginal ? image.width : image.height,
+        0, paddingRescale, CANVAS_SIZE, CANVAS_SIZE);
+
     return {game, gameInstance: game.getGameInstance(day, album, image, albumArtCanvas), albumArt: albumArtCanvas};
 }
 

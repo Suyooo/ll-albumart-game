@@ -26,10 +26,12 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
         createCanvas(CANVAS_SIZE, CANVAS_SIZE)
     ];
 
+    const scaledImageCtx = scaledImage.getContext("2d");
+    const data = scaledImageCtx.getImageData(0, 0, CANVAS_SIZE, CANVAS_SIZE).data;
+
     for (let i = 0; i < 6; i++) {
         const rng = seededRNG(day * 241 + i);
         const ctx = CACHE[i].getContext("2d");
-        const scaledImageCtx = scaledImage.getContext("2d");
 
         let bubblesLeft = BUBBLE_AMOUNT[i];
         // Draw first guess instantly (for sharing), the rest can wait
@@ -40,12 +42,12 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
             for (let j = 0; j < maxPerFrame && bubblesLeft; j++) {
                 const x = Math.floor(CANVAS_SIZE * rng());
                 const y = Math.floor(CANVAS_SIZE * rng());
-                const data = scaledImageCtx.getImageData(x, y, 1, 1).data;
 
                 ctx.beginPath();
                 ctx.moveTo(x, y);
                 ctx.lineTo(x, y);
-                ctx.strokeStyle = `rgba(${data[0]},${data[1]},${data[2]},${data[3]})`;
+                const p = (y * CANVAS_SIZE + x) * 4;
+                ctx.strokeStyle = `rgba(${data[p]},${data[p+1]},${data[p+2]},${data[p+3]})`;
                 ctx.stroke();
                 bubblesLeft--;
             }

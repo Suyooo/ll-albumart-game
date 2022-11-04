@@ -27,7 +27,8 @@
     "filename": "blinds-h",
     "startOnDay": 0,
     "name": "Blinds (Horizontal)",
-    "weight": 500
+    "weight": 500,
+    "groupId": 1
   },
   {
     "filename": "blinds-v",
@@ -40,8 +41,7 @@
     "filename": "tiles",
     "startOnDay": 0,
     "name": "Tiles",
-    "weight": 1000,
-    "groupId": 1
+    "weight": 1000
   },
   {
     "filename": "shuffle",
