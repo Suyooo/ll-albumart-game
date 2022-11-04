@@ -1,6 +1,7 @@
 <script lang="ts">
     import Checkmark from "$icon/Copied.svelte";
     import Share from "$icon/Share.svelte";
+    import isDesktop from "$modules/isDesktop";
     import {STATE} from "$stores/state.js";
     import {onMount} from "svelte";
     import {fade, fly} from "svelte/transition";
@@ -24,11 +25,11 @@
 
     function shareResult() {
         const shareText = getShareText();
-        if (navigator.share && navigator.canShare({text: shareText})
-            && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) && !navigator.userAgent.includes("Firefox")) {
+        if (navigator.share && navigator.canShare({text: shareText}) && !isDesktop()
             // Firefox for Android does not support sharing text via navigator.share
             // There is no way to programmatically check whether a browser supports sharing text via the native share
             // mechanism, so we simply have to remember to manually remove this when it is implemented in Firefox
+            && !navigator.userAgent.includes("Firefox")) {
             navigator.share({text: shareText});
         } else {
             // PC browsers usually don't have a native share mechanism - just copy it instead

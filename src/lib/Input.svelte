@@ -1,35 +1,44 @@
 <script lang="ts">
     import {autocomplete, VALID_GUESSES} from "$actions/autocomplete";
+    import isDesktop from "$modules/isDesktop";
     import {STATE, ALBUM} from "$stores/state";
     import {STATISTICS} from "$stores/statistics";
+    import {fly} from 'svelte/transition';
 
-    let input: string, disabled: boolean = false, inputElement: HTMLInputElement;
+    let input: string, disabled: boolean = false, showRejected: boolean = false, inputElement: HTMLInputElement;
 
     function enterSubmit(e: KeyboardEvent): void {
+        showRejected = false;
         if (e.key === "Enter" && !e.repeat && input) {
             submit();
         }
     }
 
     function submit(): void {
-        if (!input || VALID_GUESSES.has(input)) {
-            $STATE.guesses.push(input || null);
-            if (input === ALBUM.artistEn + " - " + ALBUM.titleEn ||
-                input === ALBUM.artistJa + " - " + ALBUM.titleJa) {
-                $STATE.cleared = $STATE.finished = true;
+        if (input && !VALID_GUESSES.has(input)) {
+            showRejected = true;
+            return;
+        }
+
+        $STATE.guesses.push(input || null);
+        if (input === ALBUM.artistEn + " - " + ALBUM.titleEn ||
+            input === ALBUM.artistJa + " - " + ALBUM.titleJa) {
+            $STATE.cleared = $STATE.finished = true;
+            STATISTICS.addFinishedState($STATE);
+        } else {
+            $STATE.failed++;
+            disabled = true;
+            setTimeout(() => {
+                disabled = false;
+            }, $STATE.failed < 5 ? 500 : 2000);
+
+            if ($STATE.failed >= 6) {
+                $STATE.finished = true;
                 STATISTICS.addFinishedState($STATE);
             } else {
-                $STATE.failed++;
-                disabled = true;
-                setTimeout(() => {
-                    disabled = false;
-                }, $STATE.failed < 5 ? 500 : 2000);
-
-                if ($STATE.failed >= 6) {
-                    $STATE.finished = true;
-                    STATISTICS.addFinishedState($STATE);
-                } else {
-                    input = "";
+                input = "";
+                // Always focus on desktop, but only focus on mobile if in portrait mode to avoid keyboard hiding canvas
+                if (isDesktop() || window.matchMedia("(orientation: portrait)").matches) {
                     inputElement.focus();
                 }
             }
@@ -45,22 +54,31 @@
     }
 </script>
 
-<div class="w-full flex flex-col sm:flex-row justify-between mb-4 mt-4
-    space-x-0 sm:space-x-4 space-y-2 sm:space-y-0 items-end sm:items-center">
-    <input id="input" class="flex-grow w-full rounded p-2 text-white bg-gray-700 text-sm ring-inset ring-2
-        ring-primary-500 focus:ring-white" placeholder="Which album is this?" on:keydown={enterSubmit}
-           bind:value={input} bind:this={inputElement} use:autocomplete on:autocomplete={setInputValue}>
-    <button class="w-32 rounded p-1 uppercase tracking-widest transition-colors duration-200" {disabled}
-            class:bg-gray-700={disabled} class:bg-primary-500={input && !disabled}
-            class:bg-primary-700={!input && !disabled} on:click={submit}>
-        {#if input}
-            Submit
-        {:else if $STATE.failed < 5}
-            Skip
-        {:else}
-            Give Up
-        {/if}
-    </button>
+<div class="relative w-full">
+    {#if showRejected}
+        <div class="absolute top-2 left-0 -translate-y-full w-full rounded bg-wrong text-white text-center
+            select-none pointer-events-none" transition:fly={{duration: 200, y: 10}}>
+            <div class="p-0.5">Invalid guess! Select an option from the list!</div>
+        </div>
+    {/if}
+    <div class="w-full flex flex-col sm:flex-row justify-between mb-4 mt-4 space-x-0 sm:space-x-4 space-y-2 sm:space-y-0
+         items-end sm:items-center">
+        <input id="input"
+               class="flex-grow text-sm w-full rounded p-2 text-white bg-gray-700 ring-inset ring-2 ring-primary-500"
+               placeholder="Which album is this?" on:keydown={enterSubmit}
+               bind:value={input} bind:this={inputElement} use:autocomplete on:autocomplete={setInputValue}>
+        <button class="w-32 rounded p-1 uppercase tracking-widest transition-colors duration-200" {disabled}
+                class:bg-gray-700={disabled} class:bg-primary-500={input && !disabled}
+                class:bg-primary-700={!input && !disabled} on:click={submit}>
+            {#if input}
+                Submit
+            {:else if $STATE.failed < 5}
+                Skip
+            {:else}
+                Give Up
+            {/if}
+        </button>
+    </div>
 </div>
 
 <style lang="postcss">

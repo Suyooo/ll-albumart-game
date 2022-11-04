@@ -28,7 +28,6 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
 
     const scaledImageCtx = scaledImage.getContext("2d");
     const data = scaledImageCtx.getImageData(0, 0, CANVAS_SIZE, CANVAS_SIZE).data;
-    console.log(data);
 
     for (let i = 0; i < 6; i++) {
         const rng = seededRNG(day * 241 + i);
