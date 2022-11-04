@@ -2,12 +2,12 @@
     import Checkmark from "$icon/Copied.svelte";
     import Share from "$icon/Share.svelte";
     import isDesktop from "$modules/isDesktop";
-    import {STATE} from "$stores/state.js";
-    import {onMount} from "svelte";
+    import {STATE, ALBUM} from "$stores/state.js";
+    import {getContext, onMount} from "svelte";
     import {fade, fly} from "svelte/transition";
 
     let copied: boolean = false;
-    let timer: string;
+    let timerSpeak: string, timerText: string;
     let timerOver: boolean = false;
 
     function getShareText(): string {
@@ -23,6 +23,8 @@
             "\n#LLGuessThatAlbum #lovelive #ラブライブ\nhttps://llalbum.suyo.be/" + $STATE.day;
     }
 
+    const read = getContext<(s: string, priority?: "polite" | "assertive") => void>("reader");
+
     function shareResult() {
         const shareText = getShareText();
         if (navigator.share && navigator.canShare({text: shareText}) && !isDesktop()
@@ -35,6 +37,7 @@
             // PC browsers usually don't have a native share mechanism - just copy it instead
             navigator.clipboard.writeText(shareText)
                 .then(() => {
+                    read("Your result has been copied to your clipboard.", "assertive");
                     copied = true;
                 })
                 .catch((err) => {
@@ -52,12 +55,15 @@
             const hours = Math.floor(secondsLeft / 3600) % 24;
             const minutes = Math.floor(secondsLeft / 60) % 60;
             const seconds = Math.floor(secondsLeft) % 60;
-            timer = hours + (minutes < 10 ? ":0" : ":") + minutes + (seconds < 10 ? ":0" : ":") + seconds;
+            timerText = hours + (minutes < 10 ? ":0" : ":") + minutes + (seconds < 10 ? ":0" : ":") + seconds;
+            timerSpeak = hours + " hours and " + minutes + "minutes";
         }
     }
 
+    updateResultTimer();
+
     onMount(() => {
-        setInterval(() => updateResultTimer(), 1000);
+        setInterval(() => updateResultTimer(), 1);
         updateResultTimer();
     });
 </script>
@@ -83,13 +89,16 @@
     <div class="text-sm text-center">
         {#if !$STATE.cleared}
             You have run out of guesses.
+            <span class="vhd">The answer was: {ALBUM.artistEn} - <b>{@html ALBUM.realEn
+                    ? ALBUM.realEn.replace(" [", " <span class='inline-block'>[") + "</span>"
+                    : ALBUM.titleEn}</b></span>
         {:else if $STATE.failed > 0}
             You guessed today's album art in <b>{$STATE.failed + 1} guesses</b>!
         {:else}
             You guessed today's album art on <b>the first guess</b>!
         {/if}
     </div>
-    <div class="flex space-x-3 mt-2 mb-3">
+    <div class="flex space-x-3 mt-2 mb-3" aria-hidden="true">
         {#each {length: 6} as _, i}
             <div class="w-6 h-2" in:fade={{delay: 150 * i}}
                  class:bg-unused={i >= $STATE.guesses.length}
@@ -101,23 +110,35 @@
         {/each}
     </div>
 </div>
-<button class="px-3 py-2 rounded p-1 uppercase tracking-widest transition-colors duration-200 bg-primary-500
-    flex items-center space-x-2" in:fly={{x: -50, delay: 500, duration: 1000}} on:click={shareResult}>
-    {#if copied}
-        <Checkmark/>
-        <span>Copied to your Clipboard</span>
-    {:else}
-        <Share/>
-        <span>Share Result</span>
-    {/if}
-</button>
-<div class="text-sm flex items-center space-x-2" in:fly={{x: -50, delay: 600, duration: 1000}}>
+
+<div>
+    <button class="px-3 py-2 rounded p-1 uppercase tracking-widest transition-colors duration-200 bg-primary-500
+                flex items-center space-x-2" in:fly={{x: -50, delay: 500, duration: 1000}} on:click={shareResult}
+            aria-label="Share Your Result" type="button">
+        {#if copied}
+            <Checkmark/>
+            <span aria-hidden="true">Copied to your Clipboard</span>
+        {:else}
+            <Share/>
+            <span aria-hidden="true">Share Your Result</span>
+        {/if}
+    </button>
+</div>
+
+<div in:fly={{x: -50, delay: 600, duration: 1000}} aria-live="polite">
     {#if timerOver}
-        <div>The next round is available</div>
-        <div class="text-xl uppercase tracking-widest">NOW!</div>
-        <div>(refresh the page)</div>
+        <div class="text-sm flex items-center space-x-2" aria-atomic="true">
+            <div>The next round is available</div>
+            <div class="text-xl uppercase tracking-widest">NOW!</div>
+            <div>(refresh the page)</div>
+        </div>
     {:else}
-        <div>The next round starts in</div>
-        <div class="text-xl uppercase tracking-widest">{timer}</div>
+        <div class="text-sm flex items-center space-x-2" aria-atomic="true">
+            <div>The next round starts in</div>
+            <div class="text-xl uppercase tracking-widest">
+                <span class="vhd">{timerSpeak}</span>
+                <span aria-hidden="true">{timerText}</span>
+            </div>
+        </div>
     {/if}
 </div>

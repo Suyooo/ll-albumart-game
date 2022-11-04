@@ -15,6 +15,9 @@
     }
 
     function submit(): void {
+        if (disabled) {
+            return;
+        }
         if (input && !VALID_GUESSES.has(input)) {
             showRejected = true;
             return;
@@ -62,15 +65,15 @@
             <div class="p-0.5">Invalid guess! Select an option from the list!</div>
         </div>
     {/if}
+    <label for="input" class="vhd">Guess</label>
     <div class="w-full flex flex-col sm:flex-row justify-between mb-4 mt-4 space-x-0 sm:space-x-4 space-y-2 sm:space-y-0
          items-end sm:items-center">
-        <input id="input"
-               class="flex-grow text-sm w-full rounded p-2 text-white bg-gray-700 ring-inset ring-2 ring-primary-500"
-               placeholder="Which album is this?" on:keydown={enterSubmit}
-               bind:value={input} bind:this={inputElement} use:autocomplete on:autocomplete={setInputValue}>
-        <button class="w-32 rounded p-1 uppercase tracking-widest transition-colors duration-200" {disabled}
+        <input id="input" type="text" placeholder="Which album is this?" on:keydown={enterSubmit} use:autocomplete
+               class="flex-grow text-sm w-full rounded p-2 text-white bg-gray-700 ring-inset ring-2 ring-primary-500
+               focus:ring-white" bind:value={input} bind:this={inputElement} on:autocomplete={setInputValue}>
+        <button class="w-32 rounded p-1 uppercase tracking-widest transition-colors duration-200"
                 class:bg-gray-700={disabled} class:bg-primary-500={input && !disabled}
-                class:bg-primary-700={!input && !disabled} on:click={submit}>
+                class:bg-primary-700={!input && !disabled} on:click={submit} aria-disabled={disabled}>
             {#if input}
                 Submit
             {:else if $STATE.failed < 5}

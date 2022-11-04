@@ -5,7 +5,7 @@ export function smoothScaleSquare(ctx: CanvasRenderingContext2D, srcSize: number
     if (srcSize === dstSize) return;
 
     let currentSrcSize = srcSize;
-    let tempCanvas;
+    let tempCanvas: Canvas;
 
     if (dstSize < srcSize && currentSrcSize / 2 > dstSize) {
         currentSrcSize = Math.floor(currentSrcSize / 2);

@@ -22,7 +22,8 @@
     <Spinner/>
 {/if}
 {#if $STATE.finished}
-    <div class="text-xs max-w-sm text-center mt-4" in:fly={{y: -30, duration: 1000}}>
+    <!-- Hidden: the answer is screen read in Result.svelte instead. This one is just for visual presentation -->
+    <div class="text-xs max-w-sm text-center mt-4" in:fly={{y: -30, duration: 1000}} aria-hidden="true">
         {ALBUM.artistEn} -
         <b>{@html ALBUM.realEn
             ? ALBUM.realEn.replace(" [", " <span class='inline-block'>[") + "</span>"

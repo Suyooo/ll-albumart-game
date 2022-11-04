@@ -36,6 +36,9 @@
         <div class="flex-grow leading-none py-[.25em]" class:font-bold={isCorrect} class:text-gray-500={isSkipped}
              in:fly={{x: 30}}>
             {#if !isSkipped}
+                {#if isWrong}
+                    <span class="vhd">Wrong Guess:</span>
+                {/if}
                 {guess}
             {:else}
                 (skip)

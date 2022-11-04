@@ -1,7 +1,7 @@
 <script lang="ts">
     import Modal from "$lib/Modal.svelte";
     import ModalHelp from "$lib/ModalHelp.svelte";
-    import {onMount} from "svelte";
+    import {onMount, setContext} from "svelte";
     import {fade} from 'svelte/transition';
 
     import Header from "$lib/Header.svelte";
@@ -27,6 +27,18 @@
         modalComponent = null;
     }
 
+    let announcerPolite: HTMLDivElement, announcerAssertive: HTMLDivElement;
+    setContext<(s: string, priority?: "polite" | "assertive") => void>("reader",
+        (s: string, priority?: "polite" | "assertive") => {
+            const div = document.createElement("div");
+            div.innerText = s;
+            if (priority === "assertive") {
+                announcerAssertive.append(div)
+            } else {
+                announcerPolite.append(div)
+            }
+        });
+
     onMount(() => {
         if ($ALL_STATES.length === 1 && $STATE.guesses.length === 0 && !INDEV) {
             // First ever game, show help modal
@@ -38,22 +50,28 @@
 <div class="flex flex-col w-full h-full items-center overflow-auto" tabindex="-1" in:fade={{duration: 100}}>
     <Header on:openmodal={openModalEvent}/>
 
-    <div class="w-full max-w-screen-sm flex-grow flex flex-col mb-6">
+    <main class="w-full max-w-screen-sm flex-grow flex flex-col mb-6">
         <div class="md:flex-grow flex flex-col items-center justify-center">
             <GameDisplayContainer/>
         </div>
-        <div class="px-8 flex-grow flex flex-col items-center justify-between">
+        <div class="px-8 flex-grow flex flex-col items-center justify-between"
+             aria-live={$STATE.finished ? "polite" : "off"}>
             {#if $STATE.finished}
                 <Result/>
             {:else}
                 <Input/>
-                <div class="w-full">
+                <div class="w-full" aria-live="assertive">
                     {#each {length: 6} as _, i}
                         <Guess {i}/>
                     {/each}
                 </div>
             {/if}
         </div>
+    </main>
+
+    <div class="vhd">
+        <div bind:this={announcerPolite} aria-live="polite"></div>
+        <div bind:this={announcerAssertive} aria-live="assertive"></div>
     </div>
 </div>
 {#if modalComponent != null}

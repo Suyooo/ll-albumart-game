@@ -36,17 +36,18 @@
     <div class="w-10 mx-2 flex-shrink">
         {#if stage > 0}
             <button class="w-full h-10 flex items-center justify-center bg-primary-500 rounded select-none
-            transition-colors duration-200" on:click={() => { stage--; updateCanvasList(); }}>
+            transition-colors duration-200" on:click={() => { stage--; updateCanvasList(); }} aria-label="Previous Step">
                 <Left/>
             </button>
         {/if}
     </div>
     <div class="max-w-sm basis-96 aspect-square bg-black relative"
+         aria-label={cleared && stage === maxStage ? "Album Art" : "Hidden Album Art"}
          class:glow={cleared && stage === maxStage} in:scale={{start:1.1,opacity:1}} bind:this={canvasContainer}></div>
     <div class="w-10 mx-2 flex-shrink">
         {#if stage < maxStage}
             <button class="w-full h-10 flex items-center justify-center bg-primary-500 rounded select-none
-            transition-colors duration-200" on:click={() => { stage++; updateCanvasList(); }}>
+            transition-colors duration-200" on:click={() => { stage++; updateCanvasList(); }} aria-label="Next Step">
                 <Right/>
             </button>
         {/if}

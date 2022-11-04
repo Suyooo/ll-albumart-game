@@ -98,7 +98,8 @@ export const autocomplete: Action<HTMLInputElement> = (node: HTMLInputElement) =
             return itemElement;
         },
         showOnFocus: true,
-        minLength: 1
+        minLength: 1,
+        emptyMsg: "No matching albums found"
     });
 
     return {
