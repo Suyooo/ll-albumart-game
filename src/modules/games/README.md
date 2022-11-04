@@ -58,5 +58,8 @@ Some important hints:
   image, so draw the entire canvas at once in this case.
 * Another approach might be pre-drawing in the background (see `game-bubbles.ts`), but make sure the first canvas is
   still fully drawn right away to make sure getShareCanvas() can get the finished first guess image.
+* Also, if you use any temporary canvases at all to help with the configuration, make sure you never use the full image.
+  Use only the scale canvas and call `releaseCanvas()` in `canvasUtil.ts` on them after you're done, because iOS is
+  trash and has extremely awful limits specifically for total canvas size
 
 If you've made a neat game mode, feel free to send in a pull request, so it can be added to the site :)

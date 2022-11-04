@@ -5,32 +5,42 @@ export function smoothScaleSquare(ctx: CanvasRenderingContext2D, srcSize: number
     if (srcSize === dstSize) return;
 
     let currentSrcSize = srcSize;
-    let tempCanvas = createCanvas(srcSize, srcSize);
-    let tempCtx = tempCanvas.getContext("2d");
-    tempCtx.drawImage(ctx.canvas, 0, 0);
-    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    let tempCanvas;
 
-    if (dstSize < srcSize) {
+    if (dstSize < srcSize && currentSrcSize / 2 > dstSize) {
+        currentSrcSize = Math.floor(currentSrcSize / 2);
+        tempCanvas = createCanvas(currentSrcSize, currentSrcSize);
+        tempCanvas.getContext("2d").drawImage(ctx.canvas, 0, 0, srcSize, srcSize, 0, 0, currentSrcSize, currentSrcSize);
         while (currentSrcSize / 2 > dstSize) {
-            const newSrcSize = currentSrcSize / 2;
+            const newSrcSize = Math.floor(currentSrcSize / 2);
             const newTempCanvas = createCanvas(newSrcSize, newSrcSize);
-            const newTempCtx = newTempCanvas.getContext("2d");
-            newTempCtx.drawImage(tempCanvas, 0, 0, currentSrcSize, currentSrcSize, 0, 0, newSrcSize, newSrcSize);
+            newTempCanvas.getContext("2d").drawImage(tempCanvas, 0, 0, currentSrcSize, currentSrcSize,
+                0, 0, newSrcSize, newSrcSize);
+            releaseCanvas(tempCanvas);
+            tempCanvas = newTempCanvas;
+            currentSrcSize = newSrcSize;
+        }
+    } else if (dstSize > srcSize && currentSrcSize * 2 < dstSize) {
+        currentSrcSize = Math.ceil(currentSrcSize * 2);
+        tempCanvas = createCanvas(currentSrcSize, currentSrcSize);
+        tempCanvas.getContext("2d").drawImage(ctx.canvas, 0, 0, srcSize, srcSize, 0, 0, currentSrcSize, currentSrcSize);
+        while (currentSrcSize * 2 < dstSize) {
+            const newSrcSize = Math.ceil(currentSrcSize * 2);
+            const newTempCanvas = createCanvas(newSrcSize, newSrcSize);
+            newTempCanvas.getContext("2d").drawImage(tempCanvas, 0, 0, currentSrcSize, currentSrcSize,
+                0, 0, newSrcSize, newSrcSize);
+            releaseCanvas(tempCanvas);
             tempCanvas = newTempCanvas;
             currentSrcSize = newSrcSize;
         }
     } else {
-        while (currentSrcSize * 2 < dstSize) {
-            const newSrcSize = currentSrcSize * 2;
-            const newTempCanvas = createCanvas(newSrcSize, newSrcSize);
-            const newTempCtx = newTempCanvas.getContext("2d");
-            newTempCtx.drawImage(tempCanvas, 0, 0, currentSrcSize, currentSrcSize, 0, 0, newSrcSize, newSrcSize);
-            tempCanvas = newTempCanvas;
-            currentSrcSize = newSrcSize;
-        }
+        tempCanvas = createCanvas(srcSize, srcSize);
+        tempCanvas.getContext("2d").drawImage(ctx.canvas, 0, 0, srcSize, srcSize, 0, 0, srcSize, srcSize);
     }
 
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     ctx.drawImage(tempCanvas, 0, 0, currentSrcSize, currentSrcSize, 0, 0, dstSize, dstSize);
+    releaseCanvas(tempCanvas);
 }
 
 export function smoothScaleSquareWithSrc(ctx: CanvasRenderingContext2D, src: Canvas | Image, srcX: number, srcY: number,
@@ -52,4 +62,9 @@ export function smoothScaleSquareWithSrc(ctx: CanvasRenderingContext2D, src: Can
         // close enough, bring it over and square it
         ctx.drawImage(src, srcX, srcY, srcW, srcH, 0, 0, dstSize, dstSize);
     }
+}
+
+export function releaseCanvas(canvas: Canvas) {
+    canvas.width = 0;
+    canvas.height = 0;
 }
