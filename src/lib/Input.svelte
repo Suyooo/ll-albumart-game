@@ -46,6 +46,7 @@
     }
 
     function setInputValue(e: CustomEvent<string>): void {
+        showRejected = false;
         input = e.detail;
         inputElement.focus();
         requestAnimationFrame(() => {
