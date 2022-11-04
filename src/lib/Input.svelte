@@ -3,6 +3,7 @@
     import isDesktop from "$modules/isDesktop";
     import {STATE, ALBUM} from "$stores/state";
     import {STATISTICS} from "$stores/statistics";
+    import {getContext} from "svelte";
     import {fly} from 'svelte/transition';
 
     let input: string, disabled: boolean = false, showRejected: boolean = false, inputElement: HTMLInputElement;
@@ -14,12 +15,18 @@
         }
     }
 
+    const read = getContext<(s: string, priority?: "polite" | "assertive") => void>("reader");
+
     function submit(): void {
         if (disabled) {
             return;
         }
         if (input && !VALID_GUESSES.has(input)) {
-            showRejected = true;
+            if (!document.querySelector(".autocomplete div[role=option]")) {
+                // show a warning if there are no options for the current input
+                read("This is an invalid guess. You must select an option from the autocomplete list.");
+                showRejected = true;
+            }
             return;
         }
 
