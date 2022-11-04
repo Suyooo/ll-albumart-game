@@ -28,6 +28,7 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
 
     const scaledImageCtx = scaledImage.getContext("2d");
     const data = scaledImageCtx.getImageData(0, 0, CANVAS_SIZE, CANVAS_SIZE).data;
+    console.log(data);
 
     for (let i = 0; i < 6; i++) {
         const rng = seededRNG(day * 241 + i);
@@ -45,10 +46,11 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
 
                 ctx.beginPath();
                 ctx.moveTo(x, y);
-                ctx.lineTo(x, y);
+                ctx.lineTo(x + 1, y);
                 const p = (y * CANVAS_SIZE + x) * 4;
-                ctx.strokeStyle = `rgba(${data[p]},${data[p+1]},${data[p+2]},${data[p+3]})`;
+                ctx.strokeStyle = `rgba(${data[p]},${data[p + 1]},${data[p + 2]},${data[p + 3]})`;
                 ctx.stroke();
+
                 bubblesLeft--;
             }
             if (bubblesLeft > 0) {
