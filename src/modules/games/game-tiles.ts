@@ -27,8 +27,8 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
             px = Math.floor(p % TILES_PER_AXIS / 2);
             py = Math.floor(p / TILES_PER_AXIS / 2);
         } while (positions.indexOf(p) !== -1 || (i < AMOUNT[0]
-            && (px == 0 || px == TILES_PER_AXIS/2-1 || py == 0 || py == TILES_PER_AXIS/2 - 1
-                || (px > 1 && px < TILES_PER_AXIS/2 - 1 && py > 1))));
+            && (px == 0 || px == TILES_PER_AXIS / 2 - 1 || py == 0 || py == TILES_PER_AXIS / 2 - 1
+                || (px > 1 && px < TILES_PER_AXIS / 2 - 1 && py > 1))));
         positions.push(p);
     }
 
@@ -45,10 +45,10 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
             const y = TILE_POS[py];
             const w = TILE_POS[px + 1] - x;
             const h = TILE_POS[py + 1] - y;
-            ctx.drawImage(scaledImage, x, y, w, h, x, y, w, h);
+            ctx.drawImage(scaledImage, x - 1, y - 1, w + 1, h + 1, x - 1, y - 1, w + 1, h + 1);
             i++;
             if (i < AMOUNT[failed]) {
-                // Don't have to care about server, since getShareCanvas() doesn't call getCanvasForGuess()
+                // Don't have to care about browser/server check, getShareCanvas() doesn't call getCanvasForGuess()
                 requestAnimationFrame(revealTile);
             }
         }

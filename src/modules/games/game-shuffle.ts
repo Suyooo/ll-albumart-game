@@ -56,7 +56,10 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
                 ctx.rotate(rot * Math.PI / 2);
                 ctx.translate(-dmx, -dmy);
             }
+            ctx.globalCompositeOperation = "source-over";
             ctx.drawImage(blurredCanvas, sx, sy, sw, sh, dx, dy, dw, dh);
+            ctx.globalCompositeOperation = "destination-over";
+            ctx.drawImage(blurredCanvas, sx - 1, sy - 1, sw + 2, sh + 2, dx - 1, dy - 1, dw + 2, dh + 2);
             if (rot !== 0) {
                 ctx.restore();
             }
