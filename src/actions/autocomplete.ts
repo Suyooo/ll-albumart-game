@@ -1,5 +1,5 @@
-import autocompleter from "autocompleter";
-import type {AutocompleteItem} from "autocompleter";
+import autocompleter from "$modules/autocompleter/autocompleter";
+import type {AutocompleteItem} from "$modules/autocompleter/autocompleter";
 import type {Action} from "svelte/action";
 import fuzzysort from "fuzzysort";
 import type {AlbumInfo} from "$data/albumpool";
