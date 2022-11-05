@@ -42,7 +42,7 @@
 <div class="w-full relative overflow-visible flex items-center justify-center">
     <div class="w-8 mx-2 flex-shrink">
         <button class="w-8 h-8 flex items-center justify-center bg-primary-500 rounded select-none
-            transition-all duration-200" disabled="{stage === 0}" class:opacity-0={stage === 0}
+            transition-colors duration-200" disabled="{stage === 0}" class:opacity-0={stage === 0}
                 on:click={() => changeStage(-1)} aria-label="Previous Step">
             <Left/>
         </button>
@@ -52,7 +52,7 @@
          class:glow={cleared && stage === maxStage} in:scale={{start:1.1,opacity:1}} bind:this={canvasContainer}></div>
     <div class="w-8 mx-2 flex-shrink">
         <button class="w-8 h-8 flex items-center justify-center bg-primary-500 rounded select-none
-        transition-all duration-200" disabled={stage >= maxStage} class:opacity-0={stage >= maxStage}
+        transition-colors duration-200" disabled={stage >= maxStage} class:opacity-0={stage >= maxStage}
                 on:click={() => changeStage(1)} aria-label="Next Step">
             <Right/>
         </button>
