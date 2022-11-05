@@ -78,7 +78,7 @@
         <input id="input" type="text" placeholder="Which album is this?" on:keydown={enterSubmit} use:autocomplete
                class="flex-grow text-sm w-full rounded p-2 text-white bg-gray-700 ring-inset ring-2 ring-primary-500
                focus:ring-white" bind:value={input} bind:this={inputElement} on:autocomplete={setInputValue}>
-        <button class="w-32 rounded p-1 uppercase tracking-widest transition-colors duration-200"
+        <button class="w-32 h-8 rounded p-1 uppercase tracking-widest transition-colors duration-200"
                 class:bg-gray-700={disabled} class:bg-primary-500={input && !disabled}
                 class:bg-primary-700={!input && !disabled} on:click={submit} aria-disabled={disabled}>
             {#if input}

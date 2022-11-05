@@ -15,6 +15,13 @@
 
     let canvasContainer: HTMLDivElement;
 
+    function changeStage(d: number) {
+        stage += d;
+        if (stage < 0) stage = 0;
+        if (stage > maxStage) stage = maxStage;
+        updateCanvasList();
+    }
+
     function updateCanvasList() {
         if (finished && stage === maxStage) {
             canvasContainer.replaceChildren(game.getFinishedCanvas());
@@ -33,24 +40,22 @@
 </script>
 
 <div class="w-full relative overflow-visible flex items-center justify-center">
-    <div class="w-10 mx-2 flex-shrink">
-        {#if stage > 0}
-            <button class="w-full h-10 flex items-center justify-center bg-primary-500 rounded select-none
-            transition-colors duration-200" on:click={() => { stage--; updateCanvasList(); }} aria-label="Previous Step">
-                <Left/>
-            </button>
-        {/if}
+    <div class="w-8 mx-2 flex-shrink">
+        <button class="w-8 h-8 flex items-center justify-center bg-primary-500 rounded select-none
+            transition-all duration-200" disabled="{stage === 0}" class:opacity-0={stage === 0}
+                on:click={() => changeStage(-1)} aria-label="Previous Step">
+            <Left/>
+        </button>
     </div>
     <div class="max-w-sm basis-96 aspect-square bg-black relative"
          aria-label={cleared && stage === maxStage ? "Album Art" : "Hidden Album Art"}
          class:glow={cleared && stage === maxStage} in:scale={{start:1.1,opacity:1}} bind:this={canvasContainer}></div>
-    <div class="w-10 mx-2 flex-shrink">
-        {#if stage < maxStage}
-            <button class="w-full h-10 flex items-center justify-center bg-primary-500 rounded select-none
-            transition-colors duration-200" on:click={() => { stage++; updateCanvasList(); }} aria-label="Next Step">
-                <Right/>
-            </button>
-        {/if}
+    <div class="w-8 mx-2 flex-shrink">
+        <button class="w-8 h-8 flex items-center justify-center bg-primary-500 rounded select-none
+        transition-all duration-200" disabled={stage >= maxStage} class:opacity-0={stage >= maxStage}
+                on:click={() => changeStage(1)} aria-label="Next Step">
+            <Right/>
+        </button>
     </div>
 </div>
 
