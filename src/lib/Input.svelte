@@ -72,7 +72,7 @@
             <div class="p-0.5">Invalid guess! Select an option from the list!</div>
         </div>
     {/if}
-    <label for="input" class="vhd">Guess</label>
+    <label for="input" class="vhd">Your Guess. Autocomplete.</label>
     <div class="w-full flex flex-col sm:flex-row justify-between mb-4 mt-4 space-x-0 sm:space-x-4 space-y-2 sm:space-y-0
          items-end sm:items-center">
         <input id="input" type="text" placeholder="Which album is this?" on:keydown={enterSubmit} use:autocomplete
