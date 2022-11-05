@@ -81,11 +81,11 @@ export interface AutocompleteSettings<T extends AutocompleteItem> {
     /**
      * Callback for additional autocomplete customization
      * @param {HTMLInputElement | HTMLTextAreaElement} input - input box associated with autocomplete
-     * @param {ClientRect | DOMRect} inputRect - size of the input box and its position relative to the viewport
+     * @param {DOMRect} inputRect - size of the input box and its position relative to the viewport
      * @param {HTMLDivElement} container - container with suggestions
      * @param {number} maxHeight - max height that can be used by autocomplete
      */
-    customize?: (input: HTMLInputElement | HTMLTextAreaElement, inputRect: ClientRect | DOMRect, container: HTMLDivElement, maxHeight: number) => void;
+    customize?: (input: HTMLInputElement | HTMLTextAreaElement, inputRect: DOMRect, container: HTMLDivElement, maxHeight: number) => void;
 
     /**
      * Prevents automatic form submit when ENTER is pressed
@@ -241,7 +241,7 @@ export default function autocomplete<T extends AutocompleteItem>(settings: Autoc
         containerStyle.width = input.offsetWidth + "px";
 
         let maxHeight = 0;
-        let inputRect: ClientRect | DOMRect | undefined;
+        let inputRect: DOMRect | undefined;
 
         function calc() {
             const docEl = doc.documentElement as HTMLElement;
@@ -387,21 +387,21 @@ export default function autocomplete<T extends AutocompleteItem>(settings: Autoc
     }
 
     function inputEventHandler(ev: KeyboardEvent): void {
-        const keyCode = ev.which || ev.keyCode || 0;
+        const ignore = settings.keysToIgnore || ["ArrowUp", "Enter", "Escape", "ArrowRight", "ArrowLeft", "Shift", "Control", "Alt", "AltGraph", "CapsLock", "Meta", "OS", "Tab"];
+        const pressedKey = ev.key || "";
 
-        const ignore = settings.keysToIgnore || [Keys.Up, Keys.Enter, Keys.Esc, Keys.Right, Keys.Left, Keys.Shift, Keys.Ctrl, Keys.Alt, Keys.CapsLock, Keys.WindowsKey, Keys.Tab];
         for (const key of ignore) {
-            if (keyCode === key) {
+            if (pressedKey === key) {
                 return;
             }
         }
 
-        if (keyCode >= Keys.F1 && keyCode <= Keys.F12 && !settings.keysToIgnore) {
+        if (pressedKey.startsWith("F") && parseInt(pressedKey.substring(1)) >= 1 && !settings.keysToIgnore) {
             return;
         }
 
         // the down key is used to open autocomplete
-        if (keyCode === Keys.Down && containerDisplayed()) {
+        if (pressedKey === "ArrowDown" && containerDisplayed()) {
             return;
         }
 
@@ -474,18 +474,18 @@ export default function autocomplete<T extends AutocompleteItem>(settings: Autoc
     }
 
     function keydownEventHandler(ev: KeyboardEvent): void {
-        const keyCode = ev.which || ev.keyCode || 0;
+        const pressedKey = ev.key || "";
 
-        if (keyCode === Keys.Up || keyCode === Keys.Down || keyCode === Keys.Esc) {
+        if (pressedKey === "ArrowUp" || pressedKey === "ArrowDown" || pressedKey === "Escape") {
             const containerIsDisplayed = containerDisplayed();
 
-            if (keyCode === Keys.Esc) {
+            if (pressedKey === "Escape") {
                 clear();
             } else {
                 if (!containerIsDisplayed || items.length < 1) {
                     return;
                 }
-                keyCode === Keys.Up
+                pressedKey === "ArrowUp"
                     ? selectPrev()
                     : selectNext();
                 update();
@@ -499,7 +499,7 @@ export default function autocomplete<T extends AutocompleteItem>(settings: Autoc
             return;
         }
 
-        if (keyCode === Keys.Enter) {
+        if (pressedKey === "Enter") {
             if (selected) {
                 settings.onSelect(selected, input);
                 clear();
