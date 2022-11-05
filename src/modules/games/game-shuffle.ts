@@ -1,5 +1,6 @@
 /** @type {import("../gameHandler").Game} */
 
+import {smoothScaleSquare, smoothScaleSquareWithSrc} from "$modules/canvasUtil";
 import type {Canvas, Image} from "canvas";
 import {createCanvas} from "canvas";
 import type {AlbumInfo} from "$data/albumpool";
@@ -12,6 +13,11 @@ export const stacked = false;
 const TILES_PER_AXIS = [64, 48, 32, 24, 16, 8];
 
 export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, scaledImage: Canvas): GameInstance {
+    const blurredCanvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
+    const blurredCtx = blurredCanvas.getContext("2d");
+    smoothScaleSquareWithSrc(blurredCtx, scaledImage, 0, 0, CANVAS_SIZE, CANVAS_SIZE, 160);
+    smoothScaleSquare(blurredCtx, 160, CANVAS_SIZE);
+
     const getCanvasForGuess = (failed: number): Canvas => {
         const rng = seededRNG(day * 461 * failed);
         const axis = TILES_PER_AXIS[failed];
@@ -50,7 +56,7 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
                 ctx.rotate(rot * Math.PI / 2);
                 ctx.translate(-dmx, -dmy);
             }
-            ctx.drawImage(scaledImage, sx, sy, sw, sh, dx, dy, dw, dh);
+            ctx.drawImage(blurredCanvas, sx, sy, sw, sh, dx, dy, dw, dh);
             if (rot !== 0) {
                 ctx.restore();
             }
