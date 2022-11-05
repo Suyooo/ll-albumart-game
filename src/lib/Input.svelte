@@ -104,7 +104,12 @@
     }
 
     :global(.autocomplete > div) {
-        @apply w-full hover:bg-primary-900 border-gray-700 p-2 border-b-2 last:border-b-0 text-white leading-none;
+        @apply w-full border-gray-700 p-2 border-b-2 last:border-b-0 text-white leading-none;
+    }
+
+    /*noinspection CssUnusedSymbol*/
+    :global(.autocomplete > div:not(.empty):hover) {
+        @apply bg-primary-900;
     }
 
     :global(.autocomplete mark) {
