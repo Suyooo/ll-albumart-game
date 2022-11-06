@@ -1,7 +1,7 @@
 <script lang="ts">
-    import {autocomplete, VALID_GUESSES} from "$actions/autocomplete";
+    import {default as autocomplete, VALID_GUESSES} from "$actions/autocomplete";
     import isDesktop from "$modules/isDesktop";
-    import {STATE, ALBUM} from "$stores/state";
+    import {ALBUM, STATE} from "$stores/state";
     import {STATISTICS} from "$stores/statistics";
     import {getContext} from "svelte";
     import {fly} from 'svelte/transition';

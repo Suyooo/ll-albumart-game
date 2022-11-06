@@ -1,6 +1,6 @@
 import type {Action} from "svelte/action";
 
-export const dragscroll: Action<HTMLElement> = (node: HTMLElement) => {
+const dragscroll: Action<HTMLElement> = (node: HTMLElement) => {
     let isDragging: boolean, lastX: number, lastY: number, curX: number, curY: number, requestedAnimationFrame: number;
 
     function startHandler(e: Touch): void;
@@ -74,3 +74,5 @@ export const dragscroll: Action<HTMLElement> = (node: HTMLElement) => {
         }
     };
 }
+
+export default dragscroll;

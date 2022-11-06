@@ -55,7 +55,7 @@ const acOptions: Fuzzysort.KeysOptions<ACTarget> = {
     keys: preferJa ? ["ja", "en", "jaTitleOnly", "enTitleOnly"] : ["en", "ja", "enTitleOnly", "jaTitleOnly"]
 };
 
-export const autocomplete: Action<HTMLInputElement> = (node: HTMLInputElement) => {
+const autocomplete: Action<HTMLInputElement> = (node: HTMLInputElement) => {
     const acInstance = autocompleter<ACResult>({
         input: node,
         fetch: function (text: string, update: (res: ACResult[]) => void): void {
@@ -108,3 +108,5 @@ export const autocomplete: Action<HTMLInputElement> = (node: HTMLInputElement) =
         destroy: () => acInstance.destroy()
     };
 }
+
+export default autocomplete;

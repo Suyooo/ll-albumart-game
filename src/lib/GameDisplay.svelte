@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {dragscroll} from "$actions/dragscroll";
+    import dragscroll from "$actions/dragscroll";
     import Left from "$icon/Left.svelte";
     import Right from "$icon/Right.svelte";
     import ZoomIn from "$icon/ZoomIn.svelte";

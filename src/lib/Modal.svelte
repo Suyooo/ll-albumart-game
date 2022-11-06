@@ -1,8 +1,8 @@
 <script lang="ts">
+    import focusTrap from "$actions/focusTrap";
     import Close from "$icon/Close.svelte";
     import {createEventDispatcher} from "svelte";
     import {fade} from "svelte/transition";
-    import {focusTrap} from "$actions/focusTrap";
 
     export let inner: any;
     export let title: string;

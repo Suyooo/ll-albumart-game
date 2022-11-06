@@ -1,7 +1,7 @@
 import * as focusTrapModule from "focus-trap";
 import type {Action} from "svelte/action";
 
-export const focusTrap: Action<HTMLElement> = (node: HTMLElement) => {
+const focusTrap: Action<HTMLElement> = (node: HTMLElement) => {
     const trap = focusTrapModule.createFocusTrap(node, {initialFocus: false});
     trap.activate();
 
@@ -9,3 +9,5 @@ export const focusTrap: Action<HTMLElement> = (node: HTMLElement) => {
         destroy: () => trap.deactivate()
     };
 }
+
+export default focusTrap;
