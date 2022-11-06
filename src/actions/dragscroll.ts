@@ -3,7 +3,9 @@ import type {Action} from "svelte/action";
 export const dragscroll: Action<HTMLElement> = (node: HTMLElement) => {
     let isDragging: boolean, lastX: number, lastY: number, curX: number, curY: number, requestedAnimationFrame: number;
 
-    function startHandler(e: PointerEvent) {
+    function startHandler(e: Touch): void;
+    function startHandler(e: PointerEvent): void;
+    function startHandler(e: PointerEvent | Touch): void {
         isDragging = true;
         node.style.cursor = "grabbing";
         lastX = e.pageX;
@@ -12,13 +14,22 @@ export const dragscroll: Action<HTMLElement> = (node: HTMLElement) => {
         curY = e.pageY;
     }
 
-    function stopHandler() {
+    function touchStartHandler(e: TouchEvent): void {
+        if (e.targetTouches.length === 0) return;
+        e.preventDefault();
+        startHandler(e.targetTouches.item(0));
+    }
+
+    function stopHandler(): void {
+        if (!isDragging) return;
         isDragging = false;
         node.style.cursor = "";
         cancelAnimationFrame(requestedAnimationFrame);
     }
 
-    function moveHandler(e: PointerEvent) {
+    function moveHandler(e: Touch): void;
+    function moveHandler(e: PointerEvent): void;
+    function moveHandler(e: PointerEvent | Touch): void {
         if (!isDragging) return;
         curX = e.pageX;
         curY = e.pageY;
@@ -26,7 +37,13 @@ export const dragscroll: Action<HTMLElement> = (node: HTMLElement) => {
         requestedAnimationFrame = requestAnimationFrame(frameHandler);
     }
 
-    function frameHandler() {
+    function touchMoveHandler(e: TouchEvent): void {
+        if (e.targetTouches.length === 0) return;
+        e.preventDefault();
+        moveHandler(e.targetTouches.item(0));
+    }
+
+    function frameHandler(): void {
         const diffX = lastX - curX;
         const diffY = lastY - curY;
         lastX = curX;
@@ -36,16 +53,24 @@ export const dragscroll: Action<HTMLElement> = (node: HTMLElement) => {
     }
 
     node.addEventListener("mousedown", startHandler);
-    node.addEventListener("mouseleave", stopHandler);
-    node.addEventListener("mouseup", stopHandler);
-    node.addEventListener("mousemove", moveHandler);
+    document.addEventListener("mouseup", stopHandler);
+    document.addEventListener("mousemove", moveHandler);
+
+    node.addEventListener("touchstart", touchStartHandler);
+    document.addEventListener("touchend", stopHandler);
+    document.addEventListener("touchcancel", stopHandler);
+    document.addEventListener("touchmove", touchMoveHandler);
 
     return {
         destroy: () => {
             node.removeEventListener("mousedown", startHandler);
-            node.removeEventListener("mouseleave", stopHandler);
-            node.removeEventListener("mouseup", stopHandler);
-            node.removeEventListener("mousemove", moveHandler);
+            document.removeEventListener("mouseup", stopHandler);
+            document.removeEventListener("mousemove", moveHandler);
+
+            node.removeEventListener("touchstart", touchStartHandler);
+            document.removeEventListener("touchend", stopHandler);
+            document.removeEventListener("touchcancel", stopHandler);
+            document.removeEventListener("touchmove", touchMoveHandler);
         }
     };
 }
