@@ -8,6 +8,7 @@
     "build": "DEBUG=vite-tsconfig-paths vite --config vite.config.site.ts build && vite --config vite.config.makeShare.ts build",
     "preview": "vite --config vite.config.site.ts preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
+    "test": "svelte-check --fail-on-hints --tsconfig ./tsconfig.json",
     "download-albums": "ts-node --esm \"scripts/downloadAlbums.ts\"",
     "test-albums": "ts-node --esm \"scripts/testAlbums.ts\""
   },

@@ -1,12 +1,13 @@
 <script lang="ts">
-    import ZoomIn from "$icon/ZoomIn.svelte";
-    import ZoomOut from "$icon/ZoomOut.svelte";
-    import {STATE, ALBUM} from "$stores/state";
+    import {dragscroll} from "$actions/dragscroll";
     import Left from "$icon/Left.svelte";
     import Right from "$icon/Right.svelte";
-    import {onMount} from "svelte";
-    import {scale, fly} from 'svelte/transition';
+    import ZoomIn from "$icon/ZoomIn.svelte";
+    import ZoomOut from "$icon/ZoomOut.svelte";
     import type {GameInstanceSiteWrapper} from "$modules/gameHandler.js";
+    import {ALBUM, STATE} from "$stores/state";
+    import {onMount} from "svelte";
+    import {fly, scale} from 'svelte/transition';
 
     export let game: GameInstanceSiteWrapper;
 
@@ -50,7 +51,8 @@
     <div class="max-w-sm flex-grow flex flex-col items-end">
         <div class="max-w-sm w-full aspect-square bg-black relative overflow-auto" bind:this={canvasContainer}
              aria-label={$STATE.cleared && stage === maxStage ? "Album Art" : "Hidden Album Art"} class:zoomed
-             class:glow={$STATE.cleared && stage === maxStage} in:scale={{start:1.1,opacity:1}}></div>
+             class:glow={$STATE.cleared && stage === maxStage} in:scale={{start:1.1,opacity:1}} use:dragscroll>
+        </div>
         <div class="max-w-sm w-full flex items-center mt-2">
             <div class="w-8 flex-shrink-0">&nbsp;</div>
             <div class="flex-grow px-4">
@@ -86,6 +88,10 @@
 <style lang="postcss">
     div > :global(canvas) {
         @apply absolute left-0 top-0 w-full;
+    }
+
+    div.zoomed {
+        @apply cursor-grab;
     }
 
     div.zoomed > :global(canvas) {
