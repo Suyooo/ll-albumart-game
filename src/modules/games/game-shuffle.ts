@@ -1,6 +1,5 @@
 /** @type {import("../gameHandler").Game} */
 
-import {smoothScaleSquare, smoothScaleSquareWithSrc} from "$modules/canvasUtil";
 import type {Canvas, Image} from "canvas";
 import {createCanvas} from "canvas";
 import type {AlbumInfo} from "$data/albumpool";
@@ -10,14 +9,9 @@ import {seededRNG} from "../rng";
 
 export const stacked = false;
 
-const TILES_PER_AXIS = [64, 48, 32, 24, 16, 8];
+const TILES_PER_AXIS = [96, 64, 48, 28, 16, 8];
 
 export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, scaledImage: Canvas): GameInstance {
-    const blurredCanvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
-    const blurredCtx = blurredCanvas.getContext("2d");
-    smoothScaleSquareWithSrc(blurredCtx, scaledImage, 0, 0, CANVAS_SIZE, CANVAS_SIZE, 160);
-    smoothScaleSquare(blurredCtx, 160, CANVAS_SIZE);
-
     const getCanvasForGuess = (failed: number): Canvas => {
         const rng = seededRNG(day * 461 * failed);
         const axis = TILES_PER_AXIS[failed];
@@ -57,13 +51,14 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
                 ctx.translate(-dmx, -dmy);
             }
             ctx.globalCompositeOperation = "source-over";
-            ctx.drawImage(blurredCanvas, sx, sy, sw, sh, dx, dy, dw, dh);
+            ctx.drawImage(scaledImage, sx, sy, sw, sh, dx, dy, dw, dh);
             ctx.globalCompositeOperation = "destination-over";
-            ctx.drawImage(blurredCanvas, sx - 1, sy - 1, sw + 2, sh + 2, dx - 1, dy - 1, dw + 2, dh + 2);
+            ctx.drawImage(scaledImage, sx - 1, sy - 1, sw + 2, sh + 2, dx - 1, dy - 1, dw + 2, dh + 2);
             if (rot !== 0) {
                 ctx.restore();
             }
         }
+
         return canvas;
     };
     const getShareCanvas = (): Canvas => {
