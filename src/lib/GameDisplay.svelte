@@ -1,16 +1,18 @@
 <script lang="ts">
-    import {STATE} from "$stores/state";
+    import ZoomIn from "$icon/ZoomIn.svelte";
+    import ZoomOut from "$icon/ZoomOut.svelte";
+    import {STATE, ALBUM} from "$stores/state";
     import Left from "$icon/Left.svelte";
     import Right from "$icon/Right.svelte";
     import {onMount} from "svelte";
-    import {scale} from 'svelte/transition';
+    import {scale, fly} from 'svelte/transition';
     import type {GameInstanceSiteWrapper} from "$modules/gameHandler.js";
 
     export let game: GameInstanceSiteWrapper;
 
     let maxStage: number = $STATE.finished ? 6 : $STATE.failed;
     let stage: number = maxStage;
-
+    let zoomed: boolean = false;
     let canvasContainer: HTMLDivElement;
 
     function changeStage(d: number) {
@@ -38,17 +40,41 @@
 </script>
 
 <div class="w-full relative overflow-visible flex items-center justify-center">
-    <div class="w-8 mx-2 flex-shrink">
+    <div class="w-8 mx-2 flex-shrink-0">
         <button class="w-8 h-8 flex items-center justify-center bg-primary-500 rounded select-none
             transition-colors duration-200" disabled="{stage === 0}" class:opacity-50={stage === 0}
                 on:click={() => changeStage(-1)} aria-label="Previous Step">
             <Left/>
         </button>
     </div>
-    <div class="max-w-sm basis-96 aspect-square bg-black relative" bind:this={canvasContainer}
-         aria-label={$STATE.cleared && stage === maxStage ? "Album Art" : "Hidden Album Art"}
-         class:glow={$STATE.cleared && stage === maxStage} in:scale={{start:1.1,opacity:1}}></div>
-    <div class="w-8 mx-2 flex-shrink">
+    <div class="max-w-sm flex-grow flex flex-col items-end">
+        <div class="max-w-sm w-full aspect-square bg-black relative overflow-auto" bind:this={canvasContainer}
+             aria-label={$STATE.cleared && stage === maxStage ? "Album Art" : "Hidden Album Art"} class:zoomed
+             class:glow={$STATE.cleared && stage === maxStage} in:scale={{start:1.1,opacity:1}}></div>
+        <div class="max-w-sm w-full flex items-center mt-2">
+            <div class="w-8 flex-shrink-0">&nbsp;</div>
+            <div class="flex-grow px-4">
+                {#if $STATE.finished}
+                    <!-- aria-hidden: Answer is screen read in Result. This one is just for visual presentation -->
+                    <div class="text-xs max-w-sm text-center" in:fly={{y: -30, duration: 1000}} aria-hidden="true">
+                        {ALBUM.artistEn} -
+                        <b>{@html ALBUM.realEn
+                                ? ALBUM.realEn.replace(" [", " <span class='inline-block'>[") + "</span>"
+                                : ALBUM.titleEn}</b>
+                    </div>
+                {/if}
+            </div>
+            <button class="w-8 h-8 flex-shrink-0 flex items-center justify-center bg-primary-500 rounded select-none
+            transition-colors duration-200 self-start" on:click={() => zoomed = !zoomed} aria-label="Toggle Zoom">
+                {#if zoomed}
+                    <ZoomOut/>
+                {:else}
+                    <ZoomIn/>
+                {/if}
+            </button>
+        </div>
+    </div>
+    <div class="w-8 mx-2 flex-shrink-0">
         <button class="w-8 h-8 flex items-center justify-center bg-primary-500 rounded select-none
         transition-colors duration-200" disabled={stage >= maxStage} class:opacity-50={stage >= maxStage}
                 on:click={() => changeStage(1)} aria-label="Next Step">
@@ -60,6 +86,10 @@
 <style lang="postcss">
     div > :global(canvas) {
         @apply absolute left-0 top-0 w-full;
+    }
+
+    div.zoomed > :global(canvas) {
+        @apply w-[640px];
     }
 
     .glow {

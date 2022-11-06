@@ -1,7 +1,6 @@
 <script lang="ts">
     import {STATE, ALBUM, GAME} from "$stores/state";
     import {onMount} from "svelte";
-    import {fly} from 'svelte/transition';
 
     import GameDisplay from "./GameDisplay.svelte";
     import Spinner from "./Spinner.svelte";
@@ -20,15 +19,6 @@
     {/key}
 {:else}
     <Spinner/>
-{/if}
-{#if $STATE.finished}
-    <!-- Hidden: the answer is screen read in Result.svelte instead. This one is just for visual presentation -->
-    <div class="text-xs max-w-sm text-center mt-4" in:fly={{y: -30, duration: 1000}} aria-hidden="true">
-        {ALBUM.artistEn} -
-        <b>{@html ALBUM.realEn
-            ? ALBUM.realEn.replace(" [", " <span class='inline-block'>[") + "</span>"
-            : ALBUM.titleEn}</b>
-    </div>
 {/if}
 
 <style>
