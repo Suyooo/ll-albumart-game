@@ -23,7 +23,9 @@ Finally, some meta info is defined in `/src/data/gamepool.json`:
 * `startOnDay: number`: On which day the game mode should become a possible random pick. This ensures that on one day,
   all players will get the same game, even if the pool and thus the weights change in the middle of the day, and that
   going back, the random pick can be reconstructed for all previous days.
-* `name: string`: A very short description of the game mode that might show on the site.
+* `name: string`: A label for the game mode, used for filters and the such.
+* `description: string`: A short description (two lines max) of what the game mode does to the image, so players can
+  use it as a hint as to what they should be looking for in the image.
 * `weight: number`: How likely this mode is to be picked. The default is 1000. Weights can be changed in production to
   balance appearance rates (for example, the weights for `game-blinds-h.ts` and `game-blinds-v.ts` are halved - they
   are very similar, so in total, "blinds" type game modes have the same chance as the other game modes), or in testing

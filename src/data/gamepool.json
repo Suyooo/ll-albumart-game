@@ -3,30 +3,35 @@
     "filename": "pixelized",
     "startOnDay": 0,
     "name": "Pixelated",
+    "description": "The colors in the album art have been grouped into bigger blocks.",
     "weight": 1000
   },
   {
     "filename": "bubbles",
     "startOnDay": 0,
     "name": "Bubbles",
+    "description": "Pixels in the album art are randomly picked and blown up into large bubbles.",
     "weight": 1000
   },
   {
     "filename": "posterize",
     "startOnDay": 0,
     "name": "Blobs",
+    "description": "You can only see hints of prominent shapes in the album art, with reduced colors.",
     "weight": 1000
   },
   {
     "filename": "crop",
     "startOnDay": 0,
     "name": "Zoomed In",
+    "description": "You can only see a small part of the album art.",
     "weight": 1000
   },
   {
     "filename": "blinds-h",
     "startOnDay": 0,
     "name": "Blinds (Horizontal)",
+    "description": "Only a few lines of the album art can be seen.",
     "weight": 500,
     "groupId": 1
   },
@@ -34,6 +39,7 @@
     "filename": "blinds-v",
     "startOnDay": 0,
     "name": "Blinds (Vertical)",
+    "description": "Only a few lines of the album art can be seen.",
     "weight": 500,
     "groupId": 1
   },
@@ -41,12 +47,14 @@
     "filename": "tiles",
     "startOnDay": 0,
     "name": "Tiles",
+    "description": "A few small tiles of the album art are randomly picked and revealed.",
     "weight": 1000
   },
   {
     "filename": "shuffle",
     "startOnDay": 0,
     "name": "Shuffled",
+    "description": "The album art has been split up into tiny pieces and shuffled.",
     "weight": 1000
   }
 ]

@@ -5,7 +5,7 @@
     import ZoomIn from "$icon/ZoomIn.svelte";
     import ZoomOut from "$icon/ZoomOut.svelte";
     import type {GameInstanceSiteWrapper} from "$modules/gameHandler.js";
-    import {ALBUM, STATE} from "$stores/state";
+    import {ALBUM, GAME, STATE} from "$stores/state";
     import {onMount} from "svelte";
     import {fly, scale} from 'svelte/transition';
 
@@ -63,6 +63,10 @@
                         <b>{@html ALBUM.realEn
                                 ? ALBUM.realEn.replace(" [", " <span class='inline-block'>[") + "</span>"
                                 : ALBUM.titleEn}</b>
+                    </div>
+                {:else}
+                    <div class="text-xs max-w-sm text-center">
+                        <b>{GAME.name.substring(0, GAME.name.indexOf(" (")) || GAME.name}</b>: {GAME.description}
                     </div>
                 {/if}
             </div>
