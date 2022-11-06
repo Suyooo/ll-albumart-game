@@ -17,10 +17,10 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
         const axis = TILES_PER_AXIS[failed];
         const total = axis * axis;
         const positions: { positionIndex: number, rotation: number }[] =
-            new Array(total).fill(0).map((_, i) => ({i, sortVal: rng()}))
-                .sort((a, b) => a.sortVal - b.sortVal)
-                // no rotation on first guess to improve performance
-                .map(e => ({positionIndex: e.i, rotation: failed === 0 ? 0 : Math.floor(rng() * 4)}));
+                new Array(total).fill(0).map((_, i) => ({i, sortVal: rng()}))
+                        .sort((a, b) => a.sortVal - b.sortVal)
+                        // no rotation on first guess to improve performance
+                        .map(e => ({positionIndex: e.i, rotation: failed === 0 ? 0 : Math.floor(rng() * 4)}));
 
         const getPos = (p: number) => {
             return Math.floor(CANVAS_SIZE * p / axis);
@@ -65,7 +65,12 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
         return canvas;
     };
     const getShareCanvas = (): Canvas => {
-        return getCanvasForGuess(0);
+        const fullCanvas = getCanvasForGuess(0);
+        const canvas = createCanvas(CANVAS_SIZE / 4, CANVAS_SIZE / 4);
+        canvas.getContext("2d").drawImage(fullCanvas,
+                CANVAS_SIZE * 0.375, CANVAS_SIZE * 0.375, CANVAS_SIZE / 4, CANVAS_SIZE / 4,
+                0, 0, CANVAS_SIZE / 4, CANVAS_SIZE / 4);
+        return canvas;
     };
     return {getCanvasForGuess, getShareCanvas}
 }
