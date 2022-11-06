@@ -1,9 +1,9 @@
-import autocompleter from "$modules/autocompleter/autocompleter";
-import type {AutocompleteItem} from "$modules/autocompleter/autocompleter";
-import type {Action} from "svelte/action";
-import fuzzysort from "fuzzysort";
 import type {AlbumInfo} from "$data/albumpool";
 import {ALBUM_POOL} from "$data/albumpool";
+import type {AutocompleteItem} from "$modules/autocompleter/autocompleter";
+import autocompleter from "$modules/autocompleter/autocompleter";
+import fuzzysort from "fuzzysort";
+import type {Action} from "svelte/action";
 
 interface ACTarget extends AutocompleteItem {
     en: Fuzzysort.Prepared,
@@ -59,23 +59,26 @@ export const autocomplete: Action<HTMLInputElement> = (node: HTMLInputElement) =
     const acInstance = autocompleter<ACResult>({
         input: node,
         fetch: function (text: string, update: (res: ACResult[]) => void): void {
-            if (VALID_GUESSES.has(text)) update([]);
-            else update(fuzzysort.go(punctuationFullWidthToHalfWidth(text), acTargets, acOptions)
-                .map(keysResult => {
-                    const result = keysResult[0] ?? keysResult[1] ?? keysResult[2] ?? keysResult[3];
-                    const isEn = preferJa
-                        ? result === keysResult[1] || result === keysResult[3]
-                        : result === keysResult[0] || result === keysResult[2];
-                    const value = keysResult.obj.album;
-                    const prefixArtist = (result !== keysResult[0] && result !== keysResult[1])
-                        ? (isEn ? value.artistEn : value.artistJa)
-                        : undefined;
-                    return <ACResult>{
-                        result, value, prefixArtist, isEn,
-                        label: (prefixArtist ? prefixArtist + " - " : "") + result.target,
-                    };
-                })
-            );
+            if (VALID_GUESSES.has(text)) {
+                acInstance.clear();
+            } else {
+                update(fuzzysort.go(punctuationFullWidthToHalfWidth(text), acTargets, acOptions)
+                        .map(keysResult => {
+                            const result = keysResult[0] ?? keysResult[1] ?? keysResult[2] ?? keysResult[3];
+                            const isEn = preferJa
+                                    ? result === keysResult[1] || result === keysResult[3]
+                                    : result === keysResult[0] || result === keysResult[2];
+                            const value = keysResult.obj.album;
+                            const prefixArtist = (result !== keysResult[0] && result !== keysResult[1])
+                                    ? (isEn ? value.artistEn : value.artistJa)
+                                    : undefined;
+                            return <ACResult>{
+                                result, value, prefixArtist, isEn,
+                                label: (prefixArtist ? prefixArtist + " - " : "") + result.target,
+                            };
+                        })
+                );
+            }
         },
         onSelect: function (item: ACResult): void {
             node.dispatchEvent(new CustomEvent<string>("autocomplete", {
@@ -97,7 +100,6 @@ export const autocomplete: Action<HTMLInputElement> = (node: HTMLInputElement) =
             }
             return itemElement;
         },
-        showOnFocus: true,
         minLength: 1,
         emptyMsg: "No matching albums found"
     });

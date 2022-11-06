@@ -106,6 +106,7 @@ export interface AutocompleteSettings<T extends AutocompleteItem> {
 
 export interface AutocompleteResult {
     destroy: () => void;
+    clear: () => void;
 }
 
 export const enum Keys {
@@ -596,6 +597,6 @@ export default function autocomplete<T extends AutocompleteItem>(settings: Autoc
     doc.addEventListener("scroll", scrollEventHandler, true);
 
     return {
-        destroy
+        destroy, clear
     };
 }
