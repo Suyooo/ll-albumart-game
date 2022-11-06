@@ -16,7 +16,7 @@
 
 {#if game}
     {#key ($STATE.finished ? -1 : $STATE.failed)}
-        <GameDisplay {game} cleared={$STATE.cleared} finished={$STATE.finished} failed={$STATE.failed}/>
+        <GameDisplay {game} />
     {/key}
 {:else}
     <Spinner/>

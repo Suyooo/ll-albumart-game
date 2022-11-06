@@ -1,4 +1,5 @@
 <script lang="ts">
+    import {STATE} from "$stores/state";
     import Left from "$icon/Left.svelte";
     import Right from "$icon/Right.svelte";
     import {onMount} from "svelte";
@@ -6,11 +7,8 @@
     import type {GameInstanceSiteWrapper} from "$modules/gameHandler.js";
 
     export let game: GameInstanceSiteWrapper;
-    export let cleared: boolean;
-    export let finished: boolean;
-    export let failed: number = 0;
 
-    let maxStage: number = failed + (finished && failed < 6 ? 1 : 0);
+    let maxStage: number = $STATE.finished ? 6 : $STATE.failed;
     let stage: number = maxStage;
 
     let canvasContainer: HTMLDivElement;
@@ -23,7 +21,7 @@
     }
 
     function updateCanvasList() {
-        if (finished && stage === maxStage) {
+        if ($STATE.finished && stage === maxStage) {
             canvasContainer.replaceChildren(game.getFinishedCanvas());
         } else if (game.base.stacked) {
             const canvases = [];
@@ -42,17 +40,17 @@
 <div class="w-full relative overflow-visible flex items-center justify-center">
     <div class="w-8 mx-2 flex-shrink">
         <button class="w-8 h-8 flex items-center justify-center bg-primary-500 rounded select-none
-            transition-colors duration-200" disabled="{stage === 0}" class:opacity-0={stage === 0}
+            transition-colors duration-200" disabled="{stage === 0}" class:opacity-50={stage === 0}
                 on:click={() => changeStage(-1)} aria-label="Previous Step">
             <Left/>
         </button>
     </div>
-    <div class="max-w-sm basis-96 aspect-square bg-black relative"
-         aria-label={cleared && stage === maxStage ? "Album Art" : "Hidden Album Art"}
-         class:glow={cleared && stage === maxStage} in:scale={{start:1.1,opacity:1}} bind:this={canvasContainer}></div>
+    <div class="max-w-sm basis-96 aspect-square bg-black relative" bind:this={canvasContainer}
+         aria-label={$STATE.cleared && stage === maxStage ? "Album Art" : "Hidden Album Art"}
+         class:glow={$STATE.cleared && stage === maxStage} in:scale={{start:1.1,opacity:1}}></div>
     <div class="w-8 mx-2 flex-shrink">
         <button class="w-8 h-8 flex items-center justify-center bg-primary-500 rounded select-none
-        transition-colors duration-200" disabled={stage >= maxStage} class:opacity-0={stage >= maxStage}
+        transition-colors duration-200" disabled={stage >= maxStage} class:opacity-50={stage >= maxStage}
                 on:click={() => changeStage(1)} aria-label="Next Step">
             <Right/>
         </button>
