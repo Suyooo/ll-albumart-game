@@ -22,6 +22,7 @@
     function focusInputElement(): void {
         // Always focus on desktop, but only focus on mobile if in portrait mode (to avoid keyboard hiding canvas)
         if (isDesktop() || window.matchMedia("(orientation: portrait)").matches) {
+            inputElement.select();
             inputElement.focus();
         }
     }
@@ -32,8 +33,7 @@
                 // Show a warning if there are no options for the current input
                 read("This is an invalid guess. You must select an option from the autocomplete list.");
                 showRejected = true;
-                if (isDesktop()) focusInputElement();
-                else inputElement.autocompleterOpen();
+                focusInputElement();
             }
             return;
         }
