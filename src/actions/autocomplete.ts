@@ -60,7 +60,7 @@ const autocomplete: Action<HTMLInputElement> = (node: HTMLInputElement) => {
         input: node,
         fetch: function (text: string, update: (res: ACResult[]) => void): void {
             if (VALID_GUESSES.has(text) || !text) {
-                acInstance.clear();
+                acInstance.close();
             } else {
                 update(fuzzysort.go(punctuationFullWidthToHalfWidth(text), acTargets, acOptions)
                         .map(keysResult => {
@@ -105,6 +105,8 @@ const autocomplete: Action<HTMLInputElement> = (node: HTMLInputElement) => {
         emptyMsg: "No matching albums found"
     });
 
+    node["autocompleterOpen"] = acInstance.open;
+    node["autocompleterClose"] = acInstance.close;
     return {
         destroy: () => acInstance.destroy()
     };

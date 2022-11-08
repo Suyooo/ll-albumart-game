@@ -7,7 +7,8 @@
     import {getContext} from "svelte";
     import {fly} from 'svelte/transition';
 
-    let input: string, skipDisabled: boolean = false, showRejected: boolean = false, inputElement: HTMLInputElement;
+    let input: string, skipDisabled: boolean = false, showRejected: boolean = false,
+            inputElement: HTMLInputElement & { autocompleterOpen?: () => void };
 
     function enterSubmit(e: KeyboardEvent): void {
         showRejected = false;
@@ -31,7 +32,8 @@
                 // Show a warning if there are no options for the current input
                 read("This is an invalid guess. You must select an option from the autocomplete list.");
                 showRejected = true;
-                focusInputElement();
+                if (isDesktop()) focusInputElement();
+                else inputElement.autocompleterOpen();
             }
             return;
         }
