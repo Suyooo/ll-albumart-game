@@ -37,6 +37,25 @@
         }
     }
 
+    let zoomStart = 0;
+
+    function toggleZoom() {
+        zoomed = !zoomed;
+        if (zoomed) {
+            zoomStart = Date.now();
+            let lastP = 0;
+
+            function centerScroll() {
+                const p = (canvasContainer.scrollWidth - canvasContainer.clientWidth) / 2;
+                canvasContainer.scrollBy(p - lastP, p - lastP);
+                lastP = p;
+                if (Date.now() - zoomStart <= 500) requestAnimationFrame(centerScroll);
+            }
+
+            requestAnimationFrame(centerScroll);
+        }
+    }
+
     onMount(updateCanvasList);
 </script>
 
@@ -70,8 +89,8 @@
                     </div>
                 {/if}
             </div>
-            <button class="w-8 h-8 flex-shrink-0 flex items-center justify-center bg-primary-500 rounded select-none
-            transition-colors duration-200 self-start" on:click={() => zoomed = !zoomed} aria-label="Toggle Zoom">
+            <button aria-label="Toggle Zoom" class="w-8 h-8 flex-shrink-0 flex items-center justify-center bg-primary-500 rounded select-none
+            transition-colors duration-200 self-start" on:click={toggleZoom}>
                 {#if zoomed}
                     <ZoomOut/>
                 {:else}
@@ -100,6 +119,7 @@
 
     div.zoomed > :global(canvas) {
         @apply w-[640px];
+        transition: width .2s;
     }
 
     .glow {
