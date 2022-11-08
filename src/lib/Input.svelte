@@ -7,7 +7,7 @@
     import {getContext} from "svelte";
     import {fly} from 'svelte/transition';
 
-    let input: string, disabled: boolean = false, showRejected: boolean = false, inputElement: HTMLInputElement;
+    let input: string, skipDisabled: boolean = false, showRejected: boolean = false, inputElement: HTMLInputElement;
 
     function enterSubmit(e: KeyboardEvent): void {
         showRejected = false;
@@ -18,29 +18,45 @@
 
     const read = getContext<(s: string, priority?: "polite" | "assertive") => void>("reader");
 
-    function submit(): void {
-        if (disabled) {
-            return;
+    function focusInputElement(): void {
+        // Always focus on desktop, but only focus on mobile if in portrait mode (to avoid keyboard hiding canvas)
+        if (isDesktop() || window.matchMedia("(orientation: portrait)").matches) {
+            inputElement.focus();
         }
-        if (input && !VALID_GUESSES.has(input)) {
+    }
+
+    function submit(): void {
+        if (!VALID_GUESSES.has(input)) {
             if (!document.querySelector(".autocomplete div[role=option]")) {
-                // show a warning if there are no options for the current input
+                // Show a warning if there are no options for the current input
                 read("This is an invalid guess. You must select an option from the autocomplete list.");
                 showRejected = true;
+                focusInputElement();
             }
             return;
         }
 
-        $STATE.guesses.push(input || null);
-        if (input === ALBUM.artistEn + " - " + ALBUM.titleEn ||
-                input === ALBUM.artistJa + " - " + ALBUM.titleJa) {
+        resolveTurn(input);
+    }
+
+    function skip(): void {
+        if (skipDisabled) {
+            return;
+        }
+
+        resolveTurn(null);
+    }
+
+    function resolveTurn(guessOrSkip: string | null): void {
+        $STATE.guesses.push(guessOrSkip);
+        if (input === ALBUM.artistEn + " - " + ALBUM.titleEn || input === ALBUM.artistJa + " - " + ALBUM.titleJa) {
             $STATE.cleared = $STATE.finished = true;
             STATISTICS.addFinishedState($STATE);
         } else {
             $STATE.failed++;
-            disabled = true;
+            skipDisabled = true;
             setTimeout(() => {
-                disabled = false;
+                skipDisabled = false;
             }, $STATE.failed < 5 ? 500 : 2000);
 
             if ($STATE.failed >= 6) {
@@ -48,10 +64,7 @@
                 STATISTICS.addFinishedState($STATE);
             } else {
                 input = "";
-                // Always focus on desktop, but only focus on mobile if in portrait mode to avoid keyboard hiding canvas
-                if (isDesktop() || window.matchMedia("(orientation: portrait)").matches) {
-                    inputElement.focus();
-                }
+                focusInputElement();
             }
         }
     }
@@ -68,25 +81,25 @@
 
 <div class="relative w-full">
     {#if showRejected}
-        <div class="absolute top-2 left-0 -translate-y-full w-full rounded bg-wrong text-white text-center
+        <div class="absolute top-2 left-0 -translate-y-full -mt-4 w-full rounded bg-wrong text-white text-center
             select-none pointer-events-none" transition:fly={{duration: 200, y: 10}}>
             <div class="p-0.5">Invalid guess! Select an option from the list!</div>
         </div>
     {/if}
     <label for="input" class="vhd">Your Guess. Autocomplete.</label>
-    <div class="w-full flex flex-col sm:flex-row justify-between mb-4 mt-4 space-x-0 sm:space-x-4 space-y-2 sm:space-y-0
-         items-end sm:items-center">
-        <input id="input" type="text" placeholder="Which album is this?" on:keydown={enterSubmit} use:autocomplete
-               class="flex-grow text-sm w-full rounded p-2 text-white bg-gray-700 ring-inset ring-2 ring-primary-500
-               focus:ring-white" bind:value={input} bind:this={inputElement} on:autocomplete={setInputValue}>
-        <PageButton class="w-32" disabled={disabled} on:click={submit}>
-            {#if input}
-                Submit
-            {:else if $STATE.failed < 5}
-                Skip
+    <input class="flex-grow text-sm w-full rounded p-2 text-white bg-gray-700 ring-inset ring-2 ring-primary-500
+               focus:ring-white" id="input" on:keydown={enterSubmit} placeholder="Which album is this?" type="text"
+           use:autocomplete bind:value={input} bind:this={inputElement} on:autocomplete={setInputValue}>
+    <div class="w-full flex justify-between mt-2 items-center">
+        <PageButton class="w-32" disabled={skipDisabled} on:click={skip}>
+            {#if $STATE.failed < 5}
+                Skip Turn
             {:else}
                 Give Up
             {/if}
+        </PageButton>
+        <PageButton class="w-32" disabled={!input} on:click={submit}>
+            Submit
         </PageButton>
     </div>
 </div>

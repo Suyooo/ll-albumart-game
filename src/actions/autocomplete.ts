@@ -59,7 +59,7 @@ const autocomplete: Action<HTMLInputElement> = (node: HTMLInputElement) => {
     const acInstance = autocompleter<ACResult>({
         input: node,
         fetch: function (text: string, update: (res: ACResult[]) => void): void {
-            if (VALID_GUESSES.has(text)) {
+            if (VALID_GUESSES.has(text) || !text) {
                 acInstance.clear();
             } else {
                 update(fuzzysort.go(punctuationFullWidthToHalfWidth(text), acTargets, acOptions)
@@ -90,16 +90,17 @@ const autocomplete: Action<HTMLInputElement> = (node: HTMLInputElement) => {
         render: function (item: ACResult): HTMLDivElement | undefined {
             const itemElement = document.createElement("div");
             itemElement.innerHTML = (item.prefixArtist ? item.prefixArtist + " - " : "") +
-                fuzzysort.highlight(item.result, "<mark>", "</mark>") || item.label;
+                    fuzzysort.highlight(item.result, "<mark>", "</mark>") || item.label;
             if ((item.isEn && item.value.realEn) || (!item.isEn && item.value.realJa)) {
                 itemElement.innerHTML +=
-                    "<div>("
-                    + (item.isEn ? item.value.realEn : item.value.realJa)
-                        .replace(" [", " <span>[")
-                    + "</span>)</div>";
+                        "<div>("
+                        + (item.isEn ? item.value.realEn : item.value.realJa)
+                                .replace(" [", " <span>[")
+                        + "</span>)</div>";
             }
             return itemElement;
         },
+        showOnFocus: true,
         minLength: 1,
         emptyMsg: "No matching albums found"
     });

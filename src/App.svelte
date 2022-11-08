@@ -1,15 +1,15 @@
 <script lang="ts">
-    import Modal from "$lib/Modal.svelte";
-    import ModalHelp from "$lib/ModalHelp.svelte";
-    import {onMount, setContext} from "svelte";
-    import {fade} from 'svelte/transition';
+    import GameDisplayContainer from "$lib/GameDisplayContainer.svelte";
+    import Guess from "$lib/Guess.svelte";
 
     import Header from "$lib/Header.svelte";
-    import GameDisplayContainer from "$lib/GameDisplayContainer.svelte";
     import Input from "$lib/Input.svelte";
-    import Guess from "$lib/Guess.svelte";
+    import Modal from "$lib/Modal.svelte";
+    import ModalHelp from "$lib/ModalHelp.svelte";
     import Result from "$lib/Result.svelte";
     import {ALL_STATES, STATE} from "$stores/state";
+    import {onMount, setContext} from "svelte";
+    import {fade} from 'svelte/transition';
 
     let modalTitle: string = "";
     let modalComponent = null;
@@ -54,13 +54,13 @@
         <div class="md:flex-grow flex flex-col items-center justify-center">
             <GameDisplayContainer/>
         </div>
-        <div class="px-8 flex-grow flex flex-col items-center justify-between"
+        <div class="px-8 mt-4 flex-grow flex flex-col items-center justify-between"
              aria-live={$STATE.finished ? "polite" : "off"}>
             {#if $STATE.finished}
                 <Result/>
             {:else}
                 <Input/>
-                <div class="w-full" aria-live="assertive">
+                <div class="w-full mt-4" aria-live="assertive">
                     {#each {length: 6} as _, i}
                         <Guess {i}/>
                     {/each}
