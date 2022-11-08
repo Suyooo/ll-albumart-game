@@ -53,7 +53,6 @@ const FORCED_DAYS: { [day: number]: { rolledAlbumId: number, rolledGameId: numbe
 };
 
 export function getIdsForDay(day: number): { rolledAlbumId: number, rolledGameId: number } {
-    console.log(day);
     if (DAILY_ROLL_CACHE.hasOwnProperty(day)) {
         return DAILY_ROLL_CACHE[day];
     }
