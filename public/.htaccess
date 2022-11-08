@@ -2,7 +2,8 @@
     RewriteEngine On
     RewriteRule [^0-9] - [L]
     RewriteCond %{HTTP_USER_AGENT} Twitterbot [OR]
-    RewriteCond %{HTTP_USER_AGENT} facebookexternalhit
+    RewriteCond %{HTTP_USER_AGENT} facebookexternalhit [OR]
+    RewriteCond %{HTTP_USER_AGENT} Tumblr
     RewriteRule ^(.+)$ /share/$1.html [L]
     RewriteCond %{HTTP_USER_AGENT} Discordbot
     RewriteRule ^(.+)$ /share/$1d.html [L]
