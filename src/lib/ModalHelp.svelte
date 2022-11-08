@@ -2,6 +2,7 @@
     import Tutorial1 from "$icon/Tutorial1.svelte";
     import Tutorial2 from "$icon/Tutorial2.svelte";
     import Tutorial3 from "$icon/Tutorial3.svelte";
+    import PageButton from "$lib/styled/PageButton.svelte";
     import {createEventDispatcher} from "svelte";
 
     const dispatch = createEventDispatcher<{ closemodal: undefined }>();
@@ -39,8 +40,7 @@
             <span class="inline-block">your friends!</span>
         </div>
     </div>
-    <button class="px-3 py-2 rounded p-1 uppercase tracking-widest transition-colors duration-200 bg-primary-500"
-            on:click={closeModal}>
+    <PageButton class="px-3" on:click={closeModal}>
         Start!
-    </button>
+    </PageButton>
 </div>

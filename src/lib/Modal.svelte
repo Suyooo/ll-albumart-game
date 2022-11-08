@@ -1,6 +1,7 @@
 <script lang="ts">
     import focusTrap from "$actions/focusTrap";
     import Close from "$icon/Close.svelte";
+    import HeaderButton from "$lib/styled/HeaderButton.svelte";
     import {createEventDispatcher} from "svelte";
     import {fade} from "svelte/transition";
 
@@ -24,9 +25,9 @@
      on:click={closeModal} transition:fade={{duration: 100}} use:focusTrap>
     <div class="w-full max-w-md bg-gray-700 rounded p-4 relative overflow-hidden" on:click|stopPropagation={() => null}>
         <h3 class="flex-grow h-8 p-2 uppercase tracking-widest font-bold text-gray-400">{title}</h3>
-        <button class="absolute right-4 top-4 text-gray-400" on:click={closeModal}>
+        <HeaderButton class="absolute right-4 top-4" on:click={closeModal}>
             <Close/>
-        </button>
+        </HeaderButton>
         <div class="overflow-y-auto p-2 mt-4 h-full max-h-[70vh]">
             <svelte:component this={inner} on:closemodal/>
         </div>

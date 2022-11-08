@@ -4,6 +4,7 @@
     import Right from "$icon/Right.svelte";
     import ZoomIn from "$icon/ZoomIn.svelte";
     import ZoomOut from "$icon/ZoomOut.svelte";
+    import PageButton from "$lib/styled/PageButton.svelte";
     import type {GameInstanceSiteWrapper} from "$modules/gameHandler.js";
     import {ALBUM, GAME, STATE} from "$stores/state";
     import {onMount} from "svelte";
@@ -61,11 +62,9 @@
 
 <div class="w-full relative overflow-visible flex items-center justify-center">
     <div class="w-8 mx-2 flex-shrink-0">
-        <button class="w-8 h-8 flex items-center justify-center bg-primary-500 rounded select-none
-            transition-colors duration-200" disabled="{stage === 0}" class:opacity-50={stage === 0}
-                on:click={() => changeStage(-1)} aria-label="Previous Step">
+        <PageButton class="w-8" disabled="{stage === 0}" label="Previous Step" on:click={() => changeStage(-1)}>
             <Left/>
-        </button>
+        </PageButton>
     </div>
     <div class="max-w-sm flex-grow flex flex-col items-end">
         <div class="max-w-sm w-full aspect-square bg-black relative overflow-auto" bind:this={canvasContainer}
@@ -89,22 +88,19 @@
                     </div>
                 {/if}
             </div>
-            <button aria-label="Toggle Zoom" class="w-8 h-8 flex-shrink-0 flex items-center justify-center bg-primary-500 rounded select-none
-            transition-colors duration-200 self-start" on:click={toggleZoom}>
+            <PageButton class="w-8 flex-shrink-0 self-start" label="Toggle Zoom" on:click={toggleZoom}>
                 {#if zoomed}
                     <ZoomOut/>
                 {:else}
                     <ZoomIn/>
                 {/if}
-            </button>
+            </PageButton>
         </div>
     </div>
     <div class="w-8 mx-2 flex-shrink-0">
-        <button class="w-8 h-8 flex items-center justify-center bg-primary-500 rounded select-none
-        transition-colors duration-200" disabled={stage >= maxStage} class:opacity-50={stage >= maxStage}
-                on:click={() => changeStage(1)} aria-label="Next Step">
+        <PageButton class="w-8" disabled={stage >= maxStage} label="Next Step" on:click={() => changeStage(1)}>
             <Right/>
-        </button>
+        </PageButton>
     </div>
 </div>
 
