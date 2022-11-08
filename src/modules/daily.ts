@@ -8,9 +8,9 @@ import {seededRNG} from "$modules/rng";
 const ZERO_DAY_TIMESTAMP = 1667487600000; // game begins 24h after this
 const MS_PER_DAY = 86400000;
 export const CURRENT_DAY = INDEV
-    ? 100000 + Math.floor(Math.random() * 100000)
-    : (Math.floor((Date.now() - ZERO_DAY_TIMESTAMP) / MS_PER_DAY)
-        + (typeof localStorage !== "undefined" ? (parseInt(localStorage.getItem("llalbum-day-offset")) || 0) : 0));
+        ? 100000 + Math.floor(Math.random() * 100000)
+        : (Math.floor((Date.now() - ZERO_DAY_TIMESTAMP) / MS_PER_DAY)
+                + (typeof localStorage !== "undefined" ? (parseInt(localStorage.getItem("llalbum-day-offset")) || 0) : 0));
 
 interface Pickable {
     id: number;
@@ -19,7 +19,7 @@ interface Pickable {
 
 function getFilteredPoolForDay<T extends (AlbumInfo | GameInfo)>(list: T[], day: number): (T & Pickable)[] {
     const pool: (T & Pickable)[] = list.map((item, id) => ({id, cumulativeWeight: 0, ...item}))
-        .filter(item => item.startOnDay <= day);
+            .filter(item => item.startOnDay <= day);
 
     pool.reduce((acc, item): number => {
         item.cumulativeWeight = acc + item.weight;
@@ -41,28 +41,23 @@ function pickFrom(list: Pickable[], rng: () => number, blocked: Set<number>): nu
 
 const DAILY_ROLL_CACHE: { [day: number]: { rolledAlbumId: number, rolledGameId: number } } = {};
 
+const FORCED_DAYS: { [day: number]: { rolledAlbumId: number, rolledGameId: number } } = {
+    // Hardcoding first few rounds as an "intro" - so the first week is one of each game, to give people a taste :)
+    1: {rolledAlbumId: 119, rolledGameId: 0},   // D1: Eutopia (Pixelated)
+    2: {rolledAlbumId: 144, rolledGameId: 4},   // D2: Bokura wa Ima no Naka de (Blinds H)
+    3: {rolledAlbumId: 10, rolledGameId: 7},    // D3: Starlight Prologue (Shuffled)
+    4: {rolledAlbumId: 86, rolledGameId: 6},    // D4: Torikoriko PLEASE!! (Tiles)
+    5: {rolledAlbumId: 146, rolledGameId: 2},   // D5: Susume Tomorrow / START:DASH!! (Blobs)
+    6: {rolledAlbumId: 123, rolledGameId: 3},   // D6: Eien no Isshun (Zoomed In)
+    7: {rolledAlbumId: 39, rolledGameId: 1}     // D7: Bouken Type A, B, C!! (Bubbles)
+};
+
 export function getIdsForDay(day: number): { rolledAlbumId: number, rolledGameId: number } {
     if (DAILY_ROLL_CACHE.hasOwnProperty(day)) {
         return DAILY_ROLL_CACHE[day];
     }
-
-    // Hardcoding first few rounds as an "intro" - so the first week is one of each game, to give people a taste :)
-    if (day <= 7) {
-        // D1: Eutopia (Pixelated)
-        //     This was a random roll I swear but since LLHeardle started with a Lanzhu solo too, this fits great lol
-        if (day === 1) return {rolledAlbumId: 119, rolledGameId: 0};
-        // D2: Bokura wa Ima no Naka de (Blinds H)
-        if (day === 2) return {rolledAlbumId: 144, rolledGameId: 4};
-        // D3: Starlight Prologue (Shuffled)
-        if (day === 3) return {rolledAlbumId: 10, rolledGameId: 7};
-        // D4: Torikoriko PLEASE!! (Tiles)
-        if (day === 4) return {rolledAlbumId: 86, rolledGameId: 6};
-        // D5: Susume Tomorrow / START:DASH!! (Blobs)
-        if (day === 5) return {rolledAlbumId: 146, rolledGameId: 2};
-        // D6: Eien no Isshun (Zoomed In)
-        if (day === 6) return {rolledAlbumId: 123, rolledGameId: 3};
-        // D7: Bouken Type A, B, C!! (Bubbles)
-        if (day === 7) return {rolledAlbumId: 39, rolledGameId: 1};
+    if (FORCED_DAYS.hasOwnProperty(day)) {
+        return FORCED_DAYS[day];
     }
 
     let rng: () => number;
