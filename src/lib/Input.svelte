@@ -100,7 +100,7 @@
         <PageButton class="w-32" disabled={!input} on:click={submit}>
             Submit
         </PageButton>
-        <PageButton class="w-32" disabled={skipDisabled || input.length > 0} on:click={skip}>
+        <PageButton class="w-32" disabled={skipDisabled || (input && input.length > 0)} on:click={skip}>
             {#if $STATE.failed < 5}
                 Skip Turn
             {:else}
