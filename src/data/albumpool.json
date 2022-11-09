@@ -2138,5 +2138,14 @@
         "artistEn": "A・ZU・NA",
         "titleJa": "Blue!",
         "artistJa": "A・ZU・NA"
+    },
+    {
+        "url": "/albumart/aqours_waaiwaiwai-waiwaiwai.jpg",
+        "startOnDay": 13,
+        "weight": 1000,
+        "titleEn": "Waaiwaiwai Waiwaiwai! (Love Live! Sunshine!! Aqours Uranohoshi Girls' High School RADIO!!! JMA Broadcasting Station Theme Song CD)",
+        "artistEn": "Aqours",
+        "titleJa": "わーいわいわい　わいわいわい！ (ラブライブ！サンシャイン!! Aqours浦の星女学院RADIO!!! JMA放送局 テーマソングCD)",
+        "artistJa": "Aqours"
     }
 ]
