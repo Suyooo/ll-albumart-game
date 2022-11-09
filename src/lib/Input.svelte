@@ -92,16 +92,16 @@
     <input class="flex-grow text-sm w-full rounded p-2 text-white bg-gray-700 ring-inset ring-2 ring-primary-500
                focus:ring-white" id="input" on:keydown={enterSubmit} placeholder="Which album is this?" type="text"
            use:autocomplete bind:value={input} bind:this={inputElement} on:autocomplete={setInputValue}>
-    <div class="w-full flex justify-between mt-2 items-center">
+    <div class="w-full flex flex-row-reverse justify-between mt-2">
+        <PageButton class="w-32" disabled={!input} on:click={submit}>
+            Submit
+        </PageButton>
         <PageButton class="w-32" disabled={skipDisabled} on:click={skip}>
             {#if $STATE.failed < 5}
                 Skip Turn
             {:else}
                 Give Up
             {/if}
-        </PageButton>
-        <PageButton class="w-32" disabled={!input} on:click={submit}>
-            Submit
         </PageButton>
     </div>
 </div>
