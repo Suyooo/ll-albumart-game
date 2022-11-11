@@ -372,7 +372,7 @@
     },
     {
         "url": "/albumart/aqours_bouken-type-a-b-c.jpg",
-        "startOnDay": 0,
+        "startOnDay": 999999,
         "weight": 1000,
         "titleEn": "Bouken Type A, B, C!!",
         "artistEn": "Aqours",
