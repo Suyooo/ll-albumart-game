@@ -107,7 +107,8 @@ const autocomplete: Action<HTMLInputElement> = (node: HTMLInputElement) => {
                                 ? fuzzysort.highlight(item.resultReal, "<mark>", "</mark>")
                                 : item.value["real" + lang])
                                 .replace(" [", " <span>[").replace(" <mark>[", " <span><mark>[")
-                        + "</span>)</div>";
+                        + (item.value["real" + lang].indexOf("[") !== -1 ? "</span>" : "")
+                        + ")</div>";
             }
             return itemElement;
         },

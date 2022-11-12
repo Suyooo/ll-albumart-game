@@ -1563,10 +1563,12 @@
         "url": "/albumart/muse_love-live-radio-kagai-katsudou-nicorinpana-theme-song-djcd-after-school-navigators-listen-to-my-heart.jpg",
         "startOnDay": 0,
         "weight": 1000,
-        "titleEn": "after school NAVIGATORS / Listen to my heart!! (Love Live Radio Kagai Katsudou NicoRinPana Theme Song DJCD)",
+        "titleEn": "after school NAVIGATORS / Listen to my heart!!",
         "artistEn": "µ's",
-        "titleJa": "after school NAVIGATORS / Listen to my heart!! (ラブライ部 ラジオ課外活動 にこりんぱな テーマソングDJCD)",
-        "artistJa": "µ's"
+        "realEn": "Love Live Radio Kagai Katsudou NicoRinPana Theme Song DJCD",
+        "titleJa": "after school NAVIGATORS / Listen to my heart!!",
+        "artistJa": "µ's",
+        "realJa": "ラブライ部 ラジオ課外活動 にこりんぱな テーマソングDJCD"
     },
     {
         "url": "/albumart/umi-sonoda_love-live-solo-live-from-muse-sonoda-umi-umiiro-shoujo-ni-miserarete.jpg",
@@ -2143,9 +2145,11 @@
         "url": "/albumart/aqours_waaiwaiwai-waiwaiwai.jpg",
         "startOnDay": 13,
         "weight": 1000,
-        "titleEn": "Waaiwaiwai Waiwaiwai! (Love Live! Sunshine!! Aqours Uranohoshi Girls' High School RADIO!!! JMA Broadcasting Station Theme Song CD)",
+        "titleEn": "Waaiwaiwai Waiwaiwai!",
         "artistEn": "Aqours",
-        "titleJa": "わーいわいわい　わいわいわい！ (ラブライブ！サンシャイン!! Aqours浦の星女学院RADIO!!! JMA放送局 テーマソングCD)",
-        "artistJa": "Aqours"
+        "realEn": "Love Live! Sunshine!! Aqours Uranohoshi Girls' High School RADIO!!! JMA Broadcasting Station Theme Song CD",
+        "titleJa": "わーいわいわい　わいわいわい！",
+        "artistJa": "Aqours",
+        "realJa": "ラブライブ！サンシャイン!! Aqours浦の星女学院RADIO!!! JMA放送局 テーマソングCD"
     }
 ]
