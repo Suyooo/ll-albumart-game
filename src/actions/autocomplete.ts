@@ -51,7 +51,7 @@ const acTargets: ACTarget[] = ALBUM_POOL.map(album => {
 const preferJa = navigator.language.startsWith("ja");
 
 const acOptions: Fuzzysort.KeysOptions<ACTarget> = {
-    threshold: -10000,
+    threshold: -15000,
     limit: 5,
     all: false,
     keys: preferJa
@@ -60,7 +60,7 @@ const acOptions: Fuzzysort.KeysOptions<ACTarget> = {
     // Double badness for realEn/realJa-only matches (so title matches take priority in sorting)
     scoreFn: (res) =>
             res.reduce((max, v, i) =>
-                    v ? Math.max(max, v.score * (i >= 4 ? 2 : 1)) : max, -10001)
+                    v ? Math.max(max, v.score * (i >= 4 ? 1.5 : 1)) : max, -20000)
 };
 
 const autocomplete: Action<HTMLInputElement> = (node: HTMLInputElement) => {
