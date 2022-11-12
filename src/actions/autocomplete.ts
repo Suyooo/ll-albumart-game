@@ -14,11 +14,11 @@ interface ACTarget extends AutocompleteItem {
 }
 
 interface ACResult extends AutocompleteItem {
-    label: string,
     value: AlbumInfo,
     isEn: boolean,
-    result: Fuzzysort.Result,
-    prefixArtist?: string
+    resultTitle?: Fuzzysort.Result,
+    resultTitleHasArtist: boolean,
+    resultReal?: Fuzzysort.Result
 }
 
 function punctuationFullWidthToHalfWidth(s: string): string {
@@ -40,6 +40,8 @@ const acTargets: ACTarget[] = ALBUM_POOL.map(album => {
         ja: fuzzysort.prepare(punctuationFullWidthToHalfWidth(ja)),
         enTitleOnly: fuzzysort.prepare(punctuationFullWidthToHalfWidth(album.titleEn)),
         jaTitleOnly: fuzzysort.prepare(punctuationFullWidthToHalfWidth(album.titleJa)),
+        enRealOnly: album.realEn && fuzzysort.prepare(punctuationFullWidthToHalfWidth(album.realEn)),
+        jaRealOnly: album.realJa && fuzzysort.prepare(punctuationFullWidthToHalfWidth(album.realJa)),
         album: album
     }
 });
@@ -52,7 +54,11 @@ const acOptions: Fuzzysort.KeysOptions<ACTarget> = {
     threshold: -10000,
     limit: 5,
     all: false,
-    keys: preferJa ? ["ja", "en", "jaTitleOnly", "enTitleOnly"] : ["en", "ja", "enTitleOnly", "jaTitleOnly"]
+    keys: preferJa ? ["ja", "en", "jaTitleOnly", "enTitleOnly", "jaRealOnly", "enRealOnly"] : ["en", "ja", "enTitleOnly", "jaTitleOnly", "enRealOnly", "jaRealOnly"],
+    // Double badness for realEn/realJa-only matches (so title matches take priority in sorting)
+    scoreFn: (res) =>
+            res.reduce((max, v, i) =>
+                    v ? Math.max(max, v.score * (i >= 4 ? 2 : 1)) : max, -10001)
 };
 
 const autocomplete: Action<HTMLInputElement> = (node: HTMLInputElement) => {
@@ -64,17 +70,17 @@ const autocomplete: Action<HTMLInputElement> = (node: HTMLInputElement) => {
             } else {
                 update(fuzzysort.go(punctuationFullWidthToHalfWidth(text), acTargets, acOptions)
                         .map(keysResult => {
-                            const result = keysResult[0] ?? keysResult[1] ?? keysResult[2] ?? keysResult[3];
+                            const resultTitle = keysResult[0] ?? keysResult[1] ?? keysResult[2] ?? keysResult[3];
+                            const resultReal = keysResult[4] ?? keysResult[5];
                             const isEn = preferJa
-                                    ? result === keysResult[1] || result === keysResult[3]
-                                    : result === keysResult[0] || result === keysResult[2];
+                                    ? resultTitle === keysResult[1] || resultTitle === keysResult[3]
+                                    || resultReal === keysResult[5]
+                                    : resultTitle === keysResult[0] || resultTitle === keysResult[2]
+                                    || resultReal === keysResult[4];
                             const value = keysResult.obj.album;
-                            const prefixArtist = (result !== keysResult[0] && result !== keysResult[1])
-                                    ? (isEn ? value.artistEn : value.artistJa)
-                                    : undefined;
+                            const resultTitleHasArtist = resultTitle === keysResult[0] || resultTitle === keysResult[1];
                             return <ACResult>{
-                                result, value, prefixArtist, isEn,
-                                label: (prefixArtist ? prefixArtist + " - " : "") + result.target,
+                                resultTitle, resultTitleHasArtist, resultReal, value, isEn
                             };
                         })
                 );
@@ -83,19 +89,24 @@ const autocomplete: Action<HTMLInputElement> = (node: HTMLInputElement) => {
         onSelect: function (item: ACResult): void {
             node.dispatchEvent(new CustomEvent<string>("autocomplete", {
                 detail: item.isEn
-                    ? item.value.artistEn + " - " + item.value.titleEn
-                    : item.value.artistJa + " - " + item.value.titleJa
+                        ? item.value.artistEn + " - " + item.value.titleEn
+                        : item.value.artistJa + " - " + item.value.titleJa
             }));
         },
         render: function (item: ACResult): HTMLDivElement | undefined {
+            const lang = (item.isEn ? "En" : "Ja");
             const itemElement = document.createElement("div");
-            itemElement.innerHTML = (item.prefixArtist ? item.prefixArtist + " - " : "") +
-                    fuzzysort.highlight(item.result, "<mark>", "</mark>") || item.label;
-            if ((item.isEn && item.value.realEn) || (!item.isEn && item.value.realJa)) {
+            itemElement.innerHTML = item.resultTitle
+                    ? (item.resultTitleHasArtist ? "" : item.value["artist" + lang] + " - ") +
+                    fuzzysort.highlight(item.resultTitle, "<mark>", "</mark>")
+                    : item.value["artist" + lang] + " - " + item.value["title" + lang];
+            if (item.value["real" + lang]) {
                 itemElement.innerHTML +=
                         "<div>("
-                        + (item.isEn ? item.value.realEn : item.value.realJa)
-                                .replace(" [", " <span>[")
+                        + (item.resultReal
+                                ? fuzzysort.highlight(item.resultReal, "<mark>", "</mark>")
+                                : item.value["real" + lang])
+                                .replace(" [", " <span>[").replace(" <mark>[", " <span><mark>[")
                         + "</span>)</div>";
             }
             return itemElement;
