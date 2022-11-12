@@ -54,7 +54,9 @@ const acOptions: Fuzzysort.KeysOptions<ACTarget> = {
     threshold: -10000,
     limit: 5,
     all: false,
-    keys: preferJa ? ["ja", "en", "jaTitleOnly", "enTitleOnly", "jaRealOnly", "enRealOnly"] : ["en", "ja", "enTitleOnly", "jaTitleOnly", "enRealOnly", "jaRealOnly"],
+    keys: preferJa
+            ? ["ja", "en", "jaTitleOnly", "enTitleOnly", "jaRealOnly", "enRealOnly"]
+            : ["en", "ja", "enTitleOnly", "jaTitleOnly", "enRealOnly", "jaRealOnly"],
     // Double badness for realEn/realJa-only matches (so title matches take priority in sorting)
     scoreFn: (res) =>
             res.reduce((max, v, i) =>
@@ -73,10 +75,10 @@ const autocomplete: Action<HTMLInputElement> = (node: HTMLInputElement) => {
                             const resultTitle = keysResult[0] ?? keysResult[1] ?? keysResult[2] ?? keysResult[3];
                             const resultReal = keysResult[4] ?? keysResult[5];
                             const isEn = preferJa
-                                    ? resultTitle === keysResult[1] || resultTitle === keysResult[3]
-                                    || resultReal === keysResult[5]
-                                    : resultTitle === keysResult[0] || resultTitle === keysResult[2]
-                                    || resultReal === keysResult[4];
+                                    ? (resultTitle && (resultTitle === keysResult[1] || resultTitle === keysResult[3]))
+                                    || (resultReal && resultReal === keysResult[5])
+                                    : (resultTitle && (resultTitle === keysResult[0] || resultTitle === keysResult[2]))
+                                    || (resultReal && resultReal === keysResult[4]);
                             const value = keysResult.obj.album;
                             const resultTitleHasArtist = resultTitle === keysResult[0] || resultTitle === keysResult[1];
                             return <ACResult>{
