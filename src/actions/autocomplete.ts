@@ -57,7 +57,7 @@ const acOptions: Fuzzysort.KeysOptions<ACTarget> = {
     keys: preferJa
             ? ["ja", "en", "jaTitleOnly", "enTitleOnly", "jaRealOnly", "enRealOnly"]
             : ["en", "ja", "enTitleOnly", "jaTitleOnly", "enRealOnly", "jaRealOnly"],
-    // Double badness for realEn/realJa-only matches (so title matches take priority in sorting)
+    // 1.5x badness for realEn/realJa-only matches (so title matches take priority in sorting)
     scoreFn: (res) =>
             res.reduce((max, v, i) =>
                     v ? Math.max(max, v.score * (i >= 4 ? 1.5 : 1)) : max, -20000)
