@@ -68,7 +68,11 @@ export function getIdsForDay(day: number): { rolledAlbumId: number, rolledGameId
         day = 999998;
     } else {
         rng = seededRNG(day);
-        if (rerollDays.has(day)) rng(); // throw away a roll
+        let rerolls = rerollDays[day] || 0;
+        while (rerolls > 0) {
+            rng(); // throw away a roll
+            rerolls--;
+        }
 
         // Avoid repeats: last 100 for albums, last 3 for game modes.
         // Caution: Changing these numbers will break things immediately and forever
