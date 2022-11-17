@@ -49,7 +49,15 @@ const FORCED_DAYS: { [day: number]: { rolledAlbumId: number, rolledGameId: numbe
     4: {rolledAlbumId: 86, rolledGameId: 6},    // D4: Torikoriko PLEASE!! (Tiles)
     5: {rolledAlbumId: 146, rolledGameId: 2},   // D5: Susume Tomorrow / START:DASH!! (Blobs)
     6: {rolledAlbumId: 123, rolledGameId: 3},   // D6: Eien no Isshun (Zoomed In)
-    7: {rolledAlbumId: 39, rolledGameId: 1}     // D7: Bouken Type A, B, C!! (Bubbles)
+    7: {rolledAlbumId: 39, rolledGameId: 1},     // D7: Bouken Type A, B, C!! (Bubbles)
+    // First random week - I increased the game reroll limit on day 14, so results might be different otherwise
+    8: {rolledAlbumId: 32, rolledGameId: 4},
+    9: {rolledAlbumId: 26, rolledGameId: 0},
+    10: {rolledAlbumId: 115, rolledGameId: 2},
+    11: {rolledAlbumId: 8, rolledGameId: 1},
+    12: {rolledAlbumId: 118, rolledGameId: 5},
+    13: {rolledAlbumId: 229, rolledGameId: 6},
+    14: {rolledAlbumId: 186, rolledGameId: 7}
 };
 
 export function getIdsForDay(day: number): { rolledAlbumId: number, rolledGameId: number } {
@@ -87,7 +95,7 @@ export function getIdsForDay(day: number): { rolledAlbumId: number, rolledGameId
         for (let i = Math.max(day - 100, 1); i < day; i++) {
             const prevDayIds = getIdsForDay(i);
             blockedAlbumIds.add(prevDayIds.rolledAlbumId);
-            if (i >= day - 3) {
+            if (i >= day - 5) {
                 if (GAME_POOL[prevDayIds.rolledGameId].groupId !== undefined) {
                     blockedGameIds.add(-GAME_POOL[prevDayIds.rolledGameId].groupId);
                 } else {
@@ -108,5 +116,6 @@ export function getIdsForDay(day: number): { rolledAlbumId: number, rolledGameId
 
     const ret = {rolledAlbumId, rolledGameId};
     DAILY_ROLL_CACHE[day] = ret;
+    console.log(day, ret);
     return ret;
 }
