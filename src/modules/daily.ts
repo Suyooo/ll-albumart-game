@@ -116,6 +116,5 @@ export function getIdsForDay(day: number): { rolledAlbumId: number, rolledGameId
 
     const ret = {rolledAlbumId, rolledGameId};
     DAILY_ROLL_CACHE[day] = ret;
-    console.log(day, ret);
     return ret;
 }
