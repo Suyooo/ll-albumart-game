@@ -3,7 +3,7 @@
     import Close from "$icon/Close.svelte";
     import HeaderButton from "$lib/styled/HeaderButton.svelte";
     import {createEventDispatcher} from "svelte";
-    import {fade} from "svelte/transition";
+    import {fade} from "svelte-reduced-motion/transition";
 
     export let inner: any;
     export let title: string;

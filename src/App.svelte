@@ -9,7 +9,7 @@
     import Result from "$lib/Result.svelte";
     import {ALL_STATES, STATE} from "$stores/state";
     import {onMount, setContext} from "svelte";
-    import {fade} from 'svelte/transition';
+    import {fade} from "svelte-reduced-motion/transition";
 
     let modalTitle: string = "";
     let modalComponent = null;

@@ -2,9 +2,9 @@
     import Checkmark from "$icon/Copied.svelte";
     import Share from "$icon/Share.svelte";
     import isDesktop from "$modules/isDesktop";
-    import {STATE, ALBUM} from "$stores/state.js";
+    import {ALBUM, STATE} from "$stores/state.js";
     import {getContext, onMount} from "svelte";
-    import {fade, fly} from "svelte/transition";
+    import {fade, fly} from "svelte-reduced-motion/transition";
 
     let copied: boolean = false;
     let timerSpeak: string, timerText: string;

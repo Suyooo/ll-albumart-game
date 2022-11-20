@@ -5,7 +5,7 @@
     import {ALBUM, STATE} from "$stores/state";
     import {STATISTICS} from "$stores/statistics";
     import {getContext} from "svelte";
-    import {fly} from 'svelte/transition';
+    import {fly} from "svelte-reduced-motion/transition";
 
     let input: string, skipDisabled: boolean = false, showRejected: boolean = false,
             inputElement: HTMLInputElement & { autocompleterOpen?: () => void };

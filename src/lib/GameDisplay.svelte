@@ -8,7 +8,7 @@
     import type {GameInstanceSiteWrapper} from "$modules/gameHandler.js";
     import {ALBUM, GAME, STATE} from "$stores/state";
     import {onMount} from "svelte";
-    import {fly, scale} from 'svelte/transition';
+    import {fly, scale} from "svelte-reduced-motion/transition";
 
     export let game: GameInstanceSiteWrapper;
 
@@ -116,6 +116,12 @@
     div.zoomed > :global(canvas) {
         @apply w-[640px];
         transition: width .2s;
+    }
+
+    @media screen and (prefers-reduced-motion: reduce) {
+        div.zoomed > :global(canvas) {
+            transition: none;
+        }
     }
 
     .glow {

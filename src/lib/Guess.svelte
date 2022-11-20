@@ -3,7 +3,7 @@
     import Skip from "$icon/Skip.svelte";
     import Wrong from "$icon/Wrong.svelte";
     import {STATE} from "$stores/state";
-    import {fly} from "svelte/transition";
+    import {fly} from "svelte-reduced-motion/transition";
 
     export let i: number = 0;
     $: guess = $STATE.guesses[i];
