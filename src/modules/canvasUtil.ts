@@ -1,5 +1,5 @@
-import {createCanvas} from "canvas";
 import type {Canvas, CanvasRenderingContext2D, Image} from "canvas";
+import {createCanvas} from "canvas";
 
 export function smoothScaleSquare(ctx: CanvasRenderingContext2D, srcSize: number, dstSize: number) {
     if (srcSize === dstSize) return;
@@ -15,7 +15,7 @@ export function smoothScaleSquare(ctx: CanvasRenderingContext2D, srcSize: number
             const newSrcSize = Math.floor(currentSrcSize / 2);
             const newTempCanvas = createCanvas(newSrcSize, newSrcSize);
             newTempCanvas.getContext("2d").drawImage(tempCanvas, 0, 0, currentSrcSize, currentSrcSize,
-                0, 0, newSrcSize, newSrcSize);
+                    0, 0, newSrcSize, newSrcSize);
             releaseCanvas(tempCanvas);
             tempCanvas = newTempCanvas;
             currentSrcSize = newSrcSize;
@@ -28,7 +28,7 @@ export function smoothScaleSquare(ctx: CanvasRenderingContext2D, srcSize: number
             const newSrcSize = Math.ceil(currentSrcSize * 2);
             const newTempCanvas = createCanvas(newSrcSize, newSrcSize);
             newTempCanvas.getContext("2d").drawImage(tempCanvas, 0, 0, currentSrcSize, currentSrcSize,
-                0, 0, newSrcSize, newSrcSize);
+                    0, 0, newSrcSize, newSrcSize);
             releaseCanvas(tempCanvas);
             tempCanvas = newTempCanvas;
             currentSrcSize = newSrcSize;
@@ -67,4 +67,10 @@ export function smoothScaleSquareWithSrc(ctx: CanvasRenderingContext2D, src: Can
 export function releaseCanvas(canvas: Canvas) {
     canvas.width = 0;
     canvas.height = 0;
+}
+
+export function yieldToMain() {
+    return new Promise(resolve => {
+        setTimeout(resolve, 0);
+    });
 }

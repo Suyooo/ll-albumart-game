@@ -52,16 +52,17 @@ Some important hints:
   image. Ensure that you only use standard canvas methods, even if node-canvas implements a few helpers. (The
   non-standard parts are listed on [their GitHub page](https://github.com/Automattic/node-canvas#non-standard-apis).)
 * Performance might be slow depending on how many operations you do. One way to help is to set `stacked` and only draw
-  changed regions for guesses 2-6. Another possibility is to use `requestAnimationFrame` to only draw some parts of the
-  image in each frame (see `game-tiles.ts` for an example, though it is used to do a fancy animation instead of for
-  performance reasons in that one). However, if you this method, make sure that (a) the album art is fully obscured on
-  every frame if you use this method, and (b) that you check for the existence of the method first by using
-  `typeof requestAnimationFrame !== "undefined"` - you cannot use it on the server side when it is creating the share
-  image, so draw the entire canvas at once in this case.
-* Another approach might be pre-drawing in the background (see `game-bubbles.ts`), but make sure the first canvas is
-  still fully drawn right away to make sure getShareCanvas() can get the finished first guess image.
+  changed regions for guesses 2-6. Another possibility is to make the function `async` and use `yieldToMain()` from
+  `canvasUtil.ts` to split the work into batches (see `game-bubbles.ts` for an example). However, if you use this
+  approach, make sure that (a) the album art is fully obscured no matter which state the canvas might be shown in, and
+  (b) that the `getShareCanvas` method is synchronous, as the share canvas script will not `await` any promises.
 * Also, if you use any temporary canvases at all to help with the configuration, make sure you never use the full image.
   Use only the scale canvas and call `releaseCanvas()` in `canvasUtil.ts` on them after you're done, because iOS is
   trash and has extremely awful limits specifically for total canvas size
+* You can use `requestAnimationFrame` to only draw some parts of the image in each frame and make neat animations (see
+  `game-tiles.ts` for an example). The same guidelines as above apply: fully obscure the album art at every step, and
+  don't do any animations in `getShareCanvas`. If you use `getCanvasForGuess(0)` for the share canvas, you should use
+  `typeof requestAnimationFrame !== "undefined"` to check whether the code is running in a browser, where the method is
+  available, or it's running on the server, where the animation should be skipped and the entire canvas drawn at once.
 
 If you've made a neat game mode, feel free to send in a pull request, so it can be added to the site :)

@@ -1,15 +1,16 @@
 /** @type {import("../gameHandler").Game} */
 
-import {createCanvas} from "canvas";
-import type {Canvas, Image} from "canvas";
 import type {AlbumInfo} from "$data/albumpool";
-import {CANVAS_SIZE} from "../gameHandler";
+import {yieldToMain} from "$modules/canvasUtil";
+import type {Canvas, Image} from "canvas";
+import {createCanvas} from "canvas";
 import type {GameInstance} from "../gameHandler";
+import {CANVAS_SIZE} from "../gameHandler";
 import {seededRNG} from "../rng";
 
 export const stacked = true;
 
-const MAX_PER_FRAME = 10;
+const MAX_PER_BATCH = 50;
 const BUBBLE_AMOUNT = [200, 700, 1000, 2000, 4000, 8000];
 const BUBBLE_SIZE = [50, 30, 15, 10, 7, 5];
 
@@ -29,17 +30,31 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
     const scaledImageCtx = scaledImage.getContext("2d");
     const data = scaledImageCtx.getImageData(0, 0, CANVAS_SIZE, CANVAS_SIZE).data;
 
-    for (let i = 0; i < 6; i++) {
-        const rng = seededRNG(day * 241 + i);
-        const ctx = CACHE[i].getContext("2d");
+    const rngZero = seededRNG(day * 241);
+    const ctxZero = CACHE[0].getContext("2d");
+    ctxZero.lineWidth = BUBBLE_SIZE[0] * 2;
+    ctxZero.lineCap = "round";
+    for (let j = 0; j < BUBBLE_AMOUNT[0]; j++) {
+        const x = Math.floor(CANVAS_SIZE * rngZero());
+        const y = Math.floor(CANVAS_SIZE * rngZero());
 
-        let bubblesLeft = BUBBLE_AMOUNT[i];
-        // Draw first guess instantly (for sharing), the rest can wait
-        const maxPerFrame = i === 0 ? bubblesLeft : MAX_PER_FRAME;
-        const drawBubbles = (): void => {
+        ctxZero.beginPath();
+        ctxZero.moveTo(x, y);
+        ctxZero.lineTo(x + 1, y);
+        const p = (y * CANVAS_SIZE + x) * 4;
+        ctxZero.strokeStyle = `rgba(${data[p]},${data[p + 1]},${data[p + 2]},${data[p + 3]})`;
+        ctxZero.stroke();
+    }
+
+    (async () => {
+        for (let i = 1; i < 6; i++) {
+            const rng = seededRNG(day * 241 + i);
+            const ctx = CACHE[i].getContext("2d");
+
+            let thisBatch = MAX_PER_BATCH;
             ctx.lineWidth = BUBBLE_SIZE[i] * 2;
             ctx.lineCap = "round";
-            for (let j = 0; j < maxPerFrame && bubblesLeft; j++) {
+            for (let j = 0; j < BUBBLE_AMOUNT[i]; j++) {
                 const x = Math.floor(CANVAS_SIZE * rng());
                 const y = Math.floor(CANVAS_SIZE * rng());
 
@@ -50,16 +65,14 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
                 ctx.strokeStyle = `rgba(${data[p]},${data[p + 1]},${data[p + 2]},${data[p + 3]})`;
                 ctx.stroke();
 
-                bubblesLeft--;
-            }
-            if (bubblesLeft > 0) {
-                // Running in browser? Use requestAnimationFrame to do work in the background, otherwise just draw all
-                if (typeof requestAnimationFrame !== "undefined") requestAnimationFrame(drawBubbles);
-                else drawBubbles();
+                thisBatch--;
+                if (thisBatch <= 0) {
+                    thisBatch = MAX_PER_BATCH;
+                    await yieldToMain();
+                }
             }
         }
-        drawBubbles();
-    }
+    })();
 
     const getCanvasForGuess = (failed: number): Canvas => {
         return CACHE[failed];
