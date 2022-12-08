@@ -2151,5 +2151,23 @@
         "titleJa": "わーいわいわい　わいわいわい！",
         "artistJa": "Aqours",
         "realJa": "ラブライブ！サンシャイン!! Aqours浦の星女学院RADIO!!! JMA放送局 テーマソングCD"
+    },
+    {
+        "url": "/albumart/qu4rtz_pastel.jpg",
+        "startOnDay": 36,
+        "weight": 1000,
+        "titleEn": "PASTEL",
+        "artistEn": "QU4RTZ",
+        "titleJa": "PASTEL",
+        "artistJa": "QU4RTZ"
+    },
+    {
+        "url": "/albumart/wien-margarete_butterfly-wing-edelstein.jpg",
+        "startOnDay": 36,
+        "weight": 1000,
+        "titleEn": "Butterfly Wing / Edelstein",
+        "artistEn": "Wien Margarete (CV: Yuina)",
+        "titleJa": "Butterfly Wing / エーデルシュタイン",
+        "artistJa": "ウィーン・マルガレーテ(CV.ゆいな)"
     }
 ]
