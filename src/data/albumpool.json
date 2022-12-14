@@ -2169,5 +2169,14 @@
         "artistEn": "Wien Margarete (CV: Yuina)",
         "titleJa": "Butterfly Wing / エーデルシュタイン",
         "artistJa": "ウィーン・マルガレーテ(CV.ゆいな)"
+    },
+    {
+        "url": "/albumart/school-idol-musical_mikansei-dream.png",
+        "startOnDay": 50,
+        "weight": 1000,
+        "titleEn": "Mikansei Dream!",
+        "artistEn": "Love Live! School Idol Musical",
+        "titleJa": "未完成ドリーム！",
+        "artistJa": "ラブライブ！スクールアイドルミュージカル"
     }
 ]
