@@ -6,7 +6,8 @@ export interface GameInfo {
     name: string,
     description: string,
     weight: number,
-    groupId?: number
+    groupId?: number,
+    messageOverride?: string
 }
 
 export const GAME_POOL: GameInfo[] = <GameInfo[]>json;

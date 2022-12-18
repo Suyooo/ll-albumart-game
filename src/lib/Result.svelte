@@ -2,7 +2,7 @@
     import Checkmark from "$icon/Copied.svelte";
     import Share from "$icon/Share.svelte";
     import isDesktop from "$modules/isDesktop";
-    import {ALBUM, STATE} from "$stores/state.js";
+    import {ALBUM, GAME, STATE} from "$stores/state.js";
     import {getContext, onMount} from "svelte";
     import {fade, fly} from "svelte-reduced-motion/transition";
 
@@ -69,8 +69,10 @@
 </script>
 
 <div class="flex flex-col items-center mt-12" in:fly={{y: -50, duration: 1000}}>
-    <h2 class="tracking-widest uppercase font-bold text-2xl">
-        {#if !$STATE.cleared}
+    <h2 class="tracking-widest uppercase font-bold text-2xl" class:text-primary-300={GAME.messageOverride}>
+        {#if GAME.messageOverride}
+            {GAME.messageOverride}
+        {:else if !$STATE.cleared}
             Too bad
         {:else if $STATE.failed === 5}
             Close one
