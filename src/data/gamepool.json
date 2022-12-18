@@ -56,5 +56,13 @@
     "name": "Shuffled",
     "description": "The album art has been split up into tiny pieces and shuffled.",
     "weight": 1000
+  },
+  {
+    "filename": "special-firework",
+    "startOnDay": 999999,
+    "name": "Fireworks",
+    "description": "Small parts of the album art are lit up one by one.",
+    "weight": 0,
+    "messageOverride": "Happy New Year!"
   }
 ]

@@ -19,7 +19,7 @@ interface Pickable {
 
 function getFilteredPoolForDay<T extends (AlbumInfo | GameInfo)>(list: T[], day: number): (T & Pickable)[] {
     const pool: (T & Pickable)[] = list.map((item, id) => ({id, cumulativeWeight: 0, ...item}))
-            .filter(item => item.startOnDay <= day);
+            .filter(item => item.startOnDay <= day && item.weight > 0);
 
     pool.reduce((acc, item): number => {
         item.cumulativeWeight = acc + item.weight;
@@ -49,7 +49,7 @@ const FORCED_DAYS: { [day: number]: { rolledAlbumId: number, rolledGameId: numbe
     4: {rolledAlbumId: 86, rolledGameId: 6},    // D4: Torikoriko PLEASE!! (Tiles)
     5: {rolledAlbumId: 146, rolledGameId: 2},   // D5: Susume Tomorrow / START:DASH!! (Blobs)
     6: {rolledAlbumId: 123, rolledGameId: 3},   // D6: Eien no Isshun (Zoomed In)
-    7: {rolledAlbumId: 39, rolledGameId: 1},     // D7: Bouken Type A, B, C!! (Bubbles)
+    7: {rolledAlbumId: 39, rolledGameId: 1},    // D7: Bouken Type A, B, C!! (Bubbles)
     // First random week - I increased the game reroll limit on day 14, so results might be different otherwise
     8: {rolledAlbumId: 32, rolledGameId: 4},
     9: {rolledAlbumId: 26, rolledGameId: 0},
@@ -57,7 +57,8 @@ const FORCED_DAYS: { [day: number]: { rolledAlbumId: number, rolledGameId: numbe
     11: {rolledAlbumId: 8, rolledGameId: 1},
     12: {rolledAlbumId: 118, rolledGameId: 5},
     13: {rolledAlbumId: 229, rolledGameId: 6},
-    14: {rolledAlbumId: 186, rolledGameId: 7}
+    14: {rolledAlbumId: 186, rolledGameId: 7},
+    58: {rolledAlbumId: 9, rolledGameId: 8}   // New Year 2023: Special Fireworks Mode
 };
 
 export function getIdsForDay(day: number): { rolledAlbumId: number, rolledGameId: number } {
