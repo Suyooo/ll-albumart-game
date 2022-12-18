@@ -1,11 +1,11 @@
 /** @type {import("../gameHandler").Game} */
 
-import {createCanvas} from "canvas";
-import type {Canvas, Image} from "canvas";
 import type {AlbumInfo} from "$data/albumpool";
+import type {Canvas, Image} from "canvas";
+import {createCanvas} from "canvas";
 import {smoothScaleSquareWithSrc} from "../canvasUtil";
-import {CANVAS_SIZE} from "../gameHandler";
 import type {GameInstance} from "../gameHandler";
+import {CANVAS_SIZE} from "../gameHandler";
 import {seededRNG} from "../rng";
 
 export const stacked = false;
@@ -27,10 +27,12 @@ export function getGameInstance(day: number, _album: AlbumInfo, image: Image): G
         } while (closestDistance < MAX_SIZE);
 
         if (i == 0) { // first guess always on left or right border, never corners
+            // Bugfix from day 46 onwards: Used MAX_SIZE before, should be SIZE[0]
+            const checkSize = day < 46 ? MAX_SIZE : SIZE[0];
             if (rng() < 0.5) x = 0;
-            else x = 1 - MAX_SIZE;
-            if (y < MAX_SIZE) y = MAX_SIZE;
-            else if (y >= 1 - MAX_SIZE * 2) y = 1 - MAX_SIZE * 2;
+            else x = 1 - checkSize;
+            if (y < checkSize) y = checkSize;
+            else if (y >= 1 - checkSize * 2) y = 1 - checkSize * 2;
         }
         positions.push([x, y]);
     }
