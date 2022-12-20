@@ -14,19 +14,20 @@ const TILES_TOTAL = TILES_PER_AXIS * TILES_PER_AXIS;
 const TILE_POS = new Array(TILES_PER_AXIS + 1).fill(0).map((_, i) =>
     Math.floor(CANVAS_SIZE * i / TILES_PER_AXIS));
 
-const AMOUNT = [9, 20, 40, 60, 90, 120];
-const MAX_AMOUNT = AMOUNT.reduce((max, cur) => cur > max ? cur : max, 0);
+const AMOUNT = [[6, 16, 40, 60, 90, 120], [6, 16, 40, 60, 90, 120]];
+const MAX_AMOUNT = AMOUNT.map(a => a.reduce((max, cur) => cur > max ? cur : max, 0));
 
 export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, scaledImage: Canvas): GameInstance {
     const rng = seededRNG(day * 149);
     const positions: number[] = [];
-    for (let i = 0; i < MAX_AMOUNT; i++) {
+    const balanceVersion = day < 48 ? 0 : 1;
+    for (let i = 0; i < MAX_AMOUNT[balanceVersion]; i++) {
         let p: number, px: number, py: number;
         do {
             p = Math.floor(TILES_TOTAL * rng());
             px = Math.floor(p % TILES_PER_AXIS / 2);
             py = Math.floor(p / TILES_PER_AXIS / 2);
-        } while (positions.indexOf(p) !== -1 || (i < AMOUNT[0]
+        } while (positions.indexOf(p) !== -1 || (i < AMOUNT[balanceVersion][0]
             && (px == 0 || px == TILES_PER_AXIS / 2 - 1 || py == 0 || py == TILES_PER_AXIS / 2 - 1
                 || (px > 1 && px < TILES_PER_AXIS / 2 - 1 && py > 1))));
         positions.push(p);
@@ -36,7 +37,7 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
         const canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
         const ctx = canvas.getContext("2d");
 
-        let i = failed === 0 ? 0 : AMOUNT[failed - 1];
+        let i = failed === 0 ? 0 : AMOUNT[balanceVersion][failed - 1];
         const revealTile = (): void => {
             const p = positions[i];
             const px = p % TILES_PER_AXIS;
@@ -47,7 +48,7 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
             const h = TILE_POS[py + 1] - y;
             ctx.drawImage(scaledImage, x - 1, y - 1, w + 1, h + 1, x - 1, y - 1, w + 1, h + 1);
             i++;
-            if (i < AMOUNT[failed]) {
+            if (i < AMOUNT[balanceVersion][failed]) {
                 // Don't have to care about browser/server check, getShareCanvas() doesn't call getCanvasForGuess()
                 requestAnimationFrame(revealTile);
             }
@@ -61,14 +62,15 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
         const canvas = createCanvas(tileSize * 3, tileSize * 3);
         const ctx = canvas.getContext("2d");
 
-        for (let i = 0; i < 9; i++) {
+        for (let i = 0; i < (balanceVersion === 0 ? 9 : 6); i++) {
             const x = TILE_POS[positions[i] % TILES_PER_AXIS];
             const y = TILE_POS[Math.floor(positions[i] / TILES_PER_AXIS)];
             const cx = i % 3;
-            const cy = Math.floor(i / 3);
+            const cy = Math.floor(i / 3) + (balanceVersion === 0 ? 0 : 0.5);
             ctx.drawImage(scaledImage, x, y, tileSize, tileSize,
                 cx * tileSize, cy * tileSize, tileSize, tileSize);
         }
+
         return canvas;
     };
     return {getCanvasForGuess, getShareCanvas}
