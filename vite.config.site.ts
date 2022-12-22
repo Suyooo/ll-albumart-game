@@ -31,7 +31,9 @@ export default defineConfig(({command}) => {
             }
         },
         define: {
-            INDEV: indev
+            INDEV: indev,
+            BUILDTIME: Date.now(),
+            BUILDDATE: JSON.stringify(new Date(Date.now()).toLocaleDateString())
         }
     };
 });
