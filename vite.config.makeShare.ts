@@ -25,16 +25,15 @@ export default defineConfig({
         },
         rollupOptions: {
             output: {
-                inlineDynamicImports: false
-            },
-            manualChunks: {
-                "albumpool": [
-                    "src/data/albumpool.json",
-                    "src/data/albumpool.ts"
-                ],
-                "rerolls": [
-                    "src/data/rerolls.ts"
-                ]
+                manualChunks: {
+                    "albumpool": [
+                        "src/data/albumpool.json",
+                        "src/data/albumpool.ts"
+                    ],
+                    "rerolls": [
+                        "src/data/rerolls.ts"
+                    ]
+                }
             },
             external: ["fs", "canvas"]
         }

@@ -19,21 +19,23 @@ export default defineConfig(({command}) => {
         build: {
             assetsDir: "bundles",
             rollupOptions: {
-                manualChunks: {
-                    "albumpool": [
-                        "src/data/albumpool.json",
-                        "src/data/albumpool.ts"
-                    ],
-                    "rerolls": [
-                        "src/data/rerolls.ts"
-                    ]
-                },
+                output: {
+                    manualChunks: {
+                        "albumpool": [
+                            "src/data/albumpool.json",
+                            "src/data/albumpool.ts"
+                        ],
+                        "rerolls": [
+                            "src/data/rerolls.ts"
+                        ]
+                    }
+                }
             }
         },
         define: {
             INDEV: indev,
             BUILDTIME: Date.now(),
-            BUILDDATE: JSON.stringify(new Date(Date.now()).toLocaleDateString())
+            BUILDDATE: JSON.stringify(new Date(Date.now()).toLocaleString())
         }
     };
 });
