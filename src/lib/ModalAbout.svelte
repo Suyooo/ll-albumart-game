@@ -7,7 +7,7 @@
     let checkPromise: Promise<string> | null = null;
 
     function check() {
-        checkPromise = fetch("/index.html", {cache: "reload"}).then(response => {
+        checkPromise = fetch(window.location.href, {cache: "reload"}).then(response => {
             const latest = Date.parse(response.headers.get("Last-Modified"));
             // 5-minute delay to account for delay between build/file writing/upload
             if (latest - 300000 > CONST_BUILDTIME) {
