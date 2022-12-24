@@ -8,6 +8,7 @@ import {CANVAS_SIZE} from "../gameHandler";
 import {seededRNG} from "../rng";
 
 export const stacked = false;
+export const overrideFinished = false;
 
 const TILES_PER_AXIS = [128, 80, 64, 32, 16, 8];
 

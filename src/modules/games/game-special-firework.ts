@@ -8,11 +8,12 @@ import {CANVAS_SIZE} from "../gameHandler";
 import {seededRNG} from "../rng";
 
 export const stacked = true;
+export const overrideFinished = true;
 
 const SIZE = [0.1, 0.1, 0.125, 0.15, 0.15, 0.2];
 const BORDER_BLUR = 50;
 const BLOOM_SIZE = 150;
-const POSITIONS: [number, number][] = [[0.75, 0.1], [0.1, 0.6], [0.7, 0.65], [0.95, 0.3], [0.15, 0.3], [0.45, 0.3]];
+const POSITIONS: [number, number][] = [[0.1, 0.7], [0.75, 0.1], [0.7, 0.65], [0.95, 0.3], [0.15, 0.3], [0.45, 0.3]];
 
 const T_RISING = 1000;
 const T_EXPAND = 1300;
@@ -42,6 +43,53 @@ export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, 
             }
         }
         return dstData;
+    }
+
+    function drawFirework(ctx: CanvasRenderingContext2D, t: number, x: number, y: number, c: number, seed: number) {
+        if (t < T_RISING) { // Liella! - GOING UP
+            const tt = 1 - t / T_RISING;
+            const ttt = 1 - tt * tt;
+            const yy = (CANVAS_SIZE + 10) - (CANVAS_SIZE + 10 - y) * ttt;
+            const flicker = (t % 100) < 50;
+
+            ctx.lineWidth = 10;
+            ctx.lineCap = "round";
+            ctx.strokeStyle = `hsla(${c},100%,70%,${flicker ? 1 : 0.5})`;
+            ctx.beginPath();
+            ctx.moveTo(x, yy);
+            ctx.lineTo(x, yy + 20 * tt);
+            ctx.stroke();
+        } else if (t < T_BLOOM) { // µ's - Dancing stars on me!
+            const pRng = seededRNG(seed); // new seeded RNG to do particle randomization
+            const tt = (t - T_RISING) / (T_BLOOM - T_RISING);
+            const tt2 = (tt - 1) * (tt - 1) * (tt - 1);
+            const ttt = 1 - tt2 * tt2;
+            ctx.lineWidth = 15;
+            ctx.lineCap = "round";
+            ctx.strokeStyle = `hsla(${c},100%,70%,${1 - ttt * ttt})`;
+            let alt = true;
+
+            for (let angle = 0; angle < 2 * Math.PI; angle += Math.PI / 16) {
+                for (let fac = alt ? 1 : 0.9375; fac > 0.4; fac -= 0.125) {
+                    angle += Math.PI / 32 * pRng() - Math.PI / 64;
+                    fac -= 0.2 * pRng();
+                    const gravOff = 300 * pRng();
+                    const gravT = t < T_GRAV + gravOff ? 0 : (t - T_GRAV - gravOff) / (T_BLOOM - T_GRAV);
+                    const grav = gravT * gravT * (100 + 500 * pRng());
+
+                    const xc = Math.cos(angle);
+                    const yc = -Math.sin(angle);
+                    const xx = x + xc * BLOOM_SIZE * fac * ttt;
+                    const yy = y + yc * BLOOM_SIZE * fac * ttt + grav;
+
+                    ctx.beginPath();
+                    ctx.moveTo(xx, yy);
+                    ctx.lineTo(xx, yy + 1);
+                    ctx.stroke();
+                }
+                alt = !alt;
+            }
+        }
     }
 
     const scaledImageData = scaledImage.getContext("2d").getImageData(0, 0, CANVAS_SIZE, CANVAS_SIZE).data;
@@ -78,68 +126,27 @@ export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, 
             canvasAnimationLasts[failed] = t;
             ctx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
 
-            if (t < T_RISING) { // Liella! - GOING UP
-                const tt = 1 - t / T_RISING;
-                const ttt = 1 - tt * tt;
-                const yy = (CANVAS_SIZE + 10) - (CANVAS_SIZE + 10 - y) * ttt;
-                flicker = !flicker;
-
-                ctx.lineWidth = 10;
-                ctx.lineCap = "round";
-                ctx.strokeStyle = `hsla(${c},100%,70%,${flicker ? 0.5 : 0.25})`;
-                ctx.beginPath();
-                ctx.moveTo(x, yy);
-                ctx.lineTo(x, yy + 20 * tt);
-                ctx.stroke();
-
-                window.requestAnimationFrame(doAnimation);
-            } else if (t < T_BLOOM) { // µ's - Dancing stars on me!
-                // spotlight expands faster
-                if (t < T_EXPAND) {
-                    const rr = Math.floor(r * ((t - T_RISING) / (T_EXPAND - T_RISING)));
-                    const spot = spotlightData(scaledImageData, ctx, x, y, rr);
-                    ctx.putImageData(spot, 0, 0, x - rr, y - rr, rr * 2 + 1, rr * 2 + 1);
-                } else {
-                    if (canvasSpotlightOnlyCaches[failed] === null) {
-                        canvasSpotlightOnlyCaches[failed] = spotlightData(scaledImageData, ctx, x, y, r);
+            if (t < T_BLOOM) {
+                if (t >= T_RISING) {
+                    // Spotlight expands faster than the bloom
+                    if (t < T_EXPAND) {
+                        const rr = Math.floor(r * ((t - T_RISING) / (T_EXPAND - T_RISING)));
+                        const spot = spotlightData(scaledImageData, ctx, x, y, rr);
+                        ctx.putImageData(spot, 0, 0, x - rr, y - rr, rr * 2 + 1, rr * 2 + 1);
+                    } else {
+                        if (canvasSpotlightOnlyCaches[failed] === null) {
+                            canvasSpotlightOnlyCaches[failed] = spotlightData(scaledImageData, ctx, x, y, r);
+                        }
+                        ctx.putImageData(canvasSpotlightOnlyCaches[failed], 0, 0, x - r, y - r, r * 2 + 1, r * 2 + 1);
                     }
-                    ctx.putImageData(canvasSpotlightOnlyCaches[failed], 0, 0, x - r, y - r, r * 2 + 1, r * 2 + 1);
                 }
 
-                // bloom
-                const pRng = seededRNG(random); // new seeded RNG to do particle randomization
-                const tt = (t - T_RISING) / (T_BLOOM - T_RISING);
-                const tt2 = (tt - 1) * (tt - 1) * (tt - 1);
-                const ttt = 1 - tt2 * tt2;
-                ctx.lineWidth = 15;
-                ctx.lineCap = "round";
-                ctx.strokeStyle = `hsla(${c},100%,70%,${1 - ttt * ttt})`;
-                let alt = true;
-
-                for (let angle = 0; angle < 2 * Math.PI; angle += Math.PI / 16) {
-                    for (let fac = alt ? 1 : 0.9375; fac > 0.4; fac -= 0.125) {
-                        angle += Math.PI / 32 * pRng() - Math.PI / 64;
-                        fac -= 0.2 * pRng();
-                        const gravOff = 300 * pRng();
-                        const gravT = t < T_GRAV + gravOff ? 0 : (t - T_GRAV - gravOff) / (T_BLOOM - T_GRAV);
-                        const grav = gravT * gravT * (100 + 500 * pRng());
-
-                        const xc = Math.cos(angle);
-                        const yc = -Math.sin(angle);
-                        const xx = x + xc * BLOOM_SIZE * fac * ttt;
-                        const yy = y + yc * BLOOM_SIZE * fac * ttt + grav;
-
-                        ctx.beginPath();
-                        ctx.moveTo(xx, yy);
-                        ctx.lineTo(xx, yy + 1);
-                        ctx.stroke();
-                    }
-                    alt = !alt;
-                }
-
+                // Draw rocket/bloom
+                drawFirework(ctx, t, x, y, c, r);
                 window.requestAnimationFrame(doAnimation);
             } else { // Ready for the Aqours - Next SPARKLING!!
                 ctx.putImageData(canvasSpotlightOnlyCaches[failed], 0, 0, x - r, y - r, r * 2 + 1, r * 2 + 1);
+                // no need to keep animating
             }
         }
         window.requestAnimationFrame(doAnimation);
@@ -180,5 +187,56 @@ export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, 
 
         return canvas2;
     };
-    return {getCanvasForGuess, getShareCanvas}
+
+    let finishedCanvas: Canvas | undefined = undefined;
+    const getFinishedCanvas = (): Canvas => {
+        if (finishedCanvas === undefined) {
+            finishedCanvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
+            const ctx = finishedCanvas.getContext("2d");
+            const activeFireworks = [];
+
+            const doAnimation = (absT: number): void => {
+                ctx.drawImage(scaledImage, 0, 0);
+                for (const firework of activeFireworks) {
+                    let t: number;
+                    if (firework.startTime < 0) {
+                        t = firework.startTime;
+                        firework.startTime += absT;
+                    } else {
+                        t = absT - firework.startTime;
+                        const dT = t - firework.lastTime;
+                        if (dT > 100) { // 10 fps minimum
+                            firework.startTime += dT - 100;
+                            t -= dT - 100;
+                        }
+                    }
+
+                    firework.lastTime = t;
+                    if (t >= 0 && t < T_BLOOM) {
+                        drawFirework(ctx, t, firework.x, firework.y, firework.color, firework.seed);
+                    }
+                }
+                window.requestAnimationFrame(doAnimation);
+            }
+            window.requestAnimationFrame(doAnimation);
+
+            const addFirework = () => {
+                activeFireworks.push({
+                    x: Math.random() * (CANVAS_SIZE - 100) + 50,
+                    y: Math.random() * 0.6 * CANVAS_SIZE + 50,
+                    color: Math.random() * 360,
+                    seed: Math.random() * 2023,
+                    startTime: -Math.random() * 500,
+                    lastTime: 0
+                });
+                while (activeFireworks.length > 4) activeFireworks.splice(0, 1);
+                console.log(activeFireworks);
+            };
+            setInterval(addFirework, 1000);
+            addFirework();
+        }
+
+        return finishedCanvas;
+    };
+    return {getCanvasForGuess, getShareCanvas, getFinishedCanvas}
 }

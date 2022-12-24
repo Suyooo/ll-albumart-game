@@ -1,13 +1,14 @@
 /** @type {import("../gameHandler").Game} */
 
-import {createCanvas} from "canvas";
 import type {Canvas, Image} from "canvas";
+import {createCanvas} from "canvas";
 import type {AlbumInfo} from "$data/albumpool";
 import {smoothScaleSquare, smoothScaleSquareWithSrc} from "../canvasUtil";
-import {CANVAS_SIZE} from "../gameHandler";
 import type {GameInstance} from "../gameHandler";
+import {CANVAS_SIZE} from "../gameHandler";
 
 export const stacked = false;
+export const overrideFinished = false;
 
 const BLURS = [15, 25, 40, 55, 80, 120];
 

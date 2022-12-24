@@ -9,6 +9,7 @@ import {CANVAS_SIZE} from "../gameHandler";
 import {seededRNG} from "../rng";
 
 export const stacked = true;
+export const overrideFinished = false;
 
 const MAX_PER_BATCH = 50;
 const BUBBLE_AMOUNT = [200, 700, 1000, 2000, 4000, 8000];

@@ -83,7 +83,7 @@ export function getIdsForDay(day: number): { rolledAlbumId: number, rolledGameId
             rerolls--;
         }
 
-        // Avoid repeats: last 100 for albums, last 3 for game modes.
+        // Avoid repeats: last 100 for albums, last 5 for game modes.
         // Caution: Changing these numbers will break things immediately and forever
         //
         // To avoid rerolling within a groupId for games, games with groupIds are added to the set with the negative

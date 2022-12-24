@@ -7,6 +7,7 @@ export const CANVAS_SIZE = 640;
 
 export interface Game {
     stacked: boolean,
+    overrideFinished: boolean,
 
     getGameInstance(day: number, album: AlbumInfo, image: Image, scaledImage: Canvas): GameInstance
 }
@@ -14,7 +15,9 @@ export interface Game {
 export interface GameInstance {
     getCanvasForGuess(failed: number): Canvas,
 
-    getShareCanvas(): Canvas
+    getShareCanvas(): Canvas,
+
+    getFinishedCanvas?(): Canvas
 }
 
 export interface GameInstanceSiteWrapper {
@@ -75,6 +78,8 @@ export async function getGameSiteInstance(day: number, gameInfo: GameInfo, album
             }
         },
         getShareCanvas: <() => HTMLCanvasElement><unknown>gameInstance.getShareCanvas,
-        getFinishedCanvas: () => <HTMLCanvasElement><unknown>albumArt
+        getFinishedCanvas: game.overrideFinished
+            ? <() => HTMLCanvasElement><unknown>gameInstance.getFinishedCanvas
+            : () => <HTMLCanvasElement><unknown>albumArt
     }
 }

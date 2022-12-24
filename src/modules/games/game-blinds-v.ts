@@ -1,13 +1,14 @@
 /** @type {import("../gameHandler").Game} */
 
-import {createCanvas} from "canvas";
 import type {Canvas, Image} from "canvas";
+import {createCanvas} from "canvas";
 import type {AlbumInfo} from "$data/albumpool";
-import {CANVAS_SIZE} from "../gameHandler";
 import type {GameInstance} from "../gameHandler";
+import {CANVAS_SIZE} from "../gameHandler";
 import {seededRNG} from "../rng";
 
 export const stacked = false;
+export const overrideFinished = false;
 
 const SIZE = [4, 12, 12, 24, 24, 48];
 const MAX_SIZE = SIZE.reduce((max, cur) => cur > max ? cur : max, 0);

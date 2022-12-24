@@ -9,6 +9,7 @@ import {CANVAS_SIZE} from "../gameHandler";
 import {seededRNG} from "../rng";
 
 export const stacked = false;
+export const overrideFinished = false;
 
 const SIZE = [0.075, 0.1, 0.1, 0.15, 0.15, 0.2];
 const MAX_SIZE = SIZE.reduce((max, cur) => cur > max ? cur : max, 0);
