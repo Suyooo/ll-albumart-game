@@ -225,16 +225,20 @@ export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, 
             window.requestAnimationFrame(doAnimation);
 
             const addFirework = () => {
-                activeFireworks.push({
-                    x: Math.random() * (CANVAS_SIZE - 100) + 50,
-                    y: Math.random() * 0.6 * CANVAS_SIZE + 50,
-                    color: Math.random() * 360,
-                    seed: Math.random() * 2023,
-                    startTime: -Math.random() * 500,
-                    lastTime: 0
-                });
-                while (activeFireworks.length > 4) activeFireworks.splice(0, 1);
-                console.log(activeFireworks);
+                while (activeFireworks.length > 0 && activeFireworks[0].lastTime - activeFireworks[0].startTime >= 3000) {
+                    activeFireworks.splice(0, 1);
+                }
+
+                if (activeFireworks.length < 4) {
+                    activeFireworks.push({
+                        x: Math.random() * (CANVAS_SIZE - 100) + 50,
+                        y: Math.random() * 0.6 * CANVAS_SIZE + 50,
+                        color: Math.random() * 360,
+                        seed: Math.random() * 2023,
+                        startTime: -Math.random() * 500,
+                        lastTime: 0
+                    });
+                }
             };
             setInterval(addFirework, 1000);
             addFirework();
