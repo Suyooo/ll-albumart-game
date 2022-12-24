@@ -170,19 +170,23 @@ export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, 
         ctx2.lineWidth = 5;
         ctx2.lineCap = "round";
 
-        for (let angle = 0; angle < 2 * Math.PI; angle += Math.PI / 7) {
-            const xc = Math.cos(angle);
-            const yc = -Math.sin(angle);
-            const xx = r + xc * r * 1.15;
-            const yy = r + yc * r * 1.15;
-            const xx2 = r + xc * r * .85;
-            const yy2 = r + yc * r * .85;
-            ctx2.strokeStyle = `hsla(${angle / (2 * Math.PI) * 360}, 100%, 70%, 1)`;
+        let alt = true;
+        for (let fac = 1.1; fac > 0.7; fac -= 0.3) {
+            for (let angle = 0; angle < 2 * Math.PI; angle += Math.PI / 10) {
+                const xc = Math.cos(angle);
+                const yc = -Math.sin(angle);
+                const xx = r + xc * r * (alt ? 0.95 : 0.85) * fac;
+                const yy = r + yc * r * (alt ? 0.95 : 0.85) * fac;
+                const xx2 = r + xc * r * (alt ? 0.9 : 0.8) * fac;
+                const yy2 = r + yc * r * (alt ? 0.9 : 0.8) * fac;
+                alt = !alt;
+                ctx2.strokeStyle = `hsla(${angle / (2 * Math.PI) * 360}, 100%, 70%, 1)`;
 
-            ctx2.beginPath();
-            ctx2.moveTo(xx, yy);
-            ctx2.lineTo(xx2, yy2);
-            ctx2.stroke();
+                ctx2.beginPath();
+                ctx2.moveTo(xx, yy);
+                ctx2.lineTo(xx2, yy2);
+                ctx2.stroke();
+            }
         }
 
         return canvas2;
