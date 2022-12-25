@@ -33,14 +33,17 @@ Finally, some meta info is defined in `/src/data/gamepool.json`:
 
 Some important hints:
 
-* If running the game locally with `vite dev`/`vite serve`, save files are ignored and the current round is randomized
-  on each refresh, to help with testing game modes on different arts.
+* If running the game locally with `vite dev`/`vite serve`, and the `INDEV_LOCK_DAY` constant is set to `0` in the
+  `vite.config.site.ts` config file, save files are ignored and the current round is randomized on each refresh. This
+  makes it easier to test game modes on a lot of different album arts. Just set the game mode's weight to a very high
+  number to make sure it's the most likely outcome.
 * Use `/src/modules/rng.ts` for random numbers instead of `Math.random()`, and only use `day`/`failed`/constants for the
   seeding. The image created should always be the same for every user on the same day on the same guess. When testing,
-  try refreshing after each skip to make sure the image does not change.
+  use `vite build && vite preview` and try refreshing after each skip to make sure the image does not change.
 * Watch out for non-square covers. In these cases, `scaledImage` will have transparent areas at the top and bottom. This
   might be a problem if you resize or move the canvas a lot, as previous steps might peek through in the final result.
-  Always test your games with some wide aspect ratio images, like Dreams of the Superstar.
+  Always test your games with some wide aspect ratio images, like *LL! Superstar!! Original Soundtrack - Dreams of the
+  Superstar*.
 * Since `getShareCanvas` should represent the first guess, you can usually just make a call to `getCanvasForGuess(0)`
   and that's all. If your game mode only reveals very small parts of the image though, you might want to instead return
   a rearranged image (see `game-blinds-h/v.ts` for an example). Make sure it is always square.

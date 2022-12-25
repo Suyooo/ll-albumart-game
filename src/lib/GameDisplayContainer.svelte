@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {STATE, ALBUM, GAME} from "$stores/state";
+    import {ALBUM, GAME, STATE} from "$stores/state";
     import {onMount} from "svelte";
 
     import GameDisplay from "./GameDisplay.svelte";
@@ -20,6 +20,3 @@
 {:else}
     <Spinner/>
 {/if}
-
-<style>
-</style>
