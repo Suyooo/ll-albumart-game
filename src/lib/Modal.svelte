@@ -25,7 +25,7 @@
      on:click={closeModal} transition:fade={{duration: 100}} use:focusTrap>
     <div class="w-full max-w-md bg-gray-700 rounded p-4 relative overflow-hidden" on:click|stopPropagation={() => null}>
         <h3 class="flex-grow h-8 p-2 uppercase tracking-widest font-bold text-gray-400">{title}</h3>
-        <HeaderButton class="absolute right-4 top-4" on:click={closeModal}>
+        <HeaderButton class="absolute right-4 top-4" label="Close" on:click={closeModal}>
             <Close/>
         </HeaderButton>
         <div class="overflow-y-auto p-2 mt-4 h-full max-h-[70vh]">
