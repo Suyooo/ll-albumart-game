@@ -9,6 +9,8 @@
     import {ALBUM, GAME, STATE} from "$stores/state";
     import {onMount} from "svelte";
     import {fly, scale} from "svelte-reduced-motion/transition";
+    import Show from "$icon/Show.svelte";
+    import Hide from "$icon/Hide.svelte";
 
     export let game: GameInstanceSiteWrapper;
 
@@ -24,9 +26,11 @@
         updateCanvasList();
     }
 
+    let showAltFinished = game.base.forceAltFinished;
+
     function updateCanvasList() {
         if ($STATE.finished && stage === maxStage) {
-            canvasContainer.replaceChildren(game.getAltFinishedCanvas());
+            canvasContainer.replaceChildren(showAltFinished ? game.getAltFinishedCanvas() : game.getFinishedCanvas());
         } else if (game.base.stacked) {
             const canvases = [];
             for (let i = 0; i <= stage && i < 6; i++) {
@@ -57,6 +61,11 @@
         }
     }
 
+    function toggleAlt() {
+        showAltFinished = !showAltFinished;
+        updateCanvasList();
+    }
+
     onMount(updateCanvasList);
 </script>
 
@@ -72,15 +81,25 @@
              class:glow={$STATE.cleared && stage === maxStage} in:scale={{start:1.1,opacity:1}} use:dragscroll>
         </div>
         <div class="max-w-sm w-full flex items-center mt-2">
-            <div class="w-8 flex-shrink-0">&nbsp;</div>
+            {#if $STATE.finished && stage === maxStage && game.base.hasAltFinished && !game.base.forceAltFinished}
+                <PageButton class="w-8 flex-shrink-0 self-start" label="Toggle Hint Locations" on:click={toggleAlt}>
+                    {#if showAltFinished}
+                        <Hide/>
+                    {:else}
+                        <Show/>
+                    {/if}
+                </PageButton>
+            {:else}
+                <div class="w-8 flex-shrink-0 select-none">&nbsp;</div>
+            {/if}
             <div class="flex-grow px-4">
                 {#if $STATE.finished}
                     <!-- aria-hidden: Answer is screen read in Result. This one is just for visual presentation -->
                     <div class="text-xs max-w-sm text-center" in:fly={{y: -30, duration: 1000}} aria-hidden="true">
                         {ALBUM.artistEn} -
                         <b>{@html ALBUM.realEn
-                                ? ALBUM.realEn.replace(" [", " <span class='inline-block'>[") + "</span>"
-                                : ALBUM.titleEn}</b>
+                            ? ALBUM.realEn.replace(" [", " <span class='inline-block'>[") + "</span>"
+                            : ALBUM.titleEn}</b>
                     </div>
                 {:else}
                     <div class="text-xs max-w-sm text-center">
