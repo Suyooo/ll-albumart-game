@@ -7,7 +7,8 @@ import {seededRNG} from "$modules/rng";
 
 const ZERO_DAY_TIMESTAMP = 1667487600000; // game begins 24h after this
 const MS_PER_DAY = 86400000;
-export const CURRENT_DAY = INDEV && INDEV_LOCK_DAY !== 0 ? INDEV_LOCK_DAY
+export const CURRENT_DAY = INDEV
+    ? (INDEV_LOCK_DAY === 0 ? Math.floor(Math.random() * 1000000) : INDEV_LOCK_DAY)
     : (Math.floor((Date.now() - ZERO_DAY_TIMESTAMP) / MS_PER_DAY)
         + (typeof localStorage !== "undefined" ? (parseInt(localStorage.getItem("llalbum-day-offset")) || 0) : 0));
 
