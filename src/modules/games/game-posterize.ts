@@ -8,7 +8,8 @@ import type {GameInstance} from "../gameHandler";
 import {CANVAS_SIZE} from "../gameHandler";
 
 export const stacked = false;
-export const overrideFinished = false;
+export const hasAltFinished = false;
+export const forceAltFinished = false;
 
 const BLURS = [15, 25, 40, 55, 80, 120];
 

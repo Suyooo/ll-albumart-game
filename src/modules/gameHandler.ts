@@ -7,7 +7,8 @@ export const CANVAS_SIZE = 640;
 
 export interface Game {
     stacked: boolean,
-    overrideFinished: boolean,
+    hasAltFinished: boolean,
+    forceAltFinished: boolean,
 
     getGameInstance(day: number, album: AlbumInfo, image: Image, scaledImage: Canvas): GameInstance
 }
@@ -17,7 +18,7 @@ export interface GameInstance {
 
     getShareCanvas(): Canvas,
 
-    getFinishedCanvas?(): Canvas
+    getAltFinishedCanvas?(): Canvas
 }
 
 export interface GameInstanceSiteWrapper {
@@ -27,7 +28,9 @@ export interface GameInstanceSiteWrapper {
 
     getShareCanvas(): HTMLCanvasElement,
 
-    getFinishedCanvas(): HTMLCanvasElement
+    getFinishedCanvas(): HTMLCanvasElement,
+
+    getAltFinishedCanvas(): HTMLCanvasElement
 }
 
 const GAME_CACHE: { [filename: string]: Game } = {};
@@ -78,8 +81,9 @@ export async function getGameSiteInstance(day: number, gameInfo: GameInfo, album
             }
         },
         getShareCanvas: <() => HTMLCanvasElement><unknown>gameInstance.getShareCanvas,
-        getFinishedCanvas: game.overrideFinished
-            ? <() => HTMLCanvasElement><unknown>gameInstance.getFinishedCanvas
+        getFinishedCanvas: () => <HTMLCanvasElement><unknown>albumArt,
+        getAltFinishedCanvas: game.hasAltFinished
+            ? <() => HTMLCanvasElement><unknown>gameInstance.getAltFinishedCanvas
             : () => <HTMLCanvasElement><unknown>albumArt
     }
 }

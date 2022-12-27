@@ -8,7 +8,8 @@ import {CANVAS_SIZE} from "../gameHandler";
 import {seededRNG} from "../rng";
 
 export const stacked = false;
-export const overrideFinished = false;
+export const hasAltFinished = false;
+export const forceAltFinished = false;
 
 const TILES_PER_AXIS = [128, 80, 64, 32, 16, 8];
 
@@ -18,7 +19,7 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
         const axis = TILES_PER_AXIS[failed];
         const total = axis * axis;
         const positions: { positionIndex: number, rotation: number }[] =
-                new Array(total).fill(0).map((_, i) => ({i, sortVal: rng()}))
+            new Array(total).fill(0).map((_, i) => ({i, sortVal: rng()}))
                         .sort((a, b) => a.sortVal - b.sortVal)
                         // no rotation on first guess to improve performance
                         .map(e => ({positionIndex: e.i, rotation: failed === 0 ? 0 : Math.floor(rng() * 4)}));

@@ -26,7 +26,7 @@
 
     function updateCanvasList() {
         if ($STATE.finished && stage === maxStage) {
-            canvasContainer.replaceChildren(game.getFinishedCanvas());
+            canvasContainer.replaceChildren(game.getAltFinishedCanvas());
         } else if (game.base.stacked) {
             const canvases = [];
             for (let i = 0; i <= stage && i < 6; i++) {

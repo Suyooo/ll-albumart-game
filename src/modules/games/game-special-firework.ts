@@ -8,7 +8,8 @@ import {CANVAS_SIZE} from "../gameHandler";
 import {seededRNG} from "../rng";
 
 export const stacked = true;
-export const overrideFinished = true;
+export const hasAltFinished = true;
+export const forceAltFinished = true;
 
 const SIZE = [0.1, 0.1, 0.125, 0.15, 0.15, 0.2];
 const BORDER_BLUR = 50;
@@ -193,7 +194,7 @@ export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, 
     };
 
     let finishedCanvas: Canvas | undefined = undefined;
-    const getFinishedCanvas = (): Canvas => {
+    const getAltFinishedCanvas = (): Canvas => {
         if (finishedCanvas === undefined) {
             finishedCanvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
             const ctx = finishedCanvas.getContext("2d");
@@ -208,14 +209,14 @@ export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, 
                         firework.startTime += absT;
                     } else {
                         t = absT - firework.startTime;
-                        const dT = t - firework.lastTime;
+                        const dT = t - firework.elapsedTime;
                         if (dT > 100) { // 10 fps minimum
                             firework.startTime += dT - 100;
                             t -= dT - 100;
                         }
                     }
 
-                    firework.lastTime = t;
+                    firework.elapsedTime = t;
                     if (t >= 0 && t < T_BLOOM) {
                         drawFirework(ctx, t, firework.x, firework.y, firework.color, firework.seed);
                     }
@@ -225,7 +226,7 @@ export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, 
             window.requestAnimationFrame(doAnimation);
 
             const addFirework = () => {
-                while (activeFireworks.length > 0 && activeFireworks[0].lastTime - activeFireworks[0].startTime >= 3000) {
+                while (activeFireworks.length > 0 && activeFireworks[0].elapsedTime >= 3000) {
                     activeFireworks.splice(0, 1);
                 }
 
@@ -236,7 +237,7 @@ export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, 
                         color: Math.random() * 360,
                         seed: Math.random() * 2023,
                         startTime: -Math.random() * 500,
-                        lastTime: 0
+                        elapsedTime: 0
                     });
                 }
             };
@@ -246,5 +247,5 @@ export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, 
 
         return finishedCanvas;
     };
-    return {getCanvasForGuess, getShareCanvas, getFinishedCanvas}
+    return {getCanvasForGuess, getShareCanvas, getAltFinishedCanvas}
 }

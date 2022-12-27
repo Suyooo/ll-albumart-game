@@ -9,12 +9,13 @@ import {CANVAS_SIZE} from "../gameHandler";
 import {seededRNG} from "../rng";
 
 export const stacked = false;
-export const overrideFinished = false;
+export const hasAltFinished = true;
+export const forceAltFinished = false;
 
 const SIZE = [0.075, 0.1, 0.1, 0.15, 0.15, 0.2];
 const MAX_SIZE = SIZE.reduce((max, cur) => cur > max ? cur : max, 0);
 
-export function getGameInstance(day: number, _album: AlbumInfo, image: Image): GameInstance {
+export function getGameInstance(day: number, _album: AlbumInfo, image: Image, scaledImage: Canvas): GameInstance {
     const rng = seededRNG(day * 409);
     const positions: [number, number][] = [];
     let closestDistance: number;
@@ -52,5 +53,37 @@ export function getGameInstance(day: number, _album: AlbumInfo, image: Image): G
     const getShareCanvas = (): Canvas => {
         return getCanvasForGuess(0);
     };
-    return {getCanvasForGuess, getShareCanvas}
+    let showCropsCanvas = undefined;
+    const getAltFinishedCanvas = (): Canvas => {
+        if (showCropsCanvas === undefined) {
+            showCropsCanvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
+            const ctx = showCropsCanvas.getContext("2d");
+            ctx.drawImage(scaledImage, 0, 0);
+
+            const doAnimation = (absT: number): void => {
+                ctx.strokeStyle = `hsla(${absT % 3600 / 10},100%,50%,1)`;
+                ctx.lineWidth = 4;
+
+                let i = 0;
+                for (const p of positions) {
+                    const x = p[0] * CANVAS_SIZE;
+                    const y = p[1] * CANVAS_SIZE;
+                    const s = SIZE[i] * CANVAS_SIZE;
+                    ctx.beginPath();
+                    ctx.moveTo(x, y);
+                    ctx.lineTo(x + s, y);
+                    ctx.lineTo(x + s, y + s);
+                    ctx.lineTo(x, y + s);
+                    ctx.closePath();
+                    ctx.stroke();
+                    i++;
+                }
+
+                requestAnimationFrame(doAnimation);
+            };
+            requestAnimationFrame(doAnimation);
+        }
+        return showCropsCanvas;
+    };
+    return {getCanvasForGuess, getShareCanvas, getAltFinishedCanvas}
 }
