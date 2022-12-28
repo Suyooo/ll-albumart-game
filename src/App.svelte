@@ -45,6 +45,9 @@
             openModal("How to Play", ModalHelp);
         }
     })
+
+    // TODO: remove after people who had to get the image error message played
+    fetch("/albumart/saint-snow_dazzling-white-town.jpg", {cache: "reload"});
 </script>
 
 <div class="flex flex-col w-full h-full items-center overflow-auto" tabindex="-1" in:fade={{duration: 100}}>
