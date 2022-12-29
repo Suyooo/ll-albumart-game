@@ -115,6 +115,10 @@ export function getIdsForDay(day: number): { rolledAlbumId: number, rolledGameId
         rolledGameId = pickFrom(filteredGamePool, rng, blockedGameIds);
     } while (GAME_POOL[rolledGameId].groupId !== undefined && blockedGameIds.has(-GAME_POOL[rolledGameId].groupId));
 
+    if (INDEV) {
+        console.log(day, ALBUM_POOL[rolledAlbumId].titleEn, GAME_POOL[rolledGameId].name);
+    }
+
     const ret = {rolledAlbumId, rolledGameId};
     DAILY_ROLL_CACHE[day] = ret;
     return ret;
