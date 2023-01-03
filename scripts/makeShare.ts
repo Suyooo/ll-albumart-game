@@ -13,6 +13,11 @@ const jpegConfig = {
 
 (async () => {
     const {rolledAlbumId, rolledGameId} = getIdsForDay(CURRENT_DAY);
+    const queryIdx = ALBUM_POOL[rolledAlbumId].url.indexOf("?");
+    if (queryIdx !== -1) {
+        ALBUM_POOL[rolledAlbumId].url = ALBUM_POOL[rolledAlbumId].url.substring(0, queryIdx);
+    }
+
     const {gameInstance} = await getGameInstance(CURRENT_DAY, GAME_POOL[rolledGameId], ALBUM_POOL[rolledAlbumId]);
     const shareCanvas = gameInstance.getShareCanvas();
     const shareWithBgCanvas = new Canvas(shareCanvas.width, shareCanvas.height);
