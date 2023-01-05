@@ -6,6 +6,7 @@ import {rerollDays} from "$data/rerolls";
 import {seededRNG} from "$modules/rng";
 
 const ZERO_DAY_TIMESTAMP = 1667487600000; // game begins 24h after this
+// quick day counter: https://www.timeanddate.com/date/durationresult.html?d1=4&m1=11&y1=2022
 const MS_PER_DAY = 86400000;
 export const CURRENT_DAY = INDEV
     ? (INDEV_LOCK_DAY === 0 ? Math.floor(Math.random() * 1000000) : INDEV_LOCK_DAY)

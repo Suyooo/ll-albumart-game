@@ -2178,5 +2178,14 @@
         "artistEn": "Love Live! School Idol Musical",
         "titleJa": "未完成ドリーム！",
         "artistJa": "ラブライブ！スクールアイドルミュージカル"
+    },
+    {
+        "url": "/albumart/dia-kurosawa_third-solo-concert-album-the-story-of-over-the-rainbow-starring-kurosawa-dia.jpg",
+        "startOnDay": 72,
+        "weight": 100,
+        "titleEn": "Third Solo Concert Album ~THE STORY OF \"OVER THE RAINBOW\"~ starring Kurosawa Dia",
+        "artistEn": "Dia Kurosawa (CV: Arisa Komiya)",
+        "titleJa": "Third Solo Concert Album ~THE STORY OF \"OVER THE RAINBOW\"~ starring Kurosawa Dia",
+        "artistJa": "黒澤ダイヤ (CV.小宮有紗)"
     }
 ]
