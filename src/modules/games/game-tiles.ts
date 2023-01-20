@@ -1,8 +1,8 @@
 /** @type {import("../gameHandler").Game} */
 
+import type {AlbumInfo} from "$data/albumpool";
 import type {Canvas, Image} from "canvas";
 import {createCanvas} from "canvas";
-import type {AlbumInfo} from "$data/albumpool";
 import type {GameInstance} from "../gameHandler";
 import {CANVAS_SIZE} from "../gameHandler";
 import {seededRNG} from "../rng";
@@ -15,6 +15,7 @@ const TILES_PER_AXIS = 20;
 const TILES_TOTAL = TILES_PER_AXIS * TILES_PER_AXIS;
 const TILE_POS = new Array(TILES_PER_AXIS + 1).fill(0).map((_, i) =>
     Math.floor(CANVAS_SIZE * i / TILES_PER_AXIS));
+const SHARE_GAP = 10;
 
 const AMOUNT = [[9, 20, 40, 60, 90, 120], [6, 15, 25, 40, 70, 120]];
 const MAX_AMOUNT = AMOUNT.map(a => a.reduce((max, cur) => cur > max ? cur : max, 0));
@@ -61,7 +62,7 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
     };
     const getShareCanvas = (): Canvas => {
         const tileSize = CANVAS_SIZE / TILES_PER_AXIS;
-        const canvas = createCanvas(tileSize * 3, tileSize * 3);
+        const canvas = createCanvas(tileSize * 3 + SHARE_GAP * 4, tileSize * 3 + SHARE_GAP * 4);
         const ctx = canvas.getContext("2d");
 
         for (let i = 0; i < (balanceVersion === 0 ? 9 : 6); i++) {
@@ -70,7 +71,8 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
             const cx = i % 3;
             const cy = Math.floor(i / 3) + (balanceVersion === 0 ? 0 : 0.5);
             ctx.drawImage(scaledImage, x, y, tileSize, tileSize,
-                cx * tileSize, cy * tileSize, tileSize, tileSize);
+                Math.floor(cx * (tileSize + SHARE_GAP) + SHARE_GAP),
+                Math.floor(cy * (tileSize + SHARE_GAP) + SHARE_GAP), tileSize, tileSize);
         }
 
         return canvas;
