@@ -9,14 +9,32 @@
     a {
         @apply underline text-primary-300;
     }
+
     a:active {
         @apply text-primary-100;
     }
+
     *:focus-visible {
         @apply rounded;
         outline: 2px solid theme("colors.primary.100") !important;
     }
+
     .vhd {
         @apply absolute top-0 left-[-1000vw];
+    }
+
+    @keyframes ping {
+        0% {
+            outline-offset: -3px;
+            outline-color: theme("colors.primary.500");
+        }
+        25%, 100% {
+            outline-offset: 20px;
+            outline-color: theme("colors.primary.500" / 0%);
+        }
+    }
+    .ping {
+        animation: ping 2s infinite ease-out;
+        outline: 3px solid theme("colors.primary.500");
     }
 }

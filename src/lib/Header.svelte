@@ -13,8 +13,11 @@
     function modalOpener(title: string, component: any): () => void {
         return () => {
             dispatch("openmodal", {title, component});
+            if (title === "Stats") hidePing = true;
         }
     }
+
+    let hidePing = false;
 </script>
 
 <header class="w-full border-white border-b-2 mb-4">
@@ -27,8 +30,9 @@
         <div class="flex-grow text-center text-white text-2xl font-bold py-2" aria-hidden="true">
             <span class="text-primary">LL!</span> <span class="inline-block">Guess That Album</span>
         </div>
-        <HeaderButton label="Stats" on:click={modalOpener("Stats", ModalStatistics)}>
+        <HeaderButton class="relative" label="Stats" on:click={modalOpener("Stats", ModalStatistics)}>
             <Stats/>
+            <div class="absolute right-1 top-2 w-2 h-2 rounded-full bg-primary-500 ping" class:hidden={hidePing}></div>
         </HeaderButton>
         <HeaderButton label="How To Play" on:click={modalOpener("How To Play", ModalHelp)}>
             <Help/>
