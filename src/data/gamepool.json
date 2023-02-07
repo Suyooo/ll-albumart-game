@@ -64,5 +64,12 @@
     "description": "Small parts of the album art are lit up one by one.",
     "weight": 0,
     "messageOverride": "Happy New Year!"
+  },
+  {
+    "filename": "shuffle-pos",
+    "startOnDay": 0,
+    "name": "Shuffled 2",
+    "description": "The album art has been split up into tiny pieces and shuffled.",
+    "weight": 100000000000000
   }
 ]
