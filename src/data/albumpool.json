@@ -2187,5 +2187,14 @@
         "artistEn": "Dia Kurosawa (CV: Arisa Komiya)",
         "titleJa": "Third Solo Concert Album ~THE STORY OF \"OVER THE RAINBOW\"~ starring Kurosawa Dia",
         "artistJa": "黒澤ダイヤ (CV.小宮有紗)"
+    },
+    {
+        "url": "/albumart/nijigasaki_what-you-gonna-do.jpg",
+        "startOnDay": 102,
+        "weight": 1000,
+        "titleEn": "What You Gonna Do?",
+        "artistEn": "Nijigasaki High School Idol Club",
+        "titleJa": "わちゅごなどぅー",
+        "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     }
 ]
