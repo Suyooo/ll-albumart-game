@@ -1,11 +1,37 @@
 <script lang="ts">
-    import {quartOut} from 'svelte/easing';
     import Wrong from "$icon/Wrong.svelte";
-    import {STATE} from "$stores/state";
+    import {ALL_STATES, STATE} from "$stores/state";
     import {STATISTICS} from "$stores/statistics";
+    import {quartOut} from 'svelte/easing';
 
-    const max = $STATISTICS.byFailCount.reduce((max, c) => Math.max(c, max), 0);
-    const bars = $STATISTICS.byFailCount.map(c => [c, max ? c / max : 0]);
+    let filter: number[] | undefined, max: number, bars: number[][], resetOption: HTMLOptionElement;
+
+    $: {
+        let failCountPool: [number, number, number, number, number, number, number];
+        if (filter === undefined) {
+            failCountPool = $STATISTICS.byFailCount;
+        } else {
+            failCountPool = [0, 0, 0, 0, 0, 0, 0];
+            $ALL_STATES
+                .filter(s => s.finished && filter.indexOf(s.gameId) !== -1)
+                .forEach(s => failCountPool[s.failed]++);
+        }
+
+        max = failCountPool.reduce((max, c) => Math.max(c, max), 0);
+        bars = failCountPool.map(c => [c, max ? c / max : 0]);
+    }
+
+    function onFilterSelect({currentTarget}: Event & { currentTarget: EventTarget & HTMLSelectElement; }) {
+        if (currentTarget.value !== "") {
+            filter = currentTarget.value.split(",").map(x => parseInt(x));
+            resetOption.disabled = false;
+            resetOption.innerText = "Reset Filter";
+        } else {
+            filter = undefined;
+            resetOption.disabled = true;
+            resetOption.innerText = "Filter";
+        }
+    }
 
     function grow(_node: Node, {
         delay = 0,
@@ -22,27 +48,43 @@
 
 <div class="flex-col space-y-4">
     <div>
-        {#each bars as [count, width], i}
-            <div class="flex items-center justify-center h-6">
-                <div class="w-8 h-full flex items-center justify-center border-gray-100 border-r-2 font-bold"
-                     class:text-primary-300={$STATE.finished && $STATE.failed === i}>
-                    {#if i === 6}
-                        <Wrong/>
-                    {:else}
-                        {i + 1}
-                    {/if}
-                </div>
-                <div class="flex-grow relative h-full mr-3 overflow-hidden">
-                    <div class="absolute h-[80%] top-[10%] my-auto bg-gray-500" style:width={width*100+"%"}
-                         class:bg-primary={$STATE.finished && $STATE.failed === i} class:min-w-[2px]={count > 0}
-                         in:grow={{delay: i * 25, target: width}}>
-                        <div class="absolute text-xs leading-[1.2rem] px-2 right-0" class:left-full={width < .2}>
-                            {count}
+        {#key filter}
+            {#each bars as [count, width], i}
+                {@const highlight = $STATE.finished && $STATE.failed === i && (filter === undefined || filter.indexOf($STATE.gameId) !== -1)}
+                <div class="flex items-center justify-center h-6">
+                    <div class="w-8 h-full flex items-center justify-center border-gray-100 border-r-2 font-bold"
+                         class:text-primary-300={highlight}>
+                        {#if i === 6}
+                            <Wrong/>
+                        {:else}
+                            {i + 1}
+                        {/if}
+                    </div>
+                    <div class="flex-grow relative h-full mr-3 overflow-hidden">
+                        <div class="absolute h-[80%] top-[10%] my-auto bg-gray-500" style:width={width*100+"%"}
+                             class:bg-primary={highlight} class:min-w-[2px]={count > 0}
+                             in:grow={{delay: i * 25, target: width}}>
+                            <div class="absolute text-xs leading-[1.2rem] px-2 right-0" class:left-full={width < .2}>
+                                {count}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        {/each}
+            {/each}
+        {/key}
+        <div class="flex items-center justify-end">
+            <select on:change={onFilterSelect}>
+                <option bind:this={resetOption} disabled selected value="">Filter</option>
+                <option value="0">Pixelated</option>
+                <option value="1">Bubbles</option>
+                <option value="2">Blobs</option>
+                <option value="3">Zoomed In</option>
+                <option value="4,5">Blinds</option>
+                <option value="6">Tiles</option>
+                <option value="7">Shuffled</option>
+                <option value="8">Special</option>
+            </select>
+        </div>
     </div>
     <div>
         <div class="flex px-2 items-center justify-between border-gray-500 border-b-2">
@@ -63,3 +105,9 @@
         </div>
     </div>
 </div>
+
+<style lang="postcss">
+    select {
+        @apply bg-gray-900 px-2 py-1 rounded
+    }
+</style>
