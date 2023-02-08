@@ -59,7 +59,8 @@ const FORCED_DAYS: { [day: number]: { rolledAlbumId: number, rolledGameId: numbe
     12: {rolledAlbumId: 118, rolledGameId: 5},
     13: {rolledAlbumId: 229, rolledGameId: 6},
     14: {rolledAlbumId: 186, rolledGameId: 7},
-    58: {rolledAlbumId: 9, rolledGameId: 8}   // New Year 2023: Special Fireworks Mode
+    58: {rolledAlbumId: 9, rolledGameId: 8},    // New Year 2023: Special Fireworks Mode
+    100: {rolledAlbumId: 129, rolledGameId: 9}  // Introduction of Wandering Mode
 };
 
 export function getIdsForDay(day: number): { rolledAlbumId: number, rolledGameId: number } {

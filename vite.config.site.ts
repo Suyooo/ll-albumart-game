@@ -1,6 +1,6 @@
+import {svelte} from "@sveltejs/vite-plugin-svelte";
 import * as path from "path";
 import {defineConfig} from "vite";
-import {svelte} from "@sveltejs/vite-plugin-svelte";
 
 export default defineConfig(({command}) => {
     const indev = command !== "build";
@@ -34,7 +34,7 @@ export default defineConfig(({command}) => {
         },
         define: {
             INDEV: indev,
-            INDEV_LOCK_DAY: 0,
+            INDEV_LOCK_DAY: 100,
             BUILDTIME: Date.now(),
             BUILDDATE: JSON.stringify(new Date(Date.now()).toLocaleString())
         }

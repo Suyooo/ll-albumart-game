@@ -54,7 +54,7 @@
     "filename": "shuffle",
     "startOnDay": 0,
     "name": "Shuffled",
-    "description": "The album art has been split up into tiny pieces and shuffled.",
+    "description": "The album art was split into pieces and shuffled, but the pieces grow each turn.",
     "weight": 1000
   },
   {
@@ -66,10 +66,10 @@
     "messageOverride": "Happy New Year!"
   },
   {
-    "filename": "shuffle-pos",
-    "startOnDay": 0,
-    "name": "Shuffled 2",
-    "description": "The album art has been split up into tiny pieces and shuffled.",
-    "weight": 100000000000000
+    "filename": "wandering",
+    "startOnDay": 100,
+    "name": "Wandering",
+    "description": "Tiny pieces of the album art move closer and closer towards where they belong.",
+    "weight": 1000
   }
 ]
