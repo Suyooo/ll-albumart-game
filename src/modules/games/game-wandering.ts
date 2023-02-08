@@ -13,7 +13,7 @@ export const forceAltFinished = false;
 
 const TILES_PER_AXIS = 128;
 const TOTAL_TILES = TILES_PER_AXIS * TILES_PER_AXIS;
-const MAX_DISTS = [90, 40, 24, 14, 6, 2];
+const MAX_DISTS = [72, 36, 24, 12, 6, 2];
 
 const TILE_ORDER: number[] = [];
 const TILE_ORDER_QUEUE = [Math.floor(TILES_PER_AXIS / 2)];
@@ -38,39 +38,45 @@ function getPosInCanvas(p: number) {
     return Math.floor(CANVAS_SIZE * p / TILES_PER_AXIS);
 }
 
+function dist(fromPos: number, toPos: number) {
+    return Math.abs((fromPos % TILES_PER_AXIS) - (toPos % TILES_PER_AXIS))
+        + Math.abs(Math.floor(fromPos / TILES_PER_AXIS) - Math.floor(toPos / TILES_PER_AXIS));
+}
+
 export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, scaledImage: Canvas): GameInstance {
     const getCanvasForGuess = (failed: number): Canvas => {
         const rng = seededRNG(day * 461 * failed);
         const maxDist = MAX_DISTS[failed];
         const tilesPerPosition = new Array(TOTAL_TILES).fill(undefined).map((_, i) => i);
-        const swapped = tilesPerPosition.map(_ => false);
 
-        for (const tileToSwap of TILE_ORDER) {
-            if (swapped[tileToSwap]) continue;
-            const tileX = tileToSwap % TILES_PER_AXIS;
-            const tileY = Math.floor(tileToSwap / TILES_PER_AXIS);
+        for (const fromPos of TILE_ORDER) {
+            const fromTile = tilesPerPosition[fromPos];
+            const fromX = fromPos % TILES_PER_AXIS;
+            const fromY = Math.floor(fromPos / TILES_PER_AXIS);
 
-            let tries = maxDist, x, y, otherTile = tileToSwap;
+            let tries = maxDist, x, y, toPos = fromPos, toTile = fromTile;
             while (tries > 0) {
-                let testTile;
+                let testPos, testDist;
                 do {
                     const xD = Math.floor(rng() * (maxDist + 1)) * (rng() < 0.5 ? -1 : 1);
                     const yD = Math.floor(rng() * ((maxDist - Math.abs(xD)) + 1)) * (rng() < 0.5 ? -1 : 1);
-                    x = tileX + xD;
-                    y = tileY + yD;
-                    testTile = y * TILES_PER_AXIS + x;
+                    x = fromX + xD;
+                    y = fromY + yD;
+                    testPos = y * TILES_PER_AXIS + x;
+                    testDist = Math.abs(xD) + Math.abs(yD);
                 } while (x < 0 || y < 0 || x >= TILES_PER_AXIS || y >= TILES_PER_AXIS);
 
-                if (!swapped[testTile]) {
-                    otherTile = testTile;
+                const testTile = tilesPerPosition[testPos];
+                if (dist(fromTile, testPos) <= maxDist && dist(testTile, fromPos) <= maxDist) {
+                    toPos = testPos;
+                    toTile = testTile;
                     break;
                 }
                 tries--;
             }
 
-            tilesPerPosition[otherTile] = tileToSwap;
-            tilesPerPosition[tileToSwap] = otherTile;
-            swapped[tileToSwap] = swapped[otherTile] = true;
+            tilesPerPosition[fromPos] = toTile;
+            tilesPerPosition[toPos] = fromTile;
         }
 
         const canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
