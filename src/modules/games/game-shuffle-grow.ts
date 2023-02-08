@@ -24,7 +24,7 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
                         // no rotation on first guess to improve performance
                         .map(e => ({positionIndex: e.i, rotation: failed === 0 ? 0 : Math.floor(rng() * 4)}));
 
-        const getPos = (p: number) => {
+        const getPosInCanvas = (p: number) => {
             return Math.floor(CANVAS_SIZE * p / axis);
         }
 
@@ -32,16 +32,16 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
         const ctx = canvas.getContext("2d");
 
         for (let i = 0; i < total; i++) {
-            const sx = getPos(i % axis);
-            const sy = getPos(Math.floor(i / axis));
-            const sw = getPos((i % axis) + 1) - sx;
-            const sh = getPos(Math.floor(i / axis) + 1) - sy;
+            const sx = getPosInCanvas(i % axis);
+            const sy = getPosInCanvas(Math.floor(i / axis));
+            const sw = getPosInCanvas((i % axis) + 1) - sx;
+            const sh = getPosInCanvas(Math.floor(i / axis) + 1) - sy;
 
             const pos = positions[i].positionIndex;
-            const dx = getPos(pos % axis);
-            const dy = getPos(Math.floor(pos / axis));
-            const dw = getPos((pos % axis) + 1) - dx;
-            const dh = getPos(Math.floor(pos / axis) + 1) - dy;
+            const dx = getPosInCanvas(pos % axis);
+            const dy = getPosInCanvas(Math.floor(pos / axis));
+            const dw = getPosInCanvas((pos % axis) + 1) - dx;
+            const dh = getPosInCanvas(Math.floor(pos / axis) + 1) - dy;
             const dmx = dx + dw / 2;
             const dmy = dy + dh / 2;
 

@@ -18,7 +18,7 @@ interface ACResult extends AutocompleteItem {
     isEn: boolean,
     resultTitle?: Fuzzysort.Result,
     resultTitleHasArtist: boolean,
-    resultReal?: Fuzzysort.Result
+    resultAlt?: Fuzzysort.Result
 }
 
 function punctuationFullWidthToHalfWidth(s: string): string {
@@ -40,8 +40,8 @@ const acTargets: ACTarget[] = ALBUM_POOL.map(album => {
         ja: fuzzysort.prepare(punctuationFullWidthToHalfWidth(ja)),
         enTitleOnly: fuzzysort.prepare(punctuationFullWidthToHalfWidth(album.titleEn)),
         jaTitleOnly: fuzzysort.prepare(punctuationFullWidthToHalfWidth(album.titleJa)),
-        enRealOnly: album.realEn && fuzzysort.prepare(punctuationFullWidthToHalfWidth(album.realEn)),
-        jaRealOnly: album.realJa && fuzzysort.prepare(punctuationFullWidthToHalfWidth(album.realJa)),
+        enAltOnly: album.altEn && fuzzysort.prepare(punctuationFullWidthToHalfWidth(album.altEn)),
+        jaAltOnly: album.altJa && fuzzysort.prepare(punctuationFullWidthToHalfWidth(album.altJa)),
         album: album
     }
 });
@@ -55,12 +55,12 @@ const acOptions: Fuzzysort.KeysOptions<ACTarget> = {
     limit: 5,
     all: false,
     keys: preferJa
-            ? ["ja", "en", "jaTitleOnly", "enTitleOnly", "jaRealOnly", "enRealOnly"]
-            : ["en", "ja", "enTitleOnly", "jaTitleOnly", "enRealOnly", "jaRealOnly"],
-    // 1.5x badness for realEn/realJa-only matches (so title matches take priority in sorting)
+        ? ["ja", "en", "jaTitleOnly", "enTitleOnly", "jaAltOnly", "enAltOnly"]
+        : ["en", "ja", "enTitleOnly", "jaTitleOnly", "enAltOnly", "jaAltOnly"],
+    // 1.5x badness for altEn/altJa-only matches (so title matches take priority in sorting)
     scoreFn: (res) =>
-            res.reduce((max, v, i) =>
-                    v ? Math.max(max, v.score * (i >= 4 ? 1.5 : 1)) : max, -20000)
+        res.reduce((max, v, i) =>
+            v ? Math.max(max, v.score * (i >= 4 ? 1.5 : 1)) : max, -20000)
 };
 
 const autocomplete: Action<HTMLInputElement> = (node: HTMLInputElement) => {
@@ -73,16 +73,16 @@ const autocomplete: Action<HTMLInputElement> = (node: HTMLInputElement) => {
                 update(fuzzysort.go(punctuationFullWidthToHalfWidth(text), acTargets, acOptions)
                         .map(keysResult => {
                             const resultTitle = keysResult[0] ?? keysResult[1] ?? keysResult[2] ?? keysResult[3];
-                            const resultReal = keysResult[4] ?? keysResult[5];
+                            const resultAlt = keysResult[4] ?? keysResult[5];
                             const isEn = preferJa
-                                    ? (resultTitle && (resultTitle === keysResult[1] || resultTitle === keysResult[3]))
-                                    || (resultReal && resultReal === keysResult[5])
-                                    : (resultTitle && (resultTitle === keysResult[0] || resultTitle === keysResult[2]))
-                                    || (resultReal && resultReal === keysResult[4]);
+                                ? (resultTitle && (resultTitle === keysResult[1] || resultTitle === keysResult[3]))
+                                || (resultAlt && resultAlt === keysResult[5])
+                                : (resultTitle && (resultTitle === keysResult[0] || resultTitle === keysResult[2]))
+                                || (resultAlt && resultAlt === keysResult[4]);
                             const value = keysResult.obj.album;
                             const resultTitleHasArtist = resultTitle === keysResult[0] || resultTitle === keysResult[1];
                             return <ACResult>{
-                                resultTitle, resultTitleHasArtist, resultReal, value, isEn
+                                resultTitle, resultTitleHasArtist, resultAlt, value, isEn
                             };
                         })
                 );
@@ -102,15 +102,15 @@ const autocomplete: Action<HTMLInputElement> = (node: HTMLInputElement) => {
                     ? (item.resultTitleHasArtist ? "" : item.value["artist" + lang] + " - ") +
                     fuzzysort.highlight(item.resultTitle, "<mark>", "</mark>")
                     : item.value["artist" + lang] + " - " + item.value["title" + lang];
-            if (item.value["real" + lang]) {
+            if (item.value["alt" + lang]) {
                 itemElement.innerHTML +=
-                        "<div>("
-                        + (item.resultReal
-                                ? fuzzysort.highlight(item.resultReal, "<mark>", "</mark>")
-                                : item.value["real" + lang])
-                                .replace(" [", " <span>[").replace(" <mark>[", " <span><mark>[")
-                        + (item.value["real" + lang].indexOf("[") !== -1 ? "</span>" : "")
-                        + ")</div>";
+                    "<div>("
+                    + (item.resultAlt
+                        ? fuzzysort.highlight(item.resultAlt, "<mark>", "</mark>")
+                        : item.value["alt" + lang])
+                        .replace(" [", " <span>[").replace(" <mark>[", " <span><mark>[")
+                    + (item.value["alt" + lang].indexOf("[") !== -1 ? "</span>" : "")
+                    + ")</div>";
             }
             return itemElement;
         },
