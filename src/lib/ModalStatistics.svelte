@@ -78,14 +78,14 @@
         <div class="flex items-center justify-end">
             <select class:ping={showPing} on:change={onFilterSelect} on:click={() => showPing = false}>
                 <option bind:this={resetOption} disabled selected value="">Filter</option>
-                <option value="0">Pixelated</option>
-                <option value="1">Bubbles</option>
-                <option value="2">Blobs</option>
-                <option value="3">Zoomed In</option>
                 <option value="4,5">Blinds</option>
+                <option value="2">Blobs</option>
+                <option value="1">Bubbles</option>
+                <option value="0">Pixelated</option>
+                <option value="7,9">Shuffled</option>
                 <option value="6">Tiles</option>
-                <option value="7">Shuffled</option>
-                <option value="8">Special</option>
+                <option value="3">Zoomed In</option>
+                <option value="8">★ Special</option>
             </select>
         </div>
     </div>
