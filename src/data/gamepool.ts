@@ -5,7 +5,7 @@ export interface GameInfo {
     startOnDay: number,
     name: string,
     description: string,
-    weight: number,
+    weight: number | { [weightFromDay: string]: number },
     groupId?: number,
     messageOverride?: string
 }

@@ -51,11 +51,15 @@
     "weight": 1000
   },
   {
-    "filename": "shuffle",
+    "filename": "shuffle-grow",
     "startOnDay": 0,
-    "name": "Shuffled",
-    "description": "The album art was split into pieces and shuffled, but the pieces grow each turn.",
-    "weight": 1000
+    "name": "Shuffled - Growing",
+    "description": "The album art is shuffled. Each turn, the pieces grow and are shuffled again.",
+    "weight": {
+      "0": 1000,
+      "100": 500
+    },
+    "groupId": 2
   },
   {
     "filename": "special-firework",
@@ -66,10 +70,11 @@
     "messageOverride": "Happy New Year!"
   },
   {
-    "filename": "wandering",
+    "filename": "shuffle-move",
     "startOnDay": 100,
-    "name": "Wandering",
-    "description": "Tiny pieces of the album art move closer and closer towards where they belong.",
-    "weight": 10000000000000000
+    "name": "Shuffled - Moving",
+    "description": "The album art is shuffled. Each turn, the pieces move closer to where they belong.",
+    "weight": 500,
+    "groupId": 2
   }
 ]

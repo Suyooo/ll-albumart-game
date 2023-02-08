@@ -20,10 +20,18 @@ interface Pickable {
 
 function getFilteredPoolForDay<T extends (AlbumInfo | GameInfo)>(list: T[], day: number): (T & Pickable)[] {
     const pool: (T & Pickable)[] = list.map((item, id) => ({id, cumulativeWeight: 0, ...item}))
-            .filter(item => item.startOnDay <= day && item.weight > 0);
+        .filter(item => item.startOnDay <= day);
 
     pool.reduce((acc, item): number => {
-        item.cumulativeWeight = acc + item.weight;
+        let w: number;
+        if (typeof item.weight === "number") {
+            w = item.weight;
+        } else {
+            const highestFromDay = Object.keys(item.weight).map(x => parseInt(x))
+                .reduce((highest, fromDay) => fromDay <= day && fromDay > highest ? fromDay : highest);
+            w = item.weight[highestFromDay];
+        }
+        item.cumulativeWeight = acc + w;
         return item.cumulativeWeight;
     }, 0);
 
