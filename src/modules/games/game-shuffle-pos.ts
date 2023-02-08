@@ -13,7 +13,7 @@ export const forceAltFinished = false;
 
 const TILES_PER_AXIS = 128;
 const TOTAL_TILES = TILES_PER_AXIS * TILES_PER_AXIS;
-const MAX_DISTS = [96, 60, 28, 16, 8, 3];
+const MAX_DISTS = [90, 40, 24, 14, 6, 2];
 
 const TILE_ORDER: number[] = [];
 const TILE_ORDER_QUEUE = [Math.floor(TILES_PER_AXIS / 2)];
