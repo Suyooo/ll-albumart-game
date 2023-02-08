@@ -13,8 +13,11 @@ export const forceAltFinished = false;
 
 const TILES_PER_AXIS = 128;
 const TOTAL_TILES = TILES_PER_AXIS * TILES_PER_AXIS;
-const MAX_DISTS = [72, 36, 24, 12, 6, 2];
+const MAX_DISTS = [72, 36, 22, 12, 6, 2];
 
+// Build a tile order array:
+// The shuffle seems generally nicer when swapping tiles out of the center first
+// So this is what TILE_ORDER will be: indexes of each position, starting from the center going outwards
 const TILE_ORDER: number[] = [];
 const TILE_ORDER_QUEUE = [Math.floor(TILES_PER_AXIS / 2)];
 const TILE_ORDER_SEEN = new Set<number>();
