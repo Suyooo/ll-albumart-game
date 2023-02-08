@@ -31,10 +31,10 @@
         "startOnDay": 0,
         "weight": 1000,
         "titleEn": "Tokonatsu☆Sunshine",
-        "realEn": "Tokonatsu☆Sunshine / Wish Song [Ep 6 Edition]",
+        "altEn": "Tokonatsu☆Sunshine / Wish Song [Ep 6 Edition]",
         "artistEn": "Liella!",
         "titleJa": "常夏☆サンシャイン",
-        "realJa": "常夏☆サンシャイン / Wish Song 【第6話盤】",
+        "altJa": "常夏☆サンシャイン / Wish Song 【第6話盤】",
         "artistJa": "Liella!"
     },
     {
@@ -42,10 +42,10 @@
         "startOnDay": 0,
         "weight": 1000,
         "titleEn": "Wish Song",
-        "realEn": "Tokonatsu☆Sunshine / Wish Song [Ep 8 Edition]",
+        "altEn": "Tokonatsu☆Sunshine / Wish Song [Ep 8 Edition]",
         "artistEn": "Liella!",
         "titleJa": "Wish Song",
-        "realJa": "常夏☆サンシャイン / Wish Song 【第8話盤】",
+        "altJa": "常夏☆サンシャイン / Wish Song 【第8話盤】",
         "artistJa": "Liella!"
     },
     {
@@ -62,10 +62,10 @@
         "startOnDay": 0,
         "weight": 1000,
         "titleEn": "Welcome to Bokura no Sekai",
-        "realEn": "Welcome to Bokura no Sekai / Go!! Restart [Ep 1 Edition]",
+        "altEn": "Welcome to Bokura no Sekai / Go!! Restart [Ep 1 Edition]",
         "artistEn": "Liella!",
         "titleJa": "Welcome to 僕らのセカイ",
-        "realJa": "Welcome to 僕らのセカイ / Go!! リスタート 【第1話盤】",
+        "altJa": "Welcome to 僕らのセカイ / Go!! リスタート 【第1話盤】",
         "artistJa": "Liella!"
     },
     {
@@ -73,10 +73,10 @@
         "startOnDay": 0,
         "weight": 1000,
         "titleEn": "Go!! Restart",
-        "realEn": "Welcome to Bokura no Sekai / Go!! Restart [Ep 3 Edition]",
+        "altEn": "Welcome to Bokura no Sekai / Go!! Restart [Ep 3 Edition]",
         "artistEn": "Liella!",
         "titleJa": "Go!! リスタート",
-        "realJa": "Welcome to 僕らのセカイ / Go!! リスタート 【第3話盤】",
+        "altJa": "Welcome to 僕らのセカイ / Go!! リスタート 【第3話盤】",
         "artistJa": "Liella!"
     },
     {
@@ -93,10 +93,10 @@
         "startOnDay": 0,
         "weight": 1000,
         "titleEn": "Nonfiction!!",
-        "realEn": "Nonfiction!! / Starlight Prologue [Ep 10 Edition]",
+        "altEn": "Nonfiction!! / Starlight Prologue [Ep 10 Edition]",
         "artistEn": "Liella!",
         "titleJa": "ノンフィクション!!",
-        "realJa": "ノンフィクション!! / Starlight Prologue 【第10話盤】",
+        "altJa": "ノンフィクション!! / Starlight Prologue 【第10話盤】",
         "artistJa": "Liella!"
     },
     {
@@ -104,10 +104,10 @@
         "startOnDay": 0,
         "weight": 1000,
         "titleEn": "Starlight Prologue",
-        "realEn": "Nonfiction!! / Starlight Prologue [Ep 12 Edition]",
+        "altEn": "Nonfiction!! / Starlight Prologue [Ep 12 Edition]",
         "artistEn": "Liella!",
         "titleJa": "Starlight Prologue",
-        "realJa": "ノンフィクション!! / Starlight Prologue 【第12話盤】",
+        "altJa": "ノンフィクション!! / Starlight Prologue 【第12話盤】",
         "artistJa": "Liella!"
     },
     {
@@ -124,10 +124,10 @@
         "startOnDay": 0,
         "weight": 1000,
         "titleEn": "Vitamin SUMMER!",
-        "realEn": "Vitamin SUMMER! / Chance Day, Chance Way! [Ep 6 Edition]",
+        "altEn": "Vitamin SUMMER! / Chance Day, Chance Way! [Ep 6 Edition]",
         "artistEn": "Liella!",
         "titleJa": "ビタミンSUMMER！",
-        "realJa": "ビタミンSUMMER！ / Chance Day, Chance Way！ 【第6話盤】",
+        "altJa": "ビタミンSUMMER！ / Chance Day, Chance Way！ 【第6話盤】",
         "artistJa": "Liella!"
     },
     {
@@ -135,10 +135,10 @@
         "startOnDay": 0,
         "weight": 1000,
         "titleEn": "Chance Day, Chance Way!",
-        "realEn": "Vitamin SUMMER! / Chance Day, Chance Way! [Ep 8 Edition]",
+        "altEn": "Vitamin SUMMER! / Chance Day, Chance Way! [Ep 8 Edition]",
         "artistEn": "Liella!",
         "titleJa": "Chance Day, Chance Way！",
-        "realJa": "ビタミンSUMMER！ / Chance Day, Chance Way！ 【第8話盤】",
+        "altJa": "ビタミンSUMMER！ / Chance Day, Chance Way！ 【第8話盤】",
         "artistJa": "Liella!"
     },
     {
@@ -164,10 +164,10 @@
         "startOnDay": 0,
         "weight": 1000,
         "titleEn": "Mirai Yohou Hallelujah!",
-        "realEn": "Mirai Yohou Hallelujah! / Tiny Stars [Ep 1 Edition]",
+        "altEn": "Mirai Yohou Hallelujah! / Tiny Stars [Ep 1 Edition]",
         "artistEn": "Liella!",
         "titleJa": "未来予報ハレルヤ！",
-        "realJa": "未来予報ハレルヤ！ / Tiny Stars 【第1話盤】",
+        "altJa": "未来予報ハレルヤ！ / Tiny Stars 【第1話盤】",
         "artistJa": "Liella!"
     },
     {
@@ -175,10 +175,10 @@
         "startOnDay": 0,
         "weight": 1000,
         "titleEn": "Tiny Stars",
-        "realEn": "Mirai Yohou Hallelujah! / Tiny Stars [Ep 3 Edition]",
+        "altEn": "Mirai Yohou Hallelujah! / Tiny Stars [Ep 3 Edition]",
         "artistEn": "Liella!",
         "titleJa": "Tiny Stars",
-        "realJa": "未来予報ハレルヤ！ / Tiny Stars 【第3話盤】",
+        "altJa": "未来予報ハレルヤ！ / Tiny Stars 【第3話盤】",
         "artistJa": "Liella!"
     },
     {
@@ -978,10 +978,10 @@
         "startOnDay": 0,
         "weight": 1000,
         "titleEn": "Dream with You",
-        "realEn": "Dream with You / Poppin' Up! / DIVE! [Uehara Ayumu Type]",
+        "altEn": "Dream with You / Poppin' Up! / DIVE! [Uehara Ayumu Type]",
         "artistEn": "Nijigasaki High School Idol Club",
         "titleJa": "Dream with You",
-        "realJa": "Dream with You / Poppin' Up! / DIVE！【上原歩夢盤】",
+        "altJa": "Dream with You / Poppin' Up! / DIVE！【上原歩夢盤】",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     },
     {
@@ -989,10 +989,10 @@
         "startOnDay": 0,
         "weight": 1000,
         "titleEn": "Poppin' Up!",
-        "realEn": "Dream with You / Poppin' Up! / DIVE! [Nakasu Kasumi Type]",
+        "altEn": "Dream with You / Poppin' Up! / DIVE! [Nakasu Kasumi Type]",
         "artistEn": "Nijigasaki High School Idol Club",
         "titleJa": "Poppin' Up!",
-        "realJa": "Dream with You / Poppin' Up! / DIVE！【中須かすみ盤】",
+        "altJa": "Dream with You / Poppin' Up! / DIVE！【中須かすみ盤】",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     },
     {
@@ -1000,10 +1000,10 @@
         "startOnDay": 0,
         "weight": 1000,
         "titleEn": "DIVE!",
-        "realEn": "Dream with You / Poppin' Up! / DIVE! [Yuki Setsuna Type]",
+        "altEn": "Dream with You / Poppin' Up! / DIVE! [Yuki Setsuna Type]",
         "artistEn": "Nijigasaki High School Idol Club",
         "titleJa": "DIVE！",
-        "realJa": "Dream with You / Poppin' Up! / DIVE！【優木せつ菜盤】",
+        "altJa": "Dream with You / Poppin' Up! / DIVE！【優木せつ菜盤】",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     },
     {
@@ -1011,10 +1011,10 @@
         "startOnDay": 0,
         "weight": 1000,
         "titleEn": "Saikou Heart",
-        "realEn": "Saikou Heart / La Bella Patria / Tsunagaru Connect [Miyashita Ai Type]",
+        "altEn": "Saikou Heart / La Bella Patria / Tsunagaru Connect [Miyashita Ai Type]",
         "artistEn": "Nijigasaki High School Idol Club",
         "titleJa": "サイコーハート",
-        "realJa": "サイコーハート / La Bella Patria / ツナガルコネクト【宮下 愛盤】",
+        "altJa": "サイコーハート / La Bella Patria / ツナガルコネクト【宮下 愛盤】",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     },
     {
@@ -1022,10 +1022,10 @@
         "startOnDay": 0,
         "weight": 1000,
         "titleEn": "La Bella Patria",
-        "realEn": "Saikou Heart / La Bella Patria / Tsunagaru Connect [Emma Verde Type]",
+        "altEn": "Saikou Heart / La Bella Patria / Tsunagaru Connect [Emma Verde Type]",
         "artistEn": "Nijigasaki High School Idol Club",
         "titleJa": "La Bella Patria",
-        "realJa": "サイコーハート / La Bella Patria / ツナガルコネクト【エマ・ヴェルデ盤】",
+        "altJa": "サイコーハート / La Bella Patria / ツナガルコネクト【エマ・ヴェルデ盤】",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     },
     {
@@ -1033,10 +1033,10 @@
         "startOnDay": 0,
         "weight": 1000,
         "titleEn": "Tsunagaru Connect",
-        "realEn": "Saikou Heart / La Bella Patria / Tsunagaru Connect [Tennoji Rina Type]",
+        "altEn": "Saikou Heart / La Bella Patria / Tsunagaru Connect [Tennoji Rina Type]",
         "artistEn": "Nijigasaki High School Idol Club",
         "titleJa": "ツナガルコネクト",
-        "realJa": "サイコーハート / La Bella Patria / ツナガルコネクト【天王寺璃奈盤】",
+        "altJa": "サイコーハート / La Bella Patria / ツナガルコネクト【天王寺璃奈盤】",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     },
     {
@@ -1044,10 +1044,10 @@
         "startOnDay": 0,
         "weight": 1000,
         "titleEn": "Butterfly",
-        "realEn": "Butterfly / Solitude Rain / VIVID WORLD [Konoe Kanata Type]",
+        "altEn": "Butterfly / Solitude Rain / VIVID WORLD [Konoe Kanata Type]",
         "artistEn": "Nijigasaki High School Idol Club",
         "titleJa": "Butterfly",
-        "realJa": "Butterfly / Solitude Rain / VIVID WORLD【近江彼方盤】",
+        "altJa": "Butterfly / Solitude Rain / VIVID WORLD【近江彼方盤】",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     },
     {
@@ -1055,10 +1055,10 @@
         "startOnDay": 0,
         "weight": 1000,
         "titleEn": "Solitude Rain",
-        "realEn": "Butterfly / Solitude Rain / VIVID WORLD [Osaka Shizuku Type]",
+        "altEn": "Butterfly / Solitude Rain / VIVID WORLD [Osaka Shizuku Type]",
         "artistEn": "Nijigasaki High School Idol Club",
         "titleJa": "Solitude Rain",
-        "realJa": "Butterfly / Solitude Rain / VIVID WORLD【桜坂しずく盤】",
+        "altJa": "Butterfly / Solitude Rain / VIVID WORLD【桜坂しずく盤】",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     },
     {
@@ -1066,10 +1066,10 @@
         "startOnDay": 0,
         "weight": 1000,
         "titleEn": "VIVID WORLD",
-        "realEn": "Butterfly / Solitude Rain / VIVID WORLD [Asaka Karin Type]",
+        "altEn": "Butterfly / Solitude Rain / VIVID WORLD [Asaka Karin Type]",
         "artistEn": "Nijigasaki High School Idol Club",
         "titleJa": "VIVID WORLD",
-        "realJa": "Butterfly / Solitude Rain / VIVID WORLD【朝香果林盤】",
+        "altJa": "Butterfly / Solitude Rain / VIVID WORLD【朝香果林盤】",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     },
     {
@@ -1077,10 +1077,10 @@
         "startOnDay": 0,
         "weight": 1000,
         "titleEn": "Awakening Promise",
-        "realEn": "Awakening Promise / Yume ga Koko Kara Hajimaru yo [Uehara Ayumu Side]",
+        "altEn": "Awakening Promise / Yume ga Koko Kara Hajimaru yo [Uehara Ayumu Side]",
         "artistEn": "Nijigasaki High School Idol Club",
         "titleJa": "Awakening Promise",
-        "realJa": "Awakening Promise / 夢がここからはじまるよ【上原歩夢ジャケット】",
+        "altJa": "Awakening Promise / 夢がここからはじまるよ【上原歩夢ジャケット】",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     },
     {
@@ -1088,10 +1088,10 @@
         "startOnDay": 0,
         "weight": 1000,
         "titleEn": "Yume ga Koko Kara Hajimaru yo",
-        "realEn": "Awakening Promise / Yume ga Koko Kara Hajimaru yo [Nijigasaki Side]",
+        "altEn": "Awakening Promise / Yume ga Koko Kara Hajimaru yo [Nijigasaki Side]",
         "artistEn": "Nijigasaki High School Idol Club",
         "titleJa": "夢がここからはじまるよ",
-        "realJa": "Awakening Promise / 夢がここからはじまるよ【虹ヶ咲ジャケット】",
+        "altJa": "Awakening Promise / 夢がここからはじまるよ【虹ヶ咲ジャケット】",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     },
     {
@@ -1117,10 +1117,10 @@
         "startOnDay": 0,
         "weight": 1000,
         "titleEn": "Eutopia",
-        "realEn": "Eutopia / EMOTION / stars we chase [Zhong Lanzhu Type]",
+        "altEn": "Eutopia / EMOTION / stars we chase [Zhong Lanzhu Type]",
         "artistEn": "Nijigasaki High School Idol Club",
         "titleJa": "Eutopia",
-        "realJa": "Eutopia / EMOTION / stars we chase【鐘 嵐珠盤】",
+        "altJa": "Eutopia / EMOTION / stars we chase【鐘 嵐珠盤】",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     },
     {
@@ -1128,10 +1128,10 @@
         "startOnDay": 0,
         "weight": 1000,
         "titleEn": "EMOTION",
-        "realEn": "Eutopia / EMOTION / stars we chase [Mifune Shioriko Type]",
+        "altEn": "Eutopia / EMOTION / stars we chase [Mifune Shioriko Type]",
         "artistEn": "Nijigasaki High School Idol Club",
         "titleJa": "EMOTION",
-        "realJa": "Eutopia / EMOTION / stars we chase【三船栞子盤】",
+        "altJa": "Eutopia / EMOTION / stars we chase【三船栞子盤】",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     },
     {
@@ -1139,10 +1139,10 @@
         "startOnDay": 0,
         "weight": 1000,
         "titleEn": "stars we chase",
-        "realEn": "Eutopia / EMOTION / stars we chase [Mia Taylor Type]",
+        "altEn": "Eutopia / EMOTION / stars we chase [Mia Taylor Type]",
         "artistEn": "Nijigasaki High School Idol Club",
         "titleJa": "stars we chase",
-        "realJa": "Eutopia / EMOTION / stars we chase【ミア・テイラー盤】",
+        "altJa": "Eutopia / EMOTION / stars we chase【ミア・テイラー盤】",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     },
     {
@@ -1565,10 +1565,10 @@
         "weight": 1000,
         "titleEn": "after school NAVIGATORS / Listen to my heart!!",
         "artistEn": "µ's",
-        "realEn": "Love Live Radio Kagai Katsudou NicoRinPana Theme Song DJCD",
+        "altEn": "Love Live Radio Kagai Katsudou NicoRinPana Theme Song DJCD",
         "titleJa": "after school NAVIGATORS / Listen to my heart!!",
         "artistJa": "µ's",
-        "realJa": "ラブライ部 ラジオ課外活動 にこりんぱな テーマソングDJCD"
+        "altJa": "ラブライ部 ラジオ課外活動 にこりんぱな テーマソングDJCD"
     },
     {
         "url": "/albumart/umi-sonoda_love-live-solo-live-from-muse-sonoda-umi-umiiro-shoujo-ni-miserarete.jpg",
@@ -1791,10 +1791,10 @@
         "startOnDay": 0,
         "weight": 1000,
         "titleEn": "Sing! Shine! Smile!",
-        "realEn": "Sing! Shine! Smile! / Mirai no Oto ga Kikoeru [Ep 10 Edition]",
+        "altEn": "Sing! Shine! Smile! / Mirai no Oto ga Kikoeru [Ep 10 Edition]",
         "artistEn": "Liella!",
         "titleJa": "Sing！Shine！Smile！",
-        "realJa": "Sing！Shine！Smile！ / 未来の音が聴こえる 【第10話盤】",
+        "altJa": "Sing！Shine！Smile！ / 未来の音が聴こえる 【第10話盤】",
         "artistJa": "Liella!"
     },
     {
@@ -1802,10 +1802,10 @@
         "startOnDay": 0,
         "weight": 1000,
         "titleEn": "Mirai no Oto ga Kikoeru",
-        "realEn": "Sing! Shine! Smile! / Mirai no Oto ga Kikoeru [Ep 12 Edition]",
+        "altEn": "Sing! Shine! Smile! / Mirai no Oto ga Kikoeru [Ep 12 Edition]",
         "artistEn": "Liella!",
         "titleJa": "未来の音が聴こえる",
-        "realJa": "Sing！Shine！Smile！ / 未来の音が聴こえる 【第12話盤】",
+        "altJa": "Sing！Shine！Smile！ / 未来の音が聴こえる 【第12話盤】",
         "artistJa": "Liella!"
     },
     {
@@ -2147,10 +2147,10 @@
         "weight": 1000,
         "titleEn": "Waaiwaiwai Waiwaiwai!",
         "artistEn": "Aqours",
-        "realEn": "Love Live! Sunshine!! Aqours Uranohoshi Girls' High School RADIO!!! JMA Broadcasting Station Theme Song CD",
+        "altEn": "Love Live! Sunshine!! Aqours Uranohoshi Girls' High School RADIO!!! JMA Broadcasting Station Theme Song CD",
         "titleJa": "わーいわいわい　わいわいわい！",
         "artistJa": "Aqours",
-        "realJa": "ラブライブ！サンシャイン!! Aqours浦の星女学院RADIO!!! JMA放送局 テーマソングCD"
+        "altJa": "ラブライブ！サンシャイン!! Aqours浦の星女学院RADIO!!! JMA放送局 テーマソングCD"
     },
     {
         "url": "/albumart/qu4rtz_pastel.jpg",

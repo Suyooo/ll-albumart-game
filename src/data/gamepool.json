@@ -70,6 +70,6 @@
     "startOnDay": 100,
     "name": "Wandering",
     "description": "Tiny pieces of the album art move closer and closer towards where they belong.",
-    "weight": 1000
+    "weight": 10000000000000000
   }
 ]

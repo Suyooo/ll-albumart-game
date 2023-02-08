@@ -1,7 +1,9 @@
 <script lang="ts">
     import dragscroll from "$actions/dragscroll";
+    import Hide from "$icon/Hide.svelte";
     import Left from "$icon/Left.svelte";
     import Right from "$icon/Right.svelte";
+    import Show from "$icon/Show.svelte";
     import ZoomIn from "$icon/ZoomIn.svelte";
     import ZoomOut from "$icon/ZoomOut.svelte";
     import PageButton from "$lib/styled/PageButton.svelte";
@@ -9,8 +11,6 @@
     import {ALBUM, GAME, STATE} from "$stores/state";
     import {onMount} from "svelte";
     import {fly, scale} from "svelte-reduced-motion/transition";
-    import Show from "$icon/Show.svelte";
-    import Hide from "$icon/Hide.svelte";
 
     export let game: GameInstanceSiteWrapper;
 
@@ -96,10 +96,7 @@
                 {#if $STATE.finished}
                     <!-- aria-hidden: Answer is screen read in Result. This one is just for visual presentation -->
                     <div class="text-xs max-w-sm text-center" in:fly={{y: -30, duration: 1000}} aria-hidden="true">
-                        {ALBUM.artistEn} -
-                        <b>{@html ALBUM.realEn
-                            ? ALBUM.realEn.replace(" [", " <span class='inline-block'>[") + "</span>"
-                            : ALBUM.titleEn}</b>
+                        {ALBUM.artistEn} - <b>{@html ALBUM.titleEn}</b>
                     </div>
                 {:else}
                     <div class="text-xs max-w-sm text-center">

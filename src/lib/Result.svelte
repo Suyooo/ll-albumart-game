@@ -91,9 +91,7 @@
     <div class="text-sm text-center">
         {#if !$STATE.cleared}
             You have run out of guesses.
-            <span class="vhd">The answer was: {ALBUM.artistEn} - <b>{@html ALBUM.realEn
-                    ? ALBUM.realEn.replace(" [", " <span class='inline-block'>[") + "</span>"
-                    : ALBUM.titleEn}</b></span>
+            <span class="vhd">The answer was: {ALBUM.artistEn} - {ALBUM.titleEn}</span>
         {:else if $STATE.failed > 0}
             You guessed today's album art in <b>{$STATE.failed + 1} guesses</b>!
         {:else}
