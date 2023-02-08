@@ -7,13 +7,32 @@ import type {GameInstance} from "../gameHandler";
 import {CANVAS_SIZE} from "../gameHandler";
 import {seededRNG} from "../rng";
 
-export const stacked = true;
+export const stacked = false;
 export const hasAltFinished = false;
 export const forceAltFinished = false;
 
 const TILES_PER_AXIS = 128;
 const TOTAL_TILES = TILES_PER_AXIS * TILES_PER_AXIS;
-const MAX_DISTS = [256, 64, 32, 12, 6, 3];
+const MAX_DISTS = [96, 60, 28, 16, 8, 3];
+
+const TILE_ORDER: number[] = [];
+const TILE_ORDER_QUEUE = [Math.floor(TILES_PER_AXIS / 2)];
+const TILE_ORDER_SEEN = new Set<number>();
+
+function test(pos) {
+    if (TILE_ORDER_SEEN.has(pos)) return;
+    TILE_ORDER_SEEN.add(pos);
+    TILE_ORDER_QUEUE.push(pos);
+}
+
+while (TILE_ORDER_QUEUE.length > 0) {
+    const pos = TILE_ORDER_QUEUE.shift();
+    TILE_ORDER.push(pos);
+    if ((pos % TILES_PER_AXIS) > 0) test(pos - 1);
+    if (pos >= TILES_PER_AXIS) test(pos - TILES_PER_AXIS);
+    if ((pos % TILES_PER_AXIS) < TILES_PER_AXIS - 1) test(pos + 1);
+    if (pos < TILES_PER_AXIS * (TILES_PER_AXIS - 1)) test(pos + TILES_PER_AXIS);
+}
 
 function getPosInCanvas(p: number) {
     return Math.floor(CANVAS_SIZE * p / TILES_PER_AXIS);
@@ -23,39 +42,35 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
     const getCanvasForGuess = (failed: number): Canvas => {
         const rng = seededRNG(day * 461 * failed);
         const maxDist = MAX_DISTS[failed];
+        const tilesPerPosition = new Array(TOTAL_TILES).fill(undefined).map((_, i) => i);
+        const swapped = tilesPerPosition.map(_ => false);
 
-        const tilesPerPosition = new Array(TOTAL_TILES).fill(-1);
-        const queue = tilesPerPosition.map((_, i) => i);
-        const maxTries = maxDist;
+        for (const tileToSwap of TILE_ORDER) {
+            if (swapped[tileToSwap]) continue;
+            const tileX = tileToSwap % TILES_PER_AXIS;
+            const tileY = Math.floor(tileToSwap / TILES_PER_AXIS);
 
-        while (queue.length > 0) {
-            const tileToShuffle = queue.shift();
-            const tileX = tileToShuffle % TILES_PER_AXIS;
-            const tileY = Math.floor(tileToShuffle / TILES_PER_AXIS);
-
-            let tries = 0;
-            let pos;
-            while (tries < maxTries) {
-                tries++;
-                let x, y;
+            let tries = maxDist, x, y, otherTile = tileToSwap;
+            while (tries > 0) {
+                let testTile;
                 do {
                     const xD = Math.floor(rng() * (maxDist + 1)) * (rng() < 0.5 ? -1 : 1);
                     const yD = Math.floor(rng() * ((maxDist - Math.abs(xD)) + 1)) * (rng() < 0.5 ? -1 : 1);
                     x = tileX + xD;
                     y = tileY + yD;
+                    testTile = y * TILES_PER_AXIS + x;
                 } while (x < 0 || y < 0 || x >= TILES_PER_AXIS || y >= TILES_PER_AXIS);
 
-                pos = y * TILES_PER_AXIS + x;
-                if (pos >= tilesPerPosition.length) throw new Error("fuck ya");
-                if (tilesPerPosition[pos] === -1) {
+                if (!swapped[testTile]) {
+                    otherTile = testTile;
                     break;
                 }
+                tries--;
             }
 
-            if (tilesPerPosition[pos] !== -1) {
-                queue.push(tilesPerPosition[pos]);
-            }
-            tilesPerPosition[pos] = tileToShuffle;
+            tilesPerPosition[otherTile] = tileToSwap;
+            tilesPerPosition[tileToSwap] = otherTile;
+            swapped[tileToSwap] = swapped[otherTile] = true;
         }
 
         const canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
