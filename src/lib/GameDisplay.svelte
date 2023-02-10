@@ -90,7 +90,13 @@
                     {/if}
                 </PageButton>
             {:else}
-                <div class="w-8 flex-shrink-0 select-none">&nbsp;</div>
+                <div class="w-8 flex-shrink-0 select-none relative">&nbsp;
+                    {#if !$STATE.finished}
+                        <div class="absolute top-0 left-0 text-primary-500 font-bold">
+                            NEW!
+                        </div>
+                    {/if}
+                </div>
             {/if}
             <div class="flex-grow px-4">
                 {#if $STATE.finished}
