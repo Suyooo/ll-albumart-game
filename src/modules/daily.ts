@@ -103,7 +103,7 @@ export function getIdsForDay(day: number): { rolledAlbumId: number, rolledGameId
         // Is it inefficient? Yes! Is it inefficient to the point that it makes a noticeable difference for players? No!
         // So I think it's a fine tradeoff - by doing this instead of relying on a user's save file, we sacrifice some
         // performance for the guarantee that everyone will always have exactly the same song forever
-        for (let i = Math.max(day - 100, 1); i < day; i++) {
+        for (let i = Math.max(day - 150, 1); i < day; i++) {
             const prevDayIds = getIdsForDay(i);
             blockedAlbumIds.add(prevDayIds.rolledAlbumId);
             if (i >= day - 5) {
