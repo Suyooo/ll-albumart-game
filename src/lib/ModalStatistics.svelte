@@ -31,7 +31,6 @@
             resetOption.disabled = true;
             resetOption.innerText = "Filter";
         }
-        showPing = false;
     }
 
     function grow(_node: Node, {
@@ -45,8 +44,6 @@
             css: (t: number) => `max-width: ${quartOut(t) * target * 100}%`
         };
     }
-
-    let showPing = true;
 </script>
 
 <div class="flex-col space-y-4">
@@ -76,7 +73,7 @@
             {/each}
         {/key}
         <div class="flex items-center justify-end">
-            <select class:ping={showPing} on:change={onFilterSelect} on:click={() => showPing = false}>
+            <select on:change={onFilterSelect}>
                 <option bind:this={resetOption} disabled selected value="">Filter</option>
                 <option value="4,5">Blinds</option>
                 <option value="2">Blobs</option>
