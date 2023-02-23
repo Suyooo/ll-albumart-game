@@ -13,10 +13,10 @@ export const forceAltFinished = false;
 
 const TILES_PER_AXIS = 128;
 const TOTAL_TILES = TILES_PER_AXIS * TILES_PER_AXIS;
-const MAX_DISTS = [72, 36, 22, 12, 6, 2];
+const MAX_DISTS = [[72, 36, 22, 12, 6, 2], [128, 72, 30, 15, 6, 2]];
 
 // Build a tile order array:
-// The shuffle seems generally nicer when swapping tiles out of the center first
+// The shuffle seems generally better when swapping tiles out of the center first
 // So this is what TILE_ORDER will be: indexes of each position, starting from the center going outwards
 const TILE_ORDER: number[] = [];
 const TILE_ORDER_QUEUE = [Math.floor(TILES_PER_AXIS / 2)];
@@ -49,7 +49,7 @@ function dist(fromPos: number, toPos: number) {
 export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, scaledImage: Canvas): GameInstance {
     const getCanvasForGuess = (failed: number): Canvas => {
         const rng = seededRNG(day * 461 * failed);
-        const maxDist = MAX_DISTS[failed];
+        const maxDist = MAX_DISTS[day < 113 ? 0 : 1][failed];
         const tilesPerPosition = new Array(TOTAL_TILES).fill(undefined).map((_, i) => i);
 
         for (const fromPos of TILE_ORDER) {
