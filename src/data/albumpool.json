@@ -2205,5 +2205,14 @@
         "artistEn": "Kanan Matsuura (CV: Nanaka Suwa)",
         "titleJa": "Third Solo Concert Album ~THE STORY OF \"OVER THE RAINBOW\"~ starring Matsuura Kanan",
         "artistJa": "松浦果南 (CV.諏訪ななか)"
+    },
+    {
+        "url": "/albumart/aqours_the-blue-swell.jpg",
+        "startOnDay": 117,
+        "weight": 1000,
+        "titleEn": "The Blue Swell",
+        "artistEn": "Aqours",
+        "titleJa": "The Blue Swell",
+        "artistJa": "Aqours"
     }
 ]
