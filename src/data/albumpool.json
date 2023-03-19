@@ -2214,5 +2214,32 @@
         "artistEn": "Aqours",
         "titleJa": "The Blue Swell",
         "artistJa": "Aqours"
+    },
+    {
+        "url": "/albumart/hanamaru-kunikida_third-solo-concert-album-the-story-of-over-the-rainbow-starring-kunikida-hanamaru.jpg",
+        "startOnDay": 136,
+        "weight": 100,
+        "titleEn": "Third Solo Concert Album ~THE STORY OF \"OVER THE RAINBOW\"~ starring Kunikida Hanamaru",
+        "artistEn": "Hanamaru Kunikida (CV: Kanako Takatsuki)",
+        "titleJa": "Third Solo Concert Album ~THE STORY OF \"OVER THE RAINBOW\"~ starring Kunikida Hanamaru",
+        "artistJa": "国木田花丸 (CV.高槻かなこ)"
+    },
+    {
+        "url": "/albumart/liella_second-sparkle-original-type.jpg",
+        "startOnDay": 145,
+        "weight": 1000,
+        "titleEn": "Second Sparkle [Original Edition]",
+        "artistEn": "Liella!",
+        "titleJa": "Second Sparkle【オリジナル盤】",
+        "artistJa": "Liella!"
+    },
+    {
+        "url": "/albumart/liella_second-sparkle-photo-type.jpg",
+        "startOnDay": 145,
+        "weight": 1000,
+        "titleEn": "Second Sparkle [Photo Edition]",
+        "artistEn": "Liella!",
+        "titleJa": "Second Sparkle【フォト盤】",
+        "artistJa": "Liella!"
     }
 ]
