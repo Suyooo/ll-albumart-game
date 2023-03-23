@@ -14,7 +14,7 @@ const SIZES = [700, 680, 650, 580, 500, 400];
 const BIRB_SIZE = 650; // size in pixels of kotobomb.png
 
 export async function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, scaledImage: Canvas): Promise<GameInstance> {
-    const birbImage = await loadImage("/assets/kotobomb.png");
+    const birbImage = await loadImage("assets/kotobomb.png");
     const getCanvasForGuess = (failed: number): Canvas => {
         const canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
         const ctx = canvas.getContext("2d");
