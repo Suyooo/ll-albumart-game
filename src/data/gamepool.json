@@ -76,5 +76,13 @@
     "description": "The album art is shuffled. Each turn, the pieces move closer to where they belong.",
     "weight": 500,
     "groupId": 2
+  },
+  {
+    "filename": "special-kotobomb",
+    "startOnDay": 999999,
+    "name": "Kotobomb",
+    "description": "Can you please take a step back, I need to see this album art",
+    "weight": 0,
+    "messageOverride": "( • 8 • )"
   }
 ]
