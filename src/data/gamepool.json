@@ -81,7 +81,7 @@
     "filename": "special-kotobomb",
     "startOnDay": 999999,
     "name": "Kotobomb",
-    "description": "Can you please take a step back, I need to see this album art",
+    "description": "Sorry, can you please take a step back, I need to see this album art",
     "weight": 0,
     "messageOverride": "( • 8 • )"
   }
