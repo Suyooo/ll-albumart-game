@@ -10,7 +10,7 @@ export interface Game {
     hasAltFinished: boolean,
     forceAltFinished: boolean,
 
-    getGameInstance(day: number, album: AlbumInfo, image: Image, scaledImage: Canvas): GameInstance
+    getGameInstance(day: number, album: AlbumInfo, image: Image, scaledImage: Canvas): Promise<GameInstance>
 }
 
 export interface GameInstance {
@@ -61,7 +61,11 @@ export async function getGameInstance(day: number, gameInfo: GameInfo, album: Al
     albumArtCtx.drawImage(image, 0, -paddingOriginal, image.width, paddingOriginal ? image.width : image.height,
         0, 0, CANVAS_SIZE, CANVAS_SIZE);
 
-    return {game, gameInstance: game.getGameInstance(day, album, image, albumArtCanvas), albumArt: albumArtCanvas};
+    return {
+        game,
+        gameInstance: await game.getGameInstance(day, album, image, albumArtCanvas),
+        albumArt: albumArtCanvas
+    };
 }
 
 export async function getGameSiteInstance(day: number, gameInfo: GameInfo, album: AlbumInfo): Promise<GameInstanceSiteWrapper> {
