@@ -10,8 +10,8 @@ export const stacked = false;
 export const hasAltFinished = true;
 export const forceAltFinished = true;
 
-const SIZES = [700, 680, 650, 580, 500, 400];
-const BIRB_SIZE = 650; // size in pixels of kotobomb.png
+const SIZES = [750, 730, 700, 650, 550, 450];
+const BIRB_SIZE = 700; // size in pixels of kotobomb.png
 
 export async function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, scaledImage: Canvas): Promise<GameInstance> {
     const birbImage = await loadImage("assets/kotobomb.png");
