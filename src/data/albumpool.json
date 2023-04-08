@@ -2241,5 +2241,14 @@
         "artistEn": "Liella!",
         "titleJa": "Second Sparkle【フォト盤】",
         "artistJa": "Liella!"
+    },
+    {
+        "url": "/albumart/hasunosora_dream-believers.jpg",
+        "startOnDay": 160,
+        "weight": 1000,
+        "titleEn": "Dream Believers",
+        "artistEn": "Hasunosora Girls' High School Idol Club",
+        "titleJa": "Dream Believers",
+        "artistJa": "蓮ノ空女学院スクールアイドルクラブ"
     }
 ]
