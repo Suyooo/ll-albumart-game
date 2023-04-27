@@ -2250,5 +2250,32 @@
         "artistEn": "Hasunosora Girls' High School Idol Club",
         "titleJa": "Dream Believers",
         "artistJa": "蓮ノ空女学院スクールアイドルクラブ"
+    },
+    {
+        "url": "/albumart/you-watanabe_third-solo-concert-album-the-story-of-over-the-rainbow-starring-watanabe-you.jpg",
+        "startOnDay": 179,
+        "weight": 100,
+        "titleEn": "Third Solo Concert Album ~THE STORY OF \"OVER THE RAINBOW\"~ starring Watanabe You",
+        "artistEn": "You Watanabe (CV: Shuka Saitou)",
+        "titleJa": "Third Solo Concert Album ~THE STORY OF \"OVER THE RAINBOW\"~ starring Watanabe You",
+        "artistJa": "渡辺 曜 (CV.斉藤朱夏)"
+    },
+    {
+        "url": "/albumart/cerise-bouquet_reflection-in-the-mirror.jpg",
+        "startOnDay": 188,
+        "weight": 1000,
+        "titleEn": "Reflection in the mirror",
+        "artistEn": "Cerise Bouquet",
+        "titleJa": "Reflection in the mirror",
+        "artistJa": "スリーズブーケ"
+    },
+    {
+        "url": "/albumart/dollchestra_sparkly-spot.jpg",
+        "startOnDay": 188,
+        "weight": 1000,
+        "titleEn": "Sparkly Spot",
+        "artistEn": "DOLLCHESTRA",
+        "titleJa": "Sparkly Spot",
+        "artistJa": "DOLLCHESTRA"
     }
 ]
