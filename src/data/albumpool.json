@@ -2277,5 +2277,23 @@
         "artistEn": "DOLLCHESTRA",
         "titleJa": "Sparkly Spot",
         "artistJa": "DOLLCHESTRA"
+    },
+    {
+        "url": "/albumart/school-idol-musical_school-idol-musical.jpg",
+        "startOnDay": 205,
+        "weight": 1000,
+        "titleEn": "School Idol Musical",
+        "artistEn": "Love Live! School Idol Musical",
+        "titleJa": "スクールアイドルミュージカル",
+        "artistJa": "ラブライブ！スクールアイドルミュージカル"
+    },
+    {
+        "url": "/albumart/liella_miracle-new-story.jpg",
+        "startOnDay": 208,
+        "weight": 1000,
+        "titleEn": "MIRACLE NEW STORY",
+        "artistEn": "Liella!",
+        "titleJa": "MIRACLE NEW STORY",
+        "artistJa": "Liella!"
     }
 ]
