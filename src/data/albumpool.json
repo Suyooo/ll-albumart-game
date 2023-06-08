@@ -2295,5 +2295,14 @@
         "artistEn": "Liella!",
         "titleJa": "MIRACLE NEW STORY",
         "artistJa": "Liella!"
+    },
+    {
+        "url": "/albumart/nijigasaki_kagayaki-dont-forget.jpg",
+        "startOnDay": 230,
+        "weight": 1000,
+        "titleEn": "KAGAYAKI Don't forget!",
+        "artistEn": "Nijigasaki High School Idol Club",
+        "titleJa": "KAGAYAKI Don't forget!",
+        "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     }
 ]
