@@ -82,6 +82,7 @@ export function getIdsForDay(day: number): { rolledAlbumId: number, rolledGameId
     }
 
     let rng: () => number;
+    let rerolls = rerollDays[day] || 0;
     const blockedAlbumIds = new Set<number>();
     const blockedGameIds = new Set<number>();
     if (INDEV && INDEV_LOCK_DAY === 0) {
@@ -89,10 +90,12 @@ export function getIdsForDay(day: number): { rolledAlbumId: number, rolledGameId
         day = 999998;
     } else {
         rng = seededRNG(day);
-        let rerolls = rerollDays[day] || 0;
-        while (rerolls > 0) {
-            rng(); // throw away a roll
-            rerolls--;
+        // Reroll mechanics were changed on day 223 (see below)
+        if (day <= 222) {
+            while (rerolls > 0) {
+                rng(); // throw away a roll
+                rerolls--;
+            }
         }
 
         // Avoid repeats: last 100 for albums, last 5 for game modes.
@@ -118,7 +121,8 @@ export function getIdsForDay(day: number): { rolledAlbumId: number, rolledGameId
         }
     }
 
-    const rolledAlbumId = pickFrom(getFilteredPoolForDay(ALBUM_POOL, day), rng, blockedAlbumIds);
+    let rolledAlbumId = pickFrom(getFilteredPoolForDay(ALBUM_POOL, day), rng, blockedAlbumIds);
+
     rng(); // throw away some rolls
     rng();
     const filteredGamePool = getFilteredPoolForDay(GAME_POOL, day);
@@ -126,6 +130,17 @@ export function getIdsForDay(day: number): { rolledAlbumId: number, rolledGameId
     do {
         rolledGameId = pickFrom(filteredGamePool, rng, blockedGameIds);
     } while (GAME_POOL[rolledGameId].groupId !== undefined && blockedGameIds.has(-GAME_POOL[rolledGameId].groupId));
+
+    // Reroll mechanics were changed on day 223 (see below)
+    if (day > 222) {
+        while (rerolls > 0) {
+            const prevRolledAlbumId = rolledAlbumId;
+            rolledAlbumId = pickFrom(getFilteredPoolForDay(ALBUM_POOL, day), rng, blockedAlbumIds);
+            if (rolledAlbumId !== prevRolledAlbumId) {
+                rerolls -= 1;
+            }
+        }
+    }
 
     if (INDEV) {
         console.log(day, ALBUM_POOL[rolledAlbumId].titleEn, GAME_POOL[rolledGameId].name);
