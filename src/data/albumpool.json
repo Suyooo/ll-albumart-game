@@ -2304,5 +2304,67 @@
         "artistEn": "Nijigasaki High School Idol Club",
         "titleJa": "KAGAYAKI Don't forget!",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
+    },
+    {
+        "url": "/albumart/mari-ohara_third-solo-concert-album-the-story-of-over-the-rainbow-starring-ohara-mari.jpg",
+        "startOnDay": 235,
+        "weight": 100,
+        "titleEn": "Third Solo Concert Album ~THE STORY OF \"OVER THE RAINBOW\"~ starring Ohara Mari",
+        "artistEn": "Mari Ohara (CV: Aina Suzuki)",
+        "titleJa": "Third Solo Concert Album ~THE STORY OF \"OVER THE RAINBOW\"~ starring Ohara Mari",
+        "artistJa": "小原鞠莉 (CV.鈴木愛奈)"
+    },
+    {
+        "url": "/albumart/cerise-bouquet_holiday-holiday.jpg",
+        "startOnDay": 236,
+        "weight": 1000,
+        "titleEn": "Holiday∞Holiday",
+        "artistEn": "Cerise Bouquet",
+        "altEn": "Cerise Bouquet / DOLLCHESTRA - Holiday∞Holiday / Tragic Drops [Cerise Bouquet Edition]",
+        "titleJa": "Holiday∞Holiday",
+        "artistJa": "スリーズブーケ",
+        "altJa": "スリーズブーケ / DOLLCHESTRA - Holiday∞Holiday / Tragic Drops 【スリーズブーケ盤】"
+    },
+    {
+        "url": "/albumart/dollchestra_tragic-drops.jpg",
+        "startOnDay": 236,
+        "weight": 1000,
+        "titleEn": "Tragic Drops",
+        "artistEn": "DOLLCHESTRA",
+        "altEn": "Cerise Bouquet / DOLLCHESTRA - Holiday∞Holiday / Tragic Drops [DOLLCHESTRA Edition]",
+        "titleJa": "Tragic Drops",
+        "artistJa": "DOLLCHESTRA",
+        "altJa": "スリーズブーケ / DOLLCHESTRA - Holiday∞Holiday / Tragic Drops 【DOLLCHESTRA盤】"
+    },
+    {
+        "url": "/albumart/r3birth_feel-alive.jpg",
+        "startOnDay": 246,
+        "weight": 1000,
+        "titleEn": "Feel Alive",
+        "artistEn": "R3BIRTH",
+        "altEn": "R3BIRTH / Nijigasaki High School Idol Club - Feel Alive / Go Our Way! [R3BIRTH Edition]",
+        "titleJa": "Feel Alive",
+        "artistJa": "R3BIRTH",
+        "altJa": "R3BIRTH / 虹ヶ咲学園スクールアイドル同好会 - Feel Alive / Go Our Way! 【R3BIRTH盤】"
+    },
+    {
+        "url": "/albumart/nijigasaki_go-our-way.jpg",
+        "startOnDay": 246,
+        "weight": 1000,
+        "titleEn": "Go Our Way!",
+        "artistEn": "Nijigasaki High School Idol Club",
+        "altEn": "R3BIRTH / Nijigasaki High School Idol Club - Feel Alive / Go Our Way! [Nijigasaki High School Idol Club Edition]",
+        "titleJa": "Go Our Way!",
+        "artistJa": "虹ヶ咲学園スクールアイドル同好会",
+        "altJa": "R3BIRTH / 虹ヶ咲学園スクールアイドル同好会 - Feel Alive / Go Our Way! 【虹ヶ咲学園スクールアイドル同好会盤】"
+    },
+    {
+        "url": "/albumart/nijigasaki_singing-dreaming-now.jpg",
+        "startOnDay": 246,
+        "weight": 1000,
+        "titleEn": "SINGING, DREAMING, NOW!",
+        "artistEn": "Nijigasaki High School Idol Club",
+        "titleJa": "SINGING, DREAMING, NOW!",
+        "artistJa": "虹ヶ咲学園スクールアイドル同好会"
     }
 ]
