@@ -70,7 +70,8 @@ const FORCED_DAYS: { [day: number]: { rolledAlbumId: number, rolledGameId: numbe
     58: {rolledAlbumId: 9, rolledGameId: 8},    // New Year 2023: Special Fireworks Mode
     100: {rolledAlbumId: 129, rolledGameId: 9}, // Introduction of Shuffled-Moving Mode
     147: {rolledAlbumId: 150, rolledGameId: 3}, // Last day of SIF
-    148: {rolledAlbumId: 21, rolledGameId: 10}  // April Fools 2023: Special Kotobomb Mode
+    148: {rolledAlbumId: 21, rolledGameId: 10}, // April Fools 2023: Special Kotobomb Mode
+    234: {rolledAlbumId: 249, rolledGameId: 1}, // Last day of SIFAS final event
 };
 
 export function getIdsForDay(day: number): { rolledAlbumId: number, rolledGameId: number } {
