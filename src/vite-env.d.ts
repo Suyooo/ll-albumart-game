@@ -5,7 +5,7 @@ declare const INDEV_LOCK_DAY: number;
 declare const BUILDTIME: number;
 declare const BUILDDATE: string;
 
-declare namespace svelte.JSX {
+declare namespace svelteHTML {
     interface HTMLProps<T> {
         onautocomplete?: (event: CustomEvent) => void;
     }

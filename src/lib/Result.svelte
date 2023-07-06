@@ -100,7 +100,7 @@
     </div>
     <div class="flex space-x-3 mt-2 mb-3" aria-hidden="true">
         {#each {length: 6} as _, i}
-            <div class="w-6 h-2" in:fade={{delay: 150 * i}}
+            <div class="w-6 h-2" in:fade|global={{delay: 150 * i}}
                  class:bg-unused={i >= $STATE.guesses.length}
                  class:bg-skipped={i < $STATE.guesses.length - ($STATE.cleared ? 1 : 0) && $STATE.guesses[i] === null}
                  class:bg-correct={i === $STATE.guesses.length - 1 && $STATE.cleared}

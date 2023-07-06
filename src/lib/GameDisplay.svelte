@@ -14,10 +14,21 @@
 
     export let game: GameInstanceSiteWrapper;
 
-    let maxStage: number = $STATE.finished ? 6 : $STATE.failed;
-    let stage: number = maxStage;
-    let zoomed: boolean = false;
+    let maxStage: number;
+    let stage: number;
+    let zoomed: boolean;
     let canvasContainer: HTMLDivElement;
+
+    $: {
+        maxStage = $STATE.finished ? 6 : $STATE.failed;
+        stage = maxStage;
+        zoomed = false;
+    }
+
+    $: {
+        canvasContainer;
+        updateCanvasList();
+    }
 
     function changeStage(d: number) {
         stage += d;
@@ -29,6 +40,10 @@
     let showAltFinished = game.base.forceAltFinished;
 
     function updateCanvasList() {
+        if (!canvasContainer) {
+            return;
+        }
+
         if ($STATE.finished && stage === maxStage) {
             canvasContainer.replaceChildren(showAltFinished ? game.getAltFinishedCanvas() : game.getFinishedCanvas());
         } else if (game.base.stacked) {
@@ -76,10 +91,12 @@
         </PageButton>
     </div>
     <div class="max-w-sm flex-grow flex flex-col items-end">
-        <div class="max-w-sm w-full aspect-square bg-black relative overflow-auto" bind:this={canvasContainer}
-             aria-label={$STATE.cleared && stage === maxStage ? "Album Art" : "Hidden Album Art"} class:zoomed
-             class:glow={$STATE.cleared && stage === maxStage} in:scale={{start:1.1,opacity:1}} use:dragscroll>
-        </div>
+        {#key maxStage}
+            <div class="max-w-sm w-full aspect-square bg-black relative overflow-auto" bind:this={canvasContainer}
+                 aria-label={$STATE.cleared && stage === maxStage ? "Album Art" : "Hidden Album Art"} class:zoomed
+                 class:glow={$STATE.cleared && stage === maxStage} in:scale={{start:1.1,opacity:1}} use:dragscroll>
+            </div>
+        {/key}
         <div class="max-w-sm w-full flex items-center mt-2">
             {#if $STATE.finished && stage === maxStage && game.base.hasAltFinished && !game.base.forceAltFinished}
                 <PageButton class="w-8 flex-shrink-0 self-start" label="Toggle Hint Locations" on:click={toggleAlt}>

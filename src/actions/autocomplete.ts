@@ -63,7 +63,7 @@ const acOptions: Fuzzysort.KeysOptions<ACTarget> = {
             v ? Math.max(max, v.score * (i >= 4 ? 1.5 : 1)) : max, -20000)
 };
 
-const autocomplete: Action<HTMLInputElement> = (node: HTMLInputElement) => {
+const autocomplete: Action<HTMLInputElement, undefined> = (node: HTMLInputElement) => {
     const acInstance = autocompleter<ACResult>({
         input: node,
         fetch: function (text: string, update: (res: ACResult[]) => void): void {
@@ -71,9 +71,9 @@ const autocomplete: Action<HTMLInputElement> = (node: HTMLInputElement) => {
                 acInstance.close();
             } else {
                 update(fuzzysort.go(punctuationFullWidthToHalfWidth(text), acTargets, acOptions)
-                        .map(keysResult => {
-                            const resultTitle = keysResult[0] ?? keysResult[1] ?? keysResult[2] ?? keysResult[3];
-                            const resultAlt = keysResult[4] ?? keysResult[5];
+                    .map(keysResult => {
+                        const resultTitle = keysResult[0] ?? keysResult[1] ?? keysResult[2] ?? keysResult[3];
+                        const resultAlt = keysResult[4] ?? keysResult[5];
                             const isEn = preferJa
                                 ? (resultTitle && (resultTitle === keysResult[1] || resultTitle === keysResult[3]))
                                 || (resultAlt && resultAlt === keysResult[5])

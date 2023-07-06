@@ -1,11 +1,11 @@
 <script lang="ts">
+    import type {GameInstanceSiteWrapper} from "$modules/gameHandler";
+    import {getGameSiteInstance} from "$modules/gameHandler";
     import {ALBUM, GAME, STATE} from "$stores/state";
     import {onMount} from "svelte";
 
     import GameDisplay from "./GameDisplay.svelte";
     import Spinner from "./Spinner.svelte";
-    import type {GameInstanceSiteWrapper} from "$modules/gameHandler";
-    import {getGameSiteInstance} from "$modules/gameHandler";
 
     let game: GameInstanceSiteWrapper;
     onMount(() => {
@@ -14,9 +14,7 @@
 </script>
 
 {#if game}
-    {#key ($STATE.finished ? -1 : $STATE.failed)}
-        <GameDisplay {game} />
-    {/key}
+    <GameDisplay {game}/>
 {:else}
     <Spinner/>
 {/if}
