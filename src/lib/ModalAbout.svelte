@@ -71,8 +71,6 @@
         <ul class="list-disc list-inside ml-4 text-sm">
             <li><a href="https://mstdn.schoolidol.club/@Suyooo">Mastodon</a></li>
             <li><a href="https://www.tumblr.com/suyooo">Tumblr</a></li>
-            <li>Discord: Suyooo#7026</li>
-            <li><a href="https://twitter.com/Suyo_">Twitter</a></li>
         </ul>
         <div class="text-xs">
             If you have any problems, comments, or ideas for new game modes, feel free to send them to me!
