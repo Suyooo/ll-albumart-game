@@ -9,6 +9,7 @@
     let copied: boolean = false;
     let timerSpeak: string, timerText: string;
     let timerOver: boolean = false;
+    let animateBlocks: boolean = false;
 
     function getShareText(): string {
         return "LL! Guess That Album #" + $STATE.day + "\n\ud83d\udcbf" +
@@ -68,7 +69,8 @@
     });
 </script>
 
-<div class="flex flex-col items-center mt-12" in:fly={{y: -50, duration: 1000}}>
+<div class="flex flex-col items-center mt-12" in:fly={{y: -50, duration: 1000}}
+     on:introstart={() => animateBlocks = true}>
     <h2 class="tracking-widest uppercase font-bold text-2xl" class:text-primary-300={GAME.messageOverride}>
         {#if GAME.messageOverride}
             {GAME.messageOverride}
@@ -99,8 +101,8 @@
         {/if}
     </div>
     <div class="flex space-x-3 mt-2 mb-3" aria-hidden="true">
-        {#each {length: 6} as _, i}
-            <div class="w-6 h-2" in:fade|global={{delay: 150 * i}}
+        {#each {length: 6} as _, i (i + (animateBlocks ? 6 : 0))}
+            <div class="w-6 h-2" in:fade={{delay: 150 * i}}
                  class:bg-unused={i >= $STATE.guesses.length}
                  class:bg-skipped={i < $STATE.guesses.length - ($STATE.cleared ? 1 : 0) && $STATE.guesses[i] === null}
                  class:bg-correct={i === $STATE.guesses.length - 1 && $STATE.cleared}
