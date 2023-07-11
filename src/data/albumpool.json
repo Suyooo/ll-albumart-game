@@ -2366,5 +2366,32 @@
         "artistEn": "Nijigasaki High School Idol Club",
         "titleJa": "SINGING, DREAMING, NOW!",
         "artistJa": "虹ヶ咲学園スクールアイドル同好会"
+    },
+    {
+        "url": "/albumart/aqours_sora-fuji-sunshine.jpg",
+        "startOnDay": 252,
+        "weight": 1000,
+        "titleEn": "SORA, FUJI, SUNSHINE!",
+        "artistEn": "Aqours",
+        "titleJa": "SORA, FUJI, SUNSHINE!",
+        "artistJa": "Aqours"
+    },
+    {
+        "url": "/albumart/liella_universe.jpg",
+        "startOnDay": 257,
+        "weight": 1000,
+        "titleEn": "UNIVERSE!!",
+        "artistEn": "Liella!",
+        "titleJa": "UNIVERSE!!",
+        "artistJa": "Liella!"
+    },
+    {
+        "url": "/albumart/yoshiko-tsushima_third-solo-concert-album-the-story-of-over-the-rainbow-starring-tsushima-yoshiko.jpg",
+        "startOnDay": 270,
+        "weight": 100,
+        "titleEn": "Third Solo Concert Album ~THE STORY OF \"OVER THE RAINBOW\"~ starring Tsushima Yoshiko",
+        "artistEn": "Yoshiko Tsushima (CV: Aika Kobayashi)",
+        "titleJa": "Third Solo Concert Album ~THE STORY OF \"OVER THE RAINBOW\"~ starring Tsushima Yoshiko",
+        "artistJa": "津島善子 (CV.小林愛香)"
     }
 ]
