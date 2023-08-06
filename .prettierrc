@@ -1,0 +1,28 @@
+{
+    "tabWidth": 4,
+    "useTabs": false,
+    "printWidth": 120,
+    "trailingComma": "es5",
+    "semi": true,
+    "importOrderParserPlugins": [
+        "typescript",
+        "decorators"
+    ],
+    "importOrder": [
+        "^svelte(.*)$",
+        "<THIRD_PARTY_MODULES>",
+        "^@(.*)$",
+        "app.css$",
+        "^\\$data/(.*)$",
+        "^\\$stores/(.*)$",
+        "^\\$modules/(.*)$",
+        "^\\$actions/(.*)$",
+        "^\\$lib/(.*).js$",
+        "^\\$lib/(.*).svelte$",
+        "^\\$icon/(.*)$",
+        "^[./](.*).js$",
+        "^[./](.*).svelte$"
+    ],
+    "importOrderSeparation": false,
+    "importOrderSortSpecifiers": true
+}

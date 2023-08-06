@@ -2379,7 +2379,7 @@
     {
         "url": "/albumart/liella_universe.jpg",
         "startOnDay": 257,
-        "weight": 1000,
+        "weight": { "0": 1000, "277": 0 },
         "titleEn": "UNIVERSE!!",
         "artistEn": "Liella!",
         "titleJa": "UNIVERSE!!",
