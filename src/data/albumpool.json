@@ -2393,5 +2393,50 @@
         "artistEn": "Yoshiko Tsushima (CV: Aika Kobayashi)",
         "titleJa": "Third Solo Concert Album ~THE STORY OF \"OVER THE RAINBOW\"~ starring Tsushima Yoshiko",
         "artistJa": "津島善子 (CV.小林愛香)"
+    },
+    {
+        "url": "/albumart/aqours_genjitsu-mysterium.jpg",
+        "startOnDay": 280,
+        "weight": 1000,
+        "titleEn": "Genjitsu Mysterium",
+        "artistEn": "Aqours",
+        "titleJa": "幻日ミステリウム",
+        "artistJa": "Aqours"
+    },
+    {
+        "url": "/albumart/aqours_kimi-no-tame-boku-no-tame.jpg",
+        "startOnDay": 285,
+        "weight": 1000,
+        "titleEn": "Kimi no Tame Boku no Tame",
+        "artistEn": "Aqours",
+        "titleJa": "キミノタメボクノタメ",
+        "artistJa": "Aqours"
+    },
+    {
+        "url": "/albumart/liella_jump-into-the-new-world.jpg",
+        "startOnDay": 285,
+        "weight": 1000,
+        "titleEn": "Jump Into the New World",
+        "artistEn": "Liella!",
+        "titleJa": "Jump Into the New World",
+        "artistJa": "Liella!"
+    },
+    {
+        "url": "/albumart/cerise-bouquet_genyou-yakou.jpg",
+        "startOnDay": 292,
+        "weight": 1000,
+        "titleEn": "Genyou Yakou",
+        "artistEn": "Cerise Bouquet",
+        "titleJa": "眩耀夜行",
+        "artistJa": "スリーズブーケ"
+    },
+    {
+        "url": "/albumart/dollchestra_mirage-voyage.jpg",
+        "startOnDay": 292,
+        "weight": 1000,
+        "titleEn": "Mirage Voyage",
+        "artistEn": "DOLLCHESTRA",
+        "titleJa": "Mirage Voyage",
+        "artistJa": "DOLLCHESTRA"
     }
 ]
