@@ -66,9 +66,9 @@ export async function getGameInstance(
         image.width,
         image.height,
         0,
-        paddingRescale / 2,
+        paddingRescale,
         CANVAS_SIZE,
-        CANVAS_SIZE - paddingRescale
+        CANVAS_SIZE - paddingRescale * 2
     );
 
     return {
