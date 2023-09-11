@@ -2438,5 +2438,80 @@
         "artistEn": "DOLLCHESTRA",
         "titleJa": "Mirage Voyage",
         "artistJa": "DOLLCHESTRA"
+    },
+    {
+        "url": "/albumart/aqours_far-far-away-be-as-one-ep-1-edition.jpg",
+        "startOnDay": 313,
+        "weight": 1000,
+        "titleEn": "Far far away",
+        "altEn": "Far far away / Be as one!!! [Ep 1 Edition]",
+        "artistEn": "Aqours",
+        "titleJa": "Far far away",
+        "altJa": "Far far away / Be as one!!! 【第1話盤】",
+        "artistJa": "Aqours"
+    },
+    {
+        "url": "/albumart/aqours_far-far-away-be-as-one-ep-3-edition.jpg",
+        "startOnDay": 313,
+        "weight": 1000,
+        "titleEn": "Be as one!!!",
+        "altEn": "Far far away / Be as one!!! [Ep 3 Edition]",
+        "artistEn": "Aqours",
+        "titleJa": "Be as one!!!",
+        "altJa": "Far far away / Be as one!!! 【第3話盤】",
+        "artistJa": "Aqours"
+    },
+    {
+        "url": "/albumart/aqours_rep-hey-dear-my-friends-ep-4-edition.jpg",
+        "startOnDay": 321,
+        "weight": 1000,
+        "titleEn": "R・E・P",
+        "altEn": "R・E・P / Hey, dear my friends [Ep 4 Edition]",
+        "artistEn": "Aqours",
+        "titleJa": "R・E・P",
+        "altJa": "R・E・P / Hey, dear my friends 【第4話盤】",
+        "artistJa": "Aqours"
+    },
+    {
+        "url": "/albumart/aqours_rep-hey-dear-my-friends-ep-6-edition.jpg",
+        "startOnDay": 321,
+        "weight": 1000,
+        "titleEn": "Hey, dear my friends",
+        "altEn": "R・E・P / Hey, dear my friends [Ep 6 Edition]",
+        "artistEn": "Aqours",
+        "titleJa": "Hey, dear my friends",
+        "altJa": "R・E・P / Hey, dear my friends 【第6話盤】",
+        "artistJa": "Aqours"
+    },
+    {
+        "url": "/albumart/aqours_girls-wonder-sea-breeze-ep-7-edition.jpg",
+        "startOnDay": 342,
+        "weight": 1000,
+        "titleEn": "GIRLS!!",
+        "altEn": "GIRLS!! / Wonder sea breeze [Ep 7 Edition]",
+        "artistEn": "Aqours",
+        "titleJa": "GIRLS!!",
+        "altJa": "GIRLS!! / Wonder sea breeze 【第7話盤】",
+        "artistJa": "Aqours"
+    },
+    {
+        "url": "/albumart/aqours_girls-wonder-sea-breeze-ep-8-edition.jpg",
+        "startOnDay": 342,
+        "weight": 1000,
+        "titleEn": "Wonder sea breeze",
+        "altEn": "GIRLS!! / Wonder sea breeze [Ep 8 Edition]",
+        "artistEn": "Aqours",
+        "titleJa": "Wonder sea breeze",
+        "altJa": "GIRLS!! / Wonder sea breeze 【第8話盤】",
+        "artistJa": "Aqours"
+    },
+    {
+        "url": "/albumart/aqours_forever-u-i.jpg",
+        "startOnDay": 356,
+        "weight": 1000,
+        "titleEn": "Forever U & I",
+        "artistEn": "Aqours",
+        "titleJa": "Forever U & I",
+        "artistJa": "Aqours"
     }
 ]
