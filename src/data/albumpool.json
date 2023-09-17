@@ -2441,18 +2441,18 @@
     },
     {
         "url": "/albumart/aqours_far-far-away-be-as-one-ep-1-edition.jpg",
-        "startOnDay": 313,
+        "startOnDay": 314,
         "weight": 1000,
         "titleEn": "Far far away",
         "altEn": "Far far away / Be as one!!! [Ep 1 Edition]",
-        "artistEn": "Aqours",
+        "artistEn": "Yohane (CV: Aika Kobayashi)",
         "titleJa": "Far far away",
         "altJa": "Far far away / Be as one!!! 【第1話盤】",
-        "artistJa": "Aqours"
+        "artistJa": "ヨハネ (CV.小林愛香)"
     },
     {
         "url": "/albumart/aqours_far-far-away-be-as-one-ep-3-edition.jpg",
-        "startOnDay": 313,
+        "startOnDay": 314,
         "weight": 1000,
         "titleEn": "Be as one!!!",
         "altEn": "Far far away / Be as one!!! [Ep 3 Edition]",
@@ -2489,10 +2489,10 @@
         "weight": 1000,
         "titleEn": "GIRLS!!",
         "altEn": "GIRLS!! / Wonder sea breeze [Ep 7 Edition]",
-        "artistEn": "Aqours",
+        "artistEn": "Yohane (CV: Aika Kobayashi)",
         "titleJa": "GIRLS!!",
         "altJa": "GIRLS!! / Wonder sea breeze 【第7話盤】",
-        "artistJa": "Aqours"
+        "artistJa": "ヨハネ (CV.小林愛香)"
     },
     {
         "url": "/albumart/aqours_girls-wonder-sea-breeze-ep-8-edition.jpg",
@@ -2506,12 +2506,25 @@
         "artistJa": "Aqours"
     },
     {
-        "url": "/albumart/aqours_forever-u-i.jpg",
+        "url": "/albumart/aqours_forever-u-i-la-la-yuuki-no-uta-ep-12-edition.jpg",
         "startOnDay": 356,
         "weight": 1000,
         "titleEn": "Forever U & I",
-        "artistEn": "Aqours",
+        "altEn": "Forever U & I / La la Yuuki no Uta [Ep 12 Edition]",
+        "artistEn": "Yohane (CV: Aika Kobayashi)",
         "titleJa": "Forever U & I",
+        "altJa": "Forever U & I / La la 勇気のうた 【第12話盤】",
+        "artistJa": "ヨハネ (CV.小林愛香)"
+    },
+    {
+        "url": "/albumart/aqours_forever-u-i-la-la-yuuki-no-uta-ep-13-edition.jpg",
+        "startOnDay": 356,
+        "weight": 1000,
+        "titleEn": "La la Yuuki no Uta",
+        "altEn": "Forever U & I / La la Yuuki no Uta [Ep 13 Edition]",
+        "artistEn": "Aqours",
+        "titleJa": "La la 勇気のうた",
+        "altJa": "Forever U & I / La la 勇気のうた 【第13話盤】",
         "artistJa": "Aqours"
     }
 ]
