@@ -1,6 +1,5 @@
 /// <reference types="svelte" />
 /// <reference types="vite/client.d.ts" />
-declare const INDEV_LOCK_DAY: number;
 declare const BUILDTIME: number;
 declare const BUILDDATE: string;
 

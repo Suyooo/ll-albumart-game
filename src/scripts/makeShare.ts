@@ -19,7 +19,7 @@ const shareDay = process.argv.length > 2 ? parseInt(process.argv[2]) : CURRENT_D
 
 (async () => {
     if (!fs.existsSync("dist/share")) {
-        fs.mkdirSync("dist/share");
+        fs.mkdirSync("dist/share", { recursive: true });
     }
 
     const { rolledAlbumId, rolledGameId } = getIdsForDay(shareDay);
