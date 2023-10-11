@@ -9,7 +9,7 @@
         "preview": "vite --config vite.config.ts --host 0.0.0.0 preview",
         "check": "svelte-check --tsconfig ./tsconfig.json",
         "test": "svelte-check --fail-on-hints --tsconfig ./tsconfig.json",
-        "make-share": "vite-node src/scripts/makeShare.ts",
+        "make-share": "NODE_ENV=production vite-node src/scripts/makeShare.ts",
         "test-albums": "vite-node src/scripts/testAlbums.ts"
     },
     "devDependencies": {

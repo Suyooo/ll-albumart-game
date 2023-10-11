@@ -1,11 +1,10 @@
 <script lang="ts">
     // required re-assignment to make vite constants work nice
     import PageButton from "$lib/styled/PageButton.svelte";
-    import {ALL_STATES} from "$stores/state";
-    import {STATISTICS} from "$stores/statistics";
-    import {getContext} from "svelte";
+    import { ALL_STATES } from "$stores/state";
+    import { STATISTICS } from "$stores/statistics";
+    import { getContext } from "svelte";
 
-    const CONST_INDEV: boolean = INDEV;
     const CONST_BUILDTIME: number = BUILDTIME;
     const CONST_BUILDDATE: string = BUILDDATE;
 
@@ -13,10 +12,13 @@
     let exported: boolean = false;
 
     function exportSave() {
-        navigator.clipboard.writeText(JSON.stringify({
-            "states": $ALL_STATES,
-            "statistics": $STATISTICS
-        }))
+        navigator.clipboard
+            .writeText(
+                JSON.stringify({
+                    states: $ALL_STATES,
+                    statistics: $STATISTICS,
+                })
+            )
             .then(() => {
                 read("Your save data has been copied to your clipboard.", "assertive");
                 exported = true;
@@ -27,13 +29,15 @@
     }
 
     function importSave() {
-        const saveDataEntered = prompt("Please paste your save data here to import it.\n\n" +
-            "WARNING: Any save data you have will be overwritten! (Click Cancel if you don't want that)");
+        const saveDataEntered = prompt(
+            "Please paste your save data here to import it.\n\n" +
+                "WARNING: Any save data you have will be overwritten! (Click Cancel if you don't want that)"
+        );
         if (saveDataEntered !== null) {
             let saveDataParsed;
             try {
                 saveDataParsed = JSON.parse(saveDataEntered);
-                console.log(saveDataParsed)
+                console.log(saveDataParsed);
                 if (saveDataParsed["states"]) {
                     localStorage.setItem("llalbum-states", JSON.stringify(saveDataParsed["states"]));
                 }
@@ -42,10 +46,13 @@
                 }
                 window.location.reload();
             } catch (e) {
-                alert("There was a problem moving your save data. If the following error contains something like" +
-                    "\"JSON\", make sure you copied and pasted all of the text from the insecure site. If you did, or" +
-                    "there's a different error, please let us know via the links in the About section!\n\n" +
-                    "The error was:\n" + e);
+                alert(
+                    "There was a problem moving your save data. If the following error contains something like" +
+                        '"JSON", make sure you copied and pasted all of the text from the insecure site. If you did, or' +
+                        "there's a different error, please let us know via the links in the About section!\n\n" +
+                        "The error was:\n" +
+                        e
+                );
             }
         }
     }
@@ -53,7 +60,7 @@
     let checkPromise: Promise<string> | null = null;
 
     function check() {
-        checkPromise = fetch(window.location.href, {cache: "reload"}).then(response => {
+        checkPromise = fetch(window.location.href, { cache: "reload" }).then((response) => {
             const latest = Date.parse(response.headers.get("Last-Modified"));
             // 5-minute delay to account for delay between build/file writing/upload
             if (latest - 300000 > CONST_BUILDTIME) {
@@ -76,7 +83,8 @@
             If you have any problems, comments, or ideas for new game modes, feel free to send them to me!
         </div>
     </div>
-    <div>Some cool stuff used for this site:
+    <div>
+        Some cool stuff used for this site:
         <ul class="list-disc list-inside ml-4 text-sm">
             <li><a href="https://svelte.dev/">Svelte</a></li>
             <li><a href="https://tailwindcss.com/">Tailwind CSS</a></li>
@@ -103,13 +111,13 @@
     </div>
     <div class="mt-6 text-xs text-gray-400 tracking-tighter leading-4">
         Love Live! and all album art, song titles and project/group names are copyrighted: ©PL! ©PL!S ©PL!N ©PL!SP
-        ©SUNRISE
-        ©bushiroad<br>
+        ©SUNRISE ©bushiroad<br />
         This is a not-for-profit fan project, and unaffiliated with any of the projects or companies above.
     </div>
     <div class="mt-6 text-xs text-gray-400 tracking-tighter leading-4">
         <div>
-            Current Version: {CONST_BUILDDATE} {CONST_INDEV ? " (Dev Mode)" : ""}
+            Current Version: {CONST_BUILDDATE}
+            {import.meta.env.DEV ? " (Dev Mode)" : ""}
             {#if !checkPromise}
                 <button class="underline" on:click={check}>(Check)</button>
             {/if}
@@ -130,4 +138,3 @@
         {/if}
     </div>
 </div>
-
