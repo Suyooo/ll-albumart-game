@@ -1,3 +1,4 @@
+# Don't forget to deny access to scripts
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteRule [^0-9] - [L]
@@ -10,4 +11,4 @@
     RewriteRule ^(.+)$ /share/$1d.html [L]
     RewriteCond %{REQUEST_URI} ^/[0-9]+$
     RewriteRule . / [L,R=301]
-</IfModule>
+</IfMod#ule>

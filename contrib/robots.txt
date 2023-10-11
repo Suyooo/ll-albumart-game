@@ -2,3 +2,4 @@ user-agent: *
 Disallow: /albumart/*/
 Disallow: /assets/*/
 Disallow: /bundles/*/
+Disallow: /share/*/
