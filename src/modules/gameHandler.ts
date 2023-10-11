@@ -50,7 +50,7 @@ export async function getGameInstance(
 ): Promise<{ game: Game; gameInstance: GameInstance; scaledAlbumArt: Canvas }> {
     const [game, image] = await Promise.all([
         getGameFromGameInfo(gameInfo),
-        loadImage(`${typeof process !== undefined ? "public" : "."}${album.url}`),
+        loadImage(`${import.meta.env.SSR ? "public" : "."}${album.url}`),
     ]);
 
     let paddingOriginal = Math.ceil((image.width - image.height) / 2);
