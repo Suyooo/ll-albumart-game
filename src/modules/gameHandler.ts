@@ -48,7 +48,10 @@ export async function getGameInstance(
     gameInfo: GameInfo,
     album: AlbumInfo
 ): Promise<{ game: Game; gameInstance: GameInstance; scaledAlbumArt: Canvas }> {
-    const [game, image] = await Promise.all([getGameFromGameInfo(gameInfo), loadImage(`.${album.url}`)]);
+    const [game, image] = await Promise.all([
+        getGameFromGameInfo(gameInfo),
+        loadImage(`${typeof process !== undefined ? "public" : "."}${album.url}`),
+    ]);
 
     let paddingOriginal = Math.ceil((image.width - image.height) / 2);
     const rescaleHeight = Math.floor((CANVAS_SIZE / image.width) * image.height);
