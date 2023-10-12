@@ -151,10 +151,6 @@ export function getIdsForDay(day: number): { rolledAlbumId: number; rolledGameId
         }
     }
 
-    if (import.meta.env.DEV) {
-        console.log(day, ALBUM_POOL[rolledAlbumId].titleEn, GAME_POOL[rolledGameId].name);
-    }
-
     const ret = { rolledAlbumId, rolledGameId };
     DAILY_ROLL_CACHE[day] = ret;
     return ret;

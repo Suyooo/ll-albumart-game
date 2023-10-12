@@ -9,7 +9,7 @@
         "preview": "vite --host 0.0.0.0 preview",
         "check": "svelte-check",
         "test": "vitest",
-        "make-share": "NODE_ENV=production vite-node src/scripts/makeShare.ts",
+        "make-share": "vite-node src/scripts/makeShare.ts",
         "test-albums": "vite-node src/scripts/testAlbums.ts"
     },
     "devDependencies": {

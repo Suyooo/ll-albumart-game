@@ -37,7 +37,6 @@
             let saveDataParsed;
             try {
                 saveDataParsed = JSON.parse(saveDataEntered);
-                console.log(saveDataParsed);
                 if (saveDataParsed["states"]) {
                     localStorage.setItem("llalbum-states", JSON.stringify(saveDataParsed["states"]));
                 }
