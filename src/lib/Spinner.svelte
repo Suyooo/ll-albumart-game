@@ -1,6 +1,3 @@
-<script lang="ts">
-</script>
-
 <div>&nbsp;</div>
 
 <style lang="postcss">
@@ -15,6 +12,6 @@
 
     div {
         @apply w-16 h-16 border-primary-500 border-[6px] border-b-0 border-l-0 rounded-full box-border origin-center;
-        animation: spin .5s infinite linear;
+        animation: spin 0.5s infinite linear;
     }
 </style>

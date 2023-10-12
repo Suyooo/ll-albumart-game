@@ -1,11 +1,11 @@
-import type {Action} from "svelte/action";
+import type { Action } from "svelte/action";
 
 const dragscroll: Action<HTMLElement, undefined> = (node: HTMLElement) => {
     let isDragging: boolean, lastX: number, lastY: number, curX: number, curY: number, requestedAnimationFrame: number;
 
     function startHandler(e: Touch): void;
-    function startHandler(e: PointerEvent): void;
-    function startHandler(e: PointerEvent | Touch): void {
+    function startHandler(e: MouseEvent): void;
+    function startHandler(e: MouseEvent | Touch): void {
         isDragging = true;
         node.style.cursor = "grabbing";
         lastX = e.pageX;
@@ -17,7 +17,7 @@ const dragscroll: Action<HTMLElement, undefined> = (node: HTMLElement) => {
     function touchStartHandler(e: TouchEvent): void {
         if (e.targetTouches.length === 0) return;
         e.preventDefault();
-        startHandler(e.targetTouches.item(0));
+        startHandler(e.targetTouches.item(0)!);
     }
 
     function stopHandler(): void {
@@ -28,8 +28,8 @@ const dragscroll: Action<HTMLElement, undefined> = (node: HTMLElement) => {
     }
 
     function moveHandler(e: Touch): void;
-    function moveHandler(e: PointerEvent): void;
-    function moveHandler(e: PointerEvent | Touch): void {
+    function moveHandler(e: MouseEvent): void;
+    function moveHandler(e: MouseEvent | Touch): void {
         if (!isDragging) return;
         curX = e.pageX;
         curY = e.pageY;
@@ -40,7 +40,7 @@ const dragscroll: Action<HTMLElement, undefined> = (node: HTMLElement) => {
     function touchMoveHandler(e: TouchEvent): void {
         if (e.targetTouches.length === 0) return;
         e.preventDefault();
-        moveHandler(e.targetTouches.item(0));
+        moveHandler(e.targetTouches.item(0)!);
     }
 
     function frameHandler(): void {
@@ -71,8 +71,8 @@ const dragscroll: Action<HTMLElement, undefined> = (node: HTMLElement) => {
             document.removeEventListener("touchend", stopHandler);
             document.removeEventListener("touchcancel", stopHandler);
             document.removeEventListener("touchmove", touchMoveHandler);
-        }
+        },
     };
-}
+};
 
 export default dragscroll;

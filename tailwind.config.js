@@ -1,12 +1,12 @@
-/** @type {import('tailwindcss').Config} */
-const colors = require("tailwindcss/colors.js");
+import colors from "tailwindcss/colors.js";
 
-module.exports = {
+/** @type {import('tailwindcss').Config} */
+export default {
     content: ["index.html", "./src/**/*.{html,js,svelte,ts}"],
     theme: {
         extend: {
             minHeight: {
-                '8': '2rem',
+                8: "2rem",
             },
             colors: {
                 primary: {
@@ -20,16 +20,16 @@ module.exports = {
                     600: "#AF176D",
                     700: "#801C55",
                     800: "#511939",
-                    900: "#220E19"
+                    900: "#220E19",
                 },
                 gray: colors.stone,
                 correct: "#22c55e",
                 wrong: "#dc2626",
                 skipped: colors.stone[300],
                 current: colors.stone[500],
-                unused: colors.stone[700]
-            }
-        }
+                unused: colors.stone[700],
+            },
+        },
     },
-    plugins: []
-}
+    plugins: [],
+};

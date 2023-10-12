@@ -1,5 +1,5 @@
 /// <reference types="svelte" />
-/// <reference types="vite/client.d.ts" />
+/// <reference types="vite/client" />
 declare const BUILDTIME: number;
 declare const BUILDDATE: string;
 

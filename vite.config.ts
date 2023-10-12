@@ -1,9 +1,10 @@
 import { svelte } from "@sveltejs/vite-plugin-svelte";
 import * as path from "path";
 import { defineConfig } from "vite";
+import svelteConfig from "./svelte.config.js";
 
 export default defineConfig(() => ({
-    plugins: [svelte()],
+    plugins: [svelte(svelteConfig)],
     resolve: {
         alias: {
             $actions: path.resolve(__dirname, "./src/actions"),

@@ -7,12 +7,12 @@
     import Modal from "$lib/Modal.svelte";
     import ModalHelp from "$lib/ModalHelp.svelte";
     import Result from "$lib/Result.svelte";
-    import { ALL_STATES, STATE } from "$stores/state";
-    import { onMount, setContext } from "svelte";
+    import { ALL_STATES, STATE } from "$stores/state.js";
+    import { type ComponentType, onMount, setContext } from "svelte";
     import { fade } from "svelte-reduced-motion/transition";
 
     let modalTitle: string = "";
-    let modalComponent = null;
+    let modalComponent: ComponentType | null = null;
 
     function openModalEvent(event: CustomEvent<{ title: string; component: any }>) {
         openModal(event.detail.title, event.detail.component);

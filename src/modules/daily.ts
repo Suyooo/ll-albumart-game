@@ -14,14 +14,14 @@ export const CURRENT_DAY = import.meta.env.DEV
         ? Math.floor(Math.random() * 1000000)
         : import.meta.env.VITE_LOCK_DAY
     : ACTUAL_CURRENT_DAY +
-      (typeof localStorage !== "undefined" ? parseInt(localStorage.getItem("llalbum-day-offset")) || 0 : 0);
+      (typeof localStorage !== "undefined" ? parseInt(localStorage.getItem("llalbum-day-offset") || "0") : 0);
 
 interface Pickable {
     id: number;
     cumulativeWeight: number;
 }
 
-function getFilteredPoolForDay<T extends AlbumInfo | GameInfo>(list: T[], day: number): (T & Pickable)[] {
+function getFilteredPoolForDay<T extends AlbumInfo | GameInfo>(list: readonly T[], day: number): (T & Pickable)[] {
     const pool: (T & Pickable)[] = list
         .map((item, id) => ({ id, cumulativeWeight: 0, ...item }))
         .filter((item) => item.startOnDay <= day);
@@ -43,10 +43,10 @@ function getFilteredPoolForDay<T extends AlbumInfo | GameInfo>(list: T[], day: n
     return pool;
 }
 
-function pickFrom(list: Pickable[], rng: () => number, blocked: Set<number>): number {
+function pickFrom(list: readonly Pickable[], rng: () => number, blocked: Set<number>): number {
     let rolled: number;
     do {
-        const weight = rng() * list.at(-1).cumulativeWeight;
+        const weight = rng() * list.at(-1)!.cumulativeWeight;
         const index = list.findIndex((game) => game.cumulativeWeight > weight);
         rolled = list[index].id;
     } while (blocked.has(rolled));
@@ -96,7 +96,7 @@ export function getIdsForDay(day: number): { rolledAlbumId: number; rolledGameId
         day = 999998;
     } else {
         rng = seededRNG(day);
-        // Reroll mechanics were changed on day 223 (see below)
+        // Reroll mechanics were changed on day 223 (other part below)
         if (day <= 222) {
             while (rerolls > 0) {
                 rng(); // throw away a roll
@@ -118,8 +118,9 @@ export function getIdsForDay(day: number): { rolledAlbumId: number; rolledGameId
             const prevDayIds = getIdsForDay(i);
             blockedAlbumIds.add(prevDayIds.rolledAlbumId);
             if (i >= day - 5) {
-                if (GAME_POOL[prevDayIds.rolledGameId].groupId !== undefined) {
-                    blockedGameIds.add(-GAME_POOL[prevDayIds.rolledGameId].groupId);
+                const groupId = GAME_POOL[prevDayIds.rolledGameId].groupId;
+                if (groupId !== undefined) {
+                    blockedGameIds.add(-groupId);
                 } else {
                     blockedGameIds.add(prevDayIds.rolledGameId);
                 }
@@ -133,11 +134,13 @@ export function getIdsForDay(day: number): { rolledAlbumId: number; rolledGameId
     rng();
     const filteredGamePool = getFilteredPoolForDay(GAME_POOL, day);
     let rolledGameId: number;
+    let rolledGameGroupId: number | undefined;
     do {
         rolledGameId = pickFrom(filteredGamePool, rng, blockedGameIds);
-    } while (GAME_POOL[rolledGameId].groupId !== undefined && blockedGameIds.has(-GAME_POOL[rolledGameId].groupId));
+        rolledGameGroupId = GAME_POOL[rolledGameId].groupId;
+    } while (rolledGameGroupId !== undefined && blockedGameIds.has(-rolledGameGroupId));
 
-    // Reroll mechanics were changed on day 223 (see below)
+    // Reroll mechanics were changed on day 223 (other part above)
     if (day > 222) {
         while (rerolls > 0) {
             const prevRolledAlbumId = rolledAlbumId;

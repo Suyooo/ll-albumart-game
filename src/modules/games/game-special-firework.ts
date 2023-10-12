@@ -1,11 +1,11 @@
 /** @type {import("../gameHandler").Game} */
 
-import type {AlbumInfo} from "$data/albumpool";
-import type {Canvas, Image} from "canvas";
-import {CanvasRenderingContext2D, createCanvas} from "canvas";
-import type {GameInstance} from "../gameHandler";
-import {CANVAS_SIZE} from "../gameHandler";
-import {seededRNG} from "../rng";
+import type { AlbumInfo } from "$data/albumpool";
+import type { Canvas, Image } from "canvas";
+import { CanvasRenderingContext2D, createCanvas } from "canvas";
+import type { GameInstance } from "../gameHandler";
+import { CANVAS_SIZE } from "../gameHandler";
+import { seededRNG } from "../rng";
 
 export const stacked = true;
 export const hasAltFinished = true;
@@ -14,7 +14,14 @@ export const forceAltFinished = true;
 const SIZE = [0.1, 0.1, 0.125, 0.15, 0.15, 0.2];
 const BORDER_BLUR = 50;
 const BLOOM_SIZE = 150;
-const POSITIONS: [number, number][] = [[0.1, 0.7], [0.75, 0.1], [0.7, 0.65], [0.95, 0.3], [0.15, 0.3], [0.45, 0.3]];
+const POSITIONS: [number, number][] = [
+    [0.1, 0.7],
+    [0.75, 0.1],
+    [0.7, 0.65],
+    [0.95, 0.3],
+    [0.15, 0.3],
+    [0.45, 0.3],
+];
 
 const T_RISING = 1000;
 const T_EXPAND = 1300;
@@ -22,7 +29,13 @@ const T_GRAV = 1200;
 const T_BLOOM = 3000;
 
 export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, scaledImage: Canvas): GameInstance {
-    function spotlightData(srcData: Uint8ClampedArray, dstCtx: CanvasRenderingContext2D, x: number, y: number, r: number) {
+    function spotlightData(
+        srcData: Uint8ClampedArray,
+        dstCtx: CanvasRenderingContext2D,
+        x: number,
+        y: number,
+        r: number
+    ) {
         const dstData = dstCtx.getImageData(0, 0, CANVAS_SIZE, CANVAS_SIZE);
         for (let yd = -r; yd <= r; yd++) {
             for (let xd = -r; xd <= r; xd++) {
@@ -47,11 +60,12 @@ export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, 
     }
 
     function drawFirework(ctx: CanvasRenderingContext2D, t: number, x: number, y: number, c: number, seed: number) {
-        if (t < T_RISING) { // Liella! - GOING UP
+        if (t < T_RISING) {
+            // Liella! - GOING UP
             const tt = 1 - t / T_RISING;
             const ttt = 1 - tt * tt;
-            const yy = (CANVAS_SIZE + 10) - (CANVAS_SIZE + 10 - y) * ttt;
-            const flicker = (t % 100) < 50;
+            const yy = CANVAS_SIZE + 10 - (CANVAS_SIZE + 10 - y) * ttt;
+            const flicker = t % 100 < 50;
 
             ctx.lineWidth = 10;
             ctx.lineCap = "round";
@@ -60,7 +74,8 @@ export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, 
             ctx.moveTo(x, yy);
             ctx.lineTo(x, yy + 20 * tt);
             ctx.stroke();
-        } else if (t < T_BLOOM) { // µ's - Dancing stars on me!
+        } else if (t < T_BLOOM) {
+            // µ's - Dancing stars on me!
             const pRng = seededRNG(seed); // new seeded RNG to do particle randomization
             const tt = (t - T_RISING) / (T_BLOOM - T_RISING);
             const tt2 = (tt - 1) * (tt - 1) * (tt - 1);
@@ -72,7 +87,7 @@ export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, 
 
             for (let angle = 0; angle < 2 * Math.PI; angle += Math.PI / 16) {
                 for (let fac = alt ? 1 : 0.9375; fac > 0.4; fac -= 0.125) {
-                    angle += Math.PI / 32 * pRng() - Math.PI / 64;
+                    angle += (Math.PI / 32) * pRng() - Math.PI / 64;
                     fac -= 0.2 * pRng();
                     const gravOff = 300 * pRng();
                     const gravT = t < T_GRAV + gravOff ? 0 : (t - T_GRAV - gravOff) / (T_BLOOM - T_GRAV);
@@ -96,20 +111,18 @@ export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, 
     const scaledImageData = scaledImage.getContext("2d").getImageData(0, 0, CANVAS_SIZE, CANVAS_SIZE).data;
     const canvasAnimationStarts = [0, 0, 0, 0, 0, 0];
     const canvasAnimationLasts = [0, 0, 0, 0, 0, 0];
-    const canvasSpotlightOnlyCaches = [null, null, null, null, null, null];
+    const canvasSpotlightOnlyCaches: (null | ImageData)[] = [null, null, null, null, null, null];
 
     const getCanvasForGuess = (failed: number): Canvas => {
         const canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
         const ctx = canvas.getContext("2d");
 
-        const r = Math.floor(CANVAS_SIZE * SIZE[failed] / 1.25);
+        const r = Math.floor((CANVAS_SIZE * SIZE[failed]) / 1.25);
         const p = POSITIONS[failed];
         const x = Math.floor(p[0] * CANVAS_SIZE);
         const y = Math.floor(p[1] * CANVAS_SIZE);
         const c = Math.random() * 360; // using regular random since the firework animation doesn't matter for the game
-        const random = Math.random() * 2023;
         const delay = Math.random() * 300;
-        let flicker = true;
 
         const doAnimation = (absT: number): void => {
             let t: number;
@@ -119,7 +132,8 @@ export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, 
             } else {
                 t = absT - canvasAnimationStarts[failed];
                 const dT = t - canvasAnimationLasts[failed];
-                if (dT > 100) { // 10 fps minimum
+                if (dT > 100) {
+                    // 10 fps minimum
                     canvasAnimationStarts[failed] += dT - 100;
                     t -= dT - 100;
                 }
@@ -138,18 +152,19 @@ export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, 
                         if (canvasSpotlightOnlyCaches[failed] === null) {
                             canvasSpotlightOnlyCaches[failed] = spotlightData(scaledImageData, ctx, x, y, r);
                         }
-                        ctx.putImageData(canvasSpotlightOnlyCaches[failed], 0, 0, x - r, y - r, r * 2 + 1, r * 2 + 1);
+                        ctx.putImageData(canvasSpotlightOnlyCaches[failed]!, 0, 0, x - r, y - r, r * 2 + 1, r * 2 + 1);
                     }
                 }
 
                 // Draw rocket/bloom
                 drawFirework(ctx, t, x, y, c, r);
                 window.requestAnimationFrame(doAnimation);
-            } else { // Ready for the Aqours - Next SPARKLING!!
-                ctx.putImageData(canvasSpotlightOnlyCaches[failed], 0, 0, x - r, y - r, r * 2 + 1, r * 2 + 1);
+            } else {
+                // Ready for the Aqours - Next SPARKLING!!
+                ctx.putImageData(canvasSpotlightOnlyCaches[failed]!, 0, 0, x - r, y - r, r * 2 + 1, r * 2 + 1);
                 // no need to keep animating
             }
-        }
+        };
         window.requestAnimationFrame(doAnimation);
 
         return canvas;
@@ -157,7 +172,7 @@ export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, 
     const getShareCanvas = (): Canvas => {
         const canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
         const ctx = canvas.getContext("2d");
-        const r = Math.floor(CANVAS_SIZE * SIZE[0] / 1.25);
+        const r = Math.floor((CANVAS_SIZE * SIZE[0]) / 1.25);
         const p = POSITIONS[0];
         const x = Math.floor(p[0] * CANVAS_SIZE);
         const y = Math.floor(p[1] * CANVAS_SIZE);
@@ -181,7 +196,7 @@ export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, 
                 const xx2 = r + xc * r * (alt ? 0.9 : 0.8) * fac;
                 const yy2 = r + yc * r * (alt ? 0.9 : 0.8) * fac;
                 alt = !alt;
-                ctx2.strokeStyle = `hsla(${angle / (2 * Math.PI) * 360}, 100%, 70%, 1)`;
+                ctx2.strokeStyle = `hsla(${(angle / (2 * Math.PI)) * 360}, 100%, 70%, 1)`;
 
                 ctx2.beginPath();
                 ctx2.moveTo(xx, yy);
@@ -198,7 +213,14 @@ export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, 
         if (finishedCanvas === undefined) {
             finishedCanvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
             const ctx = finishedCanvas.getContext("2d");
-            const activeFireworks = [];
+            const activeFireworks: {
+                startTime: number;
+                elapsedTime: number;
+                x: number;
+                y: number;
+                color: number;
+                seed: number;
+            }[] = [];
 
             const doAnimation = (absT: number): void => {
                 ctx.drawImage(scaledImage, 0, 0);
@@ -210,7 +232,8 @@ export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, 
                     } else {
                         t = absT - firework.startTime;
                         const dT = t - firework.elapsedTime;
-                        if (dT > 100) { // 10 fps minimum
+                        if (dT > 100) {
+                            // 10 fps minimum
                             firework.startTime += dT - 100;
                             t -= dT - 100;
                         }
@@ -222,7 +245,7 @@ export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, 
                     }
                 }
                 window.requestAnimationFrame(doAnimation);
-            }
+            };
             window.requestAnimationFrame(doAnimation);
 
             const addFirework = () => {
@@ -237,7 +260,7 @@ export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, 
                         color: Math.random() * 360,
                         seed: Math.random() * 2023,
                         startTime: -Math.random() * 500,
-                        elapsedTime: 0
+                        elapsedTime: 0,
                     });
                 }
             };
@@ -247,5 +270,5 @@ export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, 
 
         return finishedCanvas;
     };
-    return {getCanvasForGuess, getShareCanvas, getAltFinishedCanvas}
+    return { getCanvasForGuess, getShareCanvas, getAltFinishedCanvas };
 }

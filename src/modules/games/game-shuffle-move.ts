@@ -1,11 +1,11 @@
 /** @type {import("../gameHandler").Game} */
 
-import type {AlbumInfo} from "$data/albumpool";
-import type {Canvas, Image} from "canvas";
-import {createCanvas} from "canvas";
-import type {GameInstance} from "../gameHandler";
-import {CANVAS_SIZE} from "../gameHandler";
-import {seededRNG} from "../rng";
+import type { AlbumInfo } from "$data/albumpool";
+import type { Canvas, Image } from "canvas";
+import { createCanvas } from "canvas";
+import type { GameInstance } from "../gameHandler";
+import { CANVAS_SIZE } from "../gameHandler";
+import { seededRNG } from "../rng";
 
 export const stacked = false;
 export const hasAltFinished = false;
@@ -13,7 +13,10 @@ export const forceAltFinished = false;
 
 const TILES_PER_AXIS = 128;
 const TOTAL_TILES = TILES_PER_AXIS * TILES_PER_AXIS;
-const MAX_DISTS = [[72, 36, 22, 12, 6, 2], [128, 72, 30, 15, 6, 2]];
+const MAX_DISTS = [
+    [72, 36, 22, 12, 6, 2],
+    [128, 72, 30, 15, 6, 2],
+];
 
 // Build a tile order array:
 // The shuffle seems generally better when swapping tiles out of the center first
@@ -22,28 +25,30 @@ const TILE_ORDER: number[] = [];
 const TILE_ORDER_QUEUE = [Math.floor(TILES_PER_AXIS / 2)];
 const TILE_ORDER_SEEN = new Set<number>();
 
-function test(pos) {
+function test(pos: number) {
     if (TILE_ORDER_SEEN.has(pos)) return;
     TILE_ORDER_SEEN.add(pos);
     TILE_ORDER_QUEUE.push(pos);
 }
 
 while (TILE_ORDER_QUEUE.length > 0) {
-    const pos = TILE_ORDER_QUEUE.shift();
+    const pos = TILE_ORDER_QUEUE.shift()!;
     TILE_ORDER.push(pos);
-    if ((pos % TILES_PER_AXIS) > 0) test(pos - 1);
+    if (pos % TILES_PER_AXIS > 0) test(pos - 1);
     if (pos >= TILES_PER_AXIS) test(pos - TILES_PER_AXIS);
-    if ((pos % TILES_PER_AXIS) < TILES_PER_AXIS - 1) test(pos + 1);
+    if (pos % TILES_PER_AXIS < TILES_PER_AXIS - 1) test(pos + 1);
     if (pos < TILES_PER_AXIS * (TILES_PER_AXIS - 1)) test(pos + TILES_PER_AXIS);
 }
 
 function getPosInCanvas(p: number) {
-    return Math.floor(CANVAS_SIZE * p / TILES_PER_AXIS);
+    return Math.floor((CANVAS_SIZE * p) / TILES_PER_AXIS);
 }
 
 function dist(fromPos: number, toPos: number) {
-    return Math.abs((fromPos % TILES_PER_AXIS) - (toPos % TILES_PER_AXIS))
-        + Math.abs(Math.floor(fromPos / TILES_PER_AXIS) - Math.floor(toPos / TILES_PER_AXIS));
+    return (
+        Math.abs((fromPos % TILES_PER_AXIS) - (toPos % TILES_PER_AXIS)) +
+        Math.abs(Math.floor(fromPos / TILES_PER_AXIS) - Math.floor(toPos / TILES_PER_AXIS))
+    );
 }
 
 export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, scaledImage: Canvas): GameInstance {
@@ -57,12 +62,16 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
             const fromX = fromPos % TILES_PER_AXIS;
             const fromY = Math.floor(fromPos / TILES_PER_AXIS);
 
-            let tries = maxDist, x, y, toPos = fromPos, toTile = fromTile;
+            let tries = maxDist,
+                x,
+                y,
+                toPos = fromPos,
+                toTile = fromTile;
             while (tries > 0) {
                 let testPos, testDist;
                 do {
                     const xD = Math.floor(rng() * (maxDist + 1)) * (rng() < 0.5 ? -1 : 1);
-                    const yD = Math.floor(rng() * ((maxDist - Math.abs(xD)) + 1)) * (rng() < 0.5 ? -1 : 1);
+                    const yD = Math.floor(rng() * (maxDist - Math.abs(xD) + 1)) * (rng() < 0.5 ? -1 : 1);
                     x = fromX + xD;
                     y = fromY + yD;
                     testPos = y * TILES_PER_AXIS + x;
@@ -111,10 +120,20 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
     const getShareCanvas = (): Canvas => {
         const fullCanvas = getCanvasForGuess(0);
         const canvas = createCanvas(CANVAS_SIZE / 4, CANVAS_SIZE / 4);
-        canvas.getContext("2d").drawImage(fullCanvas,
-            CANVAS_SIZE * 0.375, CANVAS_SIZE * 0.375, CANVAS_SIZE / 4, CANVAS_SIZE / 4,
-            0, 0, CANVAS_SIZE / 4, CANVAS_SIZE / 4);
+        canvas
+            .getContext("2d")
+            .drawImage(
+                fullCanvas,
+                CANVAS_SIZE * 0.375,
+                CANVAS_SIZE * 0.375,
+                CANVAS_SIZE / 4,
+                CANVAS_SIZE / 4,
+                0,
+                0,
+                CANVAS_SIZE / 4,
+                CANVAS_SIZE / 4
+            );
         return canvas;
     };
-    return {getCanvasForGuess, getShareCanvas}
+    return { getCanvasForGuess, getShareCanvas };
 }

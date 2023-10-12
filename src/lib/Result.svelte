@@ -2,9 +2,9 @@
     import Checkmark from "$icon/Copied.svelte";
     import Share from "$icon/Share.svelte";
     import isDesktop from "$modules/isDesktop";
-    import {ALBUM, GAME, STATE} from "$stores/state.js";
-    import {getContext, onMount} from "svelte";
-    import {fade, fly} from "svelte-reduced-motion/transition";
+    import { ALBUM, GAME, STATE } from "$stores/state.js";
+    import { getContext, onMount } from "svelte";
+    import { fade, fly } from "svelte-reduced-motion/transition";
 
     let copied: boolean = false;
     let timerSpeak: string, timerText: string;
@@ -12,31 +12,43 @@
     let animateBlocks: boolean = false;
 
     function getShareText(): string {
-        return "LL! Guess That Album #" + $STATE.day + "\n\ud83d\udcbf" +
-            $STATE.guesses.map((guess: string | null, index: number) => {
-                if (index < $STATE.failed) {
-                    if (guess === null) return "\u2b1c";
-                    else return "\ud83d\udfe5";
-                } else if (index === $STATE.failed) return "\ud83d\udfe9";
-                else return;
-            }).join("") +
+        return (
+            "LL! Guess That Album #" +
+            $STATE.day +
+            "\n\ud83d\udcbf" +
+            $STATE.guesses
+                .map((guess: string | null, index: number) => {
+                    if (index < $STATE.failed) {
+                        if (guess === null) return "\u2b1c";
+                        else return "\ud83d\udfe5";
+                    } else if (index === $STATE.failed) return "\ud83d\udfe9";
+                    else return;
+                })
+                .join("") +
             "\u2b1b".repeat(6 - $STATE.failed - ($STATE.cleared ? 1 : 0)) +
-            "\n#LLGuessThatAlbum #lovelive #ラブライブ\nhttps://llalbum.suyo.be/" + $STATE.day;
+            "\n#LLGuessThatAlbum #lovelive #ラブライブ\nhttps://llalbum.suyo.be/" +
+            $STATE.day
+        );
     }
 
     const read = getContext<(s: string, priority?: "polite" | "assertive") => void>("reader");
 
     function shareResult() {
         const shareText = getShareText();
-        if (navigator.share && navigator.canShare({text: shareText}) && !isDesktop()
+        if (
+            navigator.share &&
+            navigator.canShare({ text: shareText }) &&
+            !isDesktop() &&
             // Firefox for Android does not support sharing text via navigator.share
             // There is no way to programmatically check whether a browser supports sharing text via the native share
             // mechanism, so we simply have to remember to manually remove this when it is implemented in Firefox
-            && !navigator.userAgent.includes("Firefox")) {
-            navigator.share({text: shareText});
+            !navigator.userAgent.includes("Firefox")
+        ) {
+            navigator.share({ text: shareText });
         } else {
             // PC browsers usually don't have a native share mechanism - just copy it instead
-            navigator.clipboard.writeText(shareText)
+            navigator.clipboard
+                .writeText(shareText)
                 .then(() => {
                     read("Your result has been copied to your clipboard.", "assertive");
                     copied = true;
@@ -69,8 +81,11 @@
     });
 </script>
 
-<div class="flex flex-col items-center mt-12" in:fly={{y: -50, duration: 1000}}
-     on:introstart={() => animateBlocks = true}>
+<div
+    class="flex flex-col items-center mt-12"
+    in:fly={{ y: -50, duration: 1000 }}
+    on:introstart={() => (animateBlocks = true)}
+>
     <h2 class="tracking-widest uppercase font-bold text-2xl" class:text-primary-300={GAME.messageOverride}>
         {#if GAME.messageOverride}
             {GAME.messageOverride}
@@ -101,31 +116,39 @@
         {/if}
     </div>
     <div class="flex space-x-3 mt-2 mb-3" aria-hidden="true">
-        {#each {length: 6} as _, i (i + (animateBlocks ? 6 : 0))}
-            <div class="w-6 h-2" in:fade={{delay: 150 * i}}
-                 class:bg-unused={i >= $STATE.guesses.length}
-                 class:bg-skipped={i < $STATE.guesses.length - ($STATE.cleared ? 1 : 0) && $STATE.guesses[i] === null}
-                 class:bg-correct={i === $STATE.guesses.length - 1 && $STATE.cleared}
-                 class:bg-wrong={i < $STATE.guesses.length - ($STATE.cleared ? 1 : 0) && $STATE.guesses[i] !== null}>
+        {#each { length: 6 } as _, i (i + (animateBlocks ? 6 : 0))}
+            <div
+                class="w-6 h-2"
+                in:fade={{ delay: 150 * i }}
+                class:bg-unused={i >= $STATE.guesses.length}
+                class:bg-skipped={i < $STATE.guesses.length - ($STATE.cleared ? 1 : 0) && $STATE.guesses[i] === null}
+                class:bg-correct={i === $STATE.guesses.length - 1 && $STATE.cleared}
+                class:bg-wrong={i < $STATE.guesses.length - ($STATE.cleared ? 1 : 0) && $STATE.guesses[i] !== null}
+            >
                 &nbsp;
             </div>
         {/each}
     </div>
 </div>
 
-<button class="px-3 py-2 rounded p-1 uppercase tracking-widest transition-colors duration-200 bg-primary-500
-                flex items-center space-x-2" in:fly={{x: -50, delay: 500, duration: 1000}} on:click={shareResult}
-        aria-label="Share Your Result" type="button">
+<button
+    class="px-3 py-2 rounded p-1 uppercase tracking-widest transition-colors duration-200 bg-primary-500
+                flex items-center space-x-2"
+    in:fly={{ x: -50, delay: 500, duration: 1000 }}
+    on:click={shareResult}
+    aria-label="Share Your Result"
+    type="button"
+>
     {#if copied}
-        <Checkmark/>
+        <Checkmark />
         <span aria-hidden="true">Copied to your Clipboard</span>
     {:else}
-        <Share/>
+        <Share />
         <span aria-hidden="true">Share Your Result</span>
     {/if}
 </button>
 
-<div in:fly={{x: -50, delay: 600, duration: 1000}} aria-live="polite">
+<div in:fly={{ x: -50, delay: 600, duration: 1000 }} aria-live="polite">
     {#if timerOver}
         <div class="text-sm flex items-center space-x-2" aria-atomic="true">
             <div>The next round is available</div>

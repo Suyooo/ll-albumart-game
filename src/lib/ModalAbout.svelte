@@ -61,7 +61,7 @@
 
     function check() {
         checkPromise = fetch(window.location.href, { cache: "reload" }).then((response) => {
-            const latest = Date.parse(response.headers.get("Last-Modified"));
+            const latest = Date.parse(response.headers.get("Last-Modified") ?? "1 January 2030");
             // 5-minute delay to account for delay between build/file writing/upload
             if (latest - 300000 > CONST_BUILDTIME) {
                 return "There is an update available. Try refreshing the page, or, if that doesn't work, clearing your browser cache! If you run into problems getting the update, please contact me.";

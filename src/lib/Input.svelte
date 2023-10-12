@@ -1,14 +1,16 @@
 <script lang="ts">
-    import {default as autocomplete, VALID_GUESSES} from "$actions/autocomplete";
+    import { default as autocomplete, VALID_GUESSES } from "$actions/autocomplete";
     import PageButton from "$lib/styled/PageButton.svelte";
     import isDesktop from "$modules/isDesktop";
-    import {ALBUM, STATE} from "$stores/state";
-    import {STATISTICS} from "$stores/statistics";
-    import {getContext} from "svelte";
-    import {fly} from "svelte-reduced-motion/transition";
+    import { ALBUM, STATE } from "$stores/state";
+    import { STATISTICS } from "$stores/statistics";
+    import { getContext } from "svelte";
+    import { fly } from "svelte-reduced-motion/transition";
 
-    let input: string, skipDisabled: boolean = false, showRejected: boolean = false,
-        inputElement: HTMLInputElement & { autocompleterOpen?: () => void };
+    let input: string,
+        skipDisabled: boolean = false,
+        showRejected: boolean = false,
+        inputElement: HTMLInputElement;
 
     function enterSubmit(e: KeyboardEvent): void {
         showRejected = false;
@@ -46,7 +48,7 @@
             return;
         }
         if (input) {
-            read("Please clear the guess input field to confirm that you want to skip.")
+            read("Please clear the guess input field to confirm that you want to skip.");
             return;
         }
 
@@ -61,9 +63,12 @@
         } else {
             $STATE.failed++;
             skipDisabled = true;
-            setTimeout(() => {
-                skipDisabled = false;
-            }, $STATE.failed < 5 ? 500 : 2000);
+            setTimeout(
+                () => {
+                    skipDisabled = false;
+                },
+                $STATE.failed < 5 ? 500 : 2000
+            );
 
             if ($STATE.failed >= 6) {
                 $STATE.finished = true;
@@ -87,21 +92,30 @@
 
 <div class="relative w-full">
     {#if showRejected}
-        <div class="absolute top-2 left-0 -translate-y-full -mt-4 w-full rounded bg-wrong text-white text-center
-            select-none pointer-events-none" transition:fly={{duration: 200, y: 10}}>
+        <div
+            class="absolute top-2 left-0 -translate-y-full -mt-4 w-full rounded bg-wrong text-white text-center select-none pointer-events-none"
+            transition:fly={{ duration: 200, y: 10 }}
+        >
             <div class="p-0.5">Invalid guess! Select an option from the list!</div>
         </div>
     {/if}
     <label for="input" class="vhd">Your Guess. Autocomplete.</label>
-    <input class="flex-grow text-sm w-full rounded p-2 text-white bg-gray-700 ring-inset ring-2 ring-primary-500
-               focus:ring-white" id="input" on:keydown={enterSubmit} placeholder="Which album is this?" type="text"
-           autocapitalize="off" autocomplete="off"
-           use:autocomplete bind:value={input} bind:this={inputElement} on:autocomplete={setInputValue}>
+    <input
+        class="flex-grow text-sm w-full rounded p-2 text-white bg-gray-700 ring-inset ring-2 ring-primary-500 focus:ring-white"
+        id="input"
+        on:keydown={enterSubmit}
+        placeholder="Which album is this?"
+        type="text"
+        autocapitalize="off"
+        autocomplete="off"
+        use:autocomplete
+        bind:value={input}
+        bind:this={inputElement}
+        on:autocomplete={setInputValue}
+    />
     <div class="w-full flex flex-row-reverse justify-between mt-2">
-        <PageButton class="w-32" disabled={!input} on:click={submit}>
-            Submit
-        </PageButton>
-        <PageButton class="w-32" disabled={skipDisabled || (input && input.length > 0)} on:click={skip}>
+        <PageButton class="w-32" disabled={!input} on:click={submit}>Submit</PageButton>
+        <PageButton class="w-32" disabled={skipDisabled || (input?.length ?? 0) > 0} on:click={skip}>
             {#if $STATE.failed < 5}
                 Skip Turn
             {:else}

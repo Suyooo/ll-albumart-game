@@ -34,7 +34,7 @@ export const STATISTICS: Readable<Statistics> & {
             statistics.viewed++;
             return statistics;
         }),
-    addFinishedState: (state) =>
+    addFinishedState: (state: PlayState) =>
         update((statistics) => {
             if (state.cleared) {
                 statistics.cleared++;
