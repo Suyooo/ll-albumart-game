@@ -23,6 +23,5 @@ dist-ssr
 *.sln
 *.sw?
 
-package-lock.json
 public/albumart/*.jpg
 public/albumart/*.png
