@@ -1,5 +1,13 @@
-import type {Canvas, CanvasRenderingContext2D, Image} from "canvas";
-import {createCanvas} from "canvas";
+import type { Canvas, CanvasRenderingContext2D, Image } from "canvas";
+import { createCanvas, loadImage } from "canvas";
+
+export function loadAssetImage(url: string) {
+    if (import.meta.env.SSR) {
+        return loadImage("public" + url.split("?")[0]);
+    } else {
+        return loadImage(url);
+    }
+}
 
 export function smoothScaleSquare(ctx: CanvasRenderingContext2D, srcSize: number, dstSize: number) {
     if (srcSize === dstSize) return;
@@ -14,8 +22,9 @@ export function smoothScaleSquare(ctx: CanvasRenderingContext2D, srcSize: number
         while (currentSrcSize / 2 > dstSize) {
             const newSrcSize = Math.floor(currentSrcSize / 2);
             const newTempCanvas = createCanvas(newSrcSize, newSrcSize);
-            newTempCanvas.getContext("2d").drawImage(tempCanvas, 0, 0, currentSrcSize, currentSrcSize,
-                    0, 0, newSrcSize, newSrcSize);
+            newTempCanvas
+                .getContext("2d")
+                .drawImage(tempCanvas, 0, 0, currentSrcSize, currentSrcSize, 0, 0, newSrcSize, newSrcSize);
             releaseCanvas(tempCanvas);
             tempCanvas = newTempCanvas;
             currentSrcSize = newSrcSize;
@@ -27,8 +36,9 @@ export function smoothScaleSquare(ctx: CanvasRenderingContext2D, srcSize: number
         while (currentSrcSize * 2 < dstSize) {
             const newSrcSize = Math.ceil(currentSrcSize * 2);
             const newTempCanvas = createCanvas(newSrcSize, newSrcSize);
-            newTempCanvas.getContext("2d").drawImage(tempCanvas, 0, 0, currentSrcSize, currentSrcSize,
-                    0, 0, newSrcSize, newSrcSize);
+            newTempCanvas
+                .getContext("2d")
+                .drawImage(tempCanvas, 0, 0, currentSrcSize, currentSrcSize, 0, 0, newSrcSize, newSrcSize);
             releaseCanvas(tempCanvas);
             tempCanvas = newTempCanvas;
             currentSrcSize = newSrcSize;
@@ -43,8 +53,15 @@ export function smoothScaleSquare(ctx: CanvasRenderingContext2D, srcSize: number
     releaseCanvas(tempCanvas);
 }
 
-export function smoothScaleSquareWithSrc(ctx: CanvasRenderingContext2D, src: Canvas | Image, srcX: number, srcY: number,
-                                         srcW: number, srcH: number, dstSize: number) {
+export function smoothScaleSquareWithSrc(
+    ctx: CanvasRenderingContext2D,
+    src: Canvas | Image,
+    srcX: number,
+    srcY: number,
+    srcW: number,
+    srcH: number,
+    dstSize: number
+) {
     // Do one step forcing the source image into square aspect ratio and adding it to the destination, then continue
     // with the smoothScaleSquare method from above
     if (srcW === dstSize && srcH === dstSize) return;
@@ -70,7 +87,7 @@ export function releaseCanvas(canvas: Canvas) {
 }
 
 export function yieldToMain() {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
         setTimeout(resolve, 0);
     });
 }

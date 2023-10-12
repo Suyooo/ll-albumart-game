@@ -1,9 +1,9 @@
-import { loadImage } from "canvas";
 import { ALBUM_POOL } from "./albumpool.js";
 import { ACTUAL_CURRENT_DAY } from "$modules/daily.js";
 import { describe, test } from "vitest";
 import { expect } from "vitest";
 import fs from "fs";
+import { loadAssetImage } from "$modules/canvasUtil.js";
 
 describe("Album Image Data", async () => {
     for (const album of ALBUM_POOL) {
@@ -24,7 +24,7 @@ describe("Album Image Data", async () => {
             } else {
                 const fileName = "public" + album.url.split("?")[0];
                 expect(fs.existsSync(fileName), "File does not exist").toBeTruthy();
-                const image = await loadImage(fileName);
+                const image = await loadAssetImage(album.url);
                 expect(image.width, "Image is too small").toBeGreaterThanOrEqual(640);
                 expect(image.height, "Image is too small").toBeGreaterThanOrEqual(640);
             }

@@ -1,7 +1,8 @@
 import type { AlbumInfo } from "$data/albumpool";
 import type { GameInfo } from "$data/gamepool";
+import { loadAssetImage } from "$modules/canvasUtil.js";
 import type { Canvas, Image } from "canvas";
-import { createCanvas, loadImage } from "canvas";
+import { createCanvas } from "canvas";
 
 export const CANVAS_SIZE = 640;
 
@@ -48,10 +49,7 @@ export async function getGameInstance(
     gameInfo: GameInfo,
     album: AlbumInfo
 ): Promise<{ game: Game; gameInstance: GameInstance; scaledAlbumArt: Canvas }> {
-    const [game, image] = await Promise.all([
-        getGameFromGameInfo(gameInfo),
-        loadImage(`${import.meta.env.SSR ? "public" : "."}${album.url}`),
-    ]);
+    const [game, image] = await Promise.all([getGameFromGameInfo(gameInfo), loadAssetImage(album.url)]);
 
     let paddingOriginal = Math.ceil((image.width - image.height) / 2);
     const rescaleHeight = Math.floor((CANVAS_SIZE / image.width) * image.height);
