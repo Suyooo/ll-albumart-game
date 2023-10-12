@@ -8,11 +8,12 @@ import { seededRNG } from "$modules/rng";
 const ZERO_DAY_TIMESTAMP = 1667487600000; // game begins 24h after this
 // quick day counter: https://www.timeanddate.com/date/durationresult.html?d1=4&m1=11&y1=2022
 const MS_PER_DAY = 86400000;
+export const ACTUAL_CURRENT_DAY = Math.floor((Date.now() - ZERO_DAY_TIMESTAMP) / MS_PER_DAY);
 export const CURRENT_DAY = import.meta.env.DEV
     ? import.meta.env.VITE_LOCK_DAY === undefined
         ? Math.floor(Math.random() * 1000000)
         : import.meta.env.VITE_LOCK_DAY
-    : Math.floor((Date.now() - ZERO_DAY_TIMESTAMP) / MS_PER_DAY) +
+    : ACTUAL_CURRENT_DAY +
       (typeof localStorage !== "undefined" ? parseInt(localStorage.getItem("llalbum-day-offset")) || 0 : 0);
 
 interface Pickable {

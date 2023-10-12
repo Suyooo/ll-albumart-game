@@ -400,7 +400,7 @@
     {
         "url": "",
         "startOnDay": 999999,
-        "weight": 1000,
+        "weight": 0,
         "titleEn": "CYaZALEA☆Kiss☆DADANDAAAN",
         "artistEn": "Aqours",
         "titleJa": "シャゼリア☆キッス☆ダダンダーン",
@@ -625,7 +625,7 @@
     {
         "url": "",
         "startOnDay": 999999,
-        "weight": 1000,
+        "weight": 0,
         "titleEn": "Hajimari Road",
         "artistEn": "Aqours",
         "titleJa": "ハジマリロード",
@@ -634,7 +634,7 @@
     {
         "url": "",
         "startOnDay": 999999,
-        "weight": 1000,
+        "weight": 0,
         "titleEn": "Marine Border Parasol",
         "artistEn": "Aqours",
         "titleJa": "Marine Border Parasol",
@@ -643,7 +643,7 @@
     {
         "url": "",
         "startOnDay": 999999,
-        "weight": 1000,
+        "weight": 0,
         "titleEn": "Yosoku Fukanou Driving!",
         "artistEn": "Aqours",
         "titleJa": "予測不可能Driving!",
@@ -751,7 +751,7 @@
     {
         "url": "",
         "startOnDay": 999999,
-        "weight": 1000,
+        "weight": 0,
         "titleEn": "P.S. no Mukougawa",
         "artistEn": "CYaRon!",
         "titleJa": "P.S.の向こう側",
@@ -769,7 +769,7 @@
     {
         "url": "",
         "startOnDay": 999999,
-        "weight": 1000,
+        "weight": 0,
         "titleEn": "Sakura Bye Bye",
         "artistEn": "CYaRon!",
         "titleJa": "サクラバイバイ",
@@ -805,7 +805,7 @@
     {
         "url": "",
         "startOnDay": 999999,
-        "weight": 1000,
+        "weight": 0,
         "titleEn": "LONELY TUNING",
         "artistEn": "AZALEA",
         "titleJa": "LONELY TUNING",
@@ -823,7 +823,7 @@
     {
         "url": "",
         "startOnDay": 999999,
-        "weight": 1000,
+        "weight": 0,
         "titleEn": "Sotsugyou desu ne",
         "artistEn": "AZALEA",
         "titleJa": "卒業ですね",
@@ -859,7 +859,7 @@
     {
         "url": "",
         "startOnDay": 999999,
-        "weight": 1000,
+        "weight": 0,
         "titleEn": "Guilty Eyes Fever",
         "artistEn": "Guilty Kiss",
         "titleJa": "Guilty Eyes Fever",
@@ -877,7 +877,7 @@
     {
         "url": "",
         "startOnDay": 999999,
-        "weight": 1000,
+        "weight": 0,
         "titleEn": "Guilty!? Farewell party",
         "artistEn": "Guilty Kiss",
         "titleJa": "Guilty!? Farewell party",
@@ -1618,7 +1618,7 @@
     {
         "url": "",
         "startOnDay": 999999,
-        "weight": 1000,
+        "weight": 0,
         "titleEn": "Puwa Puwa-O!",
         "artistEn": "Printemps",
         "titleJa": "ぷわぷわーお！",
@@ -1636,7 +1636,7 @@
     {
         "url": "",
         "startOnDay": 999999,
-        "weight": 1000,
+        "weight": 0,
         "titleEn": "CheerDay CheerGirl!",
         "artistEn": "Printemps",
         "titleJa": "CheerDay CheerGirl!",
@@ -1645,7 +1645,7 @@
     {
         "url": "",
         "startOnDay": 999999,
-        "weight": 1000,
+        "weight": 0,
         "titleEn": "MUSEUM de Dou Shitai?",
         "artistEn": "Printemps",
         "titleJa": "MUSEUMでどうしたい？",
@@ -1690,7 +1690,7 @@
     {
         "url": "",
         "startOnDay": 999999,
-        "weight": 1000,
+        "weight": 0,
         "titleEn": "Silent tonight",
         "artistEn": "BiBi",
         "titleJa": "Silent tonight",
@@ -1699,7 +1699,7 @@
     {
         "url": "",
         "startOnDay": 999999,
-        "weight": 1000,
+        "weight": 0,
         "titleEn": "Saitei de Saikou no Paradiso",
         "artistEn": "BiBi",
         "titleJa": "最低で最高のParadiso",
@@ -1744,7 +1744,7 @@
     {
         "url": "",
         "startOnDay": 999999,
-        "weight": 1000,
+        "weight": 0,
         "titleEn": "Onaji Hoshi ga Mitai",
         "artistEn": "lily white",
         "titleJa": "同じ星が見たい",
@@ -1753,7 +1753,7 @@
     {
         "url": "",
         "startOnDay": 999999,
-        "weight": 1000,
+        "weight": 0,
         "titleEn": "Otohime Heart de Love Kyuuden",
         "artistEn": "lily white",
         "titleJa": "乙姫心で恋宮殿",
