@@ -4,7 +4,7 @@ location /scripts {
 
 location ~ ^/(\d+) {
     set $shareredirect 0;
-    if ($http_user_agent ~ (Twitterbot|facebookexternalhit|Mastodon|Tumblr)) {
+    if ($http_user_agent ~ (Twitterbot|facebookexternalhit|Mastodon|Misskey|Tumblr)) {
         set $shareredirect "";
     }
     if ($http_user_agent ~ (Discordbot)) {
@@ -12,7 +12,7 @@ location ~ ^/(\d+) {
     }
 
     if ($shareredirect = 0) {
-        return 301 /;
+        return 302 /;
     }
     rewrite ^/(\d+) /share/$1$shareredirect.html;
 }
