@@ -1,5 +1,5 @@
-user-agent: *
-Disallow: /albumart/*/
-Disallow: /assets/*/
-Disallow: /bundles/*/
-Disallow: /share/*/
+User-Agent: *
+Disallow: /share/*.html
+
+User-Agent: GPTBot
+Disallow: /
