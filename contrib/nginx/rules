@@ -4,7 +4,7 @@ location /scripts {
 
 location ~ ^/(\d+) {
     set $shareredirect 0;
-    if ($http_user_agent ~ (Twitterbot|facebookexternalhit|Mastodon|Misskey|Tumblr)) {
+    if ($http_user_agent ~ (Twitterbot|facebookexternalhit|Tumblr|Mastodon|Misskey|SummalyBot)) {
         set $shareredirect "";
     }
     if ($http_user_agent ~ (Discordbot)) {
