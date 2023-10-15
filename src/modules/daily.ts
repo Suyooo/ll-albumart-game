@@ -4,6 +4,7 @@ import type { GameInfo } from "$data/gamepool";
 import { GAME_POOL } from "$data/gamepool";
 import { rerollDays } from "$data/rerolls";
 import { seededRNG } from "$modules/rng";
+import { recordRoll } from "$modules/rollHistory.js";
 
 const ZERO_DAY_TIMESTAMP = 1667487600000; // game begins 24h after this
 // quick day counter: https://www.timeanddate.com/date/durationresult.html?d1=4&m1=11&y1=2022
@@ -79,19 +80,21 @@ const FORCED_DAYS: { [day: number]: { rolledAlbumId: number; rolledGameId: numbe
     234: { rolledAlbumId: 249, rolledGameId: 1 }, // Last day of SIFAS final event
 };
 
-export function getIdsForDay(day: number): { rolledAlbumId: number; rolledGameId: number } {
+export function getIdsForDay(day: number, ignoreDev: boolean = false): { rolledAlbumId: number; rolledGameId: number } {
     if (DAILY_ROLL_CACHE.hasOwnProperty(day)) {
         return DAILY_ROLL_CACHE[day];
     }
     if (FORCED_DAYS.hasOwnProperty(day)) {
-        return FORCED_DAYS[day];
+        const ret = FORCED_DAYS[day];
+        recordRollIfProd(day, ret.rolledAlbumId, ret.rolledGameId);
+        return ret;
     }
 
     let rng: () => number;
     let rerolls = rerollDays[day] || 0;
     const blockedAlbumIds = new Set<number>();
     const blockedGameIds = new Set<number>();
-    if (import.meta.env.DEV && import.meta.env.VITE_LOCK_DAY === undefined) {
+    if (import.meta.env.DEV && import.meta.env.VITE_LOCK_DAY === undefined && !ignoreDev) {
         rng = seededRNG(Math.floor(Math.random() * 100000000));
         day = 999998;
     } else {
@@ -151,7 +154,12 @@ export function getIdsForDay(day: number): { rolledAlbumId: number; rolledGameId
         }
     }
 
+    recordRollIfProd(day, rolledAlbumId, rolledGameId);
     const ret = { rolledAlbumId, rolledGameId };
     DAILY_ROLL_CACHE[day] = ret;
     return ret;
+}
+
+function recordRollIfProd(day: number, album: number, game: number) {
+    if (import.meta.env.PROD && import.meta.env.SSR) recordRoll(day, album, game);
 }

@@ -1,7 +1,6 @@
 import { ALBUM_POOL } from "./albumpool.js";
 import { ACTUAL_CURRENT_DAY } from "$modules/daily.js";
-import { describe, test } from "vitest";
-import { expect } from "vitest";
+import { describe, test, expect } from "vitest";
 import fs from "fs";
 import { loadAssetImage } from "$modules/canvasUtil.js";
 

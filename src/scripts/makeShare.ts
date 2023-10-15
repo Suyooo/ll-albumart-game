@@ -23,12 +23,8 @@ const shareDay = process.argv.length > 2 ? parseInt(process.argv[2]) : CURRENT_D
     }
 
     const { rolledAlbumId, rolledGameId } = getIdsForDay(shareDay);
-    const queryIdx = ALBUM_POOL[rolledAlbumId].url.indexOf("?");
-    if (queryIdx !== -1) {
-        ALBUM_POOL[rolledAlbumId].url = ALBUM_POOL[rolledAlbumId].url.substring(0, queryIdx);
-    }
-
     const { gameInstance } = await getGameInstance(shareDay, GAME_POOL[rolledGameId], ALBUM_POOL[rolledAlbumId]);
+
     const shareCanvas = gameInstance.getShareCanvas();
     const shareWithBgCanvas = new Canvas(shareCanvas.width, shareCanvas.height);
     const shareWithBgCtx = shareWithBgCanvas.getContext("2d");

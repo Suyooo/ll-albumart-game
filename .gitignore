@@ -25,3 +25,4 @@ dist-ssr
 
 public/albumart/*.jpg
 public/albumart/*.png
+roll-history.json
