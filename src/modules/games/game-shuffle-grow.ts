@@ -1,11 +1,11 @@
 /** @type {import("../gameHandler").Game} */
 
-import type {AlbumInfo} from "$data/albumpool";
-import type {Canvas, Image} from "canvas";
-import {createCanvas} from "canvas";
-import type {GameInstance} from "../gameHandler";
-import {CANVAS_SIZE} from "../gameHandler";
-import {seededRNG} from "../rng";
+import type { AlbumInfo } from "$data/albumpool";
+import type { Canvas, Image } from "canvas";
+import { createCanvas } from "canvas";
+import type { GameInstance } from "../gameHandler";
+import { CANVAS_SIZE } from "../gameHandler";
+import { seededRNG } from "../rng";
 
 export const stacked = false;
 export const hasAltFinished = false;
@@ -15,18 +15,20 @@ const TILES_PER_AXIS = [128, 80, 64, 32, 16, 8];
 
 export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, scaledImage: Canvas): GameInstance {
     const getCanvasForGuess = (failed: number): Canvas => {
-        const rng = seededRNG(day * 461 * failed);
+        // RNG seed fix from day 347 onwards
+        const rng = seededRNG(day < 347 ? day * 461 * failed : day * 461 + failed);
         const axis = TILES_PER_AXIS[failed];
         const total = axis * axis;
-        const positions: { positionIndex: number, rotation: number }[] =
-            new Array(total).fill(0).map((_, i) => ({i, sortVal: rng()}))
-                        .sort((a, b) => a.sortVal - b.sortVal)
-                        // no rotation on first guess to improve performance
-                        .map(e => ({positionIndex: e.i, rotation: failed === 0 ? 0 : Math.floor(rng() * 4)}));
+        const positions: { positionIndex: number; rotation: number }[] = new Array(total)
+            .fill(0)
+            .map((_, i) => ({ i, sortVal: rng() }))
+            .sort((a, b) => a.sortVal - b.sortVal)
+            // no rotation on first guess to improve performance
+            .map((e) => ({ positionIndex: e.i, rotation: failed === 0 ? 0 : Math.floor(rng() * 4) }));
 
         const getPosInCanvas = (p: number) => {
-            return Math.floor(CANVAS_SIZE * p / axis);
-        }
+            return Math.floor((CANVAS_SIZE * p) / axis);
+        };
 
         const canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
         const ctx = canvas.getContext("2d");
@@ -49,7 +51,7 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
             if (rot !== 0) {
                 ctx.save();
                 ctx.translate(dmx, dmy);
-                ctx.rotate(rot * Math.PI / 2);
+                ctx.rotate((rot * Math.PI) / 2);
                 ctx.translate(-dmx, -dmy);
             }
             ctx.globalCompositeOperation = "source-over";
@@ -69,10 +71,20 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
     const getShareCanvas = (): Canvas => {
         const fullCanvas = getCanvasForGuess(0);
         const canvas = createCanvas(CANVAS_SIZE / 4, CANVAS_SIZE / 4);
-        canvas.getContext("2d").drawImage(fullCanvas,
-                CANVAS_SIZE * 0.375, CANVAS_SIZE * 0.375, CANVAS_SIZE / 4, CANVAS_SIZE / 4,
-                0, 0, CANVAS_SIZE / 4, CANVAS_SIZE / 4);
+        canvas
+            .getContext("2d")
+            .drawImage(
+                fullCanvas,
+                CANVAS_SIZE * 0.375,
+                CANVAS_SIZE * 0.375,
+                CANVAS_SIZE / 4,
+                CANVAS_SIZE / 4,
+                0,
+                0,
+                CANVAS_SIZE / 4,
+                CANVAS_SIZE / 4
+            );
         return canvas;
     };
-    return {getCanvasForGuess, getShareCanvas}
+    return { getCanvasForGuess, getShareCanvas };
 }

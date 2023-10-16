@@ -53,7 +53,8 @@ function dist(fromPos: number, toPos: number) {
 
 export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, scaledImage: Canvas): GameInstance {
     const getCanvasForGuess = (failed: number): Canvas => {
-        const rng = seededRNG(day * 461 * failed);
+        // RNG seed fix from day 347 onwards
+        const rng = seededRNG(day < 347 ? day * 461 * failed : day * 461 + failed);
         const maxDist = MAX_DISTS[day < 113 ? 0 : 1][failed];
         const tilesPerPosition = new Array(TOTAL_TILES).fill(undefined).map((_, i) => i);
 
