@@ -1,5 +1,7 @@
 <script lang="ts">
     import dragscroll from "$actions/dragscroll";
+    import type { AlbumInfo } from "$data/albumpool.js";
+    import type { GameInfo } from "$data/gamepool.js";
     import Hide from "$icon/Hide.svelte";
     import Left from "$icon/Left.svelte";
     import Right from "$icon/Right.svelte";
@@ -7,10 +9,15 @@
     import ZoomIn from "$icon/ZoomIn.svelte";
     import ZoomOut from "$icon/ZoomOut.svelte";
     import PageButton from "$lib/styled/PageButton.svelte";
-    import type {GameInstanceSiteWrapper} from "$modules/gameHandler.js";
-    import {ALBUM, GAME, STATE} from "$stores/state";
-    import {onMount} from "svelte";
-    import {fly, scale} from "svelte-reduced-motion/transition";
+    import type { GameInstanceSiteWrapper } from "$modules/gameHandler.js";
+    import type { PlayState } from "$stores/state.js";
+    import { getContext, onMount } from "svelte";
+    import { fly, scale } from "svelte-reduced-motion/transition";
+    import type { Writable } from "svelte/store";
+
+    const ALBUM = getContext<AlbumInfo>("ALBUM");
+    const GAME = getContext<GameInfo>("GAME");
+    const STATE = getContext<Writable<PlayState>>("STATE");
 
     export let game: GameInstanceSiteWrapper;
 
@@ -86,24 +93,29 @@
 
 <div class="w-full relative overflow-visible flex items-center justify-center">
     <div class="w-8 mx-2 flex-shrink-0">
-        <PageButton class="w-8" disabled="{stage === 0}" label="Previous Step" on:click={() => changeStage(-1)}>
-            <Left/>
+        <PageButton class="w-8" disabled={stage === 0} label="Previous Step" on:click={() => changeStage(-1)}>
+            <Left />
         </PageButton>
     </div>
     <div class="max-w-sm flex-grow flex flex-col items-end">
         {#key maxStage}
-            <div class="max-w-sm w-full aspect-square bg-black relative overflow-auto" bind:this={canvasContainer}
-                 aria-label={$STATE.cleared && stage === maxStage ? "Album Art" : "Hidden Album Art"} class:zoomed
-                 class:glow={$STATE.cleared && stage === maxStage} in:scale={{start:1.1,opacity:1}} use:dragscroll>
-            </div>
+            <div
+                class="max-w-sm w-full aspect-square bg-black relative overflow-auto"
+                bind:this={canvasContainer}
+                aria-label={$STATE.cleared && stage === maxStage ? "Album Art" : "Hidden Album Art"}
+                class:zoomed
+                class:glow={$STATE.cleared && stage === maxStage}
+                in:scale={{ start: 1.1, opacity: 1 }}
+                use:dragscroll
+            />
         {/key}
         <div class="max-w-sm w-full flex items-center mt-2">
             {#if $STATE.finished && stage === maxStage && game.base.hasAltFinished && !game.base.forceAltFinished}
                 <PageButton class="w-8 flex-shrink-0 self-start" label="Toggle Hint Locations" on:click={toggleAlt}>
                     {#if showAltFinished}
-                        <Hide/>
+                        <Hide />
                     {:else}
-                        <Show/>
+                        <Show />
                     {/if}
                 </PageButton>
             {:else}
@@ -112,7 +124,7 @@
             <div class="flex-grow px-4">
                 {#if $STATE.finished}
                     <!-- aria-hidden: Answer is screen read in Result. This one is just for visual presentation -->
-                    <div class="text-xs max-w-sm text-center" in:fly={{y: -30, duration: 1000}} aria-hidden="true">
+                    <div class="text-xs max-w-sm text-center" in:fly={{ y: -30, duration: 1000 }} aria-hidden="true">
                         {ALBUM.artistEn} - <b>{@html ALBUM.titleEn}</b>
                     </div>
                 {:else}
@@ -123,16 +135,16 @@
             </div>
             <PageButton class="w-8 flex-shrink-0 self-start" label="Toggle Zoom" on:click={toggleZoom}>
                 {#if zoomed}
-                    <ZoomOut/>
+                    <ZoomOut />
                 {:else}
-                    <ZoomIn/>
+                    <ZoomIn />
                 {/if}
             </PageButton>
         </div>
     </div>
     <div class="w-8 mx-2 flex-shrink-0">
         <PageButton class="w-8" disabled={stage >= maxStage} label="Next Step" on:click={() => changeStage(1)}>
-            <Right/>
+            <Right />
         </PageButton>
     </div>
 </div>
@@ -148,7 +160,7 @@
 
     div.zoomed > :global(canvas) {
         @apply w-[640px];
-        transition: width .2s;
+        transition: width 0.2s;
     }
 
     @media screen and (prefers-reduced-motion: reduce) {

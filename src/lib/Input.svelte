@@ -1,16 +1,23 @@
 <script lang="ts">
-    import { default as autocomplete, VALID_GUESSES } from "$actions/autocomplete";
+    import createAutocomplete from "$actions/autocomplete";
+    import type { AlbumInfo } from "$data/albumpool.js";
     import PageButton from "$lib/styled/PageButton.svelte";
     import isDesktop from "$modules/isDesktop";
-    import { ALBUM, STATE } from "$stores/state";
+    import type { PlayState } from "$stores/state.js";
     import { STATISTICS } from "$stores/statistics";
     import { getContext } from "svelte";
     import { fly } from "svelte-reduced-motion/transition";
+    import type { Writable } from "svelte/store";
+
+    const ALBUM = getContext<AlbumInfo>("ALBUM");
+    const STATE = getContext<Writable<PlayState>>("STATE");
 
     let input: string,
         skipDisabled: boolean = false,
         showRejected: boolean = false,
         inputElement: HTMLInputElement;
+
+    const { autocomplete, VALID_GUESSES } = createAutocomplete(getContext("ALBUM_POOL"));
 
     function enterSubmit(e: KeyboardEvent): void {
         showRejected = false;

@@ -1,12 +1,14 @@
 <script lang="ts">
     // required re-assignment to make vite constants work nice
     import PageButton from "$lib/styled/PageButton.svelte";
-    import { ALL_STATES } from "$stores/state";
+    import type { PlayState } from "$stores/state.js";
     import { STATISTICS } from "$stores/statistics";
     import { getContext } from "svelte";
+    import type { Readable } from "svelte/store";
 
-    const CONST_BUILDTIME: number = BUILDTIME;
-    const CONST_BUILDDATE: string = BUILDDATE;
+    const ALL_STATES = getContext<Readable<PlayState[]>>("ALL_STATES");
+
+    const buildTime: number = getContext("DEFINE_BUILDTIME");
 
     const read = getContext<(s: string, priority?: "polite" | "assertive") => void>("reader");
     let exported: boolean = false;
@@ -62,7 +64,7 @@
         checkPromise = fetch(window.location.href, { cache: "reload" }).then((response) => {
             const latest = Date.parse(response.headers.get("Last-Modified") ?? "1 January 2030");
             // 5-minute delay to account for delay between build/file writing/upload
-            if (latest - 300000 > CONST_BUILDTIME) {
+            if (latest - 300000 > buildTime) {
                 return "There is an update available. Try refreshing the page, or, if that doesn't work, clearing your browser cache! If you run into problems getting the update, please contact me.";
             } else {
                 return "You are on the latest version!";
@@ -115,7 +117,7 @@
     </div>
     <div class="mt-6 text-xs text-gray-400 tracking-tighter leading-4">
         <div>
-            Current Version: {CONST_BUILDDATE}
+            Current Version: {new Date(buildTime).toLocaleString("en-GB")}
             {import.meta.env.DEV ? " (Dev Mode)" : ""}
             {#if !checkPromise}
                 <button class="underline" on:click={check}>(Check)</button>

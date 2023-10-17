@@ -1,8 +1,13 @@
 <script lang="ts">
     import Wrong from "$icon/Wrong.svelte";
-    import { ALL_STATES, STATE } from "$stores/state";
+    import type { PlayState } from "$stores/state.js";
     import { STATISTICS } from "$stores/statistics";
+    import { getContext } from "svelte";
     import { quartOut } from "svelte/easing";
+    import type { Readable, Writable } from "svelte/store";
+
+    const STATE = getContext<Writable<PlayState>>("STATE");
+    const ALL_STATES = getContext<Readable<PlayState[]>>("ALL_STATES");
 
     let filter: number[] | undefined, max: number, bars: number[][], resetOption: HTMLOptionElement;
 

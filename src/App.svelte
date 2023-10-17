@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { ALBUM_POOL } from "$data/albumpool.js";
     import GameDisplayContainer from "$lib/GameDisplayContainer.svelte";
     import Guess from "$lib/Guess.svelte";
 
@@ -7,9 +8,16 @@
     import Modal from "$lib/Modal.svelte";
     import ModalHelp from "$lib/ModalHelp.svelte";
     import Result from "$lib/Result.svelte";
-    import { ALL_STATES, STATE } from "$stores/state.js";
+    import { ALBUM, ALL_STATES, GAME, STATE } from "$stores/state.js";
     import { type ComponentType, onMount, setContext } from "svelte";
     import { fade } from "svelte-reduced-motion/transition";
+
+    setContext("DEFINE_BUILDTIME", VITE_DEFINE_BUILDTIME);
+    setContext("ALBUM_POOL", ALBUM_POOL);
+    setContext("ALBUM", ALBUM);
+    setContext("GAME", GAME);
+    setContext("STATE", STATE);
+    setContext("ALL_STATES", ALL_STATES);
 
     let modalTitle: string = "";
     let modalComponent: ComponentType | null = null;

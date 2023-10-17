@@ -1,10 +1,17 @@
 <script lang="ts">
+    import type { AlbumInfo } from "$data/albumpool.js";
+    import type { GameInfo } from "$data/gamepool.js";
     import Checkmark from "$icon/Copied.svelte";
     import Share from "$icon/Share.svelte";
     import isDesktop from "$modules/isDesktop";
-    import { ALBUM, GAME, STATE } from "$stores/state.js";
+    import type { PlayState } from "$stores/state.js";
     import { getContext, onMount } from "svelte";
     import { fade, fly } from "svelte-reduced-motion/transition";
+    import type { Writable } from "svelte/store";
+
+    const ALBUM = getContext<AlbumInfo>("ALBUM");
+    const GAME = getContext<GameInfo>("GAME");
+    const STATE = getContext<Writable<PlayState>>("STATE");
 
     let copied: boolean = false;
     let timerSpeak: string, timerText: string;

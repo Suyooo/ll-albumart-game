@@ -1,7 +1,6 @@
 /// <reference types="svelte" />
 /// <reference types="vite/client" />
-declare const BUILDTIME: number;
-declare const BUILDDATE: string;
+declare const VITE_DEFINE_BUILDTIME: number;
 
 declare namespace svelteHTML {
     interface HTMLProps<T> {
