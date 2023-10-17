@@ -20,8 +20,7 @@ export default defineConfig(() => ({
         rollupOptions: {
             output: {
                 manualChunks: {
-                    albumpool: ["src/data/albumpool.json", "src/data/albumpool.ts"],
-                    rerolls: ["src/data/rerolls.ts"],
+                    game: ["src/modules/rng.ts", "src/modules/canvasUtil.ts", "src/modules/gameHandler.ts"],
                 },
             },
         },
