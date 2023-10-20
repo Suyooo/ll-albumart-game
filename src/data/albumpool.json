@@ -2506,6 +2506,24 @@
         "artistJa": "Aqours"
     },
     {
+        "url": "/albumart/hasunosora_natsumeki-pain.jpg",
+        "startOnDay": 351,
+        "weight": 1000,
+        "titleEn": "Natsumeki Pain",
+        "artistEn": "Hasunosora Girls' High School Idol Club",
+        "titleJa": "夏めきペイン",
+        "artistJa": "蓮ノ空女学院スクールアイドルクラブ"
+    },
+    {
+        "url": "/albumart/nijigasaki_fly-with-you.jpg",
+        "startOnDay": 351,
+        "weight": 1000,
+        "titleEn": "Fly with You!!",
+        "artistEn": "Nijigasaki High School Idol Club",
+        "titleJa": "Fly with You!!",
+        "artistJa": "虹ヶ咲学園スクールアイドル同好会"
+    },
+    {
         "url": "/albumart/aqours_forever-u-i-la-la-yuuki-no-uta-ep-12-edition.jpg",
         "startOnDay": 356,
         "weight": 1000,
