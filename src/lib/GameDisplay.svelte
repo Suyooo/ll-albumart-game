@@ -170,6 +170,6 @@
     }
 
     .glow {
-        box-shadow: 0 0 2rem theme("colors.primary.100");
+        box-shadow: 0 0 2rem hsl(var(--twc-outline));
     }
 </style>

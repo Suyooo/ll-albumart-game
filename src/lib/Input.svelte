@@ -100,7 +100,7 @@
 <div class="relative w-full">
     {#if showRejected}
         <div
-            class="absolute top-2 left-0 -translate-y-full -mt-4 w-full rounded bg-wrong text-white text-center select-none pointer-events-none"
+            class="absolute top-2 left-0 -translate-y-full -mt-4 w-full rounded bg-guess-wrong text-text text-center select-none pointer-events-none"
             transition:fly={{ duration: 200, y: 10 }}
         >
             <div class="p-0.5">Invalid guess! Select an option from the list!</div>
@@ -108,7 +108,7 @@
     {/if}
     <label for="input" class="vhd">Your Guess. Autocomplete.</label>
     <input
-        class="flex-grow text-sm w-full rounded p-2 text-white bg-gray-700 ring-inset ring-2 ring-primary-500 focus:ring-white"
+        class="flex-grow text-sm w-full rounded p-2 text-text bg-input-background ring-inset ring-2 ring-accent focus:ring-input-border placeholder:text-input-placeholder"
         id="input"
         on:keydown={enterSubmit}
         placeholder="Which album is this?"
@@ -140,28 +140,28 @@
 
     /*noinspection CssUnusedSymbol*/
     :global(.autocomplete) {
-        @apply bg-gray-800 border-white border-2 border-t-0 rounded-b mt-[-2px] overflow-auto;
+        @apply bg-input-dropdown border-input-border border-2 border-t-0 rounded-b overflow-auto;
     }
 
     :global(.autocomplete > div) {
-        @apply w-full border-gray-700 p-2 border-b-2 last:border-b-0 text-white leading-none;
+        @apply w-full border-input-listsep p-2 border-b-2 last:border-b-0 text-text leading-none;
     }
 
     /*noinspection CssUnusedSymbol*/
     :global(.autocomplete > div:not(.empty):hover) {
-        @apply bg-primary-900;
+        @apply bg-input-hover;
     }
 
     :global(.autocomplete mark) {
-        @apply bg-primary-700 text-white rounded;
+        @apply bg-input-highlight text-text rounded;
     }
 
     /*noinspection CssUnusedSymbol*/
     :global(.autocomplete:not(:hover) > .selected) {
-        @apply bg-primary-900;
+        @apply bg-input-hover;
     }
 
     :global(.autocomplete > div > div) {
-        @apply ml-4 text-gray-400 text-xs tracking-tighter;
+        @apply ml-4 text-input-placeholder text-xs tracking-tighter;
     }
 </style>

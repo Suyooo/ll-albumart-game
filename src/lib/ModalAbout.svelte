@@ -74,15 +74,15 @@
 </script>
 
 <div class="flex-col space-y-4">
+    <div>This site was made by suyooo</div>
     <div>
-        This site was made by Suyooo
+        If you have any problems, comments, or ideas for new game modes, feel free to send them to me!
         <ul class="list-disc list-inside ml-4 text-sm">
-            <li><a href="https://mstdn.schoolidol.club/@Suyooo">Mastodon</a></li>
+            <li><a href="https://mstdn.schoolidol.club/@Suyooo">Mastodon / Fediverse</a></li>
             <li><a href="https://www.tumblr.com/suyooo">Tumblr</a></li>
+            <li><a href="https://github.com/Suyooo/ll-albumart-game/issues">Or submit it on GitHub</a></li>
+            <li>Or mail me: me@suyo.be</li>
         </ul>
-        <div class="text-xs">
-            If you have any problems, comments, or ideas for new game modes, feel free to send them to me!
-        </div>
     </div>
     <div>
         Some cool stuff used for this site:
@@ -105,17 +105,17 @@
             <PageButton class="px-2" label="Import Save Data" on:click={importSave}>Import Save Data</PageButton>
         </div>
         {#if exported}
-            <div class="mt-1 text-xs text-gray-400 tracking-tighter leading-4">
+            <div class="mt-1 text-xs text-subtle tracking-tighter leading-4">
                 Your save data has been copied to your clipboard.
             </div>
         {/if}
     </div>
-    <div class="mt-6 text-xs text-gray-400 tracking-tighter leading-4">
+    <div class="mt-6 text-xs text-subtle tracking-tighter leading-4">
         Love Live! and all album art, song titles and project/group names are copyrighted: ©PL! ©PL!S ©PL!N ©PL!SP
         ©SUNRISE ©bushiroad<br />
         This is a not-for-profit fan project, and unaffiliated with any of the projects or companies above.
     </div>
-    <div class="mt-6 text-xs text-gray-400 tracking-tighter leading-4">
+    <div class="mt-6 text-xs text-subtle tracking-tighter leading-4">
         <div>
             Current Version: {new Date(buildTime).toLocaleString("en-GB")}
             {import.meta.env.DEV ? " (Dev Mode)" : ""}

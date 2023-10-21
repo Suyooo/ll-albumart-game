@@ -3,6 +3,7 @@
     import type { GameInfo } from "$data/gamepool.js";
     import Checkmark from "$icon/Copied.svelte";
     import Share from "$icon/Share.svelte";
+    import PageButton from "$lib/styled/PageButton.svelte";
     import isDesktop from "$modules/isDesktop";
     import type { PlayState } from "$stores/state.js";
     import { getContext, onMount } from "svelte";
@@ -93,7 +94,7 @@
     in:fly={{ y: -50, duration: 1000 }}
     on:introstart={() => (animateBlocks = true)}
 >
-    <h2 class="tracking-widest uppercase font-bold text-2xl" class:text-primary-300={GAME.messageOverride}>
+    <h2 class="tracking-widest uppercase font-bold text-2xl" class:text-accent-text={GAME.messageOverride}>
         {#if GAME.messageOverride}
             {GAME.messageOverride}
         {:else if !$STATE.cleared}
@@ -127,10 +128,12 @@
             <div
                 class="w-6 h-2"
                 in:fade={{ delay: 150 * i }}
-                class:bg-unused={i >= $STATE.guesses.length}
-                class:bg-skipped={i < $STATE.guesses.length - ($STATE.cleared ? 1 : 0) && $STATE.guesses[i] === null}
-                class:bg-correct={i === $STATE.guesses.length - 1 && $STATE.cleared}
-                class:bg-wrong={i < $STATE.guesses.length - ($STATE.cleared ? 1 : 0) && $STATE.guesses[i] !== null}
+                class:bg-guess-unused={i >= $STATE.guesses.length}
+                class:bg-guess-skipped={i < $STATE.guesses.length - ($STATE.cleared ? 1 : 0) &&
+                    $STATE.guesses[i] === null}
+                class:bg-guess-correct={i === $STATE.guesses.length - 1 && $STATE.cleared}
+                class:bg-guess-wrong={i < $STATE.guesses.length - ($STATE.cleared ? 1 : 0) &&
+                    $STATE.guesses[i] !== null}
             >
                 &nbsp;
             </div>
@@ -138,22 +141,17 @@
     </div>
 </div>
 
-<button
-    class="px-3 py-2 rounded p-1 uppercase tracking-widest transition-colors duration-200 bg-primary-500
-                flex items-center space-x-2"
-    in:fly={{ x: -50, delay: 500, duration: 1000 }}
-    on:click={shareResult}
-    aria-label="Share Your Result"
-    type="button"
->
-    {#if copied}
-        <Checkmark />
-        <span aria-hidden="true">Copied to your Clipboard</span>
-    {:else}
-        <Share />
-        <span aria-hidden="true">Share Your Result</span>
-    {/if}
-</button>
+<div in:fly={{ x: -50, delay: 500, duration: 1000 }}>
+    <PageButton on:click={shareResult} label="Share Your Result" class="h-[unset] px-3 py-2 gap-x-2">
+        {#if copied}
+            <Checkmark />
+            <span aria-hidden="true">Copied to your Clipboard</span>
+        {:else}
+            <Share />
+            <span aria-hidden="true">Share Your Result</span>
+        {/if}
+    </PageButton>
+</div>
 
 <div in:fly={{ x: -50, delay: 600, duration: 1000 }} aria-live="polite">
     {#if timerOver}

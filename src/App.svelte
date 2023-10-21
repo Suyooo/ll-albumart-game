@@ -72,7 +72,7 @@
                 <Result />
             {:else}
                 <Input />
-                <div class="w-full mt-4" aria-live="assertive">
+                <div class="w-full mt-4 px-4" aria-live="assertive">
                     {#each { length: 6 } as _, i}
                         <Guess {i} />
                     {/each}

@@ -22,18 +22,18 @@
 
 <div
     class="w-full my-1 px-2 py-1 border-2 text-sm flex min-h-8 transition-colors duration-[400ms]"
-    class:border-current={isNextGuess}
-    class:border-unused={isEmpty && !isNextGuess}
-    class:border-skipped={isSkipped}
-    class:border-correct={isCorrect}
-    class:border-wrong={isWrong}
+    class:border-guess-current={isNextGuess}
+    class:border-guess-unused={isEmpty && !isNextGuess}
+    class:border-guess-skipped={isSkipped}
+    class:border-guess-correct={isCorrect}
+    class:border-guess-wrong={isWrong}
 >
     {#if !isEmpty}
         <div
             class="w-4 mr-3"
-            class:text-skipped={isSkipped}
-            class:text-correct={isCorrect}
-            class:text-wrong={isWrong}
+            class:text-guess-skipped={isSkipped}
+            class:text-guess-correct={isCorrect}
+            class:text-guess-wrong={isWrong}
             in:fly={{ x: 30 }}
         >
             {#if isCorrect}
@@ -47,7 +47,7 @@
         <div
             class="flex-grow leading-none py-[.25em]"
             class:font-bold={isCorrect}
-            class:text-gray-500={isSkipped}
+            class:text-guess-current={isSkipped}
             in:fly={{ x: 30 }}
         >
             {#if !isSkipped}

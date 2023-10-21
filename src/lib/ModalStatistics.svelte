@@ -60,8 +60,8 @@
                     (filter === undefined || filter.indexOf($STATE.gameId) !== -1)}
                 <div class="flex items-center justify-center h-6">
                     <div
-                        class="w-8 h-full flex items-center justify-center border-gray-100 border-r-2 font-bold"
-                        class:text-primary-300={highlight}
+                        class="w-8 h-full flex items-center justify-center border-text border-r-2 font-bold"
+                        class:text-accent-text={highlight}
                     >
                         {#if i === 6}
                             <Wrong />
@@ -71,9 +71,9 @@
                     </div>
                     <div class="flex-grow relative h-full mr-3 overflow-hidden">
                         <div
-                            class="absolute h-[80%] top-[10%] my-auto bg-gray-500"
+                            class="absolute h-[80%] top-[10%] my-auto bg-subtle"
                             style:width={width * 100 + "%"}
-                            class:bg-primary={highlight}
+                            class:!bg-accent={highlight}
                             class:min-w-[2px]={count > 0}
                             in:grow={{ delay: i * 25, target: width }}
                         >
@@ -86,7 +86,7 @@
             {/each}
         {/key}
         <div class="flex items-center justify-end">
-            <select on:change={onFilterSelect}>
+            <select on:change={onFilterSelect} class:text-input-placeholder={filter === undefined}>
                 <option bind:this={resetOption} disabled selected value="">Filter</option>
                 <option value="4,5">Blinds</option>
                 <option value="2">Blobs</option>
@@ -100,15 +100,15 @@
         </div>
     </div>
     <div>
-        <div class="flex px-2 items-center justify-between border-gray-500 border-b-2">
+        <div class="flex px-2 items-center justify-between border-input-listsep border-b-2">
             <div class="font-bold">Rounds Played</div>
             <div>{$STATISTICS.viewed}</div>
         </div>
-        <div class="flex px-2 items-center justify-between border-gray-500 border-b-2">
+        <div class="flex px-2 items-center justify-between border-input-listsep border-b-2">
             <div class="font-bold">Rounds Cleared</div>
             <div>{$STATISTICS.cleared} ({(($STATISTICS.cleared / $STATISTICS.viewed) * 100).toFixed(1)}%)</div>
         </div>
-        <div class="flex px-2 items-center justify-between border-gray-500 border-b-2">
+        <div class="flex px-2 items-center justify-between border-input-listsep border-b-2">
             <div class="font-bold">Current Clear Streak</div>
             <div>{$STATISTICS.currentStreak}</div>
         </div>
@@ -121,6 +121,6 @@
 
 <style lang="postcss">
     select {
-        @apply bg-gray-900 px-2 py-1 rounded;
+        @apply bg-input-background px-2 py-1 rounded;
     }
 </style>
