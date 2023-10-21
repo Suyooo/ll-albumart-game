@@ -56,7 +56,7 @@
     </head>
     <body>
         <script>
-            document.querySelector("body").classList.add("light");
+            document.querySelector("body").classList.add(localStorage.getItem("llalbum-theme") || "dark");
         </script>
         <div id="app"></div>
         <script type="module" src="/src/main.ts"></script>
