@@ -2,6 +2,8 @@
     import About from "$icon/About.svelte";
     import Help from "$icon/Help.svelte";
     import Stats from "$icon/Statistics.svelte";
+    import ThemeDark from "$icon/ThemeDark.svelte";
+    import ThemeLight from "$icon/ThemeLight.svelte";
     import ModalAbout from "$lib/ModalAbout.svelte";
     import ModalHelp from "$lib/ModalHelp.svelte";
     import ModalStatistics from "$lib/ModalStatistics.svelte";
@@ -15,6 +17,13 @@
             dispatch("openmodal", { title, component });
         };
     }
+
+    let theme = localStorage.getItem("llalbum-theme") || "dark";
+    function toggleTheme(newTheme: string) {
+        theme = newTheme;
+        localStorage.setItem("llalbum-theme", theme);
+        document.querySelector("body")!.dataset["theme"] = theme;
+    }
 </script>
 
 <header class="w-full border-header-label border-b-2 mb-4">
@@ -23,7 +32,15 @@
         <HeaderButton label="About" on:click={modalOpener("About", ModalAbout)}>
             <About />
         </HeaderButton>
-        <div class="w-10" aria-hidden="true">&nbsp;</div>
+        {#if theme === "light"}
+            <HeaderButton label="Dark Mode" on:click={() => toggleTheme("dark")}>
+                <ThemeDark />
+            </HeaderButton>
+        {:else}
+            <HeaderButton label="Light Mode" on:click={() => toggleTheme("light")}>
+                <ThemeLight />
+            </HeaderButton>
+        {/if}
         <div class="flex-grow text-center text-header-label text-2xl font-bold py-2" aria-hidden="true">
             <span class="text-accent">LL!</span> <span class="inline-block">Guess That Album</span>
         </div>

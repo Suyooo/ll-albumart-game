@@ -49,14 +49,14 @@
             body {
                 background-color: #292524;
             }
-            body.light {
+            body[data-theme="light"] {
                 background-color: #e7e5e4;
             }
         </style>
     </head>
     <body>
         <script>
-            document.querySelector("body").classList.add(localStorage.getItem("llalbum-theme") || "dark");
+            document.querySelector("body").dataset["theme"] = localStorage.getItem("llalbum-theme") || "dark";
         </script>
         <div id="app"></div>
         <script type="module" src="/src/main.ts"></script>
