@@ -31,9 +31,54 @@ export default {
     plugins: [
         createThemes(
             ({ light, dark }) => ({
-                light: light({}),
+                light: light({
+                    background: colors.stone[200] /* remember to change this in index.html too */,
+                    text: colors.stone[900],
+                    subtle: colors.stone[400],
+                    accent: primary[400],
+                    "accent-text": primary[600],
+                    outline: primary[500],
+                    link: {
+                        DEFAULT: primary[600],
+                        hover: primary[500],
+                        active: primary[400],
+                    },
+                    button: {
+                        fill: primary[200],
+                        hover: primary[100],
+                        active: primary[50],
+                        "active-label": colors.black,
+                        label: colors.black,
+                        disabled: colors.stone[400],
+                    },
+                    header: {
+                        label: colors.stone[900],
+                        button: {
+                            label: colors.stone[600],
+                            "hover-label": colors.stone[400],
+                            active: primary[100],
+                            "active-label": colors.black,
+                        },
+                    },
+                    input: {
+                        background: colors.stone[100],
+                        placeholder: colors.stone[500],
+                        border: colors.stone[800],
+                        highlight: primary[200],
+                        hover: primary[50],
+                        dropdown: colors.stone[300],
+                        listsep: colors.stone[500],
+                    },
+                    guess: {
+                        correct,
+                        wrong,
+                        skipped: colors.stone[500],
+                        current: colors.stone[800],
+                        unused: colors.stone[300],
+                    },
+                }),
                 dark: dark({
-                    background: colors.stone[800] /* reminder to change this in index.html too */,
+                    background: colors.stone[800] /* remember to change this in index.html too */,
                     text: colors.stone[100],
                     subtle: colors.stone[400],
                     accent: primary[500],
@@ -66,7 +111,7 @@ export default {
                         placeholder: colors.stone[400],
                         border: colors.white,
                         highlight: primary[700],
-                        hover: primary[900],
+                        hover: primary[800],
                         dropdown: colors.stone[800],
                         listsep: colors.stone[700],
                     },
