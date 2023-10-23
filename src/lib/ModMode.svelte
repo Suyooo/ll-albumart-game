@@ -6,17 +6,19 @@
     import { getContext } from "svelte";
     import { slide } from "svelte-reduced-motion/transition";
     import { DAY_CURRENT, type getIdsForDay as getIdsForDayFunc } from "$modules/daily.js";
-    import type { Writable } from "svelte/store";
+    import type { Readable, Writable } from "svelte/store";
     import type { PlayState } from "$stores/state.js";
     import type { GameInfo } from "$data/gamepool.js";
     import type { rerollDays } from "$data/rerolls.js";
     import Left from "$icon/Left.svelte";
     import Right from "$icon/Right.svelte";
+    import { STATISTICS } from "$stores/statistics.js";
 
     const ALBUM_POOL = getContext<AlbumInfo[]>("ALBUM_POOL");
     const GAME_POOL = getContext<GameInfo[]>("GAME_POOL");
     const REROLLS = getContext<typeof rerollDays>("REROLLS");
     const STATE = getContext<Writable<PlayState>>("STATE");
+    const ALL_STATES = getContext<Readable<PlayState[]>>("ALL_STATES");
     const getIdsForDay = getContext<typeof getIdsForDayFunc>("getIdsForDay");
 
     let show = true;
@@ -69,6 +71,66 @@
         if (!allowUnload && initialRerollOffset !== 0) {
             event.preventDefault();
             return "";
+        }
+    }
+
+    function resetDay() {
+        localStorage.setItem("llalbum-undobackup-states", JSON.stringify($ALL_STATES));
+        localStorage.setItem("llalbum-undobackup-statistics", JSON.stringify($STATISTICS));
+        const newStatistics = JSON.parse(JSON.stringify($STATISTICS));
+
+        const newStates = $ALL_STATES.slice(0, $ALL_STATES.length - 1);
+        newStatistics.viewed--;
+        if ($STATE.finished) {
+            if ($STATE.cleared) {
+                newStatistics.cleared--;
+            }
+            newStatistics.byFailCount[$STATE.failed]--;
+
+            let lastDay = 0;
+            newStatistics.currentStreak = 0;
+            newStatistics.highestStreak = 0;
+            for (const s of newStates) {
+                if (s.day === lastDay + 1 && s.cleared) {
+                    newStatistics.currentStreak++;
+                    if (newStatistics.currentStreak > newStatistics.highestStreak) {
+                        newStatistics.highestStreak = newStatistics.currentStreak;
+                    }
+                } else {
+                    newStatistics.currentStreak = 0;
+                }
+                lastDay = s.day;
+            }
+        }
+
+        localStorage.setItem("llalbum-states", JSON.stringify(newStates));
+        localStorage.setItem("llalbum-statistics", JSON.stringify(newStatistics));
+        window.location.reload();
+    }
+
+    let disableUploadButton = false;
+    function uploadReroll() {
+        const day = $STATE.day;
+        const rerolls = (REROLLS[$STATE.day] ?? 0) + initialRerollOffset;
+        if (confirm(`Uploading REROLL ${rerolls} for DAY ${day}. Correct?`)) {
+            disableUploadButton = true;
+            fetch(localStorage.getItem("llalbum-modmode-webhook")!, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ day, rerolls }),
+            })
+                .then(async (res) => {
+                    if (res.status !== 200) {
+                        throw new Error(res.status + " " + res.statusText + " (" + (await res.json()).message + ")");
+                    }
+                    alert("Wait for build, then click Reset Day State!");
+                })
+                .catch((e) => {
+                    alert("Failed to upload: " + e.message);
+                })
+                .finally(() => {
+                    disableUploadButton = false;
+                });
         }
     }
 </script>
@@ -246,8 +308,14 @@
                 {/if}
 
                 <div class="mt-4 mb-1 w-full flex items-center justify-between">
-                    <PageButton class="px-2">Reset Day State</PageButton>
-                    <PageButton class="px-2">Upload Reroll</PageButton>
+                    <PageButton class="px-2" disabled={import.meta.env.DEV} on:click={resetDay}>Reset Day</PageButton>
+                    <PageButton
+                        class="px-2"
+                        disabled={disableUploadButton || initialRerollOffset === 0}
+                        on:click={uploadReroll}
+                    >
+                        Upload Reroll
+                    </PageButton>
                 </div>
             {/if}
         </div>
