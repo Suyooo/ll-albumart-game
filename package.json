@@ -10,7 +10,7 @@
         "check": "svelte-check",
         "test": "vitest",
         "make-share": "vite-node src/scripts/makeShare.ts",
-        "test-albums": "vite-node src/scripts/testAlbums.ts"
+        "set-reroll": "vite-node src/scripts/setReroll.ts"
     },
     "devDependencies": {
         "@sveltejs/vite-plugin-svelte": "^2.4.1",
