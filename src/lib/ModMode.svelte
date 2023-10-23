@@ -47,6 +47,7 @@
     let dayOffset = initialDayOffset;
     function setDayOffset(n: number) {
         localStorage.setItem(`llalbum-modmode-day-offset`, (n ?? 0).toString());
+        allowUnload = true;
         window.location.reload();
     }
 
@@ -59,9 +60,20 @@
             `llalbum-modmode-reroll-offset`,
             JSON.stringify({ day: $STATE.day, rerollOffset: n ?? 0 })
         );
+        allowUnload = true;
         window.location.reload();
     }
+
+    let allowUnload = false;
+    function beforeUnload(event: Event) {
+        if (!allowUnload && initialRerollOffset !== 0) {
+            event.preventDefault();
+            return "";
+        }
+    }
 </script>
+
+<svelte:window on:beforeunload={beforeUnload} />
 
 <div class="fixed w-full max-w-sm bottom-0 right-8">
     <button
