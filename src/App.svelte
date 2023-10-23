@@ -1,19 +1,22 @@
 <script lang="ts">
     import { ALBUM_POOL } from "$data/albumpool.js";
+    import { GAME_POOL } from "$data/gamepool.js";
+    import ModMode from "$lib/ModMode.svelte";
     import GameDisplayContainer from "$lib/GameDisplayContainer.svelte";
     import Guess from "$lib/Guess.svelte";
-
     import Header from "$lib/Header.svelte";
     import Input from "$lib/Input.svelte";
     import Modal from "$lib/Modal.svelte";
     import ModalHelp from "$lib/ModalHelp.svelte";
     import Result from "$lib/Result.svelte";
+    import { getIdsForDay } from "$modules/daily.js";
     import { ALBUM, ALL_STATES, GAME, STATE } from "$stores/state.js";
     import { type ComponentType, onMount, setContext } from "svelte";
-    import { fade } from "svelte-reduced-motion/transition";
 
     setContext("DEFINE_BUILDTIME", VITE_DEFINE_BUILDTIME);
     setContext("ALBUM_POOL", ALBUM_POOL);
+    setContext("GAME_POOL", GAME_POOL);
+    setContext("getIdsForDay", getIdsForDay);
     setContext("ALBUM", ALBUM);
     setContext("GAME", GAME);
     setContext("STATE", STATE);
@@ -57,7 +60,7 @@
     });
 </script>
 
-<div class="flex flex-col w-full h-full items-center overflow-auto" tabindex="-1" in:fade={{ duration: 100 }}>
+<div class="flex flex-col w-full h-full items-center overflow-auto" tabindex="-1">
     <Header on:openmodal={openModalEvent} />
 
     <main class="w-full max-w-screen-sm flex-grow flex flex-col mb-6">
@@ -86,6 +89,7 @@
         <div bind:this={announcerAssertive} aria-live="assertive" />
     </div>
 </div>
+<ModMode />
 {#if modalComponent != null}
     <Modal title={modalTitle} inner={modalComponent} on:closemodal={closeModal} />
 {/if}
