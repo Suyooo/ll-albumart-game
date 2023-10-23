@@ -5,7 +5,7 @@
     import PageButton from "$lib/styled/PageButton.svelte";
     import { getContext } from "svelte";
     import { slide } from "svelte-reduced-motion/transition";
-    import { DAY_CURRENT, type getIdsForDay as getIdsForDayFunc } from "$modules/daily.js";
+    import { DAY_CURRENT, DAY_TO_PLAY, type getIdsForDay as getIdsForDayFunc } from "$modules/daily.js";
     import type { Readable, Writable } from "svelte/store";
     import type { PlayState } from "$stores/state.js";
     import type { GameInfo } from "$data/gamepool.js";
@@ -49,6 +49,7 @@
     let dayOffset = initialDayOffset;
     function setDayOffset(n: number) {
         localStorage.setItem(`llalbum-modmode-day-offset`, (n ?? 0).toString());
+        localStorage.removeItem(`llalbum-modmode-reroll-offset`);
         allowUnload = true;
         window.location.reload();
     }
@@ -58,12 +59,12 @@
         rerollOffsetObject === null || rerollOffsetObject.day !== $STATE.day ? 0 : rerollOffsetObject.rerollOffset;
     let rerollOffset = initialRerollOffset;
     function setRerollOffset(n: number) {
-        localStorage.setItem(
-            `llalbum-modmode-reroll-offset`,
-            JSON.stringify({ day: $STATE.day, rerollOffset: n ?? 0 })
-        );
-        allowUnload = true;
-        window.location.reload();
+        if (n ?? 0 === 0) {
+            localStorage.removeItem(`llalbum-modmode-reroll-offset`);
+        } else {
+            localStorage.setItem(`llalbum-modmode-reroll-offset`, JSON.stringify({ day: $STATE.day, rerollOffset: n }));
+        }
+        resetDay();
     }
 
     let allowUnload = false;
@@ -75,36 +76,54 @@
     }
 
     function resetDay() {
-        localStorage.setItem("llalbum-undobackup-states", JSON.stringify($ALL_STATES));
-        localStorage.setItem("llalbum-undobackup-statistics", JSON.stringify($STATISTICS));
+        localStorage.setItem(
+            "llalbum-modmode-undobackup",
+            JSON.stringify({
+                states: $ALL_STATES,
+                statistics: $STATISTICS,
+            })
+        );
         const newStatistics = JSON.parse(JSON.stringify($STATISTICS));
 
-        const newStates = $ALL_STATES.slice(0, $ALL_STATES.length - 1);
-        newStatistics.viewed--;
-        if ($STATE.finished) {
-            if ($STATE.cleared) {
-                newStatistics.cleared--;
-            }
-            newStatistics.byFailCount[$STATE.failed]--;
+        const resetToIdx = $ALL_STATES.findLastIndex((s) => s.day === DAY_TO_PLAY);
+        if (
+            resetToIdx < $ALL_STATES.length - 1 &&
+            !confirm(`This will delete saves for ${$ALL_STATES.length - resetToIdx} days. Continue?`)
+        ) {
+            return;
+        }
 
-            let lastDay = 0;
-            newStatistics.currentStreak = 0;
-            newStatistics.highestStreak = 0;
-            for (const s of newStates) {
-                if (s.day === lastDay + 1 && s.cleared) {
-                    newStatistics.currentStreak++;
-                    if (newStatistics.currentStreak > newStatistics.highestStreak) {
-                        newStatistics.highestStreak = newStatistics.currentStreak;
-                    }
+        const newStates = $ALL_STATES.slice(0, resetToIdx);
+        for (const removedState of $ALL_STATES.slice(resetToIdx)) {
+            newStatistics.viewed--;
+            if (removedState.finished) {
+                if (removedState.cleared) {
+                    newStatistics.cleared--;
+                    newStatistics.byFailCount[removedState.failed]--;
                 } else {
-                    newStatistics.currentStreak = 0;
+                    newStatistics.byFailCount[6]--;
                 }
-                lastDay = s.day;
             }
+        }
+
+        let lastDay = 0;
+        newStatistics.currentStreak = 0;
+        newStatistics.highestStreak = 0;
+        for (const s of newStates) {
+            if (s.day === lastDay + 1 && s.cleared) {
+                newStatistics.currentStreak++;
+                if (newStatistics.currentStreak > newStatistics.highestStreak) {
+                    newStatistics.highestStreak = newStatistics.currentStreak;
+                }
+            } else {
+                newStatistics.currentStreak = 0;
+            }
+            lastDay = s.day;
         }
 
         localStorage.setItem("llalbum-states", JSON.stringify(newStates));
         localStorage.setItem("llalbum-statistics", JSON.stringify(newStatistics));
+        allowUnload = true;
         window.location.reload();
     }
 
@@ -124,6 +143,7 @@
                         throw new Error(res.status + " " + res.statusText + " (" + (await res.json()).message + ")");
                     }
                     alert("Wait for build, then click Reset Day State!");
+                    setRerollOffset(0);
                 })
                 .catch((e) => {
                     alert("Failed to upload: " + e.message);
@@ -158,7 +178,10 @@
                     <b>Shown Round:</b>
                     {#if import.meta.env.DEV}
                         Day {import.meta.env.VITE_LOCK_DAY}
-                        <span class="text-xs">(locked)</span>
+                        <span class="text-xs">(locked by env)</span>
+                    {:else if DAY_TO_PLAY < $STATE.day}
+                        Day {$STATE.day}
+                        <span class="text-xs">(locked by state)</span>
                     {:else}
                         Day {$STATE.day}
                         <span class="text-xs">({initialDayOffset >= 0 ? "+" : ""}{initialDayOffset})</span>

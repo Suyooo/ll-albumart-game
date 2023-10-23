@@ -61,8 +61,8 @@
     );
 
     onMount(() => {
-        if ($ALL_STATES.length === 1 && $STATE.guesses.length === 0 && import.meta.env.PROD) {
-            // First ever ame, show help PROD
+        if ($ALL_STATES.length === 1 && $STATE.guesses.length === 0 && import.meta.env.PROD && !modModeActive) {
+            // First ever game, show help
             openModal("How to Play", ModalHelp);
         }
     });
