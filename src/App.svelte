@@ -10,13 +10,15 @@
     import ModalHelp from "$lib/ModalHelp.svelte";
     import Result from "$lib/Result.svelte";
     import { getIdsForDay } from "$modules/daily.js";
-    import { ALBUM, ALL_STATES, GAME, STATE } from "$stores/state.js";
+    import { initPlayState } from "$stores/state.js";
+    ("$stores/state.js");
     import { type ComponentType, onMount, setContext } from "svelte";
     import { rerollDays } from "$data/rerolls.js";
 
     setContext("DEFINE_BUILDTIME", VITE_DEFINE_BUILDTIME);
     setContext("ALBUM_POOL", ALBUM_POOL);
     setContext("GAME_POOL", GAME_POOL);
+    const { ALBUM, ALL_STATES, GAME, STATE } = initPlayState();
     setContext("ALBUM", ALBUM);
     setContext("GAME", GAME);
     setContext("STATE", STATE);
