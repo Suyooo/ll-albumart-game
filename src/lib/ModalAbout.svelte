@@ -112,7 +112,7 @@
     </div>
     <div class="mt-6 text-xs text-subtle tracking-tighter leading-4">
         Love Live! and all album art, song titles and project/group names are copyrighted: ©PL! ©PL!S ©PL!N ©PL!SP
-        ©SUNRISE ©bushiroad<br />
+        ©PL!HS ©PL!SIM ©YHN ©SUNRISE ©bushiroad<br />
         This is a not-for-profit fan project, and unaffiliated with any of the projects or companies above.
     </div>
     <div class="mt-6 text-xs text-subtle tracking-tighter leading-4">
