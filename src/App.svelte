@@ -12,15 +12,21 @@
     import { getIdsForDay } from "$modules/daily.js";
     import { ALBUM, ALL_STATES, GAME, STATE } from "$stores/state.js";
     import { type ComponentType, onMount, setContext } from "svelte";
+    import { rerollDays } from "$data/rerolls.js";
 
     setContext("DEFINE_BUILDTIME", VITE_DEFINE_BUILDTIME);
     setContext("ALBUM_POOL", ALBUM_POOL);
     setContext("GAME_POOL", GAME_POOL);
-    setContext("getIdsForDay", getIdsForDay);
     setContext("ALBUM", ALBUM);
     setContext("GAME", GAME);
     setContext("STATE", STATE);
     setContext("ALL_STATES", ALL_STATES);
+
+    const modModeActive = (localStorage.getItem("llalbum-modmode-webhook") || "").length > 0;
+    if (modModeActive) {
+        setContext("REROLLS", rerollDays);
+        setContext("getIdsForDay", getIdsForDay);
+    }
 
     let modalTitle: string = "";
     let modalComponent: ComponentType | null = null;
@@ -89,7 +95,9 @@
         <div bind:this={announcerAssertive} aria-live="assertive" />
     </div>
 </div>
-<ModMode />
+{#if modModeActive}
+    <ModMode />
+{/if}
 {#if modalComponent != null}
     <Modal title={modalTitle} inner={modalComponent} on:closemodal={closeModal} />
 {/if}

@@ -1,5 +1,5 @@
 import { rerollDays } from "$data/rerolls.js";
-import { ACTUAL_CURRENT_DAY } from "$modules/daily.js";
+import { DAY_CURRENT } from "$modules/daily.js";
 import fs from "fs";
 
 if (process.argv.length < 4) {
@@ -11,7 +11,7 @@ const newDay = parseInt(process.argv[2]);
 const newRerolls = parseInt(process.argv[3]);
 const oldDay = parseInt(Object.keys(rerollDays).at(-1)!);
 
-if (newDay < oldDay || newDay <= ACTUAL_CURRENT_DAY) {
+if (newDay < oldDay || newDay <= DAY_CURRENT) {
     console.error("Can't set rerolls for past days");
     process.exit(1);
 }

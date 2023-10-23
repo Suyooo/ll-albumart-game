@@ -1,6 +1,6 @@
 import { ALBUM_POOL } from "$data/albumpool";
 import { GAME_POOL } from "$data/gamepool";
-import { CURRENT_DAY, getIdsForDay } from "$modules/daily";
+import { DAY_TO_PLAY, getIdsForDay } from "$modules/daily";
 import { STATISTICS } from "$stores/statistics";
 import { writable, readable } from "svelte/store";
 
@@ -18,22 +18,22 @@ const loadedStates = import.meta.env.DEV ? undefined : localStorage.getItem("lla
 const parsedStates: PlayState[] = loadedStates ? JSON.parse(loadedStates) : [];
 export const IS_FIRST_PLAY = parsedStates.length === 0;
 
-if (IS_FIRST_PLAY || CURRENT_DAY > parsedStates.at(-1)!.day) {
+if (IS_FIRST_PLAY || DAY_TO_PLAY > parsedStates.at(-1)!.day) {
     const prevState = parsedStates.at(-1);
     if (prevState) {
         if (!prevState.finished) {
             prevState.finished = true;
             STATISTICS.addFinishedState(prevState);
         }
-        if (CURRENT_DAY - prevState.day > 1) {
+        if (DAY_TO_PLAY - prevState.day > 1) {
             STATISTICS.breakStreak();
         }
     }
 
     // Add new day
-    const { rolledAlbumId, rolledGameId } = getIdsForDay(CURRENT_DAY);
+    const { rolledAlbumId, rolledGameId } = getIdsForDay(DAY_TO_PLAY);
     parsedStates.push({
-        day: CURRENT_DAY,
+        day: DAY_TO_PLAY,
         albumId: rolledAlbumId,
         gameId: rolledGameId,
         failed: 0,

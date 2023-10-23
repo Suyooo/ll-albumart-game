@@ -1,6 +1,6 @@
 import { Canvas, createCanvas, loadImage } from "canvas";
 import fs from "fs";
-import { CURRENT_DAY, getIdsForDay } from "$modules/daily";
+import { DAY_TO_PLAY, getIdsForDay } from "$modules/daily";
 import { getGameInstance } from "$modules/gameHandler";
 import { ALBUM_POOL } from "$data/albumpool";
 import { GAME_POOL } from "$data/gamepool";
@@ -15,7 +15,7 @@ const jpegConfig = {
     npm run make-share [-- <day>]
 */
 
-const shareDay = process.argv.length > 2 ? parseInt(process.argv[2]) : CURRENT_DAY;
+const shareDay = process.argv.length > 2 ? parseInt(process.argv[2]) : DAY_TO_PLAY;
 
 (async () => {
     if (!fs.existsSync("dist/share")) {

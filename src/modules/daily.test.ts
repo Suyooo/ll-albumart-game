@@ -1,6 +1,6 @@
 import { test, expect } from "vitest";
 import fs from "fs";
-import { getIdsForDay, ACTUAL_CURRENT_DAY } from "$modules/daily.js";
+import { getIdsForDay, DAY_CURRENT } from "$modules/daily.js";
 import { ROLL_HISTORY_FILE, type RollHistory } from "$modules/rollHistory.js";
 
 test("Test against roll history", () => {
@@ -13,7 +13,7 @@ test("Test against roll history", () => {
     const thisRollHistory: RollHistory = {};
 
     let day = 1;
-    while (day <= ACTUAL_CURRENT_DAY) {
+    while (day <= DAY_CURRENT) {
         const rollRes = getIdsForDay(day, true);
         if (day <= prevRollHistorySize) {
             expect(

@@ -5,13 +5,17 @@
     import PageButton from "$lib/styled/PageButton.svelte";
     import { getContext } from "svelte";
     import { slide } from "svelte-reduced-motion/transition";
-    import type { getIdsForDay as getIdsForDayFunc } from "$modules/daily.js";
+    import { DAY_CURRENT, type getIdsForDay as getIdsForDayFunc } from "$modules/daily.js";
     import type { Writable } from "svelte/store";
     import type { PlayState } from "$stores/state.js";
     import type { GameInfo } from "$data/gamepool.js";
+    import type { rerollDays } from "$data/rerolls.js";
+    import Left from "$icon/Left.svelte";
+    import Right from "$icon/Right.svelte";
 
     const ALBUM_POOL = getContext<AlbumInfo[]>("ALBUM_POOL");
     const GAME_POOL = getContext<GameInfo[]>("GAME_POOL");
+    const REROLLS = getContext<typeof rerollDays>("REROLLS");
     const STATE = getContext<Writable<PlayState>>("STATE");
     const getIdsForDay = getContext<typeof getIdsForDayFunc>("getIdsForDay");
 
@@ -38,14 +42,33 @@
     function closePanels() {
         showPrevRounds = showAlbumHistory = false;
     }
+
+    const initialDayOffset = parseInt(localStorage.getItem("llalbum-modmode-day-offset") ?? "0");
+    let dayOffset = initialDayOffset;
+    function setDayOffset(n: number) {
+        localStorage.setItem(`llalbum-modmode-day-offset`, (n ?? 0).toString());
+        window.location.reload();
+    }
+
+    const rerollOffsetObject = JSON.parse(localStorage.getItem("llalbum-modmode-reroll-offset") ?? "null");
+    const initialRerollOffset =
+        rerollOffsetObject === null || rerollOffsetObject.day !== $STATE.day ? 0 : rerollOffsetObject.rerollOffset;
+    let rerollOffset = initialRerollOffset;
+    function setRerollOffset(n: number) {
+        localStorage.setItem(
+            `llalbum-modmode-reroll-offset`,
+            JSON.stringify({ day: $STATE.day, rerollOffset: n ?? 0 })
+        );
+        window.location.reload();
+    }
 </script>
 
 <div class="fixed w-full max-w-sm bottom-0 right-8">
     <button
-        class="w-full flex px-2 items-center justify-between bg-accent font-bold rounded-t-xl uppercase tracking-widest"
+        class="w-full flex px-2 py-1 items-center justify-between bg-accent font-bold rounded-t-xl uppercase tracking-widest"
         on:click={() => (show = !show)}
     >
-        Dev Mode
+        Mod Mode
         {#if show}
             <Down />
         {:else}
@@ -57,14 +80,84 @@
             {#if import.meta.env.DEV && import.meta.env.VITE_LOCK_DAY === undefined}
                 Running NODE_ENV=DEV with VITE_LOCK_DAY unset - rounds get randomized every refresh!
             {:else}
-                <b>Day {$STATE.day}</b>
+                <div>
+                    <b>Shown Round:</b>
+                    {#if import.meta.env.DEV}
+                        Day {import.meta.env.VITE_LOCK_DAY}
+                        <span class="text-xs">(locked)</span>
+                    {:else}
+                        Day {$STATE.day}
+                        <span class="text-xs">({initialDayOffset >= 0 ? "+" : ""}{initialDayOffset})</span>
+                    {/if},
+                    {(REROLLS[$STATE.day] ?? 0) + initialRerollOffset} Rerolls
+                    <span class="text-xs">({initialRerollOffset >= 0 ? "+" : ""}{initialRerollOffset})</span>
+                </div>
+                <div>
+                    <b>Actual current round:</b> Day {DAY_CURRENT}, {REROLLS[DAY_CURRENT] ?? 0} Rerolls
+                </div>
                 <div class="mt-1 w-full flex items-center justify-between">
                     <label for="devmode_day_offset">Day Offset</label>
-                    <input id="devmode_day_offset" type="number" class="w-20 px-2" placeholder="0" />
+                    <div class="flex items-center">
+                        <PageButton
+                            label="Reduce Day Offset"
+                            disabled={$STATE.day + initialDayOffset <= 1}
+                            on:click={() => setDayOffset(initialDayOffset - 1)}
+                        >
+                            <Left />
+                        </PageButton>
+                        <PageButton
+                            label="Increase Day Offset"
+                            on:click={() => setDayOffset(initialDayOffset + 1)}
+                            class="ml-2"
+                        >
+                            <Right />
+                        </PageButton>
+                        <input
+                            id="devmode_day_offset"
+                            type="number"
+                            class="ml-4 w-14 px-1"
+                            min="-{$STATE.day - 1}"
+                            placeholder="0"
+                            bind:value={dayOffset}
+                        />
+                        <PageButton label="Set Day Offset" on:click={() => setDayOffset(dayOffset)} class="ml-2">
+                            Set
+                        </PageButton>
+                    </div>
                 </div>
                 <div class="mt-1 w-full flex items-center justify-between">
                     <label for="devmode_reroll_offset">Reroll Offset</label>
-                    <input id="devmode_reroll_offset" type="number" class="w-20 px-2" placeholder="0" min="0" />
+                    <div class="flex items-center">
+                        <PageButton
+                            label="Reduce Reroll Offset"
+                            disabled={REROLLS[$STATE.day] + initialRerollOffset <= 0}
+                            on:click={() => setRerollOffset(initialRerollOffset - 1)}
+                        >
+                            <Left />
+                        </PageButton>
+                        <PageButton
+                            label="Increase Reroll Offset"
+                            on:click={() => setRerollOffset(initialRerollOffset + 1)}
+                            class="ml-2"
+                        >
+                            <Right />
+                        </PageButton>
+                        <input
+                            id="devmode_reroll_offset"
+                            type="number"
+                            class="ml-4 w-14 px-1"
+                            min="-{REROLLS[$STATE.day] || 0}"
+                            placeholder="0"
+                            bind:value={rerollOffset}
+                        />
+                        <PageButton
+                            label="Set Reroll Offset"
+                            on:click={() => setRerollOffset(rerollOffset)}
+                            class="ml-2"
+                        >
+                            Set
+                        </PageButton>
+                    </div>
                 </div>
 
                 <button
@@ -140,7 +233,8 @@
                     </div>
                 {/if}
 
-                <div class="mt-4 mb-1 w-full flex items-center justify-end">
+                <div class="mt-4 mb-1 w-full flex items-center justify-between">
+                    <PageButton class="px-2">Reset Day State</PageButton>
                     <PageButton class="px-2">Upload Reroll</PageButton>
                 </div>
             {/if}
