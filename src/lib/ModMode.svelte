@@ -329,7 +329,7 @@
                         class="bg-background border-accent border-2 border-t-0 py-1 px-2 rounded-b max-h-40 overflow-y-scroll"
                         transition:slide={{}}
                     >
-                        <table>
+                        <table class="empty:before:content-['None']">
                             {#each { length: $STATE.day - 1 } as _, i}
                                 {@const d = $STATE.day - 1 - i}
                                 {#if getIdsForDay(d, true).rolledAlbumId == $STATE.albumId}
