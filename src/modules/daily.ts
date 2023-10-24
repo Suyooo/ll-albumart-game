@@ -92,7 +92,10 @@ export function getIdsForDay(day: number, ignoreDev: boolean = false): { rolledA
 
     let rng: () => number;
     let rerolls = rerollDays[day] || 0;
-    const modModeRerollOffsetObject = JSON.parse(localStorage.getItem("llalbum-modmode-reroll-offset") ?? "null");
+    const modModeRerollOffsetObject =
+        typeof localStorage !== "undefined"
+            ? JSON.parse(localStorage.getItem("llalbum-modmode-reroll-offset") ?? "null")
+            : null;
     if (day === DAY_TO_PLAY && modModeRerollOffsetObject !== null && modModeRerollOffsetObject.day === day) {
         rerolls += modModeRerollOffsetObject.rerollOffset;
     }

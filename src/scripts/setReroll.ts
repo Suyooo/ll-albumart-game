@@ -10,12 +10,13 @@ if (process.argv.length < 4) {
 const newDay = parseInt(process.argv[2]);
 const newRerolls = parseInt(process.argv[3]);
 const oldDay = parseInt(Object.keys(rerollDays).at(-1)!);
+const oldRerolls = rerollDays[oldDay];
 
 if (newDay < oldDay || newDay <= DAY_CURRENT) {
     console.error("Can't set rerolls for past days");
     process.exit(1);
 }
-if (newDay > oldDay && newRerolls === 0) {
+if ((newDay > oldDay && newRerolls === 0) || (newDay === oldDay && newRerolls === oldRerolls)) {
     // ignore silently (since current state equals desired state)
     process.exit(0);
 }
