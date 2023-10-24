@@ -9,13 +9,13 @@ import { recordRoll } from "$modules/rollHistory.js";
 const ZERO_DAY_TIMESTAMP = 1667487600000; // game begins 24h after this
 // quick day counter: https://www.timeanddate.com/date/durationresult.html?d1=4&m1=11&y1=2022
 const MS_PER_DAY = 86400000;
-export const ACTUAL_CURRENT_DAY = Math.floor((Date.now() - ZERO_DAY_TIMESTAMP) / MS_PER_DAY);
-export const CURRENT_DAY = import.meta.env.DEV
-    ? import.meta.env.VITE_LOCK_DAY === undefined
-        ? Math.floor(Math.random() * 1000000)
-        : import.meta.env.VITE_LOCK_DAY
-    : ACTUAL_CURRENT_DAY +
-      (typeof localStorage !== "undefined" ? parseInt(localStorage.getItem("llalbum-day-offset") || "0") : 0);
+
+export const DAY_CURRENT = Math.floor((Date.now() - ZERO_DAY_TIMESTAMP) / MS_PER_DAY);
+export const DAY_MODMODE_OR_NORMAL =
+    DAY_CURRENT +
+    (typeof localStorage !== "undefined" ? parseInt(localStorage.getItem("llalbum-modmode-day-offset") || "0") : 0);
+export const DAY_DEVMODE = import.meta.env.VITE_LOCK_DAY ?? Math.floor(Math.random() * 1000000);
+export const DAY_TO_PLAY = import.meta.env.DEV ? DAY_DEVMODE : DAY_MODMODE_OR_NORMAL;
 
 interface Pickable {
     id: number;
@@ -92,6 +92,14 @@ export function getIdsForDay(day: number, ignoreDev: boolean = false): { rolledA
 
     let rng: () => number;
     let rerolls = rerollDays[day] || 0;
+    const modModeRerollOffsetObject =
+        typeof localStorage !== "undefined"
+            ? JSON.parse(localStorage.getItem("llalbum-modmode-reroll-offset") ?? "null")
+            : null;
+    if (day === DAY_TO_PLAY && modModeRerollOffsetObject !== null && modModeRerollOffsetObject.day === day) {
+        rerolls += modModeRerollOffsetObject.rerollOffset;
+    }
+
     const blockedAlbumIds = new Set<number>();
     const blockedGameIds = new Set<number>();
     if (import.meta.env.DEV && import.meta.env.VITE_LOCK_DAY === undefined && !ignoreDev) {
@@ -107,7 +115,7 @@ export function getIdsForDay(day: number, ignoreDev: boolean = false): { rolledA
             }
         }
 
-        // Avoid repeats: last 100 for albums, last 5 for game modes.
+        // Avoid repeats: last 150 for albums, last 5 for game modes.
         // Caution: Changing these numbers will break things immediately and forever
         //
         // To avoid rerolling within a groupId for games, games with groupIds are added to the set with the negative

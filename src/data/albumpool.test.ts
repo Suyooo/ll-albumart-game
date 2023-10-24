@@ -1,5 +1,5 @@
 import { ALBUM_POOL } from "./albumpool.js";
-import { ACTUAL_CURRENT_DAY } from "$modules/daily.js";
+import { DAY_CURRENT } from "$modules/daily.js";
 import { describe, test, expect } from "vitest";
 import fs from "fs";
 import { loadAssetImage } from "$modules/canvasUtil.js";
@@ -12,7 +12,7 @@ describe("Album Image Data", async () => {
                     expect(album.weight, "Album without image must have weight 0").toBe(0);
                 } else {
                     for (const dayLimit in album.weight) {
-                        if (parseInt(dayLimit) >= ACTUAL_CURRENT_DAY) {
+                        if (parseInt(dayLimit) >= DAY_CURRENT) {
                             expect(
                                 album.weight[dayLimit],
                                 "Album without image must have weight 0 from CURRENT_DAY onwards"

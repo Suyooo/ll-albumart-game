@@ -1,23 +1,34 @@
 <script lang="ts">
     import { ALBUM_POOL } from "$data/albumpool.js";
+    import { GAME_POOL } from "$data/gamepool.js";
+    import ModMode from "$lib/ModMode.svelte";
     import GameDisplayContainer from "$lib/GameDisplayContainer.svelte";
     import Guess from "$lib/Guess.svelte";
-
     import Header from "$lib/Header.svelte";
     import Input from "$lib/Input.svelte";
     import Modal from "$lib/Modal.svelte";
     import ModalHelp from "$lib/ModalHelp.svelte";
     import Result from "$lib/Result.svelte";
-    import { ALBUM, ALL_STATES, GAME, STATE } from "$stores/state.js";
+    import { getIdsForDay } from "$modules/daily.js";
+    import { initPlayState } from "$stores/state.js";
+    ("$stores/state.js");
     import { type ComponentType, onMount, setContext } from "svelte";
-    import { fade } from "svelte-reduced-motion/transition";
+    import { rerollDays } from "$data/rerolls.js";
 
     setContext("DEFINE_BUILDTIME", VITE_DEFINE_BUILDTIME);
     setContext("ALBUM_POOL", ALBUM_POOL);
+    setContext("GAME_POOL", GAME_POOL);
+    const { ALBUM, ALL_STATES, GAME, STATE } = initPlayState();
     setContext("ALBUM", ALBUM);
     setContext("GAME", GAME);
     setContext("STATE", STATE);
     setContext("ALL_STATES", ALL_STATES);
+
+    const modModeActive = (localStorage.getItem("llalbum-modmode-webhook") || "").length > 0;
+    if (modModeActive) {
+        setContext("REROLLS", rerollDays);
+        setContext("getIdsForDay", getIdsForDay);
+    }
 
     let modalTitle: string = "";
     let modalComponent: ComponentType | null = null;
@@ -50,14 +61,14 @@
     );
 
     onMount(() => {
-        if ($ALL_STATES.length === 1 && $STATE.guesses.length === 0 && import.meta.env.PROD) {
-            // First ever ame, show help PROD
+        if ($ALL_STATES.length === 1 && $STATE.guesses.length === 0 && import.meta.env.PROD && !modModeActive) {
+            // First ever game, show help
             openModal("How to Play", ModalHelp);
         }
     });
 </script>
 
-<div class="flex flex-col w-full h-full items-center overflow-auto" tabindex="-1" in:fade={{ duration: 100 }}>
+<div class="flex flex-col w-full h-full items-center overflow-auto" tabindex="-1">
     <Header on:openmodal={openModalEvent} />
 
     <main class="w-full max-w-screen-sm flex-grow flex flex-col mb-6">
@@ -86,6 +97,9 @@
         <div bind:this={announcerAssertive} aria-live="assertive" />
     </div>
 </div>
+{#if modModeActive}
+    <ModMode />
+{/if}
 {#if modalComponent != null}
     <Modal title={modalTitle} inner={modalComponent} on:closemodal={closeModal} />
 {/if}
