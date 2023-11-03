@@ -37,7 +37,7 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
     }
     grayscaleCtx.putImageData(grayscaleData, 0, 0);
 
-    const rng = seededRNG(day * 463);
+    const rng = seededRNG(day * 273);
     const spots: Spot[] = [];
 
     const rndOrder = new Array(4)
