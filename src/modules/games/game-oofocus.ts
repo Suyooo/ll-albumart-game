@@ -6,7 +6,7 @@ import type { AlbumInfo } from "$data/albumpool";
 import type { GameInstance } from "../gameHandler";
 import { CANVAS_SIZE } from "../gameHandler";
 import { seededRNG } from "$modules/rng.js";
-import { smoothScaleSquare, smoothScaleSquareWithSrc } from "$modules/canvasUtil.js";
+import * as StackBlur from "stackblur-canvas";
 
 export const stacked = false;
 export const hasAltFinished = false;
@@ -37,6 +37,10 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
     }
     grayscaleCtx.putImageData(grayscaleData, 0, 0);
 
+    // Blur here - which means: grayscaleCanvas/Ctx has the unblurred image, grayscaleData has the blurred data
+    StackBlur.imageDataRGBA(grayscaleData, 0, 0, CANVAS_SIZE, CANVAS_SIZE, 180);
+    StackBlur.imageDataRGBA(grayscaleData, 0, 0, CANVAS_SIZE, CANVAS_SIZE, 180);
+
     const rng = seededRNG(day * 273);
     const spots: Spot[] = [];
 
@@ -59,8 +63,7 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
     const getCanvasForGuess = (failed: number): Canvas => {
         const guessCanvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
         const guessCtx = guessCanvas.getContext("2d");
-        guessCtx.fillStyle = "black";
-        guessCtx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+        guessCtx.putImageData(grayscaleData, 0, 0);
 
         function drawSpots(extraD: number = 0) {
             for (let i = 0; i < failed + 1 && i < spots.length; i++) {
@@ -76,8 +79,6 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
             }
         }
 
-        smoothScaleSquareWithSrc(guessCtx, grayscaleCanvas, 0, 0, CANVAS_SIZE, CANVAS_SIZE, 5);
-        smoothScaleSquare(guessCtx, 5, CANVAS_SIZE);
         guessCtx.globalAlpha = 0.05;
         guessCtx.fillStyle = "#AF176D";
         guessCtx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
