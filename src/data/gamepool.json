@@ -1,88 +1,104 @@
 [
-  {
-    "filename": "pixelized",
-    "startOnDay": 0,
-    "name": "Pixelated",
-    "description": "The colors in the album art have been grouped into bigger blocks.",
-    "weight": 1000
-  },
-  {
-    "filename": "bubbles",
-    "startOnDay": 0,
-    "name": "Bubbles",
-    "description": "Randomly picked pixels from the album art are blown up into bubbles.",
-    "weight": 1000
-  },
-  {
-    "filename": "posterize",
-    "startOnDay": 0,
-    "name": "Blobs",
-    "description": "Only hints of shapes in the album art are shown, with reduced colors.",
-    "weight": 1000
-  },
-  {
-    "filename": "crop",
-    "startOnDay": 0,
-    "name": "Zoomed In",
-    "description": "Every turn, a different small part of the album art is shown.",
-    "weight": 1000
-  },
-  {
-    "filename": "blinds-h",
-    "startOnDay": 0,
-    "name": "Blinds (Horizontal)",
-    "description": "Only a few lines of the album art can be seen.",
-    "weight": 500,
-    "groupId": 1
-  },
-  {
-    "filename": "blinds-v",
-    "startOnDay": 0,
-    "name": "Blinds (Vertical)",
-    "description": "Only a few lines of the album art can be seen.",
-    "weight": 500,
-    "groupId": 1
-  },
-  {
-    "filename": "tiles",
-    "startOnDay": 0,
-    "name": "Tiles",
-    "description": "A few small tiles of the album art are randomly picked and revealed.",
-    "weight": 1000
-  },
-  {
-    "filename": "shuffle-grow",
-    "startOnDay": 0,
-    "name": "Shuffled - Growing",
-    "description": "The album art is shuffled. Each turn, the pieces grow and are shuffled again.",
-    "weight": {
-      "0": 1000,
-      "100": 500
+    {
+        "filename": "pixelized",
+        "startOnDay": 0,
+        "name": "Pixelated",
+        "description": "The colors in the album art have been grouped into bigger blocks.",
+        "weight": 1000
     },
-    "groupId": 2
-  },
-  {
-    "filename": "special-firework",
-    "startOnDay": 999999,
-    "name": "Fireworks",
-    "description": "Small parts of the album art are lit up one by one.",
-    "weight": 0,
-    "messageOverride": "Happy New Year!"
-  },
-  {
-    "filename": "shuffle-move",
-    "startOnDay": 100,
-    "name": "Shuffled - Moving",
-    "description": "The album art is shuffled. Each turn, the pieces move closer to where they belong.",
-    "weight": 500,
-    "groupId": 2
-  },
-  {
-    "filename": "special-kotobomb",
-    "startOnDay": 999999,
-    "name": "Kotobomb",
-    "description": "Sorry, can you please take a step back, I need to see this album art",
-    "weight": 0,
-    "messageOverride": "( • 8 • )"
-  }
+    {
+        "filename": "bubbles",
+        "startOnDay": 0,
+        "name": "Bubbles",
+        "description": "Randomly picked pixels from the album art are blown up into bubbles.",
+        "weight": {
+            "0": 1000,
+            "366": 250
+        }
+    },
+    {
+        "filename": "posterize",
+        "startOnDay": 0,
+        "name": "Blobs",
+        "description": "Only hints of shapes in the album art are shown, with reduced colors.",
+        "weight": {
+            "0": 1000,
+            "366": 250
+        }
+    },
+    {
+        "filename": "crop",
+        "startOnDay": 0,
+        "name": "Zoomed In",
+        "description": "Every turn, a different small part of the album art is shown.",
+        "weight": 1000
+    },
+    {
+        "filename": "blinds-h",
+        "startOnDay": 0,
+        "name": "Blinds (Horizontal)",
+        "description": "Only a few lines of the album art can be seen.",
+        "weight": {
+            "0": 500,
+            "366": 250
+        },
+        "groupId": 1
+    },
+    {
+        "filename": "blinds-v",
+        "startOnDay": 0,
+        "name": "Blinds (Vertical)",
+        "description": "Only a few lines of the album art can be seen.",
+        "weight": {
+            "0": 500,
+            "366": 250
+        },
+        "groupId": 1
+    },
+    {
+        "filename": "tiles",
+        "startOnDay": 0,
+        "name": "Tiles",
+        "description": "A few small tiles of the album art are randomly picked and revealed.",
+        "weight": 1000
+    },
+    {
+        "filename": "shuffle-grow",
+        "startOnDay": 0,
+        "name": "Shuffled - Growing",
+        "description": "The album art is shuffled. Each turn, the pieces grow and are shuffled again.",
+        "weight": {
+            "0": 1000,
+            "100": 500,
+            "366": 125
+        },
+        "groupId": 2
+    },
+    {
+        "filename": "special-firework",
+        "startOnDay": 999999,
+        "name": "Fireworks",
+        "description": "Small parts of the album art are lit up one by one.",
+        "weight": 0,
+        "messageOverride": "Happy New Year!"
+    },
+    {
+        "filename": "shuffle-move",
+        "startOnDay": 100,
+        "name": "Shuffled - Moving",
+        "description": "The album art is shuffled. Each turn, the pieces move closer to where they belong.",
+        "weight": {
+            "0": 500,
+            "366": 125
+        },
+        "groupId": 2
+    },
+    {
+        "filename": "special-kotobomb",
+        "startOnDay": 999999,
+        "name": "Kotobomb",
+        "description": "Sorry, can you please take a step back, I need to see this album art",
+        "weight": 0,
+        "messageOverride": "( • 8 • )"
+    }
 ]
