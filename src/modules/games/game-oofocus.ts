@@ -96,7 +96,13 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
         return guessCanvas;
     };
     const getShareCanvas = (): Canvas => {
-        return getCanvasForGuess(0);
+        const modRad = CIRCLE_BASE_RAD * CIRCLE_TURN_RAD_FACTOR[0] * 1.2;
+        const shareCanvas = createCanvas(modRad * 2, modRad * 2);
+        const shareX = Math.max(0, Math.min(spots[0].x - modRad, CANVAS_SIZE - modRad * 2));
+        const shareY = Math.max(0, Math.min(spots[0].y - modRad, CANVAS_SIZE - modRad * 2));
+        const shareCtx = shareCanvas.getContext("2d");
+        shareCtx.drawImage(getCanvasForGuess(0), -shareX, -shareY);
+        return shareCanvas;
     };
     return { getCanvasForGuess, getShareCanvas };
 }
