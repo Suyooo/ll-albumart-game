@@ -78,10 +78,12 @@
     <div>
         If you have any problems, comments, or ideas for new game modes, feel free to send them to me!
         <ul class="list-disc list-inside ml-4 text-sm">
-            <li><a href="https://mstdn.schoolidol.club/@Suyooo">Mastodon / Fediverse</a></li>
-            <li><a href="https://www.tumblr.com/suyooo">Tumblr</a></li>
+            <li>
+                Mastodon / Fediverse: <a href="https://mstdn.schoolidol.club/@Suyooo">@Suyooo@mstdn.schoolidol.club</a>
+            </li>
+            <li>Tumblr: <a href="https://suyooo.tumblr.com/">suyooo</a></li>
             <li><a href="https://github.com/Suyooo/ll-albumart-game/issues">Or submit it on GitHub</a></li>
-            <li>Or mail me: me@suyo.be</li>
+            <li>Or mail me at <a href="mailto:me@suyo.be">me@suyo.be</a></li>
         </ul>
     </div>
     <div>
