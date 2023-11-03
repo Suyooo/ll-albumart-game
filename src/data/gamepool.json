@@ -38,10 +38,7 @@
         "startOnDay": 0,
         "name": "Blinds (Horizontal)",
         "description": "Only a few lines of the album art can be seen.",
-        "weight": {
-            "0": 500,
-            "366": 250
-        },
+        "weight": 500,
         "groupId": 1
     },
     {
@@ -49,10 +46,7 @@
         "startOnDay": 0,
         "name": "Blinds (Vertical)",
         "description": "Only a few lines of the album art can be seen.",
-        "weight": {
-            "0": 500,
-            "366": 250
-        },
+        "weight": 500,
         "groupId": 1
     },
     {
@@ -99,6 +93,13 @@
         "name": "Kotobomb",
         "description": "Sorry, can you please take a step back, I need to see this album art",
         "weight": 0,
-        "messageOverride": "( • 8 • )"
+        "messageOverride": "( \u2022 8 \u2022 )"
+    },
+    {
+        "filename": "oofocus",
+        "startOnDay": 366,
+        "name": "Monochrome",
+        "description": "Growing circles reveal parts of the album art, but it's all in grayscale.",
+        "weight": 250
     }
 ]

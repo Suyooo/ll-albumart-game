@@ -91,6 +91,7 @@
                 <option value="4,5">Blinds</option>
                 <option value="2">Blobs</option>
                 <option value="1">Bubbles</option>
+                <option value="11">Monochrome</option>
                 <option value="0">Pixelated</option>
                 <option value="7,9">Shuffled</option>
                 <option value="6">Tiles</option>
