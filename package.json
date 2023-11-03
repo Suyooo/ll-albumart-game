@@ -23,6 +23,7 @@
         "fuzzysort": "^2.0.1",
         "postcss": "^8.4.18",
         "postcss-load-config": "^4.0.1",
+        "stackblur-canvas": "^2.6.0",
         "svelte": "^4.0.0",
         "svelte-check": "^3.4.3",
         "svelte-preprocess": "^5.0.3",
