@@ -118,9 +118,9 @@ export default {
                     guess: {
                         correct,
                         wrong,
-                        skipped: colors.stone[700],
-                        current: colors.stone[500],
-                        unused: colors.stone[300],
+                        skipped: colors.stone[400],
+                        current: colors.stone[200],
+                        unused: colors.stone[700],
                     },
                 }),
             }),
