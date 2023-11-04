@@ -7,8 +7,11 @@
     import ModalAbout from "$lib/ModalAbout.svelte";
     import ModalHelp from "$lib/ModalHelp.svelte";
     import ModalStatistics from "$lib/ModalStatistics.svelte";
+    import ModalTheme from "$lib/ModalTheme.svelte";
     import HeaderButton from "$lib/styled/HeaderButton.svelte";
-    import { createEventDispatcher } from "svelte";
+    import type { PlayState } from "$stores/state.js";
+    import { createEventDispatcher, getContext } from "svelte";
+    import type { Writable } from "svelte/store";
 
     const dispatch = createEventDispatcher<{ openmodal: { title: string; component: any } }>();
 
@@ -19,8 +22,16 @@
     }
 
     let theme = localStorage.getItem("llalbum-theme") || "dark";
+    const STATE = getContext<Writable<PlayState>>("STATE");
+    let themeShowPing = $STATE.day === 366 && localStorage.getItem("llalbum-theme") === null;
+    console.log($STATE.day === 366, localStorage.getItem("llalbum-theme") === null);
     function toggleTheme(newTheme: string) {
-        theme = newTheme;
+        if (themeShowPing) {
+            dispatch("openmodal", { title: "New: Color Theme", component: ModalTheme });
+            themeShowPing = false;
+        } else {
+            theme = newTheme;
+        }
         localStorage.setItem("llalbum-theme", theme);
         document.querySelector("body")!.dataset["theme"] = theme;
     }
@@ -41,6 +52,7 @@
                 <ThemeLight />
             </HeaderButton>
         {/if}
+        {#if themeShowPing}<div class="bg-accent ping w-2 h-2 rounded-full -ml-3 -mt-5" />{/if}
         <div class="flex-grow text-center text-header-label text-2xl font-bold py-2" aria-hidden="true">
             <span class="text-accent">LL!</span> <span class="inline-block">Guess That Album</span>
         </div>

@@ -100,6 +100,7 @@
         "startOnDay": 366,
         "name": "Monochrome",
         "description": "Growing circles reveal parts of the album art, but it's all in grayscale.",
-        "weight": 250
+        "weight": 250,
+        "messageOverride": "Thank you for playing!!"
     }
 ]
