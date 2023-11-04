@@ -14,7 +14,7 @@ export const DAY_CURRENT = Math.floor((Date.now() - ZERO_DAY_TIMESTAMP) / MS_PER
 export const DAY_MODMODE_OR_NORMAL =
     DAY_CURRENT +
     (typeof localStorage !== "undefined" ? parseInt(localStorage.getItem("llalbum-modmode-day-offset") || "0") : 0);
-export const DAY_DEVMODE = import.meta.env.VITE_LOCK_DAY ?? Math.floor(Math.random() * 1000000);
+export const DAY_DEVMODE = parseInt(import.meta.env.VITE_LOCK_DAY) || Math.floor(Math.random() * 1000000);
 export const DAY_TO_PLAY = import.meta.env.DEV ? DAY_DEVMODE : DAY_MODMODE_OR_NORMAL;
 
 interface Pickable {
