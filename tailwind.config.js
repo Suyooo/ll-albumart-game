@@ -54,7 +54,7 @@ export default {
                     header: {
                         label: colors.stone[900],
                         button: {
-                            label: colors.stone[600],
+                            label: colors.stone[500],
                             "hover-label": colors.stone[400],
                             active: primary[100],
                             "active-label": colors.black,
