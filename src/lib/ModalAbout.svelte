@@ -74,7 +74,7 @@
 </script>
 
 <div class="flex-col space-y-4">
-    <div>This site was made by suyooo</div>
+    <div>This site was made by Suyooo</div>
     <div>
         If you have any problems, comments, or ideas for new game modes, feel free to send them to me!
         <ul class="list-disc list-inside ml-4 text-sm">
@@ -82,7 +82,7 @@
                 Mastodon / Fediverse: <a href="https://mstdn.schoolidol.club/@Suyooo">@Suyooo@mstdn.schoolidol.club</a>
             </li>
             <li>Tumblr: <a href="https://suyooo.tumblr.com/">suyooo</a></li>
-            <li><a href="https://github.com/Suyooo/ll-albumart-game/issues">Or submit it on GitHub</a></li>
+            <li>Or <a href="https://github.com/Suyooo/ll-albumart-game/issues">submit it on GitHub</a></li>
             <li>Or mail me at <a href="mailto:me@suyo.be">me@suyo.be</a></li>
         </ul>
     </div>
