@@ -11,13 +11,18 @@ export const stacked = false;
 export const hasAltFinished = false;
 export const forceAltFinished = false;
 
-const TILES_PER_AXIS = [128, 80, 64, 32, 16, 8];
+const TILES_PER_AXIS = [
+    [128, 80, 64, 32, 16, 8],
+    [80, 40, 30, 20, 12, 5],
+];
 
 export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, scaledImage: Canvas): GameInstance {
+    const version = day < 371 ? 0 : 1;
+
     const getCanvasForGuess = (failed: number): Canvas => {
         // RNG seed fix from day 347 onwards
         const rng = seededRNG(day < 347 ? day * 461 * failed : day * 461 + failed);
-        const axis = TILES_PER_AXIS[failed];
+        const axis = TILES_PER_AXIS[version][failed];
         const total = axis * axis;
         const positions: { positionIndex: number; rotation: number }[] = new Array(total)
             .fill(0)
