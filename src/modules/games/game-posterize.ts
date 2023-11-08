@@ -39,7 +39,14 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
         const data = ctx.getImageData(0, 0, CANVAS_SIZE, CANVAS_SIZE);
 
         if (day >= 366) {
-            StackBlur.imageDataRGBA(data, 0, 0, CANVAS_SIZE, CANVAS_SIZE, Math.floor(CANVAS_SIZE / BLURS[failed]));
+            StackBlur.imageDataRGBA(
+                data as ImageData,
+                0,
+                0,
+                CANVAS_SIZE,
+                CANVAS_SIZE,
+                Math.floor(CANVAS_SIZE / BLURS[failed])
+            );
         }
 
         for (let x = 0; x < CANVAS_SIZE; x++) {

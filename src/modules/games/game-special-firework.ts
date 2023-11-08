@@ -1,7 +1,7 @@
 /** @type {import("../gameHandler").Game} */
 
 import type { AlbumInfo } from "$data/albumpool";
-import type { Canvas, Image } from "canvas";
+import type { Canvas, Image, ImageData } from "canvas";
 import { CanvasRenderingContext2D, createCanvas } from "canvas";
 import type { GameInstance } from "../gameHandler";
 import { CANVAS_SIZE } from "../gameHandler";

@@ -38,8 +38,7 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
     grayscaleCtx.putImageData(grayscaleData, 0, 0);
 
     // Blur here - which means: grayscaleCanvas/Ctx has the unblurred image, grayscaleData has the blurred data
-    StackBlur.imageDataRGBA(grayscaleData, 0, 0, CANVAS_SIZE, CANVAS_SIZE, 180);
-    StackBlur.imageDataRGBA(grayscaleData, 0, 0, CANVAS_SIZE, CANVAS_SIZE, 180);
+    StackBlur.imageDataRGBA(grayscaleData as ImageData, 0, 0, CANVAS_SIZE, CANVAS_SIZE, 180);
 
     const rng = seededRNG(day * 273);
     const spots: Spot[] = [];
