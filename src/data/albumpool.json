@@ -2544,5 +2544,32 @@
         "titleJa": "La la 勇気のうた",
         "altJa": "Forever U & I / La la 勇気のうた 【第13話盤】",
         "artistJa": "Aqours"
+    },
+    {
+        "url": "/albumart/cerise-bouquet_sugao-no-pixel.jpg",
+        "startOnDay": 402,
+        "weight": 1000,
+        "titleEn": "Sugao no Pixel",
+        "artistEn": "Cerise Bouquet",
+        "titleJa": "素顔のピクセル",
+        "artistJa": "スリーズブーケ"
+    },
+    {
+        "url": "/albumart/dollchestra_take-it-over.jpg",
+        "startOnDay": 402,
+        "weight": 1000,
+        "titleEn": "Take It Over",
+        "artistEn": "DOLLCHESTRA",
+        "titleJa": "Take It Over",
+        "artistJa": "DOLLCHESTRA"
+    },
+    {
+        "url": "/albumart/miracra-park_identity.jpg",
+        "startOnDay": 406,
+        "weight": 1000,
+        "titleEn": "Identity",
+        "artistEn": "Mira-Cra Park!",
+        "titleJa": "アイデンティティ",
+        "artistJa": "みらくらぱーく！"
     }
 ]
