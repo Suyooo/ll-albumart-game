@@ -79,6 +79,7 @@ const FORCED_DAYS: { [day: number]: { rolledAlbumId: number; rolledGameId: numbe
     148: { rolledAlbumId: 21, rolledGameId: 10 }, // April Fools 2023: Special Kotobomb Mode
     234: { rolledAlbumId: 249, rolledGameId: 1 }, // Last day of SIFAS final event
     366: { rolledAlbumId: 121, rolledGameId: 11 }, // Introduction of Monochrome Mode
+    423: { rolledAlbumId: 158, rolledGameId: 8 }, // New Year 2024: Special Fireworks Mode
 };
 
 export function getIdsForDay(day: number, ignoreDev: boolean = false): { rolledAlbumId: number; rolledGameId: number } {

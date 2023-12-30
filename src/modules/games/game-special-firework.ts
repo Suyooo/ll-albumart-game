@@ -14,7 +14,7 @@ export const forceAltFinished = true;
 const SIZE = [0.1, 0.1, 0.125, 0.15, 0.15, 0.2];
 const BORDER_BLUR = 50;
 const BLOOM_SIZE = 150;
-const POSITIONS: [number, number][] = [
+const DAY_58_POSITIONS: [number, number][] = [
     [0.1, 0.7],
     [0.75, 0.1],
     [0.7, 0.65],
@@ -28,7 +28,7 @@ const T_EXPAND = 1300;
 const T_GRAV = 1200;
 const T_BLOOM = 3000;
 
-export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, scaledImage: Canvas): GameInstance {
+export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, scaledImage: Canvas): GameInstance {
     function spotlightData(
         srcData: Uint8ClampedArray,
         dstCtx: CanvasRenderingContext2D,
@@ -113,12 +113,16 @@ export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, 
     const canvasAnimationLasts = [0, 0, 0, 0, 0, 0];
     const canvasSpotlightOnlyCaches: (null | ImageData)[] = [null, null, null, null, null, null];
 
+    const rng = seededRNG(day * 101);
+    const positions =
+        day === 58 ? DAY_58_POSITIONS : new Array(6).fill(0).map((_) => [rng() * 0.9 + 0.05, rng() * 0.6 + 0.05]);
+
     const getCanvasForGuess = (failed: number): Canvas => {
         const canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
         const ctx = canvas.getContext("2d");
 
         const r = Math.floor((CANVAS_SIZE * SIZE[failed]) / 1.25);
-        const p = POSITIONS[failed];
+        const p = positions[failed];
         const x = Math.floor(p[0] * CANVAS_SIZE);
         const y = Math.floor(p[1] * CANVAS_SIZE);
         const c = Math.random() * 360; // using regular random since the firework animation doesn't matter for the game
@@ -173,7 +177,7 @@ export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, 
         const canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
         const ctx = canvas.getContext("2d");
         const r = Math.floor((CANVAS_SIZE * SIZE[0]) / 1.25);
-        const p = POSITIONS[0];
+        const p = positions[0];
         const x = Math.floor(p[0] * CANVAS_SIZE);
         const y = Math.floor(p[1] * CANVAS_SIZE);
         const spot = spotlightData(scaledImageData, ctx, x, y, r);
@@ -256,7 +260,7 @@ export function getGameInstance(_day: number, _album: AlbumInfo, _image: Image, 
                 if (activeFireworks.length < 4) {
                     activeFireworks.push({
                         x: Math.random() * (CANVAS_SIZE - 100) + 50,
-                        y: Math.random() * 0.6 * CANVAS_SIZE + 50,
+                        y: Math.random() * 0.4 * CANVAS_SIZE + 50,
                         color: Math.random() * 360,
                         seed: Math.random() * 2023,
                         startTime: -Math.random() * 500,
