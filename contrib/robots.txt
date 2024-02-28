@@ -3,3 +3,9 @@ Disallow: /share/*.html
 
 User-Agent: GPTBot
 Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
