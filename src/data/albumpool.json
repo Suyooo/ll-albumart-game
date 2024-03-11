@@ -2571,5 +2571,45 @@
         "artistEn": "Mira-Cra Park!",
         "titleJa": "アイデンティティ",
         "artistJa": "みらくらぱーく！"
+    },
+    {
+        "url": "/albumart/liella_shekira.jpg",
+        "startOnDay": 496,
+        "weight": 1000,
+        "titleEn": "Shekira☆☆☆",
+        "artistEn": "Liella!",
+        "titleJa": "シェキラ☆☆☆",
+        "artistJa": "Liella!"
+    },
+    {
+        "url": "/albumart/hasunosora_link-to-the-future.jpg",
+        "startOnDay": 496,
+        "weight": 1000,
+        "titleEn": "Link to the FUTURE",
+        "artistEn": "Hasunosora Girls' High School Idol Club",
+        "altEn": "Cerise Bouquet / DOLLCHESTRA / Mira-Cra Park!",
+        "titleJa": "Link to the FUTURE",
+        "artistJa": "蓮ノ空女学院スクールアイドルクラブ",
+        "altJa": "スリーズブーケ / DOLLCHESTRA / みらくらぱーく！"
+    },
+    {
+        "url": "/albumart/nijigasaki_new-years-march.jpg",
+        "startOnDay": 496,
+        "weight": 1000,
+        "titleEn": "New Year's March!",
+        "artistEn": "Nijigasaki High School Idol Club",
+        "titleJa": "New Year's March!",
+        "artistJa": "虹ヶ咲学園スクールアイドル同好会"
+    },
+    {
+        "url": "/albumart/hasunosora_special-thanks-ao-to-shabon-milk.jpg",
+        "startOnDay": 496,
+        "weight": 1000,
+        "titleEn": "Special Thanks / Ao to Shabon / Milk",
+        "artistEn": "Hasunosora Girls' High School Idol Club",
+        "altEn": "Cerise Bouquet / DOLLCHESTRA / Mira-Cra Park!",
+        "titleJa": "Special Thanks / 青とシャボン / ミルク",
+        "artistJa": "蓮ノ空女学院スクールアイドルクラブ",
+        "altJa": "スリーズブーケ / DOLLCHESTRA / みらくらぱーく！"
     }
 ]
