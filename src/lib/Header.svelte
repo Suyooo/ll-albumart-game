@@ -24,7 +24,6 @@
     let theme = localStorage.getItem("llalbum-theme") || "dark";
     const STATE = getContext<Writable<PlayState>>("STATE");
     let themeShowPing = $STATE.day === 366 && localStorage.getItem("llalbum-theme") === null;
-    console.log($STATE.day === 366, localStorage.getItem("llalbum-theme") === null);
     function toggleTheme(newTheme: string) {
         if (themeShowPing) {
             dispatch("openmodal", { title: "New: Color Theme", component: ModalTheme });
