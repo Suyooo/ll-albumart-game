@@ -101,5 +101,13 @@
         "name": "Monochrome",
         "description": "Growing circles reveal parts of the album art, but it's all in grayscale.",
         "weight": 250
+    },
+    {
+        "filename": "special-gravity",
+        "startOnDay": 999999,
+        "name": "Tiles...?",
+        "description": "A few small tiles of the album art are randomly picked and oh jeez oh no",
+        "weight": 0,
+        "messageOverride": "Happy April Fools!"
     }
 ]
