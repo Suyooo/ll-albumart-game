@@ -104,10 +104,10 @@
     },
     {
         "filename": "special-gravity",
-        "startOnDay": 0,
+        "startOnDay": 999999,
         "name": "Tiles...?",
         "description": "A few small tiles of the album art are randomly picked and oh jeez oh no",
-        "weight": 9999999999999999999999,
+        "weight": 0,
         "messageOverride": "Happy April Fools!"
     }
 ]

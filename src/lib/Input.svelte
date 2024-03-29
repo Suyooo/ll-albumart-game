@@ -29,8 +29,8 @@
     const read = getContext<(s: string, priority?: "polite" | "assertive") => void>("reader");
 
     function focusInputElement(): void {
-        // Always focus on desktop, but only focus on mobile if in portrait mode (to avoid keyboard hiding canvas)
-        if (isDesktop() || window.matchMedia("(orientation: portrait)").matches) {
+        // Always focus on desktop
+        if (isDesktop()) {
             inputElement.select();
             inputElement.focus();
         }
