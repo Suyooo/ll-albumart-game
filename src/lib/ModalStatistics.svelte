@@ -96,7 +96,7 @@
                 <option value="7,9">Shuffled</option>
                 <option value="6">Tiles</option>
                 <option value="3">Zoomed In</option>
-                <option value="8,10">★ Special</option>
+                <option value="8,10,12">★ Special</option>
             </select>
         </div>
     </div>
