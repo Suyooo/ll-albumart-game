@@ -2418,8 +2418,10 @@
         "weight": 1000,
         "titleEn": "Jump Into the New World",
         "artistEn": "Liella!",
+        "altEn": "CatChu! / KALEIDOSCORE / 5yncri5e!",
         "titleJa": "Jump Into the New World",
-        "artistJa": "Liella!"
+        "artistJa": "Liella!",
+        "altJa": "CatChu! / KALEIDOSCORE / 5yncri5e!"
     },
     {
         "url": "/albumart/cerise-bouquet_genyou-yakou.jpg",
@@ -2611,5 +2613,79 @@
         "titleJa": "Special Thanks / 青とシャボン / ミルク",
         "artistJa": "蓮ノ空女学院スクールアイドルクラブ",
         "altJa": "スリーズブーケ / DOLLCHESTRA / みらくらぱーく！"
+    },
+    {
+        "url": "/albumart/hasunosora_shuffle.jpg",
+        "startOnDay": 539,
+        "weight": 1000,
+        "titleEn": "Colorfulness / Happy Shijou Shugi! / Pleasure Feather",
+        "artistEn": "Hasunosora Girls' High School Idol Club",
+        "altEn": "Rurino to Yukai na Tsuzuri-tachi / KahoMegu♡Gelato / Hasu no Kyuujitsu",
+        "titleJa": "Colorfulness / ハッピー至上主義！ / Pleasure Feather",
+        "artistJa": "蓮ノ空女学院スクールアイドルクラブ",
+        "altJa": "るりのとゆかいなつづりたち / かほめぐ♡じぇらーと / 蓮ノ休日"
+    },
+    {
+        "url": "/albumart/miracra-park_ishin-denshin.jpg",
+        "startOnDay": 539,
+        "weight": 1000,
+        "titleEn": "Ishin☆Denshin",
+        "artistEn": "Mira-Cra Park!",
+        "titleJa": "以心☆電信",
+        "artistJa": "みらくらぱーく！"
+    },
+    {
+        "url": "/albumart/hasunosora_dakishimeru-hanabira.jpg",
+        "startOnDay": 539,
+        "weight": 1000,
+        "titleEn": "Dakishimeru Hanabira",
+        "artistEn": "Hasunosora Girls' High School Idol Club",
+        "titleJa": "抱きしめる花びら",
+        "artistJa": "蓮ノ空女学院スクールアイドルクラブ"
+    },
+    {
+        "url": "/albumart/hasunosora_dream-believers-104.jpg",
+        "startOnDay": 539,
+        "weight": 1000,
+        "titleEn": "Dream Believers (104th Ver.)",
+        "artistEn": "Hasunosora Girls' High School Idol Club",
+        "titleJa": "Dream Believers（104期 Ver.）",
+        "artistJa": "蓮ノ空女学院スクールアイドルクラブ"
+    },
+    {
+        "url": "/albumart/nijigasaki_nijigasaki-gakuen-kouka.jpg",
+        "startOnDay": 545,
+        "weight": 1000,
+        "titleEn": "Nijigasaki Gakuen Kouka",
+        "artistEn": "Nijigasaki High School Idol Club",
+        "titleJa": "虹ヶ咲学園校歌",
+        "artistJa": "虹ヶ咲学園スクールアイドル同好会"
+    },
+    {
+        "url": "/albumart/catchu_distortion.jpg",
+        "startOnDay": 552,
+        "weight": 1000,
+        "titleEn": "Distortion",
+        "artistEn": "CatChu!",
+        "titleJa": "ディストーション",
+        "artistJa": "CatChu!"
+    },
+    {
+        "url": "/albumart/kaleidoscore_neutral.jpg",
+        "startOnDay": 552,
+        "weight": 1000,
+        "titleEn": "Neutral",
+        "artistEn": "KALEIDOSCORE",
+        "titleJa": "ニュートラル",
+        "artistJa": "KALEIDOSCORE"
+    },
+    {
+        "url": "/albumart/5yncri5e_jellyfish.jpg",
+        "startOnDay": 552,
+        "weight": 1000,
+        "titleEn": "Jellyfish",
+        "artistEn": "5yncri5e!",
+        "titleJa": "Jellyfish",
+        "artistJa": "5yncri5e!"
     }
 ]
