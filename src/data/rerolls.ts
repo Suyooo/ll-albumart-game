@@ -278,4 +278,5 @@ export const rerollDays: { [day: number]: number } = {
     544: 1,
     545: 3,
     546: 7,
+    548: 2,
 };
