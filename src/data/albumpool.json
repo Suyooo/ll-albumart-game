@@ -2146,10 +2146,10 @@
         "startOnDay": 13,
         "weight": 1000,
         "titleEn": "Waaiwaiwai Waiwaiwai!",
-        "artistEn": "Aqours",
+        "artistEn": "YYY",
         "altEn": "Love Live! Sunshine!! Aqours Uranohoshi Girls' High School RADIO!!! JMA Broadcasting Station Theme Song CD",
         "titleJa": "わーいわいわい　わいわいわい！",
-        "artistJa": "Aqours",
+        "artistJa": "わいわいわい",
         "altJa": "ラブライブ！サンシャイン!! Aqours浦の星女学院RADIO!!! JMA放送局 テーマソングCD"
     },
     {
@@ -2687,5 +2687,41 @@
         "artistEn": "5yncri5e!",
         "titleJa": "Jellyfish",
         "artistJa": "5yncri5e!"
+    },
+    {
+        "url": "/albumart/aqours_peace-piece-pizza.jpg",
+        "startOnDay": 632,
+        "weight": 1000,
+        "titleEn": "peace piece pizza",
+        "artistEn": "YYY",
+        "titleJa": "peace piece pizza",
+        "artistJa": "わいわいわい"
+    },
+    {
+        "url": "/albumart/aqours_deep-blue.jpg",
+        "startOnDay": 632,
+        "weight": 1000,
+        "titleEn": "Deep Blue",
+        "artistEn": "Aqours",
+        "titleJa": "Deep Blue",
+        "artistJa": "Aqours"
+    },
+    {
+        "url": "/albumart/aqours_bokura-no-umi-de-mata-aou.jpg",
+        "startOnDay": 632,
+        "weight": 1000,
+        "titleEn": "Bokura no Umi de Mata Aou",
+        "artistEn": "Aqours",
+        "titleJa": "僕らの海でまた会おう",
+        "artistJa": "Aqours"
+    },
+    {
+        "url": "/albumart/hasunosora_bloom-the-smile-bloom-the-dream.jpg",
+        "startOnDay": 632,
+        "weight": 1000,
+        "titleEn": "Bloom the smile, Bloom the dream!",
+        "artistEn": "Hasunosora Girls' High School Idol Club",
+        "titleJa": "Bloom the smile, Bloom the dream!",
+        "artistJa": "蓮ノ空女学院スクールアイドルクラブ"
     }
 ]
