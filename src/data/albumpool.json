@@ -2723,5 +2723,134 @@
         "artistEn": "Hasunosora Girls' High School Idol Club",
         "titleJa": "Bloom the smile, Bloom the dream!",
         "artistJa": "蓮ノ空女学院スクールアイドルクラブ"
+    },
+    {
+        "url": "/albumart/cerise-bouquet_tsukuyomi-kurage.jpg",
+        "startOnDay": 721,
+        "weight": 1000,
+        "titleEn": "Tsukuyomi Kurage",
+        "artistEn": "Cerise Bouquet",
+        "titleJa": "月夜見海月",
+        "artistJa": "スリーズブーケ"
+    },
+    {
+        "url": "/albumart/dollchestra_proof.jpg",
+        "startOnDay": 721,
+        "weight": 1000,
+        "titleEn": "Proof",
+        "artistEn": "DOLLCHESTRA",
+        "titleJa": "Proof",
+        "artistJa": "DOLLCHESTRA"
+    },
+    {
+        "url": "/albumart/muse-aqours-nijigasaki-liella-hasunosora_bring-the-love.jpg",
+        "startOnDay": 721,
+        "weight": 1000,
+        "titleEn": "Bring the LOVE!",
+        "artistEn": "µ's / Aqours / Nijigasaki High School Idol Club / Liella! / Hasunosora Girls' High School Idol Club",
+        "titleJa": "Bring the LOVE!",
+        "artistJa": "µ's / Aqours / 虹ヶ咲学園スクールアイドル同好会 / Liella! / 蓮ノ空女学院スクールアイドルクラブ"
+    },
+    {
+        "url": "/albumart/nijigasaki_doko-ni-ite-mo-kimi-wa-kimi-theme-song-type.jpg",
+        "startOnDay": 721,
+        "weight": 1000,
+        "titleEn": "Doko ni Ite mo Kimi wa Kimi",
+        "altEn": "Doko ni Ite mo Kimi wa Kimi [Theme Song Type]",
+        "artistEn": "Nijigasaki High School Idol Club",
+        "titleJa": "どこにいても君は君",
+        "altJa": "どこにいても君は君【主題歌盤】",
+        "artistJa": "虹ヶ咲学園スクールアイドル同好会"
+    },
+    {
+        "url": "/albumart/nijigasaki_doko-ni-ite-mo-kimi-wa-kimi-uehara-ayumu-type.jpg",
+        "startOnDay": 721,
+        "weight": 1000,
+        "titleEn": "Stellar Stream",
+        "altEn": "Doko ni Ite mo Kimi wa Kimi [Uehara Ayumu Type]",
+        "artistEn": "Nijigasaki High School Idol Club",
+        "titleJa": "Stellar Stream",
+        "altJa": "どこにいても君は君【上原歩夢盤】",
+        "artistJa": "虹ヶ咲学園スクールアイドル同好会"
+    },
+    {
+        "url": "/albumart/nijigasaki_doko-ni-ite-mo-kimi-wa-kimi-zhong-lanzhu-type.jpg",
+        "startOnDay": 721,
+        "weight": 1000,
+        "titleEn": "PHOENIX",
+        "altEn": "Doko ni Ite mo Kimi wa Kimi [Zhong Lanzhu Type]",
+        "artistEn": "Nijigasaki High School Idol Club",
+        "titleJa": "PHOENIX",
+        "altJa": "どこにいても君は君【鐘 嵐珠盤】",
+        "artistJa": "虹ヶ咲学園スクールアイドル同好会"
+    },
+    {
+        "url": "/albumart/nijigasaki_doko-ni-ite-mo-kimi-wa-kimi-verde-emma-type.jpg",
+        "startOnDay": 721,
+        "weight": 1000,
+        "titleEn": "Cara Tesoro",
+        "altEn": "Doko ni Ite mo Kimi wa Kimi [Verde Emma Type]",
+        "artistEn": "Nijigasaki High School Idol Club",
+        "titleJa": "Cara Tesoro",
+        "altJa": "どこにいても君は君【エマ・ヴェルデ盤】",
+        "artistJa": "虹ヶ咲学園スクールアイドル同好会"
+    },
+    {
+        "url": "/albumart/nijigasaki_doko-ni-ite-mo-kimi-wa-kimi-konoe-kanata-type.jpg",
+        "startOnDay": 721,
+        "weight": 1000,
+        "titleEn": "Daydream Mermaid",
+        "altEn": "Doko ni Ite mo Kimi wa Kimi [Konoe Kanata Type]",
+        "artistEn": "Nijigasaki High School Idol Club",
+        "titleJa": "Daydream Mermaid",
+        "altJa": "どこにいても君は君【近江彼方盤】",
+        "artistJa": "虹ヶ咲学園スクールアイドル同好会"
+    },
+    {
+        "url": "/albumart/nijigasaki_doko-ni-ite-mo-kimi-wa-kimi-osaka-shizuku-type.jpg",
+        "startOnDay": 721,
+        "weight": 1000,
+        "titleEn": "Rise Up High!",
+        "altEn": "Doko ni Ite mo Kimi wa Kimi [Osaka Shizuku Type]",
+        "artistEn": "Nijigasaki High School Idol Club",
+        "titleJa": "Rise Up High!",
+        "altJa": "どこにいても君は君【桜坂しずく盤】",
+        "artistJa": "虹ヶ咲学園スクールアイドル同好会"
+    },
+    {
+        "url": "/albumart/miracra-park_fanfare.jpg",
+        "startOnDay": 721,
+        "weight": 1000,
+        "titleEn": "Fanfare!!!",
+        "artistEn": "Mira-Cra Park!",
+        "titleJa": "ファンファーレ！！！",
+        "artistJa": "みらくらぱーく！"
+    },
+    {
+        "url": "/albumart/liella_lets-be-one.jpg",
+        "startOnDay": 735,
+        "weight": 1000,
+        "titleEn": "Let's be ONE",
+        "artistEn": "Liella!",
+        "titleJa": "Let's be ONE",
+        "artistJa": "Liella!"
+    },
+    {
+        "url": "/albumart/liella_daisuki-full-power.jpg",
+        "startOnDay": 735,
+        "weight": 1000,
+        "titleEn": "DAISUKI FULL POWER",
+        "artistEn": "Liella!",
+        "titleJa": "DAISUKI FULL POWER",
+        "artistJa": "Liella!"
+    },
+    {
+        "url": "/albumart/school-idol-musical_after-party-album.jpg",
+        "startOnDay": 737,
+        "weight": 1000,
+        "titleEn": "Tsubaki-Takizakura Girls' School Idol Club After Party Album!",
+        "artistEn": "Love Live! School Idol Musical",
+        "titleJa": "椿滝桜女学院高等学校スクールアイドル部 後夜祭アルバム！",
+        "artistJa": "ラブライブ！スクールアイドルミュージカル"
     }
 ]
