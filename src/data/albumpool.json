@@ -176,10 +176,10 @@
         "weight": 1000,
         "titleEn": "Tiny Stars",
         "altEn": "Mirai Yohou Hallelujah! / Tiny Stars [Ep 3 Edition]",
-        "artistEn": "Liella!",
+        "artistEn": "Liella! (KeKa)",
         "titleJa": "Tiny Stars",
         "altJa": "未来予報ハレルヤ！ / Tiny Stars 【第3話盤】",
-        "artistJa": "Liella!"
+        "artistJa": "Liella! (クーカー)"
     },
     {
         "url": "/albumart/liella_what-a-wonderful-dream-original-type.jpg",
@@ -2852,5 +2852,27 @@
         "artistEn": "Love Live! School Idol Musical",
         "titleJa": "椿滝桜女学院高等学校スクールアイドル部 後夜祭アルバム！",
         "artistJa": "ラブライブ！スクールアイドルミュージカル"
+    },
+    {
+        "url": "/albumart/liella_bubble-rise-special-color-ep-2-edition.jpg",
+        "startOnDay": 755,
+        "weight": 1000,
+        "titleEn": "Bubble Rise",
+        "altEn": "Bubble Rise / Special Color [Ep 2 Edition]",
+        "artistEn": "Liella! (TomaKanoTe)",
+        "titleJa": "Bubble Rise",
+        "altJa": "Bubble Rise / Special Color 【第2話盤】",
+        "artistJa": "Liella! (トマカノーテ)"
+    },
+    {
+        "url": "/albumart/liella_bubble-rise-special-color-ep-3-edition.jpg",
+        "startOnDay": 755,
+        "weight": 1000,
+        "titleEn": "Special Color",
+        "altEn": "Bubble Rise / Special Color [Ep 3 Edition]",
+        "artistEn": "Liella!",
+        "titleJa": "Special Color",
+        "altJa": "Bubble Rise / Special Color 【第3話盤】",
+        "artistJa": "Liella!"
     }
 ]
