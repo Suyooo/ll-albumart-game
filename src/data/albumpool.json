@@ -2874,5 +2874,87 @@
         "titleJa": "Special Color",
         "altJa": "Bubble Rise / Special Color 【第3話盤】",
         "artistJa": "Liella!"
+    },
+    {
+        "url": "/albumart/hasunosora_hanamusubi-birdcage-joushou-kiryuu.jpg",
+        "startOnDay": 815,
+        "weight": 1000,
+        "titleEn": "Hanamusubi / Birdcage / Joushou Kiryuu",
+        "artistEn": "Hasunosora Girls' High School Idol Club",
+        "altEn": "Cerise Bouquet / DOLLCHESTRA / Mira-Cra Park!",
+        "titleJa": "ハナムスビ / バアドケージ / ジョーショーキリュー",
+        "artistJa": "蓮ノ空女学院スクールアイドルクラブ",
+        "altJa": "スリーズブーケ / DOLLCHESTRA / みらくらぱーく！"
+    },
+    {
+        "url": "/albumart/liella_zettaiteki-lover-dazzling-game-ep-6-edition.jpg",
+        "startOnDay": 815,
+        "weight": 1000,
+        "titleEn": "Zettaiteki LOVER",
+        "altEn": "Zettaiteki LOVER / Dazzling Game [Ep 6 Edition]",
+        "artistEn": "Liella!",
+        "titleJa": "絶対的LOVER",
+        "altJa": "絶対的LOVER / Dazzling Game 【第6話盤】",
+        "artistJa": "Liella!"
+    },
+    {
+        "url": "/albumart/liella_zettaiteki-lover-dazzling-game-ep-8-edition.jpg",
+        "startOnDay": 815,
+        "weight": 1000,
+        "titleEn": "Dazzling Game",
+        "altEn": "Zettaiteki LOVER / Dazzling Game [Ep 8 Edition]",
+        "artistEn": "Liella!",
+        "titleJa": "Dazzling Game",
+        "altJa": "絶対的LOVER / Dazzling Game 【第8話盤】",
+        "artistJa": "Liella!"
+    },
+    {
+        "url": "/albumart/aqours_eikyuu-hours.jpg",
+        "startOnDay": 815,
+        "weight": 1000,
+        "titleEn": "Eikyuu hours",
+        "artistEn": "Aqours",
+        "titleJa": "永久hours",
+        "artistJa": "Aqours"
+    },
+    {
+        "url": "/albumart/liella_egao-no-promise-superstar-ep-10-edition.jpg",
+        "startOnDay": 815,
+        "weight": 1000,
+        "titleEn": "Egao no Promise",
+        "altEn": "Egao no Promise / Superstar!! [Ep 10 Edition]",
+        "artistEn": "Liella!",
+        "titleJa": "笑顔のPromise",
+        "altJa": "笑顔のPromise / スーパースター!! 【第10話盤】",
+        "artistJa": "Liella!"
+    },
+    {
+        "url": "/albumart/liella_egao-no-promise-superstar-ep-11-edition.jpg",
+        "startOnDay": 815,
+        "weight": 1000,
+        "titleEn": "Superstar!!",
+        "altEn": "Egao no Promise / Superstar!! [Ep 11 Edition]",
+        "artistEn": "Liella!",
+        "titleJa": "スーパースター!!",
+        "altJa": "笑顔のPromise / スーパースター!! 【第11話盤】",
+        "artistJa": "Liella!"
+    },
+    {
+        "url": "/albumart/liella_hajimari-wa-kimi-no-sora-11-ver.jpg",
+        "startOnDay": 815,
+        "weight": 1000,
+        "titleEn": "Hajimari wa Kimi no Sora ~11 Ver.~",
+        "artistEn": "Liella!",
+        "titleJa": "始まりは君の空 ～11 Ver.～",
+        "artistJa": "Liella!"
+    },
+    {
+        "url": "/albumart/aiscream_aiscream.jpg",
+        "startOnDay": 825,
+        "weight": 1000,
+        "titleEn": "Ai♡Scream!",
+        "artistEn": "AiScReam",
+        "titleJa": "愛♡スクリーム!",
+        "artistJa": "AiScReam"
     }
 ]
