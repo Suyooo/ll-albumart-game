@@ -2956,5 +2956,140 @@
         "artistEn": "AiScReam",
         "titleJa": "愛♡スクリーム!",
         "artistJa": "AiScReam"
+    },
+    {
+        "url": "/albumart/ll-nijigasaki-original-soundtrack_sangoshou-no-kioku.jpg",
+        "startOnDay": 0,
+        "weight": 1000,
+        "titleEn": "Sangoshou no Kioku",
+        "artistEn": "LL! Nijigasaki Original Soundtrack",
+        "titleJa": "珊瑚礁の記憶",
+        "artistJa": "『ラブライブ！虹ヶ咲』 オリジナルサウンドトラック"
+    },
+    {
+        "url": "/albumart/liella_liella-no-uta-3.jpg",
+        "startOnDay": 901,
+        "weight": 1000,
+        "titleEn": "Liella no Uta 3",
+        "artistEn": "Liella!",
+        "titleJa": "リエラのうた3",
+        "artistJa": "Liella!"
+    },
+    {
+        "url": "/albumart/nijigasaki_white-delight.jpg",
+        "startOnDay": 901,
+        "weight": 1000,
+        "titleEn": "White Delight",
+        "artistEn": "Nijigasaki High School Idol Club (Mia Taylor)",
+        "titleJa": "White Delight",
+        "artistJa": "虹ヶ咲学園スクールアイドル同好会 (ミア・テイラー)"
+    },
+    {
+        "url": "/albumart/hasunosora_key-of-like.jpg",
+        "startOnDay": 901,
+        "weight": 1000,
+        "titleEn": "KEY of Like!",
+        "artistEn": "Hasunosora Girls' High School Idol Club",
+        "titleJa": "KEY of Like!",
+        "artistJa": "蓮ノ空女学院スクールアイドルクラブ"
+    },
+    {
+        "url": "/albumart/ll-superstar-original-soundtrack_beginning-of-the-superstar.jpg",
+        "startOnDay": 901,
+        "weight": 1000,
+        "titleEn": "Beginning of the Superstar",
+        "artistEn": "LL! Superstar!! Original Soundtrack",
+        "titleJa": "Beginning of the Superstar",
+        "artistJa": "『ラブライブ！スーパースター!!』 オリジナルサウンドトラック"
+    },
+    {
+        "url": "/albumart/nijigasaki_starry-night-serenade.jpg",
+        "startOnDay": 901,
+        "weight": 1000,
+        "titleEn": "Starry Night Serenade",
+        "artistEn": "Nijigasaki High School Idol Club (Emma Verde)",
+        "titleJa": "Starry Night Serenade",
+        "artistJa": "虹ヶ咲学園スクールアイドル同好会 (エマ・ヴェルデ)"
+    },
+    {
+        "url": "/albumart/hasunosora_aurora-flower.jpg",
+        "startOnDay": 901,
+        "weight": 1000,
+        "titleEn": "AURORA FLOWER",
+        "artistEn": "Hasunosora Girls' High School Idol Club",
+        "titleJa": "AURORA FLOWER",
+        "artistJa": "蓮ノ空女学院スクールアイドルクラブ"
+    },
+    {
+        "url": "/albumart/nijigasaki_the-sweetest-time.jpg",
+        "startOnDay": 901,
+        "weight": 1000,
+        "titleEn": "The Sweetest Time♡",
+        "artistEn": "Nijigasaki High School Idol Club (Ayumu Uehara)",
+        "titleJa": "The Sweetest Time♡",
+        "artistJa": "虹ヶ咲学園スクールアイドル同好会 (上原歩夢)"
+    },
+    {
+        "url": "/albumart/cerise-bouquet_yume-wazurai.jpg",
+        "startOnDay": 901,
+        "weight": 1000,
+        "titleEn": "Yume Wazurai",
+        "artistEn": "Cerise Bouquet",
+        "titleJa": "ユメワズライ",
+        "artistJa": "スリーズブーケ"
+    },
+    {
+        "url": "/albumart/dollchestra_compass.jpg",
+        "startOnDay": 901,
+        "weight": 1000,
+        "titleEn": "COMPASS",
+        "artistEn": "DOLLCHESTRA",
+        "titleJa": "COMPASS",
+        "artistJa": "DOLLCHESTRA"
+    },
+    {
+        "url": "/albumart/miracra-park_zenhoui-kyun.jpg",
+        "startOnDay": 901,
+        "weight": 1000,
+        "titleEn": "Zenhoui Kyun ♡",
+        "artistEn": "Mira-Cra Park!",
+        "titleJa": "全方位キュン♡",
+        "artistJa": "みらくらぱーく！"
+    },
+    {
+        "url": "/albumart/hasunosora_oide-yo-ishikawa-daikankou.jpg",
+        "startOnDay": 901,
+        "weight": 1000,
+        "titleEn": "Oide yo! Ishikawa Daikankou",
+        "artistEn": "Hasunosora Girls' High School Idol Club",
+        "titleJa": "おいでよ！石川大観光",
+        "artistJa": "蓮ノ空女学院スクールアイドルクラブ"
+    },
+    {
+        "url": "/albumart/nijigasaki_nijiiro-lumiere.jpg",
+        "startOnDay": 901,
+        "weight": 1000,
+        "titleEn": "Nijiiro☆Lumiere",
+        "artistEn": "Nijigasaki High School Idol Club (Kasumi Nakasu)",
+        "titleJa": "にじいろ☆ルミエール",
+        "artistJa": "虹ヶ咲学園スクールアイドル同好会 (中須かすみ)"
+    },
+    {
+        "url": "/albumart/hasunosora_itsudemo-itsumademo.jpg",
+        "startOnDay": 903,
+        "weight": 1000,
+        "titleEn": "Itsudemo, Itsumademo",
+        "artistEn": "Hasunosora Girls' High School Idol Club",
+        "titleJa": "いつでも、いつまでも",
+        "artistJa": "蓮ノ空女学院スクールアイドルクラブ"
+    },
+    {
+        "url": "/albumart/hasunosora_dream-believers-105.jpg",
+        "startOnDay": 924,
+        "weight": 1000,
+        "titleEn": "Dream Believers (105th Ver.)",
+        "artistEn": "Hasunosora Girls' High School Idol Club",
+        "titleJa": "Dream Believers（105期 Ver.）",
+        "artistJa": "蓮ノ空女学院スクールアイドルクラブ"
     }
 ]
