@@ -2980,9 +2980,9 @@
         "startOnDay": 901,
         "weight": 1000,
         "titleEn": "White Delight",
-        "artistEn": "Nijigasaki High School Idol Club (Mia Taylor)",
+        "artistEn": "Mia Taylor (CV: Shu Uchida)",
         "titleJa": "White Delight",
-        "artistJa": "虹ヶ咲学園スクールアイドル同好会 (ミア・テイラー)"
+        "artistJa": "ミア・テイラー (CV.内田 秀)"
     },
     {
         "url": "/albumart/hasunosora_key-of-like.jpg",
@@ -3007,9 +3007,9 @@
         "startOnDay": 901,
         "weight": 1000,
         "titleEn": "Starry Night Serenade",
-        "artistEn": "Nijigasaki High School Idol Club (Emma Verde)",
+        "artistEn": "Emma Verde (CV: Maria Sashide)",
         "titleJa": "Starry Night Serenade",
-        "artistJa": "虹ヶ咲学園スクールアイドル同好会 (エマ・ヴェルデ)"
+        "artistJa": "エマ・ヴェルデ (CV.指出毬亜)"
     },
     {
         "url": "/albumart/hasunosora_aurora-flower.jpg",
@@ -3025,9 +3025,9 @@
         "startOnDay": 901,
         "weight": 1000,
         "titleEn": "The Sweetest Time♡",
-        "artistEn": "Nijigasaki High School Idol Club (Ayumu Uehara)",
+        "artistEn": "Ayumu Uehara (CV: Aguri Onishi)",
         "titleJa": "The Sweetest Time♡",
-        "artistJa": "虹ヶ咲学園スクールアイドル同好会 (上原歩夢)"
+        "artistJa": "上原歩夢 (CV.大西亜玖璃)"
     },
     {
         "url": "/albumart/cerise-bouquet_yume-wazurai.jpg",
@@ -3070,9 +3070,9 @@
         "startOnDay": 901,
         "weight": 1000,
         "titleEn": "Nijiiro☆Lumiere",
-        "artistEn": "Nijigasaki High School Idol Club (Kasumi Nakasu)",
+        "artistEn": "Kasumi Nakasu (CV: Mayu Sagara)",
         "titleJa": "にじいろ☆ルミエール",
-        "artistJa": "虹ヶ咲学園スクールアイドル同好会 (中須かすみ)"
+        "artistJa": "中須かすみ (CV.相良茉優)"
     },
     {
         "url": "/albumart/hasunosora_itsudemo-itsumademo.jpg",
@@ -3090,6 +3090,107 @@
         "titleEn": "Dream Believers (105th Ver.)",
         "artistEn": "Hasunosora Girls' High School Idol Club",
         "titleJa": "Dream Believers（105期 Ver.）",
+        "artistJa": "蓮ノ空女学院スクールアイドルクラブ"
+    },
+    {
+        "url": "/albumart/nijigasaki_what-a-beautiful-day.jpg",
+        "startOnDay": 984,
+        "weight": 1000,
+        "titleEn": "What a Beautiful Day!",
+        "artistEn": "Kasumi Nakasu (CV: Akari Kito)",
+        "titleJa": "What a Beautiful Day!",
+        "artistJa": "近江彼方 (CV.鬼頭明里)"
+    },
+    {
+        "url": "/albumart/nijigasaki_eternalize-love.jpg",
+        "startOnDay": 984,
+        "weight": 1000,
+        "titleEn": "Eternalize Love!!",
+        "artistEn": "Nijigasaki High School Idol Club",
+        "titleJa": "Eternalize Love!!",
+        "artistJa": "虹ヶ咲学園スクールアイドル同好会"
+    },
+    {
+        "url": "/albumart/edel-note_retrofuture.jpg",
+        "startOnDay": 984,
+        "weight": 1000,
+        "titleEn": "Retrofuture",
+        "artistEn": "Edel Note",
+        "titleJa": "Retrofuture",
+        "artistJa": "Edel Note"
+    },
+    {
+        "url": "/albumart/liella_aspire-original-type.jpg",
+        "startOnDay": 984,
+        "weight": 1000,
+        "titleEn": "Aspire [Original Edition]",
+        "artistEn": "Liella!",
+        "titleJa": "Aspire【オリジナル盤】",
+        "artistJa": "Liella!"
+    },
+    {
+        "url": "/albumart/liella_aspire-photo-type.jpg",
+        "startOnDay": 984,
+        "weight": 1000,
+        "titleEn": "Aspire [Photo Edition]",
+        "artistEn": "Liella!",
+        "titleJa": "Aspire【フォト盤】",
+        "artistJa": "Liella!"
+    },
+    {
+        "url": "/albumart/hasunosora_graduation-102-kozue.jpg",
+        "startOnDay": 984,
+        "weight": 333,
+        "titleEn": "102nd Graduation Album ~ Star Sign Memories ~ Kozue Otomune",
+        "artistEn": "Kozue Otomune (CV: Nina Hanamiya)",
+        "titleJa": "102nd Graduation Album ~ Star Sign Memories ~ Kozue Otomune",
+        "artistJa": "乙宗 梢 (CV.花宮初奈)"
+    },
+    {
+        "url": "/albumart/hasunosora_graduation-102-tsuzuri.jpg",
+        "startOnDay": 984,
+        "weight": 333,
+        "titleEn": "102nd Graduation Album ~ Star Sign Memories ~ Tsuzuri Yugiri",
+        "artistEn": "Tsuzuri Yugiri (CV: Kotoko Sasaki)",
+        "titleJa": "102nd Graduation Album ~ Star Sign Memories ~ Tsuzuri Yugiri",
+        "artistJa": "夕霧綴理 (CV.佐々木琴子)"
+    },
+    {
+        "url": "/albumart/hasunosora_graduation-102-megu.jpg",
+        "startOnDay": 984,
+        "weight": 334,
+        "titleEn": "102nd Graduation Album ~ Star Sign Memories ~ Megumi Fujishima",
+        "artistEn": "Megumi Fujishima (CV: Kona Tsukine)",
+        "titleJa": "102nd Graduation Album ~ Star Sign Memories ~ Megumi Fujishima",
+        "artistJa": "藤島 慈 (CV.月音こな)"
+    },
+    {
+        "url": "/albumart/nijigasaki_pichi-chapu-tinton-tanton.jpg",
+        "startOnDay": 984,
+        "weight": 1000,
+        "titleEn": "Pichi Chapu Tinton Tanton",
+        "artistEn": "Shizuku Osaka (CV: Kaori Maeda)",
+        "titleJa": "ピチチャプティントンタントン",
+        "artistJa": "桜坂しずく (CV.前田佳織里)"
+    },
+    {
+        "url": "/albumart/hasunosora_37-5-c-no-fantasy-i-my-mayday-blast-izayoi-selene.jpg",
+        "startOnDay": 986,
+        "weight": 1000,
+        "titleEn": "37.5°C no Fantasy / I My Mayday / BLAST!! / Izayoi Selene",
+        "artistEn": "Hasunosora Girls' High School Idol Club",
+        "altEn": "Cerise Bouquet / DOLLCHESTRA / Mira-Cra Park! / Edel Note",
+        "titleJa": "37.5℃のファンタジー / アイマイメーデー / BLAST!! / 十六夜セレーネ",
+        "artistJa": "蓮ノ空女学院スクールアイドルクラブ",
+        "altJa": "スリーズブーケ / DOLLCHESTRA / みらくらぱーく！ / Edel Note"
+    },
+    {
+        "url": "/albumart/hasunosora_i-do-me.jpg",
+        "startOnDay": 993,
+        "weight": 1000,
+        "titleEn": "I do me!",
+        "artistEn": "Hasunosora Girls' High School Idol Club",
+        "titleJa": "アイドゥーミー！",
         "artistJa": "蓮ノ空女学院スクールアイドルクラブ"
     }
 ]
