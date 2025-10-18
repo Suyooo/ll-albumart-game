@@ -81,6 +81,7 @@ const FORCED_DAYS: { [day: number]: { rolledAlbumId: number; rolledGameId: numbe
 	366: { rolledAlbumId: 121, rolledGameId: 11 }, // Introduction of Monochrome Mode
 	423: { rolledAlbumId: 158, rolledGameId: 8 }, // New Year 2024: Special Fireworks Mode
 	514: { rolledAlbumId: 12, rolledGameId: 12 }, // April Fools 2024: Special Gravity Mode
+	1081: { rolledAlbumId: 343, rolledGameId: 6 }, // Hello IKIZULIVE!
 };
 
 export function getIdsForDay(day: number, ignoreDev: boolean = false): { rolledAlbumId: number; rolledGameId: number } {
