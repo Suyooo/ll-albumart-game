@@ -15,78 +15,78 @@ const SIZES = [750, 730, 700, 650, 550, 450];
 const BIRB_SIZE = 700; // size in pixels of kotobomb.png
 
 export async function getGameInstance(
-    _day: number,
-    _album: AlbumInfo,
-    _image: Image,
-    scaledImage: Canvas
+	_day: number,
+	_album: AlbumInfo,
+	_image: Image,
+	scaledImage: Canvas
 ): Promise<GameInstance> {
-    const birbImage = await loadAssetImage("/assets/kotobomb.png");
-    const getCanvasForGuess = (failed: number): Canvas => {
-        const canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
-        const ctx = canvas.getContext("2d");
-        const targetSize = SIZES[failed];
+	const birbImage = await loadAssetImage("/assets/kotobomb.png");
+	const getCanvasForGuess = (failed: number): Canvas => {
+		const canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
+		const ctx = canvas.getContext("2d");
+		const targetSize = SIZES[failed];
 
-        ctx.imageSmoothingEnabled = true;
-        ctx.drawImage(scaledImage, 0, 0, CANVAS_SIZE, CANVAS_SIZE, 0, 0, CANVAS_SIZE, CANVAS_SIZE);
-        ctx.drawImage(birbImage, 0, 0, BIRB_SIZE, BIRB_SIZE, 0, CANVAS_SIZE - targetSize, targetSize, targetSize);
+		ctx.imageSmoothingEnabled = true;
+		ctx.drawImage(scaledImage, 0, 0, CANVAS_SIZE, CANVAS_SIZE, 0, 0, CANVAS_SIZE, CANVAS_SIZE);
+		ctx.drawImage(birbImage, 0, 0, BIRB_SIZE, BIRB_SIZE, 0, CANVAS_SIZE - targetSize, targetSize, targetSize);
 
-        return canvas;
-    };
+		return canvas;
+	};
 
-    const getShareCanvas = (): Canvas => {
-        return getCanvasForGuess(0);
-    };
+	const getShareCanvas = (): Canvas => {
+		return getCanvasForGuess(0);
+	};
 
-    const FINISH_BIRB_SIZE = 150;
-    const getAltFinishedCanvas = (): Canvas => {
-        const canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
-        const ctx = canvas.getContext("2d");
+	const FINISH_BIRB_SIZE = 150;
+	const getAltFinishedCanvas = (): Canvas => {
+		const canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
+		const ctx = canvas.getContext("2d");
 
-        ctx.imageSmoothingEnabled = true;
-        ctx.drawImage(scaledImage, 0, 0, CANVAS_SIZE, CANVAS_SIZE, 0, 0, CANVAS_SIZE, CANVAS_SIZE);
-        ctx.drawImage(
-            birbImage,
-            0,
-            0,
-            BIRB_SIZE,
-            BIRB_SIZE,
-            0,
-            CANVAS_SIZE - FINISH_BIRB_SIZE,
-            FINISH_BIRB_SIZE,
-            FINISH_BIRB_SIZE
-        );
-        ctx.save();
-        ctx.scale(1, -1);
-        ctx.drawImage(birbImage, 0, 0, BIRB_SIZE, BIRB_SIZE, 0, -FINISH_BIRB_SIZE, FINISH_BIRB_SIZE, FINISH_BIRB_SIZE);
-        ctx.restore();
-        ctx.save();
-        ctx.scale(-1, 1);
-        ctx.drawImage(
-            birbImage,
-            0,
-            0,
-            BIRB_SIZE,
-            BIRB_SIZE,
-            -CANVAS_SIZE,
-            CANVAS_SIZE - FINISH_BIRB_SIZE,
-            FINISH_BIRB_SIZE,
-            FINISH_BIRB_SIZE
-        );
-        ctx.restore();
-        ctx.scale(-1, -1);
-        ctx.drawImage(
-            birbImage,
-            0,
-            0,
-            BIRB_SIZE,
-            BIRB_SIZE,
-            -CANVAS_SIZE,
-            -FINISH_BIRB_SIZE,
-            FINISH_BIRB_SIZE,
-            FINISH_BIRB_SIZE
-        );
+		ctx.imageSmoothingEnabled = true;
+		ctx.drawImage(scaledImage, 0, 0, CANVAS_SIZE, CANVAS_SIZE, 0, 0, CANVAS_SIZE, CANVAS_SIZE);
+		ctx.drawImage(
+			birbImage,
+			0,
+			0,
+			BIRB_SIZE,
+			BIRB_SIZE,
+			0,
+			CANVAS_SIZE - FINISH_BIRB_SIZE,
+			FINISH_BIRB_SIZE,
+			FINISH_BIRB_SIZE
+		);
+		ctx.save();
+		ctx.scale(1, -1);
+		ctx.drawImage(birbImage, 0, 0, BIRB_SIZE, BIRB_SIZE, 0, -FINISH_BIRB_SIZE, FINISH_BIRB_SIZE, FINISH_BIRB_SIZE);
+		ctx.restore();
+		ctx.save();
+		ctx.scale(-1, 1);
+		ctx.drawImage(
+			birbImage,
+			0,
+			0,
+			BIRB_SIZE,
+			BIRB_SIZE,
+			-CANVAS_SIZE,
+			CANVAS_SIZE - FINISH_BIRB_SIZE,
+			FINISH_BIRB_SIZE,
+			FINISH_BIRB_SIZE
+		);
+		ctx.restore();
+		ctx.scale(-1, -1);
+		ctx.drawImage(
+			birbImage,
+			0,
+			0,
+			BIRB_SIZE,
+			BIRB_SIZE,
+			-CANVAS_SIZE,
+			-FINISH_BIRB_SIZE,
+			FINISH_BIRB_SIZE,
+			FINISH_BIRB_SIZE
+		);
 
-        return canvas;
-    };
-    return { getCanvasForGuess, getShareCanvas, getAltFinishedCanvas };
+		return canvas;
+	};
+	return { getCanvasForGuess, getShareCanvas, getAltFinishedCanvas };
 }

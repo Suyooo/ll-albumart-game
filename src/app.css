@@ -3,41 +3,44 @@
 @tailwind utilities;
 
 @layer base {
-    html, body, body > div {
-        @apply w-full h-full text-text bg-background;
-    }
-    a {
-        @apply underline text-link;
-    }
+	html,
+	body,
+	body > div {
+		@apply w-full h-full text-text bg-background;
+	}
+	a {
+		@apply underline text-link;
+	}
 
-    a:hover {
-        @apply text-link-hover;
-    }
+	a:hover {
+		@apply text-link-hover;
+	}
 
-    a:active {
-        @apply text-link-active;
-    }
+	a:active {
+		@apply text-link-active;
+	}
 
-    *:focus-visible {
-        @apply rounded !outline !outline-2 !outline-outline;
-    }
+	*:focus-visible {
+		@apply rounded !outline !outline-2 !outline-outline;
+	}
 
-    .vhd {
-        @apply absolute top-0 left-[-1000vw];
-    }
+	.vhd {
+		@apply absolute top-0 left-[-1000vw];
+	}
 
-    @keyframes ping {
-        0% {
-            @apply outline-accent/100;
-            outline-offset: -3px;
-        }
-        50%, 100% {
-            @apply outline-accent/0;
-            outline-offset: 20px;
-        }
-    }
-    .ping {
-        @apply outline outline-[3px] outline-accent/100;
-        animation: ping 1s infinite ease-out;
-    }
+	@keyframes ping {
+		0% {
+			@apply outline-accent/100;
+			outline-offset: -3px;
+		}
+		50%,
+		100% {
+			@apply outline-accent/0;
+			outline-offset: 20px;
+		}
+	}
+	.ping {
+		@apply outline outline-[3px] outline-accent/100;
+		animation: ping 1s infinite ease-out;
+	}
 }

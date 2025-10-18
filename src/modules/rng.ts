@@ -7,13 +7,13 @@ const rand_c: number = 11;
  * @return Function to get the next pseudo-random number
  */
 export function seededRNG(seed: number): () => number {
-    let rand_z: number = seed;
-    const func = () => {
-        rand_z = (rand_z * rand_a + rand_c) % 4294967296;
-        return rand_z / 4294967296;
-    }
-    // Roll a bit after seeding for improved randomness
-    func();
-    func();
-    return func;
+	let rand_z: number = seed;
+	const func = () => {
+		rand_z = (rand_z * rand_a + rand_c) % 4294967296;
+		return rand_z / 4294967296;
+	};
+	// Roll a bit after seeding for improved randomness
+	func();
+	func();
+	return func;
 }

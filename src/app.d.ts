@@ -3,7 +3,7 @@
 declare const VITE_DEFINE_BUILDTIME: number;
 
 declare namespace svelteHTML {
-    interface HTMLProps<T> {
-        onautocomplete?: (event: CustomEvent) => void;
-    }
+	interface HTMLProps<T> {
+		onautocomplete?: (event: CustomEvent) => void;
+	}
 }

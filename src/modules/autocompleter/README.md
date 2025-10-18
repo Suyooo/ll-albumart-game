@@ -3,6 +3,7 @@ https://www.npmjs.com/package/autocompleter
 https://github.com/kraaden/autocomplete
 
 Changes include:
+
 - Accessibility improvements (also submitted in PR #96)
 - Always use `input` event instead of `keyup` event to update suggestions, so IMEs work correctly
 - Removing some deprecated properties/types to avoid hints polluting svelte-check output
