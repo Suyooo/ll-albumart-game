@@ -3192,5 +3192,187 @@
 		"artistEn": "Hasunosora Girls' High School Idol Club",
 		"titleJa": "アイドゥーミー！",
 		"artistJa": "蓮ノ空女学院スクールアイドルクラブ"
+	},
+	{
+		"url": "/albumart/nijigasaki_ride-the-wave.jpg",
+		"startOnDay": 1081,
+		"weight": 1000,
+		"titleEn": "Ride the wave!",
+		"artistEn": "Ai Miyashita (CV: Natsumi Murakami)",
+		"titleJa": "Ride the wave!",
+		"artistJa": "宮下愛 (CV.村上奈津実)"
+	},
+	{
+		"url": "/albumart/ikizuraibu_what-is-my-life.jpg",
+		"startOnDay": 1081,
+		"weight": 1000,
+		"titleEn": "What is my LIFE?",
+		"artistEn": "IKIZURAIBU!",
+		"titleJa": "What is my LIFE?",
+		"artistJa": "いきづらい部!"
+	},
+	{
+		"url": "/albumart/nijigasaki_summer-warning.jpg",
+		"startOnDay": 1081,
+		"weight": 1000,
+		"titleEn": "SUMMER WARNING",
+		"artistEn": "Rina Tennoji (CV: Chiemi Tanaka)",
+		"titleJa": "SUMMER WARNING",
+		"artistJa": "天王寺璃奈 (CV.田中ちえ美)"
+	},
+	{
+		"url": "/albumart/cerise-bouquet_fruit-punch.jpg",
+		"startOnDay": 1081,
+		"weight": 1000,
+		"titleEn": "Fruit Punch",
+		"artistEn": "Cerise Bouquet",
+		"titleJa": "フルーツパンチ",
+		"artistJa": "スリーズブーケ"
+	},
+	{
+		"url": "/albumart/dollchestra_taiyou-de-are.jpg",
+		"startOnDay": 1081,
+		"weight": 1000,
+		"titleEn": "Taiyou de Are!",
+		"artistEn": "DOLLCHESTRA",
+		"titleJa": "太陽であれ！",
+		"artistJa": "DOLLCHESTRA"
+	},
+	{
+		"url": "/albumart/miracra-park_nyao-signyal.jpg",
+		"startOnDay": 1081,
+		"weight": 1000,
+		"titleEn": "Nyao Signyal",
+		"artistEn": "Mira-Cra Park!",
+		"titleJa": "ニャオシグニャル",
+		"artistJa": "みらくらぱーく！"
+	},
+	{
+		"url": "/albumart/edel-note_henyoku-no-toribaga.jpg",
+		"startOnDay": 1081,
+		"weight": 1000,
+		"titleEn": "Henyoku no Toribaga",
+		"artistEn": "Edel Note",
+		"titleJa": "片翼のトリバガ",
+		"artistJa": "Edel Note"
+	},
+	{
+		"url": "/albumart/hasunosora_atarayo-hanabi-blue-moment-very-very-coco-natsu-fusion-crust.jpg",
+		"startOnDay": 1081,
+		"weight": 1000,
+		"titleEn": "Atarayo Hanabi / Blue Moment / Very! Very! COCO Natsu / Fusion Crust",
+		"artistEn": "Hasunosora Girls' High School Idol Club",
+		"altEn": "Cerise Bouquet / DOLLCHESTRA / Mira-Cra Park! / Edel Note",
+		"titleJa": "可惜夜花火 / ブルウモーメント / Very! Very! COCO夏っ / フュージョンクラスト",
+		"artistJa": "蓮ノ空女学院スクールアイドルクラブ",
+		"altJa": "スリーズブーケ / DOLLCHESTRA / みらくらぱーく！ / Edel Note"
+	},
+	{
+		"url": "/albumart/nijigasaki_sanketsu.jpg",
+		"startOnDay": 1081,
+		"weight": 1000,
+		"titleEn": "Sanketsu",
+		"artistEn": "Shioriko Mifune (CV: Moeka Koizumi)",
+		"titleJa": "酸欠",
+		"artistJa": "三船栞子 (CV.小泉萌香)"
+	},
+	{
+		"url": "/albumart/nijigasaki_dress-code.jpg",
+		"startOnDay": 1091,
+		"weight": 1000,
+		"titleEn": "Dress Code",
+		"artistEn": "Karin Asaka (CV: Miyu Kubota)",
+		"titleJa": "Dress Code",
+		"artistJa": "朝香果林 (CV.久保田未夢)"
+	},
+	{
+		"url": "/albumart/polka-takahashi_asakusa-guilty-girl-no-uta.jpg",
+		"startOnDay": 99999,
+		"weight": 100,
+		"titleEn": "Asakusa Guilty Girl no Uta",
+		"artistEn": "Polka Takahashi (CV: Honon Ayasaki)",
+		"titleJa": "浅草Guilty Girlの歌",
+		"artistJa": "高橋ポルカ (CV.綾咲穂音)"
+	},
+	{
+		"url": "/albumart/mai-azabu_public-style.jpg",
+		"startOnDay": 99999,
+		"weight": 100,
+		"titleEn": "Public Style",
+		"artistEn": "Mai Azabu (CV: Rina Endo)",
+		"titleJa": "Public Style",
+		"artistJa": "麻布麻衣 (CV.遠藤璃菜)"
+	},
+	{
+		"url": "/albumart/akira-goto_itsuka-ao.jpg",
+		"startOnDay": 99999,
+		"weight": 100,
+		"titleEn": "Itsuka Ao",
+		"artistEn": "Akira Goto (CV: Seri Miyano)",
+		"titleJa": "いつか碧",
+		"artistJa": "五桐 玲 (CV.宮野 芹)"
+	},
+	{
+		"url": "/albumart/hanabi-komagata_hibana.jpg",
+		"startOnDay": 99999,
+		"weight": 100,
+		"titleEn": "HIBANA -Hibana-",
+		"artistEn": "Hanabi Komagata (CV: Kokoro Fujino)",
+		"titleJa": "HIBANA―火花―",
+		"artistJa": "駒形花火 (CV.藤野こころ)"
+	},
+	{
+		"url": "/albumart/miracle-kanazawa_homerun-queen.jpg",
+		"startOnDay": 99999,
+		"weight": 100,
+		"titleEn": "HomeRun Queen!!",
+		"artistEn": "Miracle Kanazawa (CV: Aiha Sakano)",
+		"titleJa": "HomeRun Queen!!",
+		"artistJa": "金澤奇跡 (CV.坂野愛羽)"
+	},
+	{
+		"url": "/albumart/noriko-chofu_koi-no-one-time-password.jpg",
+		"startOnDay": 99999,
+		"weight": 100,
+		"titleEn": "Koi no One-Time Password",
+		"artistEn": "Noriko Chofu (CV: Ria Seko)",
+		"titleJa": "恋のワンタイムパスワード",
+		"artistJa": "調布のりこ (CV.瀬古梨愛)"
+	},
+	{
+		"url": "/albumart/yukuri-harumiya_pray-for-love.jpg",
+		"startOnDay": 99999,
+		"weight": 100,
+		"titleEn": "Pray for love",
+		"artistEn": "Yukuri Harumiya (CV: Yuki Okumura)",
+		"titleJa": "Pray for love",
+		"artistJa": "春宮ゆくり (CV.奥村優季)"
+	},
+	{
+		"url": "/albumart/aurora-konohana_kimi-wa-yoru-no-polaris.jpg",
+		"startOnDay": 99999,
+		"weight": 100,
+		"titleEn": "Kimi wa Yoru no Polaris",
+		"artistEn": "Aurora Konohana (CV: Akane Amasawa)",
+		"titleJa": "キミは夜のポラリス",
+		"artistJa": "此花輝夜 (CV.天沢朱音)"
+	},
+	{
+		"url": "/albumart/midori-yamada_little-green-iinkai.jpg",
+		"startOnDay": 99999,
+		"weight": 100,
+		"titleEn": "Little Green Iinkai",
+		"artistEn": "Midori Yamada (CV: Honoka Kotomori)",
+		"titleJa": "Little Green委員会",
+		"artistJa": "山田真緑 (CV.小戸森穂花)"
+	},
+	{
+		"url": "/albumart/shion-sasaki_ikitakunai-every-day.jpg",
+		"startOnDay": 99999,
+		"weight": 100,
+		"titleEn": "Ikitakunai every day",
+		"artistEn": "Shion Sasaki (CV: Aoi Suzunose)",
+		"titleJa": "イキタクナイevery day",
+		"artistJa": "佐々木翔音 (CV.涼ノ瀬葵音)"
 	}
 ]
