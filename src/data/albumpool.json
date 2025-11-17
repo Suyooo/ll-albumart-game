@@ -3287,7 +3287,7 @@
 	},
 	{
 		"url": "/albumart/polka-takahashi_asakusa-guilty-girl-no-uta.jpg",
-		"startOnDay": 99999,
+		"startOnDay": 1112,
 		"weight": 100,
 		"titleEn": "Asakusa Guilty Girl no Uta",
 		"artistEn": "Polka Takahashi (CV: Honon Ayasaki)",
@@ -3296,7 +3296,7 @@
 	},
 	{
 		"url": "/albumart/mai-azabu_public-style.jpg",
-		"startOnDay": 99999,
+		"startOnDay": 1112,
 		"weight": 100,
 		"titleEn": "Public Style",
 		"artistEn": "Mai Azabu (CV: Rina Endo)",
@@ -3305,7 +3305,7 @@
 	},
 	{
 		"url": "/albumart/akira-goto_itsuka-ao.jpg",
-		"startOnDay": 99999,
+		"startOnDay": 1112,
 		"weight": 100,
 		"titleEn": "Itsuka Ao",
 		"artistEn": "Akira Goto (CV: Seri Miyano)",
@@ -3314,7 +3314,7 @@
 	},
 	{
 		"url": "/albumart/hanabi-komagata_hibana.jpg",
-		"startOnDay": 99999,
+		"startOnDay": 1112,
 		"weight": 100,
 		"titleEn": "HIBANA -Hibana-",
 		"artistEn": "Hanabi Komagata (CV: Kokoro Fujino)",
@@ -3323,7 +3323,7 @@
 	},
 	{
 		"url": "/albumart/miracle-kanazawa_homerun-queen.jpg",
-		"startOnDay": 99999,
+		"startOnDay": 1112,
 		"weight": 100,
 		"titleEn": "HomeRun Queen!!",
 		"artistEn": "Miracle Kanazawa (CV: Aiha Sakano)",
@@ -3332,7 +3332,7 @@
 	},
 	{
 		"url": "/albumart/noriko-chofu_koi-no-one-time-password.jpg",
-		"startOnDay": 99999,
+		"startOnDay": 1112,
 		"weight": 100,
 		"titleEn": "Koi no One-Time Password",
 		"artistEn": "Noriko Chofu (CV: Ria Seko)",
@@ -3341,7 +3341,7 @@
 	},
 	{
 		"url": "/albumart/yukuri-harumiya_pray-for-love.jpg",
-		"startOnDay": 99999,
+		"startOnDay": 1112,
 		"weight": 100,
 		"titleEn": "Pray for love",
 		"artistEn": "Yukuri Harumiya (CV: Yuki Okumura)",
@@ -3350,7 +3350,7 @@
 	},
 	{
 		"url": "/albumart/aurora-konohana_kimi-wa-yoru-no-polaris.jpg",
-		"startOnDay": 99999,
+		"startOnDay": 1112,
 		"weight": 100,
 		"titleEn": "Kimi wa Yoru no Polaris",
 		"artistEn": "Aurora Konohana (CV: Akane Amasawa)",
@@ -3359,7 +3359,7 @@
 	},
 	{
 		"url": "/albumart/midori-yamada_little-green-iinkai.jpg",
-		"startOnDay": 99999,
+		"startOnDay": 1112,
 		"weight": 100,
 		"titleEn": "Little Green Iinkai",
 		"artistEn": "Midori Yamada (CV: Honoka Kotomori)",
@@ -3368,11 +3368,20 @@
 	},
 	{
 		"url": "/albumart/shion-sasaki_ikitakunai-every-day.jpg",
-		"startOnDay": 99999,
+		"startOnDay": 1112,
 		"weight": 100,
 		"titleEn": "Ikitakunai every day",
 		"artistEn": "Shion Sasaki (CV: Aoi Suzunose)",
 		"titleJa": "イキタクナイevery day",
 		"artistJa": "佐々木翔音 (CV.涼ノ瀬葵音)"
+	},
+	{
+		"url": "/albumart/liella_open-the-gate.png",
+		"startOnDay": 1112,
+		"weight": 1000,
+		"titleEn": "OPEN THE G☆TE!!!",
+		"artistEn": "Liella!",
+		"titleJa": "OPEN THE G☆TE!!!",
+		"artistJa": "Liella!"
 	}
 ]
