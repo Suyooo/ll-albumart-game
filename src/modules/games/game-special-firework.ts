@@ -227,6 +227,8 @@ export function getGameInstance(day: number, _album: AlbumInfo, _image: Image, s
 			}[] = [];
 
 			const doAnimation = (absT: number): void => {
+				ctx.fillStyle = "black";
+				ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
 				ctx.drawImage(scaledImage, 0, 0);
 				for (const firework of activeFireworks) {
 					let t: number;

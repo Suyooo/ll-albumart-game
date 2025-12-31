@@ -232,6 +232,7 @@ const FORCED_DAYS: { [day: number]: { rolledAlbumId: number; rolledGameId: numbe
 	1148: { rolledAlbumId: 118, rolledGameId: 0 },
 	1149: { rolledAlbumId: 345, rolledGameId: 11 },
 	1150: { rolledAlbumId: 43, rolledGameId: 2 },
+	1154: { rolledAlbumId: 226, rolledGameId: 8 }, // New Year 2026: Special Fireworks Mode
 };
 
 export function getIdsForDay(day: number, ignoreDev: boolean = false): { rolledAlbumId: number; rolledGameId: number } {
