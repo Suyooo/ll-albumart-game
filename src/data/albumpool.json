@@ -2379,7 +2379,10 @@
 	{
 		"url": "/albumart/liella_universe.jpg",
 		"startOnDay": 257,
-		"weight": { "0": 1000, "277": 0 },
+		"weight": {
+			"0": 1000,
+			"277": 0
+		},
 		"titleEn": "UNIVERSE!!",
 		"artistEn": "Liella!",
 		"titleJa": "UNIVERSE!!",
@@ -2789,7 +2792,7 @@
 		"startOnDay": 721,
 		"weight": 1000,
 		"titleEn": "Cara Tesoro",
-		"altEn": "Doko ni Ite mo Kimi wa Kimi [Verde Emma Type]",
+		"altEn": "Doko ni Ite mo Kimi wa Kimi [Emma Verde Type]",
 		"artistEn": "Nijigasaki High School Idol Club",
 		"titleJa": "Cara Tesoro",
 		"altJa": "どこにいても君は君【エマ・ヴェルデ盤】",
@@ -3383,5 +3386,184 @@
 		"artistEn": "Liella!",
 		"titleJa": "OPEN THE G☆TE!!!",
 		"artistJa": "Liella!"
+	},
+	{
+		"url": "/albumart/nijigasaki_yakusoku-ni-nare-bokura-no-uta-mifune-shioriko-type.jpg",
+		"startOnDay": 1193,
+		"weight": 1000,
+		"titleEn": "Itoshiki Yume yo Izanaite",
+		"artistEn": "Nijigasaki High School Idol Club",
+		"altEn": "Yakusoku ni Nare Bokura no Uta [Mifune Shioriko Type]",
+		"titleJa": "いとしき夢よ いざないて",
+		"artistJa": "虹ヶ咲学園スクールアイドル同好会",
+		"altJa": "どこにいても君は君【三船栞子盤】"
+	},
+	{
+		"url": "/albumart/nijigasaki_yakusoku-ni-nare-bokura-no-uta-taylor-mia-type.jpg",
+		"startOnDay": 1193,
+		"weight": 1000,
+		"titleEn": "Like a Treasure",
+		"artistEn": "Nijigsaki High School Idol Club",
+		"altEn": "Yakusoku ni Nare Bokura no Uta [Mia Taylor Type]",
+		"titleJa": "Like a Treasure",
+		"artistJa": "虹ヶ咲学園スクールアイドル同好会",
+		"altJa": "どこにいても君は君【ミア・テイラー盤】"
+	},
+	{
+		"url": "/albumart/nijigasaki_yakusoku-ni-nare-bokura-no-uta-tennoji-rina-type.jpg",
+		"startOnDay": 1193,
+		"weight": 1000,
+		"titleEn": "Stay",
+		"artistEn": "Nijigsaki High School Idol Club",
+		"altEn": "Yakusoku ni Nare Bokura no Uta [Tennoji Rina Type]",
+		"titleJa": "Stay",
+		"artistJa": "虹ヶ咲学園スクールアイドル同好会",
+		"altJa": "どこにいても君は君【天王寺璃奈盤】"
+	},
+	{
+		"url": "/albumart/nijigasaki_yakusoku-ni-nare-bokura-no-uta-yuki-setsuna-type.jpg",
+		"startOnDay": 1193,
+		"weight": 1000,
+		"titleEn": "Burn!!",
+		"artistEn": "Nijigsaki High School Idol Club",
+		"altEn": "Yakusoku ni Nare Bokura no Uta [Yuki Setsuna Type]",
+		"titleJa": "Burn!!",
+		"artistJa": "虹ヶ咲学園スクールアイドル同好会",
+		"altJa": "どこにいても君は君【優木せつ菜盤】"
+	},
+	{
+		"url": "/albumart/nijigasaki_yakusoku-ni-nare-bokura-no-uta-miyashita-ai-type.jpg",
+		"startOnDay": 1193,
+		"weight": 1000,
+		"titleEn": "Circle of Love",
+		"artistEn": "Nijigasaki High School Idol Club",
+		"altEn": "Yakusoku ni Nare Bokura no Uta [Miyashita Ai Type]",
+		"titleJa": "Circle of Love",
+		"artistJa": "虹ヶ咲学園スクールアイドル同好会",
+		"altJa": "どこにいても君は君【宮下 愛盤】"
+	},
+	{
+		"url": "/albumart/nijigasaki_yakusoku-ni-nare-bokura-no-uta-theme-song-type.jpg",
+		"startOnDay": 1193,
+		"weight": 1000,
+		"titleEn": "Yakusoku ni Nare Bokura no Uta",
+		"artistEn": "Nijigsaki High School Idol Club",
+		"altEn": "Yakusoku ni Nare Bokura no Uta [Theme Song Type]",
+		"titleJa": "約束になれ僕らの歌",
+		"artistJa": "虹ヶ咲学園スクールアイドル同好会",
+		"altJa": "どこにいても君は君【主題歌盤】"
+	},
+	{
+		"url": "/albumart/nijigasaki_yes-to-tomorrow.jpg",
+		"startOnDay": 1193,
+		"weight": 1000,
+		"titleEn": "YES! to Tomorrow",
+		"artistEn": "Setsuna Yuki (CV: Coco Hayashi)",
+		"titleJa": "YES! to Tomorrow",
+		"artistJa": "優木せつ菜 (CV.林 鼓子)"
+	},
+	{
+		"url": "/albumart/hasunosora_cho-toutoi-love-heisei-galz-new-black-ichigo-milk-love.jpg",
+		"startOnDay": 1193,
+		"weight": 1000,
+		"titleEn": "Cho, Toutoi LOVE / Heisei Galz!!!! / New Black / IcHiGo milK love",
+		"artistEn": "Hasunosora Girls' High School Idol Club",
+		"titleJa": "ちょ、尊いLOVE / 平成ギャルズ!!!! / New Black / IcHiGo milK love",
+		"artistJa": "蓮ノ空女学院スクールアイドルクラブ"
+	},
+	{
+		"url": "/albumart/hasunosora_otome-anthology-garando-flash-vital-sign-theater-ikizama.jpg",
+		"startOnDay": 1193,
+		"weight": 1000,
+		"titleEn": "Otome Anthology / Garando Flash / Vital Sign / Theater Ikizama",
+		"artistEn": "Hasunosora Girls' High School Idol Club",
+		"altEn": "Cerise Bouquet / DOLLCHESTRA / Mira-Cra Park! / Edel Note",
+		"titleJa": "乙女詞華集 / ガランドFlash / バイタルサイン / シアター生き様",
+		"artistJa": "蓮ノ空女学院スクールアイドルクラブ",
+		"altJa": "スリーズブーケ / DOLLCHESTRA / みらくらぱーく！ / Edel Note"
+	},
+	{
+		"url": "/albumart/nijigasaki_nijigaku-flower-music-daisy-type.jpg",
+		"startOnDay": 1193,
+		"weight": 166,
+		"titleEn": "VIVA!",
+		"artistEn": "Nijigasaki High School Idol Club",
+		"altEn": "NIJIGAKU FLOWER MUSIC [Daisy Type]",
+		"titleJa": "VIVA!",
+		"artistJa": "虹ヶ咲学園スクールアイドル同好会",
+		"altJa": "NIJIGAKU FLOWER MUSIC【ヒナギク盤】"
+	},
+	{
+		"url": "/albumart/nijigasaki_nijigaku-flower-music-lily-of-the-valley-type.jpg",
+		"startOnDay": 1193,
+		"weight": 166,
+		"titleEn": "DIZZY LILY VALLEY",
+		"artistEn": "Nijigasaki High School Idol Club",
+		"altEn": "NIJIGAKU FLOWER MUSIC [Lily of the Valley Type]",
+		"titleJa": "DIZZY LILY VALLEY",
+		"artistJa": "虹ヶ咲学園スクールアイドル同好会",
+		"altJa": "NIJIGAKU FLOWER MUSIC【スズラン盤】"
+	},
+	{
+		"url": "/albumart/nijigasaki_nijigaku-flower-music-cactus-type.jpg",
+		"startOnDay": 1193,
+		"weight": 166,
+		"titleEn": "SAVOTINA!!",
+		"artistEn": "Nijigasaki High School Idol Club",
+		"altEn": "NIJIGAKU FLOWER MUSIC [Cactus Type]",
+		"titleJa": "SAVOTINA!!",
+		"artistJa": "虹ヶ咲学園スクールアイドル同好会",
+		"altJa": "NIJIGAKU FLOWER MUSIC【サボテン盤】"
+	},
+	{
+		"url": "/albumart/nijigasaki_nijigaku-flower-music-hibiscus-type.jpg",
+		"startOnDay": 1193,
+		"weight": 166,
+		"titleEn": "SOL de ROSA",
+		"artistEn": "Nijigasaki High School Idol Club",
+		"altEn": "NIJIGAKU FLOWER MUSIC [Hibiscus Type]",
+		"titleJa": "SOL de ROSA",
+		"artistJa": "虹ヶ咲学園スクールアイドル同好会",
+		"altJa": "NIJIGAKU FLOWER MUSIC【ハイビスカス盤】"
+	},
+	{
+		"url": "/albumart/nijigasaki_nijigaku-flower-music-morning-glory-type.jpg",
+		"startOnDay": 1193,
+		"weight": 166,
+		"titleEn": "Wondermates",
+		"artistEn": "Nijigasaki High School Idol Club",
+		"altEn": "NIJIGAKU FLOWER MUSIC [Morning Glory Type]",
+		"titleJa": "ワンダーメイツ",
+		"artistJa": "虹ヶ咲学園スクールアイドル同好会",
+		"altJa": "NIJIGAKU FLOWER MUSIC【アサガオ盤】"
+	},
+	{
+		"url": "/albumart/nijigasaki_nijigaku-flower-music-dandelion-type.jpg",
+		"startOnDay": 1193,
+		"weight": 166,
+		"titleEn": "Fuwa Fuwari",
+		"artistEn": "Nijigasaki High School Idol Club",
+		"altEn": "NIJIGAKU FLOWER MUSIC [Dandelion Type]",
+		"titleJa": "ふわふわり",
+		"artistJa": "虹ヶ咲学園スクールアイドル同好会",
+		"altJa": "NIJIGAKU FLOWER MUSIC【タンポポ盤】"
+	},
+	{
+		"url": "/albumart/hasunosora_hajimari-no-hane-oto.jpg",
+		"startOnDay": 1193,
+		"weight": 1000,
+		"titleEn": "Hajimari no Hane Oto",
+		"artistEn": "Hasunosora Girls' High School Idol Club",
+		"titleJa": "はじまりの羽音",
+		"artistJa": "蓮ノ空女学院スクールアイドルクラブ"
+	},
+	{
+		"url": "/albumart/nijigasaki_bravo.jpg",
+		"startOnDay": 1193,
+		"weight": 1000,
+		"titleEn": "Bravo!",
+		"artistEn": "Lanzhu Zhong (CV: Akina Homoto)",
+		"titleJa": "Bravo!",
+		"artistJa": "鐘嵐珠 (CV.法元明菜)"
 	}
 ]
