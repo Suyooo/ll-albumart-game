@@ -3574,5 +3574,61 @@
 		"artistEn": "Hasunosora Girls' High School Idol Club",
 		"titleJa": "Echoes Beyond",
 		"artistJa": "蓮ノ空女学院スクールアイドルクラブ"
+	},
+	{
+		"url": "/albumart/hasunosora_sayo-shigure-reboot-hip-hip-hooray-reijou-mob.jpg",
+		"startOnDay": 1232,
+		"weight": 1000,
+		"titleEn": "Sayo-Shigure / Reboot / Hip, hip, hooray! / Reijou Mob!",
+		"artistEn": "Hasunosora Girls' High School Idol Club",
+		"altEn": "Cerise Bouquet / DOLLCHESTRA / Mira-Cra Park! / Edel Note",
+		"titleJa": "Sayo-Shigure / リブウト / Hip, hip, hooray! / 令嬢モブ！",
+		"artistJa": "蓮ノ空女学院スクールアイドルクラブ",
+		"altJa": "スリーズブーケ / DOLLCHESTRA / みらくらぱーく！ / Edel Note"
+	},
+	{
+		"url": "/albumart/guilty-kiss_wake-woke.jpg",
+		"startOnDay": 1239,
+		"weight": 1000,
+		"titleEn": "WAKE:WOKE / BURN:BORN",
+		"artistEn": "GKSS (Guilty Kiss × Saint Snow)",
+		"titleJa": "WAKE:WOKE / BURN:BORN",
+		"artistJa": "GKSS (Guilty Kiss × Saint Snow)"
+	},
+	{
+		"url": "/albumart/ikizuraibu_dekoboko-quartet.jpg",
+		"startOnDay": 1243,
+		"weight": 1000,
+		"titleEn": "Dekoboko Quartet",
+		"artistEn": "Ikizurai-Bu! (CHAKI!)",
+		"titleJa": "凸凹Quartet",
+		"artistJa": "いきづらい部! (CHAKI!)"
+	},
+	{
+		"url": "/albumart/ikizuraibu_daitan-party-time.jpg",
+		"startOnDay": 1243,
+		"weight": 1000,
+		"titleEn": "Daitan Party Time",
+		"artistEn": "Ikizurai-Bu! (Plumina)",
+		"titleJa": "Daitan Party Time",
+		"artistJa": "いきづらい部! (Plumina)"
+	},
+	{
+		"url": "/albumart/ikizuraibu_symmetry.jpg",
+		"startOnDay": 1243,
+		"weight": 1000,
+		"titleEn": "Symmetry",
+		"artistEn": "Ikizurai-Bu! (Mi×Nori=Tea)",
+		"titleJa": "シンメトリー",
+		"artistJa": "いきづらい部! (Mi×Nori=Tea)"
+	},
+	{
+		"url": "/albumart/ikizuraibu_silent-stella.jpg",
+		"startOnDay": 1243,
+		"weight": 1000,
+		"titleEn": "Silent Stella",
+		"artistEn": "Ikizurai-Bu! (SH1ON)",
+		"titleJa": "Silent Stella",
+		"artistJa": "いきづらい部! (SH1ON)"
 	}
 ]
