@@ -1,18 +1,17 @@
 /** @type {import("../gameHandler").Game} */
 
 import type { AlbumInfo } from "$data/albumpool";
+import { loadAssetImage } from "$modules/canvasUtil.js";
 import type { Canvas, Image } from "canvas";
 import { createCanvas } from "canvas";
 import type { GameInstance } from "../gameHandler";
 import { CANVAS_SIZE } from "../gameHandler";
-import { loadAssetImage } from "$modules/canvasUtil.js";
 
 export const stacked = false;
 export const hasAltFinished = true;
 export const forceAltFinished = true;
 
 const SIZES = [750, 730, 700, 650, 550, 450];
-const BIRB_SIZE = 700; // size in pixels of kotobomb.png
 
 export async function getGameInstance(
 	_day: number,
@@ -20,7 +19,7 @@ export async function getGameInstance(
 	_image: Image,
 	scaledImage: Canvas
 ): Promise<GameInstance> {
-	const birbImage = await loadAssetImage("/assets/kotobomb.png");
+	const birbImage = await loadAssetImage("/assets/special/kotobomb.png");
 	const getCanvasForGuess = (failed: number): Canvas => {
 		const canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
 		const ctx = canvas.getContext("2d");
@@ -28,7 +27,17 @@ export async function getGameInstance(
 
 		ctx.imageSmoothingEnabled = true;
 		ctx.drawImage(scaledImage, 0, 0, CANVAS_SIZE, CANVAS_SIZE, 0, 0, CANVAS_SIZE, CANVAS_SIZE);
-		ctx.drawImage(birbImage, 0, 0, BIRB_SIZE, BIRB_SIZE, 0, CANVAS_SIZE - targetSize, targetSize, targetSize);
+		ctx.drawImage(
+			birbImage,
+			0,
+			0,
+			birbImage.height,
+			birbImage.height,
+			0,
+			CANVAS_SIZE - targetSize,
+			targetSize,
+			targetSize
+		);
 
 		return canvas;
 	};
@@ -48,8 +57,8 @@ export async function getGameInstance(
 			birbImage,
 			0,
 			0,
-			BIRB_SIZE,
-			BIRB_SIZE,
+			birbImage.height,
+			birbImage.height,
 			0,
 			CANVAS_SIZE - FINISH_BIRB_SIZE,
 			FINISH_BIRB_SIZE,
@@ -57,7 +66,17 @@ export async function getGameInstance(
 		);
 		ctx.save();
 		ctx.scale(1, -1);
-		ctx.drawImage(birbImage, 0, 0, BIRB_SIZE, BIRB_SIZE, 0, -FINISH_BIRB_SIZE, FINISH_BIRB_SIZE, FINISH_BIRB_SIZE);
+		ctx.drawImage(
+			birbImage,
+			0,
+			0,
+			birbImage.height,
+			birbImage.height,
+			0,
+			-FINISH_BIRB_SIZE,
+			FINISH_BIRB_SIZE,
+			FINISH_BIRB_SIZE
+		);
 		ctx.restore();
 		ctx.save();
 		ctx.scale(-1, 1);
@@ -65,8 +84,8 @@ export async function getGameInstance(
 			birbImage,
 			0,
 			0,
-			BIRB_SIZE,
-			BIRB_SIZE,
+			birbImage.height,
+			birbImage.height,
 			-CANVAS_SIZE,
 			CANVAS_SIZE - FINISH_BIRB_SIZE,
 			FINISH_BIRB_SIZE,
@@ -78,8 +97,8 @@ export async function getGameInstance(
 			birbImage,
 			0,
 			0,
-			BIRB_SIZE,
-			BIRB_SIZE,
+			birbImage.height,
+			birbImage.height,
 			-CANVAS_SIZE,
 			-FINISH_BIRB_SIZE,
 			FINISH_BIRB_SIZE,

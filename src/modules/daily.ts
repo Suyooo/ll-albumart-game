@@ -233,6 +233,7 @@ const FORCED_DAYS: { [day: number]: { rolledAlbumId: number; rolledGameId: numbe
 	1149: { rolledAlbumId: 345, rolledGameId: 11 },
 	1150: { rolledAlbumId: 43, rolledGameId: 2 },
 	1154: { rolledAlbumId: 226, rolledGameId: 8 }, // New Year 2026: Special Fireworks Mode
+	1244: { rolledAlbumId: 40, rolledGameId: 13 }, // April Fools 2026: Special Long Mode
 };
 
 export function getIdsForDay(day: number, ignoreDev: boolean = false): { rolledAlbumId: number; rolledGameId: number } {
@@ -260,6 +261,7 @@ export function getIdsForDay(day: number, ignoreDev: boolean = false): { rolledA
 	if (import.meta.env.DEV && import.meta.env.VITE_LOCK_DAY === undefined && !ignoreDev) {
 		rng = seededRNG(Math.floor(Math.random() * 100000000));
 		day = 999998;
+		// return { rolledAlbumId: Math.floor(Math.random() * ALBUM_POOL.length), rolledGameId: 13 };
 	} else {
 		rng = seededRNG(day);
 		// Reroll mechanics were changed on day 223 (other part below)
