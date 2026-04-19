@@ -1,4 +1,14 @@
 {
+	"plugins": ["prettier-plugin-svelte", "prettier-plugin-tailwindcss"],
+	"tailwindConfig": "./tailwind.config.js",
+	"overrides": [
+		{
+			"files": "*.svelte",
+			"options": {
+				"parser": "svelte"
+			}
+		}
+	],
 	"tabWidth": 4,
 	"useTabs": true,
 	"printWidth": 120,

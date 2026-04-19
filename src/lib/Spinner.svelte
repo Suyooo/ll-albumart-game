@@ -1,17 +1,17 @@
 <div>&nbsp;</div>
 
 <style lang="postcss">
-    @keyframes spin {
-        0% {
-            @apply rotate-0;
-        }
-        100% {
-            @apply rotate-[360deg];
-        }
-    }
+	@keyframes spin {
+		0% {
+			@apply rotate-0;
+		}
+		100% {
+			@apply rotate-[360deg];
+		}
+	}
 
-    div {
-        @apply w-16 h-16 border-accent border-[6px] border-b-0 border-l-0 rounded-full box-border origin-center;
-        animation: spin 0.5s infinite linear;
-    }
+	div {
+		@apply box-border h-16 w-16 origin-center rounded-full border-[6px] border-b-0 border-l-0 border-accent;
+		animation: spin 0.5s infinite linear;
+	}
 </style>

@@ -10,7 +10,9 @@
 		"check": "svelte-check",
 		"test": "vitest",
 		"make-share": "vite-node src/scripts/makeShare.ts",
-		"set-reroll": "vite-node src/scripts/setReroll.ts"
+		"set-reroll": "vite-node src/scripts/setReroll.ts",
+		"lint": "prettier --check .",
+		"format": "prettier --write ."
 	},
 	"devDependencies": {
 		"@sveltejs/vite-plugin-svelte": "^2.4.1",
@@ -24,6 +26,9 @@
 		"matter-js": "^0.19.0",
 		"postcss": "^8.4.18",
 		"postcss-load-config": "^4.0.1",
+		"prettier": "^3.8.1",
+		"prettier-plugin-svelte": "^3.5.1",
+		"prettier-plugin-tailwindcss": "^0.7.2",
 		"stackblur-canvas": "^2.6.0",
 		"svelte": "^4.0.0",
 		"svelte-check": "^3.4.3",

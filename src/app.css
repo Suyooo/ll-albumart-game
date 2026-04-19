@@ -6,10 +6,10 @@
 	html,
 	body,
 	body > div {
-		@apply w-full h-full text-text bg-background;
+		@apply h-full w-full bg-background text-text;
 	}
 	a {
-		@apply underline text-link;
+		@apply text-link underline;
 	}
 
 	a:hover {
@@ -25,7 +25,7 @@
 	}
 
 	.vhd {
-		@apply absolute top-0 left-[-1000vw];
+		@apply absolute left-[-1000vw] top-0;
 	}
 
 	@keyframes ping {
