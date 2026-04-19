@@ -19,12 +19,8 @@ const MANUAL_CHUNKS = new Map([
 	["src/data/rerolls.ts", "daily"],
 	// modmode: chunk for mod mode, so it's only loaded if mod mode is enabled
 	["src/lib/ModMode.svelte", "modmode"],
-	// Exceptions to avoid bundling these modules in special chunks defined above
+	// Exceptions to avoid bundling these modules in special chunks defined above, so they are cleanly split off
 	["src/stores/statistics.ts", "site"],
-	["src/icon/Up.svelte", "site"],
-	["src/icon/Down.svelte", "site"],
-	["src/icon/Left.svelte", "site"],
-	["src/icon/Right.svelte", "site"],
 ]);
 
 export default defineConfig(() => ({
@@ -60,7 +56,7 @@ export default defineConfig(() => ({
 					}
 
 					// All code but App.svelte (and entry points) goes into a separate chunk called site
-					if (id.indexOf("/src/lib") !== -1) {
+					if (id.indexOf("/src/lib") !== -1 || id.indexOf("/src/icon") !== -1) {
 						return "site";
 					}
 					return; // default vite chunking
