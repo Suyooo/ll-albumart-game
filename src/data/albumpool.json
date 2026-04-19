@@ -3630,5 +3630,50 @@
 		"artistEn": "Ikizurai-Bu! (SH1ON)",
 		"titleJa": "Silent Stella",
 		"artistJa": "いきづらい部! (SH1ON)"
+	},
+	{
+		"url": "/albumart/cerise-bouquet_fushigi-to-kimi-to-library.jpg",
+		"startOnDay": 1264,
+		"weight": 1000,
+		"titleEn": "Fushigi to Kimi to Library",
+		"artistEn": "Cerise Bouquet",
+		"titleJa": "不思議と君とライブラリー",
+		"artistJa": "スリーズブーケ"
+	},
+	{
+		"url": "/albumart/dollchestra_icy.jpg",
+		"startOnDay": 1264,
+		"weight": 1000,
+		"titleEn": "Icy",
+		"artistEn": "DOLLCHESTRA",
+		"titleJa": "アイシイ",
+		"artistJa": "DOLLCHESTRA"
+	},
+	{
+		"url": "/albumart/miracra-park_tomodachi-ni-nareru-basho.jpg",
+		"startOnDay": 1264,
+		"weight": 1000,
+		"titleEn": "Tomodachi ni Nareru Basho",
+		"artistEn": "Mira-Cra Park!",
+		"titleJa": "トモダチになれる場所",
+		"artistJa": "みらくらぱーく！"
+	},
+	{
+		"url": "/albumart/edel-note_edelinien.jpg",
+		"startOnDay": 1264,
+		"weight": 1000,
+		"titleEn": "EdelinieN",
+		"artistEn": "Edel Note",
+		"titleJa": "EdelinieN",
+		"artistJa": "Edel Note"
+	},
+	{
+		"url": "/albumart/hasunosora_ima-kako-mirai-no-sangenshoku.jpg",
+		"startOnDay": 1271,
+		"weight": 1000,
+		"titleEn": "Ima, Kako, Mirai no Sangenshoku",
+		"artistEn": "Hasunosora Girls' High School Idol Club",
+		"titleJa": "今、過去、未来の三原色",
+		"artistJa": "蓮ノ空女学院スクールアイドルクラブ"
 	}
 ]
