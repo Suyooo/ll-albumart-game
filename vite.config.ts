@@ -17,8 +17,14 @@ const MANUAL_CHUNKS = new Map([
 	["src/modules/daily.ts", "daily"],
 	["src/stores/state.ts", "daily"],
 	["src/data/rerolls.ts", "daily"],
-	// Avoid bundling other modules in the daily chunk - keep it as small as possible
+	// modmode: chunk for mod mode, so it's only loaded if mod mode is enabled
+	["src/lib/ModMode.svelte", "modmode"],
+	// Exceptions to avoid bundling these modules in special chunks defined above
 	["src/stores/statistics.ts", "site"],
+	["src/icon/Up.svelte", "site"],
+	["src/icon/Down.svelte", "site"],
+	["src/icon/Left.svelte", "site"],
+	["src/icon/Right.svelte", "site"],
 ]);
 
 export default defineConfig(() => ({
@@ -40,6 +46,10 @@ export default defineConfig(() => ({
 				manualChunks: (id) => {
 					// Seperate chunk for node_modules
 					if (id.indexOf("node_modules") !== -1) {
+						if (id.indexOf("node_modules/matter") !== -1) {
+							// And another seperate chunk for matter.js - it's massive, only used by April Fools 2024
+							return "vendor-matter";
+						}
 						return "vendor";
 					}
 
