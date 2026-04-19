@@ -19,7 +19,7 @@
 			failCountPool = [0, 0, 0, 0, 0, 0, 0];
 			$ALL_STATES
 				.filter((s) => s.finished && filter!.indexOf(s.gameId) !== -1)
-				.forEach((s) => failCountPool[s.failed]++);
+				.forEach((s) => (s.cleared ? failCountPool[s.failed]++ : failCountPool[6]++));
 		}
 
 		max = failCountPool.reduce((max, c) => Math.max(c, max), 0);
