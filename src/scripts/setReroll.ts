@@ -24,7 +24,7 @@ const replaceLastLine = newDay === oldDay;
 
 const lines = fs.readFileSync("src/data/rerolls.ts").toString().split("\n");
 const endOfJsonLineIdx = lines.lastIndexOf("};");
-const newLine = `    ${newDay}: ${newRerolls},`;
+const newLine = `\t${newDay}: ${newRerolls},`;
 if (replaceLastLine) {
 	if (newRerolls === 0) {
 		lines.splice(endOfJsonLineIdx - 1, 1);

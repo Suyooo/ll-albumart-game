@@ -23,6 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 
-public/albumart/*.jpg
-public/albumart/*.png
+public/albumart/*
+!public/albumart/.gitkeep
 roll-history.json

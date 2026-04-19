@@ -1,18 +1,18 @@
 location /scripts {
-    return 403;
+	return 403;
 }
 
 location ~ ^/(\d+) {
-    set $shareredirect 0;
-    if ($http_user_agent ~ (Twitterbot|facebookexternalhit|Tumblr|Mastodon|Misskey|SummalyBot)) {
-        set $shareredirect "";
-    }
-    if ($http_user_agent ~ (Discordbot)) {
-        set $shareredirect "d";
-    }
+	set $shareredirect 0;
+	if ($http_user_agent ~ (Twitterbot|facebookexternalhit|Tumblr|Mastodon|Misskey|SummalyBot)) {
+		set $shareredirect "";
+	}
+	if ($http_user_agent ~ (Discordbot)) {
+		set $shareredirect "d";
+	}
 
-    if ($shareredirect = 0) {
-        return 302 /;
-    }
-    rewrite ^/(\d+) /share/$1$shareredirect.html;
+	if ($shareredirect = 0) {
+		return 302 /;
+	}
+	rewrite ^/(\d+) /share/$1$shareredirect.html;
 }

@@ -1,19 +1,19 @@
 <!--
-    @component
+	@component
 
-    Mod Mode allows you to reroll and time travel right on the site.
-    To activate it, you must set the "llalbum-modmode-webhook" key of your browser's local storage (see below).
+	Mod Mode allows you to reroll and time travel right on the site.
+	To activate it, you must set the "llalbum-modmode-webhook" key of your browser's local storage (see below).
 
-    The Day Offset and Reroll Offset rows allow you to play ahead of the actual time, so you can generate a round in
-    advance and check it - and reroll if neccessary. Note that the site will always display the latest round in the
-    save game, so if traveling backwards in time, you must use the Reset Day button to remove all of the saves of the
-    days after it.
+	The Day Offset and Reroll Offset rows allow you to play ahead of the actual time, so you can generate a round in
+	advance and check it - and reroll if neccessary. Note that the site will always display the latest round in the
+	save game, so if traveling backwards in time, you must use the Reset Day button to remove all of the saves of the
+	days after it.
 
-    After deciding on a reroll, you can use the Upload Reroll to persist it. This works by submitting a POST request
-    to the URL set as "llalbum-modmode-webhook" in local storage. The body is a stringified JSON object containing the
-    keys "day" and "rerolls".
-    The URL should point to a CI/CD platform that can receive the webhook, which can be set up to use the set-reroll npm
-    script to edit the rerolls.ts file and then build the new version of the site.
+	After deciding on a reroll, you can use the Upload Reroll to persist it. This works by submitting a POST request
+	to the URL set as "llalbum-modmode-webhook" in local storage. The body is a stringified JSON object containing the
+	keys "day" and "rerolls".
+	The URL should point to a CI/CD platform that can receive the webhook, which can be set up to use the set-reroll npm
+	script to edit the rerolls.ts file and then build the new version of the site.
 -->
 <script lang="ts">
 	import type { AlbumInfo } from "$data/albumpool.js";

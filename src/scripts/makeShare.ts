@@ -1,9 +1,9 @@
-import { Canvas, createCanvas, loadImage } from "canvas";
-import fs from "fs";
-import { DAY_TO_PLAY, getIdsForDay } from "$modules/daily";
-import { getGameInstance } from "$modules/gameHandler";
 import { ALBUM_POOL } from "$data/albumpool";
 import { GAME_POOL } from "$data/gamepool";
+import { DAY_TO_PLAY, getIdsForDay } from "$modules/daily";
+import { getGameInstance } from "$modules/gameHandler";
+import { Canvas, createCanvas, loadImage } from "canvas";
+import fs from "fs";
 
 const jpegConfig = {
 	quality: 1,
@@ -12,7 +12,7 @@ const jpegConfig = {
 };
 
 /*
-    npm run make-share [-- <day>]
+	npm run make-share [-- <day>]
 */
 
 const shareDay = process.argv.length > 2 ? parseInt(process.argv[2]) : DAY_TO_PLAY;

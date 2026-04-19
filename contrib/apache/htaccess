@@ -1,16 +1,16 @@
 # Don't forget to deny access to scripts
 <IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteRule [^0-9] - [L]
-    RewriteCond %{HTTP_USER_AGENT} Twitterbot [OR]
-    RewriteCond %{HTTP_USER_AGENT} facebookexternalhit [OR]
-    RewriteCond %{HTTP_USER_AGENT} Tumblr [OR]
-    RewriteCond %{HTTP_USER_AGENT} Mastodon [OR]
-    RewriteCond %{HTTP_USER_AGENT} Misskey [OR]
-    RewriteCond %{HTTP_USER_AGENT} SummalyBot
-    RewriteRule ^(.+)$ /share/$1.html [L]
-    RewriteCond %{HTTP_USER_AGENT} Discordbot
-    RewriteRule ^(.+)$ /share/$1d.html [L]
-    RewriteCond %{REQUEST_URI} ^/[0-9]+$
-    RewriteRule . / [L,R=301]
+	RewriteEngine On
+	RewriteRule [^0-9] - [L]
+	RewriteCond %{HTTP_USER_AGENT} Twitterbot [OR]
+	RewriteCond %{HTTP_USER_AGENT} facebookexternalhit [OR]
+	RewriteCond %{HTTP_USER_AGENT} Tumblr [OR]
+	RewriteCond %{HTTP_USER_AGENT} Mastodon [OR]
+	RewriteCond %{HTTP_USER_AGENT} Misskey [OR]
+	RewriteCond %{HTTP_USER_AGENT} SummalyBot
+	RewriteRule ^(.+)$ /share/$1.html [L]
+	RewriteCond %{HTTP_USER_AGENT} Discordbot
+	RewriteRule ^(.+)$ /share/$1d.html [L]
+	RewriteCond %{REQUEST_URI} ^/[0-9]+$
+	RewriteRule . / [L,R=301]
 </IfMod#ule>
