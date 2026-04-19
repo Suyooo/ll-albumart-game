@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { ALBUM_POOL } from "$data/albumpool.js";
 	import { GAME_POOL } from "$data/gamepool.js";
-	import ModMode from "$lib/ModMode.svelte";
 	import GameDisplayContainer from "$lib/GameDisplayContainer.svelte";
 	import Guess from "$lib/Guess.svelte";
 	import Header from "$lib/Header.svelte";
@@ -11,7 +10,6 @@
 	import Result from "$lib/Result.svelte";
 	import { getIdsForDay } from "$modules/daily.js";
 	import { initPlayState } from "$stores/state.js";
-	("$stores/state.js");
 	import { type ComponentType, onMount, setContext } from "svelte";
 	import { rerollDays } from "$data/rerolls.js";
 
@@ -98,7 +96,9 @@
 	</div>
 </div>
 {#if modModeActive}
-	<ModMode />
+	{#await import("$lib/ModMode.svelte") then ModMode}
+		<svelte:component this={ModMode.default} />
+	{/await}
 {/if}
 {#if modalComponent != null}
 	<Modal title={modalTitle} inner={modalComponent} on:closemodal={closeModal} />
