@@ -102,7 +102,7 @@
 		);
 		const newStatistics = JSON.parse(JSON.stringify($STATISTICS));
 
-		const resetToIdx = $ALL_STATES.findLastIndex((s) => s.day === DAY_TO_PLAY);
+		const resetToIdx = [...$ALL_STATES].reverse().findIndex((s) => s.day === DAY_TO_PLAY);
 		if (
 			resetToIdx < $ALL_STATES.length - 1 &&
 			!confirm(`This will delete saves for ${$ALL_STATES.length - resetToIdx} days. Continue?`)
