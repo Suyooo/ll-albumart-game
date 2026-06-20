@@ -3675,5 +3675,32 @@
 		"artistEn": "Hasunosora Girls' High School Idol Club",
 		"titleJa": "今、過去、未来の三原色",
 		"artistJa": "蓮ノ空女学院スクールアイドルクラブ"
+	},
+	{
+		"url": "/albumart/hasunosora_hana-sakeba-yume-kakeru.jpg",
+		"startOnDay": 1327,
+		"weight": 1000,
+		"titleEn": "Hana Sakeba Yume Kakeru",
+		"artistEn": "Hasunosora Girls' High School Idol Club",
+		"titleJa": "ハナ咲けばユメ駆ける",
+		"artistJa": "蓮ノ空女学院スクールアイドルクラブ"
+	},
+	{
+		"url": "/albumart/ikizuraibu_dou-da-doing.jpg",
+		"startOnDay": 1327,
+		"weight": 1000,
+		"titleEn": "Dou-Da? DOING!",
+		"artistEn": "Ikizurai-Bu!",
+		"titleJa": "Dou-Da? DOING!",
+		"artistJa": "いきづらい部!"
+	},
+	{
+		"url": "/albumart/liella_koi-no-tutorial.jpg",
+		"startOnDay": 1327,
+		"weight": 1000,
+		"titleEn": "Koi no Tutorial",
+		"artistEn": "Liella!",
+		"titleJa": "恋のチュートリアル",
+		"artistJa": "Liella!"
 	}
 ]
