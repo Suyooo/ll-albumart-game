@@ -3702,5 +3702,41 @@
 		"artistEn": "Liella!",
 		"titleJa": "恋のチュートリアル",
 		"artistJa": "Liella!"
+	},
+	{
+		"url": "/albumart/hasunosora_graduation-103-kaho.jpg",
+		"startOnDay": 1384,
+		"weight": 333,
+		"titleEn": "103rd Graduation Album ~ Full Bloom Memories ~ Kaho Hinoshita",
+		"artistEn": "Kaho Hinoshita (CV: Nozomi Nirei)",
+		"titleJa": "103rd Graduation Album ~ Full Bloom Memories ~ Kaho Hinoshita",
+		"artistJa": "日野下花帆 (CV.楡井希実)"
+	},
+	{
+		"url": "/albumart/hasunosora_graduation-103-sayaka.jpg",
+		"startOnDay": 1384,
+		"weight": 333,
+		"titleEn": "103rd Graduation Album ~ Full Bloom Memories ~ Sayaka Murano",
+		"artistEn": "Sayaka Murano (CV: Kokona Nonaka)",
+		"titleJa": "103rd Graduation Album ~ Full Bloom Memories ~ Sayaka Murano",
+		"artistJa": "村野さやか (CV.野中ここな)"
+	},
+	{
+		"url": "/albumart/hasunosora_graduation-103-rurino.jpg",
+		"startOnDay": 1384,
+		"weight": 333,
+		"titleEn": "103rd Graduation Album ~ Full Bloom Memories ~ Rurino Osawa",
+		"artistEn": "Rurino Osawa (CV: Kanna Kan)",
+		"titleJa": "103rd Graduation Album ~ Full Bloom Memories ~ Rurino Osawa",
+		"artistJa": "大沢 瑠璃乃 (CV.菅 叶和)"
+	},
+	{
+		"url": "/albumart/liella_hyper-glowing-photo-type.jpg",
+		"startOnDay": 1384,
+		"weight": 1000,
+		"titleEn": "Hyper Glowing!",
+		"artistEn": "Liella!",
+		"titleJa": "Hyper Glowing!",
+		"artistJa": "Liella!"
 	}
 ]
