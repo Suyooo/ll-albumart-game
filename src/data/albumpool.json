@@ -3598,7 +3598,10 @@
 	{
 		"url": "/albumart/ikizuraibu_dekoboko-quartet.jpg",
 		"startOnDay": 1243,
-		"weight": 1000,
+		"weight": {
+			"0": 1000,
+			"1412": 0
+		},
 		"titleEn": "Dekoboko Quartet",
 		"artistEn": "Ikizurai-Bu! (CHAKI!)",
 		"titleJa": "凸凹Quartet",
@@ -3607,7 +3610,10 @@
 	{
 		"url": "/albumart/ikizuraibu_daitan-party-time.jpg",
 		"startOnDay": 1243,
-		"weight": 1000,
+		"weight": {
+			"0": 1000,
+			"1412": 0
+		},
 		"titleEn": "Daitan Party Time",
 		"artistEn": "Ikizurai-Bu! (Plumina)",
 		"titleJa": "Daitan Party Time",
@@ -3616,7 +3622,10 @@
 	{
 		"url": "/albumart/ikizuraibu_symmetry.jpg",
 		"startOnDay": 1243,
-		"weight": 1000,
+		"weight": {
+			"0": 1000,
+			"1412": 0
+		},
 		"titleEn": "Symmetry",
 		"artistEn": "Ikizurai-Bu! (Mi×Nori=Tea)",
 		"titleJa": "シンメトリー",
@@ -3625,7 +3634,10 @@
 	{
 		"url": "/albumart/ikizuraibu_silent-stella.jpg",
 		"startOnDay": 1243,
-		"weight": 1000,
+		"weight": {
+			"0": 1000,
+			"1412": 0
+		},
 		"titleEn": "Silent Stella",
 		"artistEn": "Ikizurai-Bu! (SH1ON)",
 		"titleJa": "Silent Stella",
