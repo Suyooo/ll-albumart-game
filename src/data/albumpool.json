@@ -3750,5 +3750,23 @@
 		"artistEn": "Liella!",
 		"titleJa": "Hyper Glowing!",
 		"artistJa": "Liella!"
+	},
+	{
+		"url": "/albumart/diverdiva_crowned-soul.jpg",
+		"startOnDay": 1412,
+		"weight": 1000,
+		"titleEn": "CROWNed SOUL",
+		"artistEn": "DiverDiva",
+		"titleJa": "CROWNed SOUL",
+		"artistJa": "DiverDiva"
+	},
+	{
+		"url": "/albumart/a-zu-na_monochrome-labyrinth.jpg",
+		"startOnDay": 1422,
+		"weight": 1000,
+		"titleEn": "Monochrome Labyrinth",
+		"artistEn": "A・ZU・NA",
+		"titleJa": "モノクロラビリンス",
+		"artistJa": "A・ZU・NA"
 	}
 ]
