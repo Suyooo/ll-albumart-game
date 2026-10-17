@@ -3768,5 +3768,50 @@
 		"artistEn": "A・ZU・NA",
 		"titleJa": "モノクロラビリンス",
 		"artistJa": "A・ZU・NA"
+	},
+	{
+		"url": "/albumart/ll-hasunosora-original-soundtrack_petals-of-history.jpg",
+		"startOnDay": 1446,
+		"weight": 1000,
+		"titleEn": "Petals of History",
+		"artistEn": "LL! Hasunosora Original Soundtrack",
+		"titleJa": "Petals of History",
+		"artistJa": "『ラブライブ！蓮ノ空』 オリジナルサウンドトラック"
+	},
+	{
+		"url": "/albumart/hasunosora_oide-yo-ishikawa-daikankou-ii.jpg",
+		"startOnDay": 1446,
+		"weight": 1000,
+		"titleEn": "Oide yo! Ishikawa Daikankou II",
+		"artistEn": "Hasunosora Girls' High School Idol Club",
+		"titleJa": "おいでよ！石川大観光Ⅱ",
+		"artistJa": "蓮ノ空女学院スクールアイドルクラブ"
+	},
+	{
+		"url": "/albumart/qu4rtz_shiokaze-cycling.jpg",
+		"startOnDay": 1446,
+		"weight": 1000,
+		"titleEn": "Shiokaze Cycling",
+		"artistEn": "QU4RTZ",
+		"titleJa": "潮風サイクリング",
+		"artistJa": "QU4RTZ"
+	},
+	{
+		"url": "/albumart/r3birth_bones-bones-bones.jpg",
+		"startOnDay": 1450,
+		"weight": 1000,
+		"titleEn": "BONES BONES BONES",
+		"artistEn": "R3BIRTH",
+		"titleJa": "BONES BONES BONES",
+		"artistJa": "R3BIRTH"
+	},
+	{
+		"url": "/albumart/hasunosora_soleil-smile.jpg",
+		"startOnDay": 1457,
+		"weight": 1000,
+		"titleEn": "Soleil Smile",
+		"artistEn": "Hasunosora Girls' High School Idol Club",
+		"titleJa": "ソレイユスマイル",
+		"artistJa": "蓮ノ空女学院スクールアイドルクラブ"
 	}
 ]
